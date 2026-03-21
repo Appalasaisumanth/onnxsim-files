@@ -1,0 +1,602 @@
+[2026-03-13 21:38:10.494] [info] CPU 0: Partition 0
+[2026-03-13 21:38:10.494] [info] CPU 1: Partition 0
+[2026-03-13 21:38:10.494] [info] CPU 2: Partition 0
+[2026-03-13 21:38:10.494] [info] CPU 3: Partition 0
+[2026-03-13 21:38:10.494] [info] Running in default mode
+[2026-03-13 21:38:10.494] [info] Simulator Configuration:
+[2026-03-13 21:38:10.494] [info] [Core 0] Systolic Array Throughput: 131072 GFLOPS, Spad size: 32768 KB, Accumulator size: 4096 KB
+[2026-03-13 21:38:10.494] [info] [Core 1] Systolic Array Throughput: 131072 GFLOPS, Spad size: 32768 KB, Accumulator size: 4096 KB
+[2026-03-13 21:38:10.494] [info] [Core 2] Systolic Array Throughput: 131072 GFLOPS, Spad size: 32768 KB, Accumulator size: 4096 KB
+[2026-03-13 21:38:10.494] [info] [Core 3] Systolic Array Throughput: 131072 GFLOPS, Spad size: 32768 KB, Accumulator size: 4096 KB
+[2026-03-13 21:38:10.494] [info] DRAM Bandwidth 614 GB/s
+[2026-03-13 21:38:10.494] [info] Ramulator2 config: ./configs/../configs/ramulator2_configs/HBM2.yaml
+[2026-03-13 21:38:10.502] [info] Initialize SimpleInterconnect
+[2026-03-13 21:38:10.504] [info] ICNT print interval: 8000 cycles
+[2026-03-13 21:38:10.504] [info] num cores : [4]
+[2026-03-13 21:38:10.504] [info] No mapping file path : ./models/resnet18/resnet18.mapping
+[2026-03-13 21:38:10.504] [info] Register model: resnet18
+[2026-03-13 21:38:10.504] [info] Model Name
+[2026-03-13 21:38:10.527] [info] has_l2,[false]
+[2026-03-13 21:38:10.527] [info] ======Start Simulation=====
+[2026-03-13 21:38:10.546] [info] [Conv] Used gemmini convolution mapping: [T] N1 C3 M64 P112 Q112 S7 R7 - [O] N1 C1 M1 P4 Q1 S1 R1 - [I] N1 C3 M64 P36 Q112 S7 R7
+[2026-03-13 21:38:10.585] [info] [Conv] Used gemmini convolution mapping: [T] N1 C64 M64 P56 Q56 S3 R3 - [O] N1 C1 M1 P1 Q1 S1 R1 - [I] N1 C64 M64 P56 Q56 S3 R3
+[2026-03-13 21:38:10.656] [info] [Conv] Used gemmini convolution mapping: [T] N1 C64 M128 P28 Q28 S3 R3 - [O] N1 C1 M1 P1 Q1 S1 R1 - [I] N1 C64 M128 P28 Q28 S3 R3
+[2026-03-13 21:38:10.663] [info] [Conv] Used gemmini convolution mapping: [T] N1 C64 M128 P28 Q28 S1 R1 - [O] N1 C1 M1 P1 Q1 S1 R1 - [I] N1 C64 M128 P28 Q28 S1 R1
+[2026-03-13 21:38:10.669] [info] [Conv] Used gemmini convolution mapping: [T] N1 C128 M128 P28 Q28 S3 R3 - [O] N1 C1 M1 P1 Q1 S1 R1 - [I] N1 C128 M128 P28 Q28 S3 R3
+[2026-03-13 21:38:10.703] [info] [Conv] Used gemmini convolution mapping: [T] N1 C128 M256 P14 Q14 S3 R3 - [O] N1 C1 M1 P1 Q1 S1 R1 - [I] N1 C128 M256 P14 Q14 S3 R3
+[2026-03-13 21:38:10.712] [info] [Conv] Used gemmini convolution mapping: [T] N1 C128 M256 P14 Q14 S1 R1 - [O] N1 C1 M1 P1 Q1 S1 R1 - [I] N1 C128 M256 P14 Q14 S1 R1
+[2026-03-13 21:38:10.716] [info] [Conv] Used gemmini convolution mapping: [T] N1 C256 M256 P14 Q14 S3 R3 - [O] N1 C1 M1 P1 Q1 S1 R1 - [I] N1 C256 M256 P14 Q14 S3 R3
+[2026-03-13 21:38:10.766] [info] [Conv] Used gemmini convolution mapping: [T] N1 C256 M512 P7 Q7 S3 R3 - [O] N1 C1 M1 P1 Q1 S1 R1 - [I] N1 C256 M512 P7 Q7 S3 R3
+[2026-03-13 21:38:10.794] [info] [Conv] Used gemmini convolution mapping: [T] N1 C256 M512 P7 Q7 S1 R1 - [O] N1 C1 M1 P1 Q1 S1 R1 - [I] N1 C256 M512 P7 Q7 S1 R1
+[2026-03-13 21:38:10.798] [info] [Conv] Used gemmini convolution mapping: [T] N1 C512 M512 P7 Q7 S3 R3 - [O] N1 C1 M1 P1 Q1 S1 R1 - [I] N1 C512 M512 P7 Q7 S3 R3
+[2026-03-13 21:38:10.964] [info] [GEMM] spad_size: 33554432 accum_size: 4194304
+[2026-03-13 21:38:10.964] [info] [GEMM] required_sram_size: 393216 required_accum_size: 65536
+[2026-03-13 21:38:10.964] [info] [GEMM] Used gemmini gemm mapping: Total N:1 C:512 M:1000, Outer N:1 C:1 M:4, Inner N:128 C:512 M:256
+[2026-03-13 21:38:10.967] [info] [GemmWs] Keys K = 512, N = 1, M = 1000
+[2026-03-13 21:38:10.967] [info] [GemmWS]: total 0.001025 GFLOPs, 0.001029024 GB
+[2026-03-13 21:38:10.967] [info] [GemmWS]: Theoretical time(ms): 0.0016759348682171549 Compute time: 7.820129432900558e-06 Memory time: 0.0016759348682171549
+[2026-03-13 21:38:10.967] [info] ./models/resnet18/resnet18.onnx Model initialization time: 0.440066 seconds
+[2026-03-13 21:38:10.967] [info] Schedule model: resnet18 at 1000 us
+[2026-03-13 21:38:10.967] [info] MODEL resnet18 Scheduled, Total Request: 1
+[2026-03-13 21:38:10.967] [info] executable layer count 1
+[2026-03-13 21:38:10.967] [info] Start layer Conv_0
+[2026-03-13 21:38:10.967] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-13 21:38:11.072] [info] HBM2-CH_0: BW utilization 4% (435 reads, 0 writes)
+[2026-03-13 21:38:11.167] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-13 21:38:11.271] [info] HBM2-CH_0: BW utilization 1% (0 reads, 112 writes)
+[2026-03-13 21:38:11.363] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-13 21:38:11.457] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-13 21:38:11.552] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-13 21:38:11.650] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-13 21:38:11.752] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-13 21:38:11.852] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-13 21:38:11.967] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-13 21:38:12.068] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-13 21:38:12.165] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-13 21:38:12.262] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-13 21:38:12.363] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-13 21:38:12.474] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-13 21:38:12.578] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-13 21:38:12.681] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-13 21:38:12.781] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-13 21:38:12.877] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-13 21:38:12.973] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-13 21:38:13.069] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-13 21:38:13.165] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-13 21:38:13.262] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-13 21:38:13.356] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-13 21:38:13.438] [info] Layer Conv_0 finish at 198558
+[2026-03-13 21:38:13.438] [info] Total compute time 198558
+[2026-03-13 21:38:13.438] [info] executable layer count 1
+[2026-03-13 21:38:13.438] [info] Start layer MaxPool_2
+[2026-03-13 21:38:13.438] [info] Layer MaxPool_2 finish at 198561
+[2026-03-13 21:38:13.438] [info] Total compute time 3
+[2026-03-13 21:38:13.438] [info] executable layer count 1
+[2026-03-13 21:38:13.438] [info] Start layer Conv_3
+[2026-03-13 21:38:13.484] [info] HBM2-CH_0: BW utilization 14% (0 reads, 1366 writes)
+[2026-03-13 21:38:13.634] [info] HBM2-CH_0: BW utilization 25% (784 reads, 1658 writes)
+[2026-03-13 21:38:13.731] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-13 21:38:13.827] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-13 21:38:13.912] [info] Layer Conv_3 finish at 231148
+[2026-03-13 21:38:13.912] [info] Total compute time 32587
+[2026-03-13 21:38:13.912] [info] executable layer count 1
+[2026-03-13 21:38:13.912] [info] Start layer Conv_5
+[2026-03-13 21:38:13.936] [info] HBM2-CH_0: BW utilization 7% (369 reads, 356 writes)
+[2026-03-13 21:38:14.045] [info] HBM2-CH_0: BW utilization 8% (418 reads, 428 writes)
+[2026-03-13 21:38:14.142] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-13 21:38:14.243] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-13 21:38:14.313] [info] Layer Conv_5 finish at 261499
+[2026-03-13 21:38:14.313] [info] Total compute time 30351
+[2026-03-13 21:38:14.313] [info] executable layer count 1
+[2026-03-13 21:38:14.313] [info] Start layer Conv_8
+[2026-03-13 21:38:14.382] [info] HBM2-CH_0: BW utilization 16% (785 reads, 783 writes)
+[2026-03-13 21:38:14.488] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-13 21:38:14.593] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-13 21:38:14.706] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-13 21:38:14.757] [info] Layer Conv_8 finish at 291852
+[2026-03-13 21:38:14.757] [info] Total compute time 30353
+[2026-03-13 21:38:14.757] [info] executable layer count 1
+[2026-03-13 21:38:14.757] [info] Start layer Conv_10
+[2026-03-13 21:38:14.840] [info] HBM2-CH_0: BW utilization 16% (786 reads, 784 writes)
+[2026-03-13 21:38:14.942] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-13 21:38:15.046] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-13 21:38:15.149] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-13 21:38:15.181] [info] Layer Conv_10 finish at 322234
+[2026-03-13 21:38:15.181] [info] Total compute time 30382
+[2026-03-13 21:38:15.181] [info] executable layer count 2
+[2026-03-13 21:38:15.181] [info] Start layer Conv_13
+[2026-03-13 21:38:15.291] [info] HBM2-CH_0: BW utilization 10% (195 reads, 785 writes)
+[2026-03-13 21:38:15.330] [info] Layer Conv_13 finish at 330853
+[2026-03-13 21:38:15.330] [info] Total compute time 8619
+[2026-03-13 21:38:15.330] [info] executable layer count 1
+[2026-03-13 21:38:15.330] [info] Start layer Conv_16
+[2026-03-13 21:38:15.400] [info] Layer Conv_16 finish at 332880
+[2026-03-13 21:38:15.400] [info] Total compute time 2027
+[2026-03-13 21:38:15.400] [info] executable layer count 1
+[2026-03-13 21:38:15.400] [info] Start layer Conv_15
+[2026-03-13 21:38:15.472] [info] HBM2-CH_0: BW utilization 14% (593 reads, 784 writes)
+[2026-03-13 21:38:15.543] [info] Layer Conv_15 finish at 341361
+[2026-03-13 21:38:15.543] [info] Total compute time 8481
+[2026-03-13 21:38:15.543] [info] executable layer count 1
+[2026-03-13 21:38:15.543] [info] Start layer Conv_19
+[2026-03-13 21:38:15.592] [info] HBM2-CH_0: BW utilization 8% (396 reads, 392 writes)
+[2026-03-13 21:38:15.664] [info] Layer Conv_19 finish at 349771
+[2026-03-13 21:38:15.664] [info] Total compute time 8410
+[2026-03-13 21:38:15.664] [info] executable layer count 1
+[2026-03-13 21:38:15.664] [info] Start layer Conv_21
+[2026-03-13 21:38:15.708] [info] HBM2-CH_0: BW utilization 8% (395 reads, 391 writes)
+[2026-03-13 21:38:15.782] [info] Layer Conv_21 finish at 358167
+[2026-03-13 21:38:15.782] [info] Total compute time 8396
+[2026-03-13 21:38:15.782] [info] executable layer count 2
+[2026-03-13 21:38:15.782] [info] Start layer Conv_24
+[2026-03-13 21:38:15.818] [info] HBM2-CH_0: BW utilization 5% (112 reads, 392 writes)
+[2026-03-13 21:38:15.856] [info] Layer Conv_24 finish at 362777
+[2026-03-13 21:38:15.856] [info] Total compute time 4610
+[2026-03-13 21:38:15.856] [info] executable layer count 1
+[2026-03-13 21:38:15.856] [info] Start layer Conv_27
+[2026-03-13 21:38:15.878] [info] Layer Conv_27 finish at 363949
+[2026-03-13 21:38:15.878] [info] Total compute time 1172
+[2026-03-13 21:38:15.878] [info] executable layer count 1
+[2026-03-13 21:38:15.878] [info] Start layer Conv_26
+[2026-03-13 21:38:15.930] [info] HBM2-CH_0: BW utilization 7% (317 reads, 392 writes)
+[2026-03-13 21:38:15.980] [info] Layer Conv_26 finish at 371855
+[2026-03-13 21:38:15.980] [info] Total compute time 7906
+[2026-03-13 21:38:15.980] [info] executable layer count 1
+[2026-03-13 21:38:15.980] [info] Start layer Conv_30
+[2026-03-13 21:38:16.034] [info] HBM2-CH_0: BW utilization 4% (214 reads, 195 writes)
+[2026-03-13 21:38:16.085] [info] Layer Conv_30 finish at 379772
+[2026-03-13 21:38:16.085] [info] Total compute time 7917
+[2026-03-13 21:38:16.085] [info] executable layer count 1
+[2026-03-13 21:38:16.085] [info] Start layer Conv_32
+[2026-03-13 21:38:16.143] [info] HBM2-CH_0: BW utilization 4% (214 reads, 196 writes)
+[2026-03-13 21:38:16.192] [info] Layer Conv_32 finish at 387683
+[2026-03-13 21:38:16.192] [info] Total compute time 7911
+[2026-03-13 21:38:16.192] [info] executable layer count 2
+[2026-03-13 21:38:16.192] [info] Start layer Conv_35
+[2026-03-13 21:38:16.247] [info] HBM2-CH_0: BW utilization 3% (84 reads, 219 writes)
+[2026-03-13 21:38:16.314] [info] Layer Conv_35 finish at 397563
+[2026-03-13 21:38:16.314] [info] Total compute time 9880
+[2026-03-13 21:38:16.315] [info] executable layer count 1
+[2026-03-13 21:38:16.315] [info] Start layer Conv_38
+[2026-03-13 21:38:16.337] [info] Layer Conv_38 finish at 399131
+[2026-03-13 21:38:16.337] [info] Total compute time 1568
+[2026-03-13 21:38:16.337] [info] executable layer count 1
+[2026-03-13 21:38:16.337] [info] Start layer Conv_37
+[2026-03-13 21:38:16.350] [info] HBM2-CH_0: BW utilization 4% (223 reads, 171 writes)
+[2026-03-13 21:38:16.471] [info] HBM2-CH_0: BW utilization 0% (0 reads, 25 writes)
+[2026-03-13 21:38:16.575] [info] HBM2-CH_0: BW utilization 0% (0 reads, 49 writes)
+[2026-03-13 21:38:16.605] [info] Layer Conv_37 finish at 418163
+[2026-03-13 21:38:16.605] [info] Total compute time 19032
+[2026-03-13 21:38:16.605] [info] executable layer count 1
+[2026-03-13 21:38:16.605] [info] Start layer Conv_41
+[2026-03-13 21:38:16.685] [info] HBM2-CH_0: BW utilization 2% (171 reads, 48 writes)
+[2026-03-13 21:38:16.789] [info] HBM2-CH_0: BW utilization 0% (0 reads, 25 writes)
+[2026-03-13 21:38:16.859] [info] Layer Conv_41 finish at 437212
+[2026-03-13 21:38:16.859] [info] Total compute time 19049
+[2026-03-13 21:38:16.859] [info] executable layer count 1
+[2026-03-13 21:38:16.859] [info] Start layer Conv_43
+[2026-03-13 21:38:16.897] [info] HBM2-CH_0: BW utilization 2% (170 reads, 48 writes)
+[2026-03-13 21:38:17.001] [info] HBM2-CH_0: BW utilization 0% (0 reads, 49 writes)
+[2026-03-13 21:38:17.105] [info] HBM2-CH_0: BW utilization 0% (0 reads, 24 writes)
+[2026-03-13 21:38:17.110] [info] Layer Conv_43 finish at 456231
+[2026-03-13 21:38:17.110] [info] Total compute time 19019
+[2026-03-13 21:38:17.111] [info] executable layer count 1
+[2026-03-13 21:38:17.111] [info] Start layer GlobalAveragePool_46
+[2026-03-13 21:38:17.111] [info] Layer GlobalAveragePool_46 finish at 456233
+[2026-03-13 21:38:17.111] [info] Total compute time 2
+[2026-03-13 21:38:17.111] [info] executable layer count 1
+[2026-03-13 21:38:17.111] [info] Start layer Flatten_47
+[2026-03-13 21:38:17.111] [info] Layer Flatten_47 finish at 456234
+[2026-03-13 21:38:17.111] [info] Total compute time 1
+[2026-03-13 21:38:17.111] [info] executable layer count 1
+[2026-03-13 21:38:17.111] [info] Start layer Gemm_48
+[2026-03-13 21:38:17.306] [info] Layer Gemm_48 finish at 460279
+[2026-03-13 21:38:17.306] [info] Total compute time 4045
+[2026-03-13 21:38:17.306] [info] Model[resnet18] Request: 0 us, Start: 0 us, finish:460 us, Current Cycle:460279
+[2026-03-13 21:38:17.306] [info] No total_seq_len!
+[2026-03-13 21:38:17.306] [info] Simulation Finished at 460284 cycle 460 us
+Frontend:
+  impl: GEM5
+
+[2026-03-13 21:38:17.307] [info] Row hits: 14942, Row misses: 89, Row conflicts: 1107
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 9701
+  total_num_read_requests: 8672
+  memory_system_cycles: 552561
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+[2026-03-13 21:38:17.307] [info] HBM2-CH_0: avg BW utilization 3% (8672 reads, 9701 writes)
+Frontend:
+  impl: GEM5
+
+[2026-03-13 21:38:17.307] [info] Row hits: 14700, Row misses: 79, Row conflicts: 1108
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 9711
+  total_num_read_requests: 8668
+  memory_system_cycles: 552561
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-13 21:38:17.307] [info] Row hits: 14761, Row misses: 68, Row conflicts: 1092
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 9711
+  total_num_read_requests: 8667
+  memory_system_cycles: 552561
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-13 21:38:17.307] [info] Row hits: 14868, Row misses: 105, Row conflicts: 1113
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 9701
+  total_num_read_requests: 8685
+  memory_system_cycles: 552561
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-13 21:38:17.307] [info] Row hits: 14980, Row misses: 71, Row conflicts: 1131
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 9711
+  total_num_read_requests: 8669
+  memory_system_cycles: 552561
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-13 21:38:17.307] [info] Row hits: 15091, Row misses: 102, Row conflicts: 1124
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 9701
+  total_num_read_requests: 8678
+  memory_system_cycles: 552561
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-13 21:38:17.307] [info] Row hits: 15064, Row misses: 89, Row conflicts: 1124
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 9701
+  total_num_read_requests: 8687
+  memory_system_cycles: 552561
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-13 21:38:17.307] [info] Row hits: 15078, Row misses: 58, Row conflicts: 1128
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 9711
+  total_num_read_requests: 8671
+  memory_system_cycles: 552561
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-13 21:38:17.307] [info] Row hits: 15506, Row misses: 68, Row conflicts: 1131
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 9711
+  total_num_read_requests: 8672
+  memory_system_cycles: 552561
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-13 21:38:17.307] [info] Row hits: 14975, Row misses: 86, Row conflicts: 1113
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 9701
+  total_num_read_requests: 8690
+  memory_system_cycles: 552561
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-13 21:38:17.307] [info] Row hits: 14963, Row misses: 76, Row conflicts: 1112
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 9700
+  total_num_read_requests: 8689
+  memory_system_cycles: 552561
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-13 21:38:17.307] [info] Row hits: 15551, Row misses: 77, Row conflicts: 1122
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 9711
+  total_num_read_requests: 8660
+  memory_system_cycles: 552561
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-13 21:38:17.307] [info] Row hits: 15174, Row misses: 62, Row conflicts: 1109
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 9701
+  total_num_read_requests: 8689
+  memory_system_cycles: 552561
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-13 21:38:17.307] [info] Row hits: 15345, Row misses: 53, Row conflicts: 1103
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 9711
+  total_num_read_requests: 8672
+  memory_system_cycles: 552561
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-13 21:38:17.307] [info] Row hits: 15238, Row misses: 73, Row conflicts: 1111
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 9711
+  total_num_read_requests: 8663
+  memory_system_cycles: 552561
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-13 21:38:17.307] [info] Row hits: 15429, Row misses: 49, Row conflicts: 1112
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 9701
+  total_num_read_requests: 8687
+  memory_system_cycles: 552561
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Object Size Histogram
+106496 bytes : 3328  cumulative_bytes: 354418688
+1024 bytes : 128  cumulative_bytes: 354549760
+50176 bytes : 25088  cumulative_bytes: 1613365248
+53760 bytes : 1680  cumulative_bytes: 1703682048
+57344 bytes : 5376  cumulative_bytes: 2011963392
+224 bytes : 14  cumulative_bytes: 2011966528
+131072 bytes : 28672  cumulative_bytes: 5770062912
+401408 bytes : 100352  cumulative_bytes: 46052158528
+516096 bytes : 48384  cumulative_bytes: 71022947392
+100352 bytes : 15680  cumulative_bytes: 72596466752
+128 bytes : 184  cumulative_bytes: 72596490304
+32 bytes : 196  cumulative_bytes: 72596496576
+25088 bytes : 1568  cumulative_bytes: 72635834560
+256 bytes : 5448  cumulative_bytes: 72637229248
+200704 bytes : 50176  cumulative_bytes: 82707753152
+12544 bytes : 7840  cumulative_bytes: 82806098112
+[2026-03-13 21:38:17.307] [info] Simulation time: 6.814259 seconds
+[2026-03-13 21:38:17.307] [info] no.of tiles :[6.143329183]
+[2026-03-13 21:38:17.307] [info] Total tile: 31, simulated tile per seconds(TPS): 5.046124

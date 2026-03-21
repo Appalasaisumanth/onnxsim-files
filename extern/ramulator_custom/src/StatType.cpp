@@ -1,4 +1,5 @@
 #include "StatType.h"
+#include <cstdint>
 
 namespace Stat {
 

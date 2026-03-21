@@ -1,0 +1,633 @@
+[2026-03-12 16:03:58.985] [info] CPU 0: Partition 0
+[2026-03-12 16:03:58.985] [info] CPU 1: Partition 0
+[2026-03-12 16:03:58.985] [info] CPU 2: Partition 0
+[2026-03-12 16:03:58.985] [info] CPU 3: Partition 0
+[2026-03-12 16:03:58.985] [info] Running in default mode
+[2026-03-12 16:03:58.985] [info] Simulator Configuration:
+[2026-03-12 16:03:58.985] [info] [Core 0] Systolic Array Throughput: 131072 GFLOPS, Spad size: 32768 KB, Accumulator size: 4096 KB
+[2026-03-12 16:03:58.985] [info] [Core 1] Systolic Array Throughput: 131072 GFLOPS, Spad size: 32768 KB, Accumulator size: 4096 KB
+[2026-03-12 16:03:58.985] [info] [Core 2] Systolic Array Throughput: 131072 GFLOPS, Spad size: 32768 KB, Accumulator size: 4096 KB
+[2026-03-12 16:03:58.985] [info] [Core 3] Systolic Array Throughput: 131072 GFLOPS, Spad size: 32768 KB, Accumulator size: 4096 KB
+[2026-03-12 16:03:58.985] [info] DRAM Bandwidth 614 GB/s
+[2026-03-12 16:03:58.986] [info] Ramulator2 config: ./configs/../configs/ramulator2_configs/HBM2.yaml
+[2026-03-12 16:03:59.001] [info] Initialize SimpleInterconnect
+[2026-03-12 16:03:59.003] [info] ICNT print interval: 8000 cycles
+[2026-03-12 16:03:59.003] [info] num cores : [4]
+[2026-03-12 16:03:59.004] [info] No mapping file path : ./models/resnet18/resnet18.mapping
+[2026-03-12 16:03:59.004] [info] Register model: resnet18
+[2026-03-12 16:03:59.004] [info] Model Name
+[2026-03-12 16:03:59.024] [info] has_l2,[true]
+[2026-03-12 16:03:59.024] [info] ======Start Simulation=====
+[2026-03-12 16:03:59.044] [info] [Conv] Used gemmini convolution mapping: [T] N1 C3 M64 P112 Q112 S7 R7 - [O] N1 C1 M1 P4 Q1 S1 R1 - [I] N1 C3 M64 P36 Q112 S7 R7
+[2026-03-12 16:03:59.081] [info] [Conv] Used gemmini convolution mapping: [T] N1 C64 M64 P56 Q56 S3 R3 - [O] N1 C1 M1 P1 Q1 S1 R1 - [I] N1 C64 M64 P56 Q56 S3 R3
+[2026-03-12 16:03:59.154] [info] [Conv] Used gemmini convolution mapping: [T] N1 C64 M128 P28 Q28 S3 R3 - [O] N1 C1 M1 P1 Q1 S1 R1 - [I] N1 C64 M128 P28 Q28 S3 R3
+[2026-03-12 16:03:59.160] [info] [Conv] Used gemmini convolution mapping: [T] N1 C64 M128 P28 Q28 S1 R1 - [O] N1 C1 M1 P1 Q1 S1 R1 - [I] N1 C64 M128 P28 Q28 S1 R1
+[2026-03-12 16:03:59.166] [info] [Conv] Used gemmini convolution mapping: [T] N1 C128 M128 P28 Q28 S3 R3 - [O] N1 C1 M1 P1 Q1 S1 R1 - [I] N1 C128 M128 P28 Q28 S3 R3
+[2026-03-12 16:03:59.193] [info] [Conv] Used gemmini convolution mapping: [T] N1 C128 M256 P14 Q14 S3 R3 - [O] N1 C1 M1 P1 Q1 S1 R1 - [I] N1 C128 M256 P14 Q14 S3 R3
+[2026-03-12 16:03:59.200] [info] [Conv] Used gemmini convolution mapping: [T] N1 C128 M256 P14 Q14 S1 R1 - [O] N1 C1 M1 P1 Q1 S1 R1 - [I] N1 C128 M256 P14 Q14 S1 R1
+[2026-03-12 16:03:59.203] [info] [Conv] Used gemmini convolution mapping: [T] N1 C256 M256 P14 Q14 S3 R3 - [O] N1 C1 M1 P1 Q1 S1 R1 - [I] N1 C256 M256 P14 Q14 S3 R3
+[2026-03-12 16:03:59.242] [info] [Conv] Used gemmini convolution mapping: [T] N1 C256 M512 P7 Q7 S3 R3 - [O] N1 C1 M1 P1 Q1 S1 R1 - [I] N1 C256 M512 P7 Q7 S3 R3
+[2026-03-12 16:03:59.263] [info] [Conv] Used gemmini convolution mapping: [T] N1 C256 M512 P7 Q7 S1 R1 - [O] N1 C1 M1 P1 Q1 S1 R1 - [I] N1 C256 M512 P7 Q7 S1 R1
+[2026-03-12 16:03:59.266] [info] [Conv] Used gemmini convolution mapping: [T] N1 C512 M512 P7 Q7 S3 R3 - [O] N1 C1 M1 P1 Q1 S1 R1 - [I] N1 C512 M512 P7 Q7 S3 R3
+[2026-03-12 16:03:59.389] [info] [GEMM] spad_size: 33554432 accum_size: 4194304
+[2026-03-12 16:03:59.389] [info] [GEMM] required_sram_size: 393216 required_accum_size: 65536
+[2026-03-12 16:03:59.389] [info] [GEMM] Used gemmini gemm mapping: Total N:1 C:512 M:1000, Outer N:1 C:1 M:4, Inner N:128 C:512 M:256
+[2026-03-12 16:03:59.392] [info] [GemmWs] Keys K = 512, N = 1, M = 1000
+[2026-03-12 16:03:59.392] [info] [GemmWS]: total 0.001025 GFLOPs, 0.001029024 GB
+[2026-03-12 16:03:59.392] [info] [GemmWS]: Theoretical time(ms): 0.0016759348682171549 Compute time: 7.820129432900558e-06 Memory time: 0.0016759348682171549
+[2026-03-12 16:03:59.392] [info] ./models/resnet18/resnet18.onnx Model initialization time: 0.368434 seconds
+[2026-03-12 16:03:59.393] [info] Schedule model: resnet18 at 1000 us
+[2026-03-12 16:03:59.393] [info] MODEL resnet18 Scheduled, Total Request: 1
+[2026-03-12 16:03:59.393] [info] executable layer count 1
+[2026-03-12 16:03:59.393] [info] Start layer Conv_0
+[2026-03-12 16:03:59.393] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-12 16:04:09.555] [info] Layer Conv_0 finish at 289762
+[2026-03-12 16:04:09.555] [info] Total compute time 289762
+[2026-03-12 16:04:09.555] [info] executable layer count 1
+[2026-03-12 16:04:09.555] [info] Start layer MaxPool_2
+[2026-03-12 16:04:09.560] [info] Layer MaxPool_2 finish at 289765
+[2026-03-12 16:04:09.560] [info] Total compute time 3
+[2026-03-12 16:04:09.560] [info] executable layer count 1
+[2026-03-12 16:04:09.560] [info] Start layer Conv_3
+[2026-03-12 16:04:47.292] [info] HBM2-CH_0: BW utilization 65% (88712 reads, 540367 writes)
+[2026-03-12 16:05:53.136] [info] HBM2-CH_0: BW utilization 83% (0 reads, 802065 writes)
+[2026-03-12 16:07:13.223] [info] HBM2-CH_0: BW utilization 83% (0 reads, 804796 writes)
+[2026-03-12 16:08:30.807] [info] HBM2-CH_0: BW utilization 83% (0 reads, 800258 writes)
+[2026-03-12 16:09:31.317] [info] HBM2-CH_0: BW utilization 83% (16009 reads, 784643 writes)
+[2026-03-12 16:10:28.635] [info] HBM2-CH_0: BW utilization 83% (799661 reads, 1293 writes)
+[2026-03-12 16:10:45.956] [info] Layer Conv_3 finish at 5086483
+[2026-03-12 16:10:45.956] [info] Total compute time 4796718
+[2026-03-12 16:10:45.957] [info] executable layer count 1
+[2026-03-12 16:10:45.957] [info] Start layer Conv_5
+[2026-03-12 16:10:49.486] [info] Layer Conv_5 finish at 5121567
+[2026-03-12 16:10:49.486] [info] Total compute time 35084
+[2026-03-12 16:10:49.486] [info] executable layer count 1
+[2026-03-12 16:10:49.486] [info] Start layer Conv_8
+[2026-03-12 16:10:52.799] [info] Layer Conv_8 finish at 5155100
+[2026-03-12 16:10:52.799] [info] Total compute time 33533
+[2026-03-12 16:10:52.799] [info] executable layer count 1
+[2026-03-12 16:10:52.799] [info] Start layer Conv_10
+[2026-03-12 16:10:56.395] [info] Layer Conv_10 finish at 5190091
+[2026-03-12 16:10:56.395] [info] Total compute time 34991
+[2026-03-12 16:10:56.395] [info] executable layer count 2
+[2026-03-12 16:10:56.395] [info] Start layer Conv_13
+[2026-03-12 16:10:57.964] [info] Layer Conv_13 finish at 5198923
+[2026-03-12 16:10:57.964] [info] Total compute time 8832
+[2026-03-12 16:10:57.964] [info] executable layer count 1
+[2026-03-12 16:10:57.964] [info] Start layer Conv_16
+[2026-03-12 16:10:59.153] [info] Layer Conv_16 finish at 5200683
+[2026-03-12 16:10:59.153] [info] Total compute time 1760
+[2026-03-12 16:10:59.153] [info] executable layer count 1
+[2026-03-12 16:10:59.153] [info] Start layer Conv_15
+[2026-03-12 16:11:07.771] [info] Layer Conv_15 finish at 5516951
+[2026-03-12 16:11:07.771] [info] Total compute time 316268
+[2026-03-12 16:11:07.771] [info] executable layer count 1
+[2026-03-12 16:11:07.771] [info] Start layer Conv_19
+[2026-03-12 16:11:09.439] [info] Layer Conv_19 finish at 5528500
+[2026-03-12 16:11:09.439] [info] Total compute time 11549
+[2026-03-12 16:11:09.439] [info] executable layer count 1
+[2026-03-12 16:11:09.439] [info] Start layer Conv_21
+[2026-03-12 16:11:11.156] [info] Layer Conv_21 finish at 5540665
+[2026-03-12 16:11:11.157] [info] Total compute time 12165
+[2026-03-12 16:11:11.157] [info] executable layer count 2
+[2026-03-12 16:11:11.157] [info] Start layer Conv_24
+[2026-03-12 16:11:12.254] [info] Layer Conv_24 finish at 5545452
+[2026-03-12 16:11:12.254] [info] Total compute time 4787
+[2026-03-12 16:11:12.254] [info] executable layer count 1
+[2026-03-12 16:11:12.254] [info] Start layer Conv_27
+[2026-03-12 16:11:12.706] [info] Layer Conv_27 finish at 5554864
+[2026-03-12 16:11:12.706] [info] Total compute time 9412
+[2026-03-12 16:11:12.706] [info] executable layer count 1
+[2026-03-12 16:11:12.706] [info] Start layer Conv_26
+[2026-03-12 16:11:14.132] [info] Layer Conv_26 finish at 5573326
+[2026-03-12 16:11:14.132] [info] Total compute time 18462
+[2026-03-12 16:11:14.132] [info] executable layer count 1
+[2026-03-12 16:11:14.132] [info] Start layer Conv_30
+[2026-03-12 16:11:15.482] [info] Layer Conv_30 finish at 5591393
+[2026-03-12 16:11:15.482] [info] Total compute time 18067
+[2026-03-12 16:11:15.482] [info] executable layer count 1
+[2026-03-12 16:11:15.482] [info] Start layer Conv_32
+[2026-03-12 16:11:15.922] [info] HBM2-CH_0: BW utilization 31% (243993 reads, 56796 writes)
+[2026-03-12 16:11:16.628] [info] Layer Conv_32 finish at 5605107
+[2026-03-12 16:11:16.628] [info] Total compute time 13714
+[2026-03-12 16:11:16.628] [info] executable layer count 2
+[2026-03-12 16:11:16.628] [info] Start layer Conv_35
+[2026-03-12 16:11:17.380] [info] Layer Conv_35 finish at 5622298
+[2026-03-12 16:11:17.380] [info] Total compute time 17191
+[2026-03-12 16:11:17.382] [info] executable layer count 1
+[2026-03-12 16:11:17.382] [info] Start layer Conv_38
+[2026-03-12 16:11:17.703] [info] Layer Conv_38 finish at 5623845
+[2026-03-12 16:11:17.703] [info] Total compute time 1547
+[2026-03-12 16:11:17.703] [info] executable layer count 1
+[2026-03-12 16:11:17.703] [info] Start layer Conv_37
+[2026-03-12 16:11:18.587] [info] Layer Conv_37 finish at 5644173
+[2026-03-12 16:11:18.587] [info] Total compute time 20328
+[2026-03-12 16:11:18.587] [info] executable layer count 1
+[2026-03-12 16:11:18.587] [info] Start layer Conv_41
+[2026-03-12 16:11:19.348] [info] Layer Conv_41 finish at 5663220
+[2026-03-12 16:11:19.348] [info] Total compute time 19047
+[2026-03-12 16:11:19.348] [info] executable layer count 1
+[2026-03-12 16:11:19.348] [info] Start layer Conv_43
+[2026-03-12 16:11:20.145] [info] Layer Conv_43 finish at 5682239
+[2026-03-12 16:11:20.145] [info] Total compute time 19019
+[2026-03-12 16:11:20.145] [info] executable layer count 1
+[2026-03-12 16:11:20.145] [info] Start layer GlobalAveragePool_46
+[2026-03-12 16:11:20.145] [info] Layer GlobalAveragePool_46 finish at 5682241
+[2026-03-12 16:11:20.145] [info] Total compute time 2
+[2026-03-12 16:11:20.145] [info] executable layer count 1
+[2026-03-12 16:11:20.145] [info] Start layer Flatten_47
+[2026-03-12 16:11:20.145] [info] Layer Flatten_47 finish at 5682242
+[2026-03-12 16:11:20.145] [info] Total compute time 1
+[2026-03-12 16:11:20.145] [info] executable layer count 1
+[2026-03-12 16:11:20.145] [info] Start layer Gemm_48
+[2026-03-12 16:12:01.415] [info] HBM2-CH_0: BW utilization 76% (714897 reads, 20814 writes)
+[2026-03-12 16:12:14.951] [info] Layer Gemm_48 finish at 6675649
+[2026-03-12 16:12:14.951] [info] Total compute time 993407
+[2026-03-12 16:12:14.951] [info] Model[resnet18] Request: 0 us, Start: 0 us, finish:6675 us, Current Cycle:6675649
+[2026-03-12 16:12:14.961] [info] No total_seq_len!
+[2026-03-12 16:12:14.965] [info] Simulation Finished at 6675655 cycle 6675 us
+Frontend:
+  impl: GEM5
+
+[2026-03-12 16:12:14.967] [info] Row hits: 5804319, Row misses: 112, Row conflicts: 142039
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 3811238
+  total_num_read_requests: 2135357
+  memory_system_cycles: 8013991
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+[2026-03-12 16:12:14.967] [info] HBM2-CH_0: avg BW utilization 74% (2135357 reads, 3811238 writes)
+Frontend:
+  impl: GEM5
+
+[2026-03-12 16:12:14.967] [info] Row hits: 6079640, Row misses: 97, Row conflicts: 142388
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 4090596
+  total_num_read_requests: 2131689
+  memory_system_cycles: 8013991
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-12 16:12:14.967] [info] Row hits: 6080730, Row misses: 98, Row conflicts: 142702
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 4092903
+  total_num_read_requests: 2130797
+  memory_system_cycles: 8013991
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-12 16:12:14.967] [info] Row hits: 5802012, Row misses: 102, Row conflicts: 141956
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 3808720
+  total_num_read_requests: 2135447
+  memory_system_cycles: 8013991
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-12 16:12:14.968] [info] Row hits: 6094310, Row misses: 98, Row conflicts: 142097
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 4092500
+  total_num_read_requests: 2144155
+  memory_system_cycles: 8013991
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-12 16:12:14.968] [info] Row hits: 5801548, Row misses: 102, Row conflicts: 142108
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 3807100
+  total_num_read_requests: 2136767
+  memory_system_cycles: 8013991
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-12 16:12:14.968] [info] Row hits: 5807789, Row misses: 106, Row conflicts: 142097
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 3811701
+  total_num_read_requests: 2138375
+  memory_system_cycles: 8013991
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-12 16:12:14.968] [info] Row hits: 6089845, Row misses: 104, Row conflicts: 142341
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 4091217
+  total_num_read_requests: 2141243
+  memory_system_cycles: 8013991
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-12 16:12:14.968] [info] Row hits: 5793591, Row misses: 123, Row conflicts: 142116
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 3796455
+  total_num_read_requests: 2139557
+  memory_system_cycles: 8013991
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-12 16:12:14.968] [info] Row hits: 6101828, Row misses: 106, Row conflicts: 142286
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 4111517
+  total_num_read_requests: 2132799
+  memory_system_cycles: 8013991
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-12 16:12:14.968] [info] Row hits: 6106813, Row misses: 111, Row conflicts: 142665
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 4115082
+  total_num_read_requests: 2134603
+  memory_system_cycles: 8013991
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-12 16:12:14.968] [info] Row hits: 5802357, Row misses: 144, Row conflicts: 141733
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 3798926
+  total_num_read_requests: 2145466
+  memory_system_cycles: 8013991
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-12 16:12:14.968] [info] Row hits: 6106110, Row misses: 116, Row conflicts: 142121
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 4105636
+  total_num_read_requests: 2142809
+  memory_system_cycles: 8013991
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-12 16:12:14.968] [info] Row hits: 5781163, Row misses: 103, Row conflicts: 142382
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 3796187
+  total_num_read_requests: 2127593
+  memory_system_cycles: 8013991
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-12 16:12:14.968] [info] Row hits: 5789009, Row misses: 110, Row conflicts: 142176
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 3795314
+  total_num_read_requests: 2136147
+  memory_system_cycles: 8013991
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-12 16:12:14.968] [info] Row hits: 6108750, Row misses: 135, Row conflicts: 142186
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 4108822
+  total_num_read_requests: 2142357
+  memory_system_cycles: 8013991
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+[2026-03-12 16:12:14.968] [info] ===== L2 BANK 0 =====
+[2026-03-12 16:12:14.968] [info] Total cycles: 8013991
+[2026-03-12 16:12:14.968] [info] Hits:12651 Misses:5722 HitRate:0.6886
+[2026-03-12 16:12:14.968] [info] ReadHits:5257 WriteHits:7394
+[2026-03-12 16:12:14.968] [info] Evictions:37431 Writebacks:33168
+[2026-03-12 16:12:14.968] [info] ===== L2 BANK 1 =====
+[2026-03-12 16:12:14.968] [info] Total cycles: 8013991
+[2026-03-12 16:12:14.968] [info] Hits:12365 Misses:6014 HitRate:0.6728
+[2026-03-12 16:12:14.968] [info] ReadHits:5258 WriteHits:7107
+[2026-03-12 16:12:14.968] [info] Evictions:33153 Writebacks:28822
+[2026-03-12 16:12:14.968] [info] ===== L2 BANK 2 =====
+[2026-03-12 16:12:14.968] [info] Total cycles: 8013991
+[2026-03-12 16:12:14.968] [info] Hits:12364 Misses:6014 HitRate:0.6728
+[2026-03-12 16:12:14.968] [info] ReadHits:5257 WriteHits:7107
+[2026-03-12 16:12:14.968] [info] Evictions:35461 Writebacks:31129
+[2026-03-12 16:12:14.968] [info] ===== L2 BANK 3 =====
+[2026-03-12 16:12:14.968] [info] Total cycles: 8013991
+[2026-03-12 16:12:14.968] [info] Hits:12652 Misses:5734 HitRate:0.6881
+[2026-03-12 16:12:14.968] [info] ReadHits:5259 WriteHits:7393
+[2026-03-12 16:12:14.968] [info] Evictions:34914 Writebacks:30649
+[2026-03-12 16:12:14.968] [info] ===== L2 BANK 4 =====
+[2026-03-12 16:12:14.968] [info] Total cycles: 8013991
+[2026-03-12 16:12:14.968] [info] Hits:12345 Misses:6035 HitRate:0.6717
+[2026-03-12 16:12:14.968] [info] ReadHits:5235 WriteHits:7110
+[2026-03-12 16:12:14.968] [info] Evictions:34404 Writebacks:30042
+[2026-03-12 16:12:14.968] [info] ===== L2 BANK 5 =====
+[2026-03-12 16:12:14.968] [info] Total cycles: 8013991
+[2026-03-12 16:12:14.968] [info] Hits:12649 Misses:5730 HitRate:0.6882
+[2026-03-12 16:12:14.968] [info] ReadHits:5254 WriteHits:7395
+[2026-03-12 16:12:14.968] [info] Evictions:36631 Writebacks:31976
+[2026-03-12 16:12:14.968] [info] ===== L2 BANK 6 =====
+[2026-03-12 16:12:14.968] [info] Total cycles: 8013991
+[2026-03-12 16:12:14.968] [info] Hits:12643 Misses:5745 HitRate:0.6876
+[2026-03-12 16:12:14.968] [info] ReadHits:5253 WriteHits:7390
+[2026-03-12 16:12:14.968] [info] Evictions:34793 Writebacks:30137
+[2026-03-12 16:12:14.968] [info] ===== L2 BANK 7 =====
+[2026-03-12 16:12:14.968] [info] Total cycles: 8013991
+[2026-03-12 16:12:14.968] [info] Hits:12353 Misses:6029 HitRate:0.6720
+[2026-03-12 16:12:14.968] [info] ReadHits:5241 WriteHits:7112
+[2026-03-12 16:12:14.968] [info] Evictions:35924 Writebacks:31559
+[2026-03-12 16:12:14.968] [info] ===== L2 BANK 8 =====
+[2026-03-12 16:12:14.968] [info] Total cycles: 8013991
+[2026-03-12 16:12:14.968] [info] Hits:12738 Misses:5645 HitRate:0.6929
+[2026-03-12 16:12:14.968] [info] ReadHits:5243 WriteHits:7495
+[2026-03-12 16:12:14.968] [info] Evictions:37602 Writebacks:33471
+[2026-03-12 16:12:14.968] [info] ===== L2 BANK 9 =====
+[2026-03-12 16:12:14.968] [info] Total cycles: 8013991
+[2026-03-12 16:12:14.968] [info] Hits:12264 Misses:6127 HitRate:0.6668
+[2026-03-12 16:12:14.968] [info] ReadHits:5263 WriteHits:7001
+[2026-03-12 16:12:14.968] [info] Evictions:35984 Writebacks:31515
+[2026-03-12 16:12:14.968] [info] ===== L2 BANK 10 =====
+[2026-03-12 16:12:14.968] [info] Total cycles: 8013991
+[2026-03-12 16:12:14.968] [info] Hits:12263 Misses:6126 HitRate:0.6669
+[2026-03-12 16:12:14.968] [info] ReadHits:5263 WriteHits:7000
+[2026-03-12 16:12:14.968] [info] Evictions:37138 Writebacks:32672
+[2026-03-12 16:12:14.968] [info] ===== L2 BANK 11 =====
+[2026-03-12 16:12:14.968] [info] Total cycles: 8013991
+[2026-03-12 16:12:14.968] [info] Hits:12724 Misses:5647 HitRate:0.6926
+[2026-03-12 16:12:14.968] [info] ReadHits:5229 WriteHits:7495
+[2026-03-12 16:12:14.968] [info] Evictions:40691 Writebacks:36530
+[2026-03-12 16:12:14.968] [info] ===== L2 BANK 12 =====
+[2026-03-12 16:12:14.968] [info] Total cycles: 8013991
+[2026-03-12 16:12:14.968] [info] Hits:12258 Misses:6132 HitRate:0.6666
+[2026-03-12 16:12:14.968] [info] ReadHits:5246 WriteHits:7012
+[2026-03-12 16:12:14.968] [info] Evictions:35185 Writebacks:29932
+[2026-03-12 16:12:14.968] [info] ===== L2 BANK 13 =====
+[2026-03-12 16:12:14.968] [info] Total cycles: 8013991
+[2026-03-12 16:12:14.968] [info] Hits:12760 Misses:5623 HitRate:0.6941
+[2026-03-12 16:12:14.968] [info] ReadHits:5266 WriteHits:7494
+[2026-03-12 16:12:14.968] [info] Evictions:37236 Writebacks:33103
+[2026-03-12 16:12:14.968] [info] ===== L2 BANK 14 =====
+[2026-03-12 16:12:14.968] [info] Total cycles: 8013991
+[2026-03-12 16:12:14.968] [info] Hits:12741 Misses:5633 HitRate:0.6934
+[2026-03-12 16:12:14.968] [info] ReadHits:5246 WriteHits:7495
+[2026-03-12 16:12:14.968] [info] Evictions:36359 Writebacks:32231
+[2026-03-12 16:12:14.968] [info] ===== L2 BANK 15 =====
+[2026-03-12 16:12:14.968] [info] Total cycles: 8013991
+[2026-03-12 16:12:14.968] [info] Hits:12263 Misses:6125 HitRate:0.6669
+[2026-03-12 16:12:14.968] [info] ReadHits:5250 WriteHits:7013
+[2026-03-12 16:12:14.968] [info] Evictions:39153 Writebacks:33902
+Object Size Histogram
+106496 bytes : 3328
+1024 bytes : 128
+50176 bytes : 25088
+53760 bytes : 1680
+57344 bytes : 5376
+224 bytes : 14
+131072 bytes : 28672
+401408 bytes : 100352
+516096 bytes : 48384
+100352 bytes : 15680
+128 bytes : 184
+32 bytes : 196
+25088 bytes : 1568
+256 bytes : 5448
+200704 bytes : 50176
+12544 bytes : 7840
+[2026-03-12 16:12:14.968] [info] Simulation time: 495.985699 seconds
+[2026-03-12 16:12:14.968] [info] no.of tiles :[440.762573403]
+[2026-03-12 16:12:14.968] [info] Total tile: 31, simulated tile per seconds(TPS): 0.070333

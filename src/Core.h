@@ -73,6 +73,12 @@ class Core {
 
   int _running_layer;
   uint32_t tile_rr = 0;
+  /* --- Tile tracking stats --- */
+uint64_t _stat_tiles_issued = 0;     // total tiles issued to this core
+uint64_t _stat_tiles_running = 0;    // tiles currently active in core
+uint64_t _stat_tiles_finished = 0;   // optional (useful sanity counter)
+uint32_t _ins_executed=0;
+
   std::deque<std::unique_ptr<Tile>> _tiles;
   std::queue<std::unique_ptr<Tile>> _finished_tiles;
 

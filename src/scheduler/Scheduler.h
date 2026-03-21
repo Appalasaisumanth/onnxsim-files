@@ -2,12 +2,35 @@
 #include <robin_hood.h>
 #include "../Common.h"
 #include "../Model.h"
+#include <queue>
+#include <vector>
+#include <functional>
+
 
 typedef struct {
   uint32_t request_id;
   std::unique_ptr<Model> model;
   uint32_t sample_size;
 } Request;
+
+
+struct CoreLoad {
+    uint32_t tile_count;
+    uint64_t ins_count;
+    uint32_t core_id;
+
+    // Comparator for min-heap behavior
+    bool operator>(const CoreLoad& other) const {
+        if (tile_count != other.tile_count)
+            return tile_count > other.tile_count;
+
+        if (ins_count != other.ins_count)
+            return ins_count > other.ins_count;
+
+        return core_id > other.core_id;  // tie → least index first
+    }
+};
+
 
 class Scheduler {
   public:
@@ -35,6 +58,16 @@ class Scheduler {
       uint32_t finished_tiles;
       uint32_t launched_tiles;
     } LayerStat;
+
+    std::priority_queue<
+    CoreLoad,
+    std::vector<CoreLoad>,
+    std::greater<CoreLoad>
+> core_pq;
+std::vector<uint32_t> _tile_num;
+std::vector<uint64_t> _ins_num;
+
+
 
     int _core_rr_id = 0;
     const cycle_type* _core_cycle;

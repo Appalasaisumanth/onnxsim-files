@@ -87,7 +87,9 @@ SimulationConfig initialize_config(json config) {
     parsed_config.core_config[i].spad_size = core_config["spad_size"];
     parsed_config.core_config[i].accum_spad_size = core_config["accum_spad_size"];
   }
-
+  // l2 size
+  parsed_config.l2_size=config["l2_size"];
+  parsed_config.use_l2=config["enable_l2"];
   /* DRAM config */
   std::string dram_type = get_config_value<std::string>(config, "dram_type");
   if (dram_type_map.contains(dram_type)) {
@@ -152,7 +154,8 @@ SimulationConfig initialize_config(json config) {
   return parsed_config;
 }
 
-uint32_t ceil_div(uint32_t src, uint32_t div) { return (src+div-1)/div; }
+uint32_t ceil_div(uint32_t src, uint32_t div) { if (div ==0) {return 0.0 ;}
+  return (src+div-1)/div; }
 
 std::vector<uint32_t> parse_dims(const std::string &str) {
   std::vector<uint32_t> dims;

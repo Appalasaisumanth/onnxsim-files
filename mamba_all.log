@@ -1,0 +1,3103 @@
+[2026-03-15 15:18:07.464] [info] CPU 0: Partition 0
+[2026-03-15 15:18:07.464] [info] CPU 1: Partition 0
+[2026-03-15 15:18:07.464] [info] CPU 2: Partition 0
+[2026-03-15 15:18:07.464] [info] CPU 3: Partition 0
+[2026-03-15 15:18:07.464] [info] Running in default mode
+[2026-03-15 15:18:07.464] [info] Simulator Configuration:
+[2026-03-15 15:18:07.464] [info] [Core 0] Systolic Array Throughput: 131072 GFLOPS, Spad size: 32768 KB, Accumulator size: 4096 KB
+[2026-03-15 15:18:07.464] [info] [Core 1] Systolic Array Throughput: 131072 GFLOPS, Spad size: 32768 KB, Accumulator size: 4096 KB
+[2026-03-15 15:18:07.464] [info] [Core 2] Systolic Array Throughput: 131072 GFLOPS, Spad size: 32768 KB, Accumulator size: 4096 KB
+[2026-03-15 15:18:07.464] [info] [Core 3] Systolic Array Throughput: 131072 GFLOPS, Spad size: 32768 KB, Accumulator size: 4096 KB
+[2026-03-15 15:18:07.464] [info] DRAM Bandwidth 614 GB/s
+[2026-03-15 15:18:07.464] [info] Ramulator2 config: ./configs/../configs/ramulator2_configs/HBM2.yaml
+[2026-03-15 15:18:07.468] [info] Initialize SimpleInterconnect
+[2026-03-15 15:18:07.470] [info] ICNT print interval: 8000 cycles
+[2026-03-15 15:18:07.470] [info] num cores : [4]
+[2026-03-15 15:18:07.470] [info] Register model: mamba-130m-single
+[2026-03-15 15:18:07.470] [info] Model Name
+[2026-03-15 15:18:07.492] [info] has_l2,[false]
+[2026-03-15 15:18:07.492] [info] ======Start Simulation=====
+[2026-03-15 15:18:07.492] [info] Model Name: mamba-130m-single model started
+[2026-03-15 15:18:07.526] [info] [GemmWs] Keys K = 768, N = 1, M = 3072
+[2026-03-15 15:18:07.526] [info] [GemmWS]: total 0.0047216644 GFLOPs, 0.004732416 GB
+[2026-03-15 15:18:07.526] [info] [GemmWS]: Theoretical time(ms): 0.007707518307142891 Compute time: 3.60234402307924e-05 Memory time: 0.007707518307142891
+[2026-03-15 15:18:07.603] [info] [GemmWs] Keys K = 6144, N = 1, M = 1536
+[2026-03-15 15:18:07.603] [info] [GemmWS]: total 0.018875906 GFLOPs, 0.018892799 GB
+[2026-03-15 15:18:07.603] [info] [GemmWS]: Theoretical time(ms): 0.030770032026339322 Compute time: 0.00014401173586975347 Memory time: 0.030770032026339322
+[2026-03-15 15:18:07.605] [info] [GemmWs] Keys K = 1536, N = 1, M = 80
+[2026-03-15 15:18:07.605] [info] [GemmWS]: total 0.00024584 GFLOPs, 0.000249152 GB
+[2026-03-15 15:18:07.605] [info] [GemmWS]: Theoretical time(ms): 0.0004057850446770317 Compute time: 1.8756103337125296e-06 Memory time: 0.0004057850446770317
+[2026-03-15 15:18:07.605] [info] [GemmWs] Keys K = 48, N = 1, M = 1536
+[2026-03-15 15:18:07.605] [info] [GemmWS]: total 0.00014899201 GFLOPs, 0.00015369599 GB
+[2026-03-15 15:18:07.605] [info] [GemmWS]: Theoretical time(ms): 0.00025031920358742354 Compute time: 1.1367188301747433e-06 Memory time: 0.00025031920358742354
+[2026-03-15 15:18:07.607] [info] [GemmWs] Keys K = 16, N = 1, M = 1536
+[2026-03-15 15:18:07.607] [info] [GemmWS]: total 5.0688e-05 GFLOPs, 5.5328e-05 GB
+[2026-03-15 15:18:07.607] [info] [GemmWS]: Theoretical time(ms): 9.011075263742896e-05 Compute time: 3.867187403638894e-07 Memory time: 9.011075263742896e-05
+[2026-03-15 15:18:07.614] [info] [GemmWs] Keys K = 1536, N = 1, M = 768
+[2026-03-15 15:18:07.614] [info] [GemmWS]: total 0.0023600643 GFLOPs, 0.00236544 GB
+[2026-03-15 15:18:07.614] [info] [GemmWS]: Theoretical time(ms): 0.003852508143609157 Compute time: 1.800586169053986e-05 Memory time: 0.003852508143609157
+[2026-03-15 15:18:07.614] [info] ./models/mamba-130m-single/mamba-130m-single.onnx Model initialization time: 0.121944 seconds
+[2026-03-15 15:18:07.616] [info] Schedule model: mamba-130m-single at 1000 us
+[2026-03-15 15:18:07.616] [info] MODEL mamba-130m-single Scheduled, Total Request: 1
+[2026-03-15 15:18:07.616] [info] executable layer count 33
+[2026-03-15 15:18:07.616] [info] Start layer Identity_29
+[2026-03-15 15:18:07.616] [info] Issue tile Identity_29 on core 0, spad_id 1, accum_spad_id 1
+[2026-03-15 15:18:07.616] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-15 15:18:07.616] [info] Layer Identity_29 finish at 34
+[2026-03-15 15:18:07.616] [info] Total compute time 34
+[2026-03-15 15:18:07.616] [info] executable layer count 32
+[2026-03-15 15:18:07.616] [info] Start layer /block/in_proj/Gemm
+[2026-03-15 15:18:08.100] [info] HBM2-CH_0: BW utilization 58% (5637 reads, 1 writes)
+[2026-03-15 15:18:08.100] [info] Tile  status Gemm, instructions left 10
+[2026-03-15 15:18:08.100] [info] Core [0] Tile Stats | Issued: 2 Running: 1 Finished: 1
+[2026-03-15 15:18:08.100] [info] cycle: [8000]
+[2026-03-15 15:18:08.100] [info] Tile  status Gemm, instructions left 10
+[2026-03-15 15:18:08.100] [info] Tile  status Gemm, instructions left 28
+[2026-03-15 15:18:08.100] [info] Core [1] Tile Stats | Issued: 2 Running: 2 Finished: 0
+[2026-03-15 15:18:08.100] [info] cycle: [8000]
+[2026-03-15 15:18:08.100] [info] Tile  status Gemm, instructions left 10
+[2026-03-15 15:18:08.100] [info] Tile  status Gemm, instructions left 28
+[2026-03-15 15:18:08.100] [info] Core [2] Tile Stats | Issued: 2 Running: 2 Finished: 0
+[2026-03-15 15:18:08.100] [info] cycle: [8000]
+[2026-03-15 15:18:08.100] [info] Tile  status Gemm, instructions left 10
+[2026-03-15 15:18:08.100] [info] Core [3] Tile Stats | Issued: 1 Running: 1 Finished: 0
+[2026-03-15 15:18:08.100] [info] cycle: [8000]
+[2026-03-15 15:18:08.470] [info] Layer /block/in_proj/Gemm finish at 14697
+[2026-03-15 15:18:08.470] [info] Total compute time 14663
+[2026-03-15 15:18:08.470] [info] executable layer count 31
+[2026-03-15 15:18:08.470] [info] Start layer /block/Constant
+[2026-03-15 15:18:08.471] [info] Layer /block/Constant finish at 14730
+[2026-03-15 15:18:08.471] [info] Total compute time 33
+[2026-03-15 15:18:08.471] [info] executable layer count 30
+[2026-03-15 15:18:08.471] [info] Start layer /block/Constant_1
+[2026-03-15 15:18:08.471] [info] Layer /block/Constant_1 finish at 14749
+[2026-03-15 15:18:08.471] [info] Total compute time 19
+[2026-03-15 15:18:08.471] [info] executable layer count 29
+[2026-03-15 15:18:08.471] [info] Start layer /block/Constant_2
+[2026-03-15 15:18:08.471] [info] Layer /block/Constant_2 finish at 14767
+[2026-03-15 15:18:08.471] [info] Total compute time 18
+[2026-03-15 15:18:08.471] [info] executable layer count 28
+[2026-03-15 15:18:08.471] [info] Start layer /block/Constant_3
+[2026-03-15 15:18:08.471] [info] Layer /block/Constant_3 finish at 14786
+[2026-03-15 15:18:08.471] [info] Total compute time 19
+[2026-03-15 15:18:08.471] [info] executable layer count 28
+[2026-03-15 15:18:08.472] [info] Start layer /block/Constant_4
+[2026-03-15 15:18:08.472] [info] Layer /block/Constant_4 finish at 14804
+[2026-03-15 15:18:08.472] [info] Total compute time 18
+[2026-03-15 15:18:08.472] [info] executable layer count 27
+[2026-03-15 15:18:08.472] [info] Start layer /block/Constant_5
+[2026-03-15 15:18:08.472] [info] Layer /block/Constant_5 finish at 14823
+[2026-03-15 15:18:08.472] [info] Total compute time 19
+[2026-03-15 15:18:08.472] [info] executable layer count 26
+[2026-03-15 15:18:08.472] [info] Start layer /block/Constant_6
+[2026-03-15 15:18:08.472] [info] Layer /block/Constant_6 finish at 14841
+[2026-03-15 15:18:08.472] [info] Total compute time 18
+[2026-03-15 15:18:08.472] [info] executable layer count 25
+[2026-03-15 15:18:08.472] [info] Start layer /block/Constant_7
+[2026-03-15 15:18:08.472] [info] Layer /block/Constant_7 finish at 14860
+[2026-03-15 15:18:08.472] [info] Total compute time 19
+[2026-03-15 15:18:08.472] [info] executable layer count 25
+[2026-03-15 15:18:08.472] [info] Start layer /block/conv_proj/Gemm
+[2026-03-15 15:18:08.544] [info] HBM2-CH_0: BW utilization 46% (4401 reads, 18 writes)
+[2026-03-15 15:18:08.544] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:08.544] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:08.544] [info] Core [0] Tile Stats | Issued: 6 Running: 2 Finished: 4
+[2026-03-15 15:18:08.544] [info] cycle: [16000]
+[2026-03-15 15:18:08.544] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:08.544] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:08.544] [info] Core [1] Tile Stats | Issued: 6 Running: 2 Finished: 4
+[2026-03-15 15:18:08.544] [info] cycle: [16000]
+[2026-03-15 15:18:08.544] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:08.544] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:08.544] [info] Core [2] Tile Stats | Issued: 5 Running: 2 Finished: 3
+[2026-03-15 15:18:08.544] [info] cycle: [16000]
+[2026-03-15 15:18:08.544] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:08.544] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:08.544] [info] Core [3] Tile Stats | Issued: 6 Running: 2 Finished: 4
+[2026-03-15 15:18:08.544] [info] cycle: [16000]
+[2026-03-15 15:18:09.030] [info] HBM2-CH_0: BW utilization 59% (5704 reads, 0 writes)
+[2026-03-15 15:18:09.031] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:09.031] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:09.031] [info] Core [0] Tile Stats | Issued: 6 Running: 2 Finished: 4
+[2026-03-15 15:18:09.031] [info] cycle: [24000]
+[2026-03-15 15:18:09.031] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:09.031] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:09.031] [info] Core [1] Tile Stats | Issued: 6 Running: 2 Finished: 4
+[2026-03-15 15:18:09.031] [info] cycle: [24000]
+[2026-03-15 15:18:09.031] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:09.031] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:09.031] [info] Core [2] Tile Stats | Issued: 5 Running: 2 Finished: 3
+[2026-03-15 15:18:09.031] [info] cycle: [24000]
+[2026-03-15 15:18:09.031] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:09.031] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:09.031] [info] Core [3] Tile Stats | Issued: 6 Running: 2 Finished: 4
+[2026-03-15 15:18:09.031] [info] cycle: [24000]
+[2026-03-15 15:18:09.501] [info] HBM2-CH_0: BW utilization 59% (5710 reads, 0 writes)
+[2026-03-15 15:18:09.502] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:09.502] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:09.502] [info] Core [0] Tile Stats | Issued: 6 Running: 2 Finished: 4
+[2026-03-15 15:18:09.502] [info] cycle: [32000]
+[2026-03-15 15:18:09.502] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:09.502] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:09.502] [info] Core [1] Tile Stats | Issued: 6 Running: 2 Finished: 4
+[2026-03-15 15:18:09.502] [info] cycle: [32000]
+[2026-03-15 15:18:09.502] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:09.502] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:09.502] [info] Core [2] Tile Stats | Issued: 5 Running: 2 Finished: 3
+[2026-03-15 15:18:09.502] [info] cycle: [32000]
+[2026-03-15 15:18:09.502] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:09.502] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:09.502] [info] Core [3] Tile Stats | Issued: 6 Running: 2 Finished: 4
+[2026-03-15 15:18:09.502] [info] cycle: [32000]
+[2026-03-15 15:18:10.018] [info] HBM2-CH_0: BW utilization 61% (5906 reads, 0 writes)
+[2026-03-15 15:18:10.019] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:10.019] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:10.019] [info] Core [0] Tile Stats | Issued: 7 Running: 2 Finished: 5
+[2026-03-15 15:18:10.019] [info] cycle: [40000]
+[2026-03-15 15:18:10.019] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:10.019] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:10.019] [info] Core [1] Tile Stats | Issued: 7 Running: 2 Finished: 5
+[2026-03-15 15:18:10.019] [info] cycle: [40000]
+[2026-03-15 15:18:10.019] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:10.019] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:10.019] [info] Core [2] Tile Stats | Issued: 6 Running: 2 Finished: 4
+[2026-03-15 15:18:10.019] [info] cycle: [40000]
+[2026-03-15 15:18:10.019] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:10.019] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:10.019] [info] Core [3] Tile Stats | Issued: 7 Running: 2 Finished: 5
+[2026-03-15 15:18:10.019] [info] cycle: [40000]
+[2026-03-15 15:18:10.536] [info] HBM2-CH_0: BW utilization 61% (5871 reads, 0 writes)
+[2026-03-15 15:18:10.537] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:10.546] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:10.546] [info] Core [0] Tile Stats | Issued: 7 Running: 2 Finished: 5
+[2026-03-15 15:18:10.546] [info] cycle: [48000]
+[2026-03-15 15:18:10.546] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:10.546] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:10.546] [info] Core [1] Tile Stats | Issued: 7 Running: 2 Finished: 5
+[2026-03-15 15:18:10.546] [info] cycle: [48000]
+[2026-03-15 15:18:10.546] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:10.546] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:10.546] [info] Core [2] Tile Stats | Issued: 6 Running: 2 Finished: 4
+[2026-03-15 15:18:10.546] [info] cycle: [48000]
+[2026-03-15 15:18:10.546] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:10.546] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:10.546] [info] Core [3] Tile Stats | Issued: 7 Running: 2 Finished: 5
+[2026-03-15 15:18:10.546] [info] cycle: [48000]
+[2026-03-15 15:18:11.025] [info] HBM2-CH_0: BW utilization 62% (5956 reads, 0 writes)
+[2026-03-15 15:18:11.026] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:11.026] [info] Core [0] Tile Stats | Issued: 7 Running: 1 Finished: 6
+[2026-03-15 15:18:11.026] [info] cycle: [56000]
+[2026-03-15 15:18:11.026] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:11.026] [info] Core [1] Tile Stats | Issued: 7 Running: 1 Finished: 6
+[2026-03-15 15:18:11.026] [info] cycle: [56000]
+[2026-03-15 15:18:11.026] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:11.026] [info] Core [2] Tile Stats | Issued: 6 Running: 1 Finished: 5
+[2026-03-15 15:18:11.026] [info] cycle: [56000]
+[2026-03-15 15:18:11.026] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:11.026] [info] Core [3] Tile Stats | Issued: 7 Running: 1 Finished: 6
+[2026-03-15 15:18:11.026] [info] cycle: [56000]
+[2026-03-15 15:18:11.573] [info] HBM2-CH_0: BW utilization 62% (5983 reads, 0 writes)
+[2026-03-15 15:18:11.576] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:11.576] [info] Core [0] Tile Stats | Issued: 7 Running: 1 Finished: 6
+[2026-03-15 15:18:11.576] [info] cycle: [64000]
+[2026-03-15 15:18:11.576] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:11.576] [info] Core [1] Tile Stats | Issued: 7 Running: 1 Finished: 6
+[2026-03-15 15:18:11.576] [info] cycle: [64000]
+[2026-03-15 15:18:11.576] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:11.576] [info] Core [2] Tile Stats | Issued: 6 Running: 1 Finished: 5
+[2026-03-15 15:18:11.576] [info] cycle: [64000]
+[2026-03-15 15:18:11.576] [info] Tile  status Gemm, instructions left 49
+[2026-03-15 15:18:11.576] [info] Core [3] Tile Stats | Issued: 7 Running: 1 Finished: 6
+[2026-03-15 15:18:11.576] [info] cycle: [64000]
+[2026-03-15 15:18:11.786] [info] HBM2-CH_0: BW utilization 13% (1250 reads, 4 writes)
+[2026-03-15 15:18:11.786] [info] Tile  status Gemm, instructions left 1
+[2026-03-15 15:18:11.786] [info] Core [0] Tile Stats | Issued: 7 Running: 1 Finished: 6
+[2026-03-15 15:18:11.786] [info] cycle: [72000]
+[2026-03-15 15:18:11.786] [info] Tile  status Gemm, instructions left 1
+[2026-03-15 15:18:11.786] [info] Core [1] Tile Stats | Issued: 7 Running: 1 Finished: 6
+[2026-03-15 15:18:11.786] [info] cycle: [72000]
+[2026-03-15 15:18:11.786] [info] Tile  status Gemm, instructions left 1
+[2026-03-15 15:18:11.786] [info] Core [2] Tile Stats | Issued: 6 Running: 1 Finished: 5
+[2026-03-15 15:18:11.786] [info] cycle: [72000]
+[2026-03-15 15:18:11.786] [info] Tile  status Gemm, instructions left 1
+[2026-03-15 15:18:11.786] [info] Core [3] Tile Stats | Issued: 7 Running: 1 Finished: 6
+[2026-03-15 15:18:11.786] [info] cycle: [72000]
+[2026-03-15 15:18:11.802] [info] Layer /block/conv_proj/Gemm finish at 73299
+[2026-03-15 15:18:11.802] [info] Total compute time 58439
+[2026-03-15 15:18:11.802] [info] executable layer count 25
+[2026-03-15 15:18:11.802] [info] Start layer /block/Constant_8
+[2026-03-15 15:18:11.802] [info] Layer /block/Constant_8 finish at 73332
+[2026-03-15 15:18:11.802] [info] Total compute time 33
+[2026-03-15 15:18:11.802] [info] executable layer count 24
+[2026-03-15 15:18:11.802] [info] Start layer /block/Constant_9
+[2026-03-15 15:18:11.803] [info] Layer /block/Constant_9 finish at 73351
+[2026-03-15 15:18:11.803] [info] Total compute time 19
+[2026-03-15 15:18:11.803] [info] executable layer count 23
+[2026-03-15 15:18:11.803] [info] Start layer /block/Constant_10
+[2026-03-15 15:18:11.803] [info] Layer /block/Constant_10 finish at 73369
+[2026-03-15 15:18:11.803] [info] Total compute time 18
+[2026-03-15 15:18:11.803] [info] executable layer count 22
+[2026-03-15 15:18:11.803] [info] Start layer /block/Constant_11
+[2026-03-15 15:18:11.803] [info] Layer /block/Constant_11 finish at 73388
+[2026-03-15 15:18:11.803] [info] Total compute time 19
+[2026-03-15 15:18:11.803] [info] executable layer count 22
+[2026-03-15 15:18:11.803] [info] Start layer /block/Constant_12
+[2026-03-15 15:18:11.803] [info] Layer /block/Constant_12 finish at 73406
+[2026-03-15 15:18:11.803] [info] Total compute time 18
+[2026-03-15 15:18:11.803] [info] executable layer count 21
+[2026-03-15 15:18:11.803] [info] Start layer /block/Constant_13
+[2026-03-15 15:18:11.804] [info] Layer /block/Constant_13 finish at 73425
+[2026-03-15 15:18:11.804] [info] Total compute time 19
+[2026-03-15 15:18:11.804] [info] executable layer count 20
+[2026-03-15 15:18:11.804] [info] Start layer /block/Constant_14
+[2026-03-15 15:18:11.804] [info] Layer /block/Constant_14 finish at 73443
+[2026-03-15 15:18:11.804] [info] Total compute time 18
+[2026-03-15 15:18:11.804] [info] executable layer count 19
+[2026-03-15 15:18:11.804] [info] Start layer /block/Constant_15
+[2026-03-15 15:18:11.804] [info] Layer /block/Constant_15 finish at 73462
+[2026-03-15 15:18:11.804] [info] Total compute time 19
+[2026-03-15 15:18:11.804] [info] executable layer count 18
+[2026-03-15 15:18:11.804] [info] Start layer /block/Constant_16
+[2026-03-15 15:18:11.805] [info] Layer /block/Constant_16 finish at 73480
+[2026-03-15 15:18:11.805] [info] Total compute time 18
+[2026-03-15 15:18:11.805] [info] executable layer count 17
+[2026-03-15 15:18:11.805] [info] Start layer /block/Constant_17
+[2026-03-15 15:18:11.805] [info] Layer /block/Constant_17 finish at 73499
+[2026-03-15 15:18:11.805] [info] Total compute time 19
+[2026-03-15 15:18:11.805] [info] executable layer count 16
+[2026-03-15 15:18:11.805] [info] Start layer /block/Constant_18
+[2026-03-15 15:18:11.805] [info] Layer /block/Constant_18 finish at 73517
+[2026-03-15 15:18:11.805] [info] Total compute time 18
+[2026-03-15 15:18:11.805] [info] executable layer count 15
+[2026-03-15 15:18:11.805] [info] Start layer /block/Constant_19
+[2026-03-15 15:18:11.805] [info] Layer /block/Constant_19 finish at 73536
+[2026-03-15 15:18:11.805] [info] Total compute time 19
+[2026-03-15 15:18:11.805] [info] executable layer count 14
+[2026-03-15 15:18:11.805] [info] Start layer /block/Constant_20
+[2026-03-15 15:18:11.806] [info] Layer /block/Constant_20 finish at 73554
+[2026-03-15 15:18:11.806] [info] Total compute time 18
+[2026-03-15 15:18:11.806] [info] executable layer count 13
+[2026-03-15 15:18:11.806] [info] Start layer /block/Constant_21
+[2026-03-15 15:18:11.806] [info] Layer /block/Constant_21 finish at 73573
+[2026-03-15 15:18:11.806] [info] Total compute time 19
+[2026-03-15 15:18:11.806] [info] executable layer count 12
+[2026-03-15 15:18:11.806] [info] Start layer /block/Constant_22
+[2026-03-15 15:18:11.806] [info] Layer /block/Constant_22 finish at 73591
+[2026-03-15 15:18:11.806] [info] Total compute time 18
+[2026-03-15 15:18:11.806] [info] executable layer count 11
+[2026-03-15 15:18:11.806] [info] Start layer /block/Constant_23
+[2026-03-15 15:18:11.806] [info] Layer /block/Constant_23 finish at 73610
+[2026-03-15 15:18:11.806] [info] Total compute time 19
+[2026-03-15 15:18:11.806] [info] executable layer count 10
+[2026-03-15 15:18:11.806] [info] Start layer /block/Exp
+[2026-03-15 15:18:11.811] [info] Layer /block/Exp finish at 73762
+[2026-03-15 15:18:11.812] [info] Total compute time 152
+[2026-03-15 15:18:11.812] [info] executable layer count 10
+[2026-03-15 15:18:11.812] [info] Start layer /block/Constant_24
+[2026-03-15 15:18:11.812] [info] Layer /block/Constant_24 finish at 73781
+[2026-03-15 15:18:11.812] [info] Total compute time 19
+[2026-03-15 15:18:11.812] [info] executable layer count 9
+[2026-03-15 15:18:11.812] [info] Start layer /block/Constant_25
+[2026-03-15 15:18:11.815] [info] Layer /block/Constant_25 finish at 73897
+[2026-03-15 15:18:11.815] [info] Total compute time 116
+[2026-03-15 15:18:11.815] [info] executable layer count 8
+[2026-03-15 15:18:11.815] [info] Start layer /block/Constant_26
+[2026-03-15 15:18:11.816] [info] Layer /block/Constant_26 finish at 73921
+[2026-03-15 15:18:11.816] [info] Total compute time 24
+[2026-03-15 15:18:11.816] [info] executable layer count 7
+[2026-03-15 15:18:11.816] [info] Start layer /block/Constant_27
+[2026-03-15 15:18:11.816] [info] Layer /block/Constant_27 finish at 73939
+[2026-03-15 15:18:11.816] [info] Total compute time 18
+[2026-03-15 15:18:11.816] [info] executable layer count 7
+[2026-03-15 15:18:11.816] [info] Start layer /block/Constant_28
+[2026-03-15 15:18:11.816] [info] Layer /block/Constant_28 finish at 73958
+[2026-03-15 15:18:11.816] [info] Total compute time 19
+[2026-03-15 15:18:11.816] [info] executable layer count 6
+[2026-03-15 15:18:11.816] [info] Start layer /block/Slice
+[2026-03-15 15:18:11.817] [info] Layer /block/Slice finish at 74010
+[2026-03-15 15:18:11.817] [info] Total compute time 52
+[2026-03-15 15:18:11.817] [info] executable layer count 5
+[2026-03-15 15:18:11.817] [info] Start layer /block/Slice_1
+[2026-03-15 15:18:11.818] [info] Layer /block/Slice_1 finish at 74057
+[2026-03-15 15:18:11.818] [info] Total compute time 47
+[2026-03-15 15:18:11.818] [info] executable layer count 5
+[2026-03-15 15:18:11.818] [info] Start layer /block/Sigmoid
+[2026-03-15 15:18:11.819] [info] Layer /block/Sigmoid finish at 74111
+[2026-03-15 15:18:11.819] [info] Total compute time 54
+[2026-03-15 15:18:11.819] [info] executable layer count 5
+[2026-03-15 15:18:11.819] [info] Start layer /block/Slice_2
+[2026-03-15 15:18:11.821] [info] Layer /block/Slice_2 finish at 74184
+[2026-03-15 15:18:11.821] [info] Total compute time 73
+[2026-03-15 15:18:11.821] [info] executable layer count 5
+[2026-03-15 15:18:11.821] [info] Start layer /block/Neg
+[2026-03-15 15:18:11.825] [info] Layer /block/Neg finish at 74359
+[2026-03-15 15:18:11.825] [info] Total compute time 175
+[2026-03-15 15:18:11.825] [info] executable layer count 4
+[2026-03-15 15:18:11.825] [info] Start layer /block/Reshape_3
+[2026-03-15 15:18:11.835] [info] Layer /block/Reshape_3 finish at 74646
+[2026-03-15 15:18:11.835] [info] Total compute time 287
+[2026-03-15 15:18:11.835] [info] executable layer count 3
+[2026-03-15 15:18:11.835] [info] Start layer /block/Sigmoid_1
+[2026-03-15 15:18:11.840] [info] Layer /block/Sigmoid_1 finish at 74829
+[2026-03-15 15:18:11.840] [info] Total compute time 183
+[2026-03-15 15:18:11.840] [info] executable layer count 3
+[2026-03-15 15:18:11.840] [info] Start layer /block/Mul
+[2026-03-15 15:18:11.842] [info] Layer /block/Mul finish at 74887
+[2026-03-15 15:18:11.842] [info] Total compute time 58
+[2026-03-15 15:18:11.842] [info] executable layer count 5
+[2026-03-15 15:18:11.842] [info] Start layer /block/Concat
+[2026-03-15 15:18:11.843] [info] Layer /block/Concat finish at 74955
+[2026-03-15 15:18:11.843] [info] Total compute time 68
+[2026-03-15 15:18:11.843] [info] executable layer count 4
+[2026-03-15 15:18:11.843] [info] Start layer /block/Mul_6
+[2026-03-15 15:18:11.846] [info] Layer /block/Mul_6 finish at 75046
+[2026-03-15 15:18:11.846] [info] Total compute time 91
+[2026-03-15 15:18:11.846] [info] executable layer count 3
+[2026-03-15 15:18:11.846] [info] Start layer /block/x_proj/Gemm
+[2026-03-15 15:18:11.893] [info] Layer /block/x_proj/Gemm finish at 77530
+[2026-03-15 15:18:11.893] [info] Total compute time 2484
+[2026-03-15 15:18:11.893] [info] executable layer count 5
+[2026-03-15 15:18:11.893] [info] Start layer /block/Reshape_2
+[2026-03-15 15:18:11.894] [info] Layer /block/Reshape_2 finish at 77563
+[2026-03-15 15:18:11.894] [info] Total compute time 33
+[2026-03-15 15:18:11.894] [info] executable layer count 4
+[2026-03-15 15:18:11.894] [info] Start layer /block/Mul_5
+[2026-03-15 15:18:11.896] [info] Layer /block/Mul_5 finish at 77637
+[2026-03-15 15:18:11.896] [info] Total compute time 74
+[2026-03-15 15:18:11.896] [info] executable layer count 3
+[2026-03-15 15:18:11.896] [info] Start layer /block/Slice_3
+[2026-03-15 15:18:11.896] [info] Layer /block/Slice_3 finish at 77656
+[2026-03-15 15:18:11.896] [info] Total compute time 19
+[2026-03-15 15:18:11.896] [info] executable layer count 3
+[2026-03-15 15:18:11.896] [info] Start layer /block/Slice_4
+[2026-03-15 15:18:11.897] [info] Layer /block/Slice_4 finish at 77681
+[2026-03-15 15:18:11.897] [info] Total compute time 25
+[2026-03-15 15:18:11.897] [info] executable layer count 3
+[2026-03-15 15:18:11.897] [info] Start layer /block/Slice_5
+[2026-03-15 15:18:11.897] [info] Layer /block/Slice_5 finish at 77699
+[2026-03-15 15:18:11.897] [info] Total compute time 18
+[2026-03-15 15:18:11.897] [info] executable layer count 3
+[2026-03-15 15:18:11.897] [info] Start layer /block/dt_proj/Gemm
+[2026-03-15 15:18:11.917] [info] Layer /block/dt_proj/Gemm finish at 78787
+[2026-03-15 15:18:11.917] [info] Total compute time 1088
+[2026-03-15 15:18:11.917] [info] executable layer count 3
+[2026-03-15 15:18:11.917] [info] Start layer /block/Reshape_1
+[2026-03-15 15:18:11.917] [info] Layer /block/Reshape_1 finish at 78811
+[2026-03-15 15:18:11.917] [info] Total compute time 24
+[2026-03-15 15:18:11.917] [info] executable layer count 2
+[2026-03-15 15:18:11.917] [info] Start layer /block/ssm_out/Gemm
+[2026-03-15 15:18:11.930] [info] Layer /block/ssm_out/Gemm finish at 79739
+[2026-03-15 15:18:11.930] [info] Total compute time 928
+[2026-03-15 15:18:11.930] [info] executable layer count 2
+[2026-03-15 15:18:11.930] [info] Start layer /block/Softplus
+[2026-03-15 15:18:11.931] [info] Layer /block/Softplus finish at 79773
+[2026-03-15 15:18:11.931] [info] Total compute time 34
+[2026-03-15 15:18:11.931] [info] executable layer count 2
+[2026-03-15 15:18:11.931] [info] Start layer /block/Add_1
+[2026-03-15 15:18:11.932] [info] Layer /block/Add_1 finish at 79825
+[2026-03-15 15:18:11.932] [info] Total compute time 52
+[2026-03-15 15:18:11.932] [info] executable layer count 2
+[2026-03-15 15:18:11.932] [info] Start layer /block/Reshape
+[2026-03-15 15:18:11.933] [info] Layer /block/Reshape finish at 79860
+[2026-03-15 15:18:11.933] [info] Total compute time 35
+[2026-03-15 15:18:11.933] [info] executable layer count 3
+[2026-03-15 15:18:11.933] [info] Start layer /block/Mul_7
+[2026-03-15 15:18:11.934] [info] Layer /block/Mul_7 finish at 79928
+[2026-03-15 15:18:11.934] [info] Total compute time 68
+[2026-03-15 15:18:11.934] [info] executable layer count 3
+[2026-03-15 15:18:11.934] [info] Start layer /block/Mul_1
+[2026-03-15 15:18:11.936] [info] HBM2-CH_0: BW utilization 19% (1397 reads, 449 writes)
+[2026-03-15 15:18:11.936] [info] Tile  status /block/Mul_1, instructions left 2
+[2026-03-15 15:18:11.936] [info] Core [0] Tile Stats | Issued: 25 Running: 1 Finished: 24
+[2026-03-15 15:18:11.936] [info] cycle: [80000]
+[2026-03-15 15:18:11.937] [info] Tile  status /block/Mul_1, instructions left 2
+[2026-03-15 15:18:11.937] [info] Tile  status /block/Mul_1, instructions left 2
+[2026-03-15 15:18:11.937] [info] Core [1] Tile Stats | Issued: 25 Running: 2 Finished: 23
+[2026-03-15 15:18:11.937] [info] cycle: [80000]
+[2026-03-15 15:18:11.937] [info] Tile  status /block/Mul_1, instructions left 2
+[2026-03-15 15:18:11.937] [info] Tile  status /block/Mul_1, instructions left 2
+[2026-03-15 15:18:11.937] [info] Core [2] Tile Stats | Issued: 25 Running: 2 Finished: 23
+[2026-03-15 15:18:11.937] [info] cycle: [80000]
+[2026-03-15 15:18:11.937] [info] Tile  status /block/Mul_1, instructions left 2
+[2026-03-15 15:18:11.937] [info] Core [3] Tile Stats | Issued: 25 Running: 1 Finished: 24
+[2026-03-15 15:18:11.937] [info] cycle: [80000]
+[2026-03-15 15:18:11.944] [info] Layer /block/Mul_1 finish at 80233
+[2026-03-15 15:18:11.944] [info] Total compute time 305
+[2026-03-15 15:18:11.944] [info] executable layer count 3
+[2026-03-15 15:18:11.944] [info] Start layer /block/Mul_2
+[2026-03-15 15:18:11.945] [info] Layer /block/Mul_2 finish at 80286
+[2026-03-15 15:18:11.945] [info] Total compute time 53
+[2026-03-15 15:18:11.945] [info] executable layer count 3
+[2026-03-15 15:18:11.945] [info] Start layer /block/out_proj/Gemm
+[2026-03-15 15:18:12.328] [info] Layer /block/out_proj/Gemm finish at 87598
+[2026-03-15 15:18:12.328] [info] Total compute time 7312
+[2026-03-15 15:18:12.328] [info] executable layer count 2
+[2026-03-15 15:18:12.328] [info] Start layer /block/Exp_1
+[2026-03-15 15:18:12.333] [info] Layer /block/Exp_1 finish at 87754
+[2026-03-15 15:18:12.333] [info] Total compute time 156
+[2026-03-15 15:18:12.333] [info] executable layer count 2
+[2026-03-15 15:18:12.333] [info] Start layer /block/Mul_4
+[2026-03-15 15:18:12.337] [info] Layer /block/Mul_4 finish at 87903
+[2026-03-15 15:18:12.337] [info] Total compute time 149
+[2026-03-15 15:18:12.337] [info] executable layer count 1
+[2026-03-15 15:18:12.337] [info] Start layer /block/Mul_3
+[2026-03-15 15:18:12.338] [info] HBM2-CH_0: BW utilization 54% (4984 reads, 211 writes)
+[2026-03-15 15:18:12.339] [info] Tile  status /block/Mul_3, instructions left 2
+[2026-03-15 15:18:12.339] [info] Tile  status /block/Mul_3, instructions left 2
+[2026-03-15 15:18:12.339] [info] Core [0] Tile Stats | Issued: 29 Running: 2 Finished: 27
+[2026-03-15 15:18:12.339] [info] cycle: [88000]
+[2026-03-15 15:18:12.339] [info] Tile  status /block/Mul_3, instructions left 2
+[2026-03-15 15:18:12.339] [info] Tile  status /block/Mul_3, instructions left 2
+[2026-03-15 15:18:12.339] [info] Core [1] Tile Stats | Issued: 29 Running: 2 Finished: 27
+[2026-03-15 15:18:12.339] [info] cycle: [88000]
+[2026-03-15 15:18:12.339] [info] Tile  status /block/Mul_3, instructions left 2
+[2026-03-15 15:18:12.339] [info] Core [2] Tile Stats | Issued: 28 Running: 1 Finished: 27
+[2026-03-15 15:18:12.339] [info] cycle: [88000]
+[2026-03-15 15:18:12.339] [info] Tile  status /block/Mul_3, instructions left 2
+[2026-03-15 15:18:12.339] [info] Core [3] Tile Stats | Issued: 29 Running: 1 Finished: 28
+[2026-03-15 15:18:12.339] [info] cycle: [88000]
+[2026-03-15 15:18:12.346] [info] Layer /block/Mul_3 finish at 88216
+[2026-03-15 15:18:12.346] [info] Total compute time 313
+[2026-03-15 15:18:12.346] [info] executable layer count 1
+[2026-03-15 15:18:12.346] [info] Start layer /block/Add
+[2026-03-15 15:18:12.349] [info] Layer /block/Add finish at 88362
+[2026-03-15 15:18:12.349] [info] Total compute time 146
+[2026-03-15 15:18:12.349] [info] executable layer count 1
+[2026-03-15 15:18:12.349] [info] Start layer /block/Reshape_4
+[2026-03-15 15:18:12.355] [info] Layer /block/Reshape_4 finish at 88568
+[2026-03-15 15:18:12.355] [info] Total compute time 206
+[2026-03-15 15:18:12.355] [info] Model[mamba-130m-single] Request: 0 us, Start: 0 us, finish:88 us, Current Cycle:88568
+[2026-03-15 15:18:12.355] [info] No total_seq_len!
+[2026-03-15 15:18:12.359] [info] Simulation Finished at 88703 cycle 88 us
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:12.359] [info] Row hits: 44427, Row misses: 654, Row conflicts: 9014
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 977
+  total_num_read_requests: 53142
+  memory_system_cycles: 106485
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+[2026-03-15 15:18:12.359] [info] HBM2-CH_0: avg BW utilization 50% (53142 reads, 977 writes)
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:12.359] [info] Row hits: 44636, Row misses: 549, Row conflicts: 8870
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 970
+  total_num_read_requests: 53109
+  memory_system_cycles: 106485
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:12.359] [info] Row hits: 44732, Row misses: 595, Row conflicts: 8720
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 969
+  total_num_read_requests: 53106
+  memory_system_cycles: 106485
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:12.359] [info] Row hits: 44456, Row misses: 552, Row conflicts: 9067
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 975
+  total_num_read_requests: 53125
+  memory_system_cycles: 106485
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:12.359] [info] Row hits: 44593, Row misses: 555, Row conflicts: 8892
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 968
+  total_num_read_requests: 53106
+  memory_system_cycles: 106485
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:12.360] [info] Row hits: 44587, Row misses: 440, Row conflicts: 9052
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 975
+  total_num_read_requests: 53126
+  memory_system_cycles: 106485
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:12.360] [info] Row hits: 44132, Row misses: 418, Row conflicts: 9528
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 975
+  total_num_read_requests: 53125
+  memory_system_cycles: 106485
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:12.360] [info] Row hits: 44610, Row misses: 432, Row conflicts: 9013
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 969
+  total_num_read_requests: 53118
+  memory_system_cycles: 106485
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:12.360] [info] Row hits: 44261, Row misses: 610, Row conflicts: 9185
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 971
+  total_num_read_requests: 53109
+  memory_system_cycles: 106485
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:12.360] [info] Row hits: 44561, Row misses: 686, Row conflicts: 8819
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 977
+  total_num_read_requests: 53113
+  memory_system_cycles: 106485
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:12.360] [info] Row hits: 44518, Row misses: 605, Row conflicts: 8940
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 973
+  total_num_read_requests: 53113
+  memory_system_cycles: 106485
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:12.360] [info] Row hits: 44772, Row misses: 589, Row conflicts: 8695
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 971
+  total_num_read_requests: 53109
+  memory_system_cycles: 106485
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:12.360] [info] Row hits: 44537, Row misses: 698, Row conflicts: 8836
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 974
+  total_num_read_requests: 53119
+  memory_system_cycles: 106485
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:12.360] [info] Row hits: 44410, Row misses: 472, Row conflicts: 9173
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 969
+  total_num_read_requests: 53110
+  memory_system_cycles: 106485
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:12.360] [info] Row hits: 44442, Row misses: 510, Row conflicts: 9104
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 971
+  total_num_read_requests: 53109
+  memory_system_cycles: 106485
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:12.360] [info] Row hits: 44240, Row misses: 533, Row conflicts: 9293
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 974
+  total_num_read_requests: 53114
+  memory_system_cycles: 106485
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Object Size Histogram
+393216 bytes : 73728  cumulative_bytes: 28991029248
+3072 bytes : 2976  cumulative_bytes: 29000171520
+160 bytes : 50  cumulative_bytes: 29000179520
+256 bytes : 1056  cumulative_bytes: 29000449856
+196608 bytes : 147456  cumulative_bytes: 57991479104
+1536 bytes : 288  cumulative_bytes: 57991921472
+32 bytes : 77  cumulative_bytes: 57991923936
+1572864 bytes : 589824  cumulative_bytes: 985704859872
+12288 bytes : 10752  cumulative_bytes: 985836980448
+49152 bytes : 15360  cumulative_bytes: 986591955168
+6144 bytes : 2304  cumulative_bytes: 986606110944
+8192 bytes : 12288  cumulative_bytes: 986706774240
+245760 bytes : 7680  cumulative_bytes: 988594211040
+96 bytes : 36  cumulative_bytes: 988594214496
+4096 bytes : 1536  cumulative_bytes: 988600505952
+[2026-03-15 15:18:12.360] [info] Register model: mamba-370m-single
+[2026-03-15 15:18:12.360] [info] Model Name
+[2026-03-15 15:18:12.416] [info] has_l2,[false]
+[2026-03-15 15:18:12.416] [info] ======Start Simulation=====
+[2026-03-15 15:18:12.417] [info] Model Name: mamba-370m-single model started
+[2026-03-15 15:18:12.492] [info] [GemmWs] Keys K = 1024, N = 1, M = 4096
+[2026-03-15 15:18:12.492] [info] [GemmWS]: total 0.008392704 GFLOPs, 0.00840704 GB
+[2026-03-15 15:18:12.492] [info] [GemmWS]: Theoretical time(ms): 0.013692247193830553 Compute time: 6.403124785947512e-05 Memory time: 0.013692247193830553
+[2026-03-15 15:18:12.615] [info] [GemmWs] Keys K = 8192, N = 1, M = 2048
+[2026-03-15 15:18:12.615] [info] [GemmWS]: total 0.03355648 GFLOPs, 0.03357901 GB
+[2026-03-15 15:18:12.615] [info] [GemmWS]: Theoretical time(ms): 0.054688942327629775 Compute time: 0.00025601562470001227 Memory time: 0.054688942327629775
+[2026-03-15 15:18:12.616] [info] [GemmWs] Keys K = 2048, N = 1, M = 96
+[2026-03-15 15:18:12.616] [info] [GemmWS]: total 0.00039331202 GFLOPs, 0.00039769599 GB
+[2026-03-15 15:18:12.616] [info] [GemmWS]: Theoretical time(ms): 0.0006477133069893171 Compute time: 3.0007325513281558e-06 Memory time: 0.0006477133069893171
+[2026-03-15 15:18:12.617] [info] [GemmWs] Keys K = 64, N = 1, M = 2048
+[2026-03-15 15:18:12.617] [info] [GemmWS]: total 0.000264192 GFLOPs, 0.000270464 GB
+[2026-03-15 15:18:12.617] [info] [GemmWS]: Theoretical time(ms): 0.00044049511416233145 Compute time: 2.0156250002401066e-06 Memory time: 0.00044049511416233145
+[2026-03-15 15:18:12.620] [info] [GemmWs] Keys K = 16, N = 1, M = 2048
+[2026-03-15 15:18:12.620] [info] [GemmWS]: total 6.7584e-05 GFLOPs, 7.376e-05 GB
+[2026-03-15 15:18:12.620] [info] [GemmWS]: Theoretical time(ms): 0.00012013029504487349 Compute time: 5.156249871518526e-07 Memory time: 0.00012013029504487349
+[2026-03-15 15:18:12.635] [info] [GemmWs] Keys K = 2048, N = 1, M = 1024
+[2026-03-15 15:18:12.635] [info] [GemmWS]: total 0.004195328 GFLOPs, 0.004202496 GB
+[2026-03-15 15:18:12.635] [info] [GemmWS]: Theoretical time(ms): 0.006844455583632225 Compute time: 3.2007811512357875e-05 Memory time: 0.006844455583632225
+[2026-03-15 15:18:12.635] [info] ./models/mamba-370m-single/mamba-370m-single.onnx Model initialization time: 0.218516 seconds
+[2026-03-15 15:18:12.637] [info] Schedule model: mamba-370m-single at 88704000 us
+[2026-03-15 15:18:12.637] [info] MODEL mamba-370m-single Scheduled, Total Request: 1
+[2026-03-15 15:18:12.637] [info] executable layer count 33
+[2026-03-15 15:18:12.637] [info] Start layer Identity_29
+[2026-03-15 15:18:12.638] [info] Layer Identity_29 finish at 88745
+[2026-03-15 15:18:12.638] [info] Total compute time 42
+[2026-03-15 15:18:12.638] [info] executable layer count 32
+[2026-03-15 15:18:12.638] [info] Start layer /block/in_proj/Gemm
+[2026-03-15 15:18:13.062] [info] HBM2-CH_0: BW utilization 54% (5249 reads, 0 writes)
+[2026-03-15 15:18:13.064] [info] Tile  status Gemm, instructions left 11
+[2026-03-15 15:18:13.064] [info] Tile  status Gemm, instructions left 27
+[2026-03-15 15:18:13.064] [info] Core [0] Tile Stats | Issued: 33 Running: 2 Finished: 31
+[2026-03-15 15:18:13.064] [info] cycle: [96000]
+[2026-03-15 15:18:13.064] [info] Tile  status Gemm, instructions left 11
+[2026-03-15 15:18:13.064] [info] Tile  status Gemm, instructions left 27
+[2026-03-15 15:18:13.064] [info] Core [1] Tile Stats | Issued: 33 Running: 2 Finished: 31
+[2026-03-15 15:18:13.064] [info] cycle: [96000]
+[2026-03-15 15:18:13.064] [info] Tile  status Gemm, instructions left 11
+[2026-03-15 15:18:13.064] [info] Tile  status Gemm, instructions left 27
+[2026-03-15 15:18:13.064] [info] Core [2] Tile Stats | Issued: 32 Running: 2 Finished: 30
+[2026-03-15 15:18:13.064] [info] cycle: [96000]
+[2026-03-15 15:18:13.064] [info] Tile  status Gemm, instructions left 11
+[2026-03-15 15:18:13.064] [info] Tile  status Gemm, instructions left 27
+[2026-03-15 15:18:13.064] [info] Core [3] Tile Stats | Issued: 33 Running: 2 Finished: 31
+[2026-03-15 15:18:13.064] [info] cycle: [96000]
+[2026-03-15 15:18:13.555] [info] HBM2-CH_0: BW utilization 60% (5762 reads, 0 writes)
+[2026-03-15 15:18:13.558] [info] Tile  status Gemm, instructions left 11
+[2026-03-15 15:18:13.558] [info] Tile  status Gemm, instructions left 18
+[2026-03-15 15:18:13.558] [info] Core [0] Tile Stats | Issued: 34 Running: 2 Finished: 32
+[2026-03-15 15:18:13.558] [info] cycle: [104000]
+[2026-03-15 15:18:13.558] [info] Tile  status Gemm, instructions left 11
+[2026-03-15 15:18:13.558] [info] Core [1] Tile Stats | Issued: 33 Running: 1 Finished: 32
+[2026-03-15 15:18:13.558] [info] cycle: [104000]
+[2026-03-15 15:18:13.558] [info] Tile  status Gemm, instructions left 11
+[2026-03-15 15:18:13.558] [info] Tile  status Gemm, instructions left 27
+[2026-03-15 15:18:13.558] [info] Core [2] Tile Stats | Issued: 33 Running: 2 Finished: 31
+[2026-03-15 15:18:13.558] [info] cycle: [104000]
+[2026-03-15 15:18:13.558] [info] Tile  status Gemm, instructions left 11
+[2026-03-15 15:18:13.558] [info] Tile  status Gemm, instructions left 27
+[2026-03-15 15:18:13.558] [info] Core [3] Tile Stats | Issued: 34 Running: 2 Finished: 32
+[2026-03-15 15:18:13.558] [info] cycle: [104000]
+[2026-03-15 15:18:14.022] [info] HBM2-CH_0: BW utilization 56% (5441 reads, 23 writes)
+[2026-03-15 15:18:14.023] [info] Core [0] Tile Stats | Issued: 34 Running: 0 Finished: 34
+[2026-03-15 15:18:14.023] [info] cycle: [112000]
+[2026-03-15 15:18:14.023] [info] Core [1] Tile Stats | Issued: 33 Running: 0 Finished: 33
+[2026-03-15 15:18:14.023] [info] cycle: [112000]
+[2026-03-15 15:18:14.023] [info] Tile  status Gemm, instructions left 1
+[2026-03-15 15:18:14.023] [info] Core [2] Tile Stats | Issued: 33 Running: 1 Finished: 32
+[2026-03-15 15:18:14.023] [info] cycle: [112000]
+[2026-03-15 15:18:14.023] [info] Tile  status Gemm, instructions left 1
+[2026-03-15 15:18:14.023] [info] Core [3] Tile Stats | Issued: 34 Running: 1 Finished: 33
+[2026-03-15 15:18:14.023] [info] cycle: [112000]
+[2026-03-15 15:18:14.029] [info] Layer /block/in_proj/Gemm finish at 112549
+[2026-03-15 15:18:14.029] [info] Total compute time 23804
+[2026-03-15 15:18:14.029] [info] executable layer count 31
+[2026-03-15 15:18:14.029] [info] Start layer /block/Constant
+[2026-03-15 15:18:14.029] [info] Layer /block/Constant finish at 112593
+[2026-03-15 15:18:14.029] [info] Total compute time 44
+[2026-03-15 15:18:14.029] [info] executable layer count 30
+[2026-03-15 15:18:14.029] [info] Start layer /block/Constant_1
+[2026-03-15 15:18:14.029] [info] Layer /block/Constant_1 finish at 112611
+[2026-03-15 15:18:14.029] [info] Total compute time 18
+[2026-03-15 15:18:14.029] [info] executable layer count 29
+[2026-03-15 15:18:14.029] [info] Start layer /block/Constant_2
+[2026-03-15 15:18:14.030] [info] Layer /block/Constant_2 finish at 112629
+[2026-03-15 15:18:14.030] [info] Total compute time 18
+[2026-03-15 15:18:14.030] [info] executable layer count 28
+[2026-03-15 15:18:14.030] [info] Start layer /block/Constant_3
+[2026-03-15 15:18:14.030] [info] Layer /block/Constant_3 finish at 112648
+[2026-03-15 15:18:14.030] [info] Total compute time 19
+[2026-03-15 15:18:14.030] [info] executable layer count 28
+[2026-03-15 15:18:14.030] [info] Start layer /block/Constant_4
+[2026-03-15 15:18:14.030] [info] Layer /block/Constant_4 finish at 112666
+[2026-03-15 15:18:14.030] [info] Total compute time 18
+[2026-03-15 15:18:14.030] [info] executable layer count 27
+[2026-03-15 15:18:14.030] [info] Start layer /block/Constant_5
+[2026-03-15 15:18:14.030] [info] Layer /block/Constant_5 finish at 112684
+[2026-03-15 15:18:14.030] [info] Total compute time 18
+[2026-03-15 15:18:14.030] [info] executable layer count 26
+[2026-03-15 15:18:14.030] [info] Start layer /block/Constant_6
+[2026-03-15 15:18:14.031] [info] Layer /block/Constant_6 finish at 112702
+[2026-03-15 15:18:14.031] [info] Total compute time 18
+[2026-03-15 15:18:14.031] [info] executable layer count 25
+[2026-03-15 15:18:14.031] [info] Start layer /block/Constant_7
+[2026-03-15 15:18:14.031] [info] Layer /block/Constant_7 finish at 112721
+[2026-03-15 15:18:14.031] [info] Total compute time 19
+[2026-03-15 15:18:14.031] [info] executable layer count 25
+[2026-03-15 15:18:14.031] [info] Start layer /block/conv_proj/Gemm
+[2026-03-15 15:18:14.541] [info] HBM2-CH_0: BW utilization 62% (5974 reads, 2 writes)
+[2026-03-15 15:18:14.545] [info] Tile  status Gemm, instructions left 132
+[2026-03-15 15:18:14.545] [info] Tile  status Gemm, instructions left 132
+[2026-03-15 15:18:14.545] [info] Core [0] Tile Stats | Issued: 38 Running: 2 Finished: 36
+[2026-03-15 15:18:14.545] [info] cycle: [120000]
+[2026-03-15 15:18:14.545] [info] Tile  status Gemm, instructions left 128
+[2026-03-15 15:18:14.545] [info] Tile  status Gemm, instructions left 128
+[2026-03-15 15:18:14.545] [info] Core [1] Tile Stats | Issued: 37 Running: 2 Finished: 35
+[2026-03-15 15:18:14.545] [info] cycle: [120000]
+[2026-03-15 15:18:14.545] [info] Tile  status Gemm, instructions left 132
+[2026-03-15 15:18:14.545] [info] Tile  status Gemm, instructions left 132
+[2026-03-15 15:18:14.545] [info] Core [2] Tile Stats | Issued: 37 Running: 2 Finished: 35
+[2026-03-15 15:18:14.545] [info] cycle: [120000]
+[2026-03-15 15:18:14.545] [info] Tile  status Gemm, instructions left 128
+[2026-03-15 15:18:14.545] [info] Tile  status Gemm, instructions left 128
+[2026-03-15 15:18:14.545] [info] Core [3] Tile Stats | Issued: 38 Running: 2 Finished: 36
+[2026-03-15 15:18:14.545] [info] cycle: [120000]
+[2026-03-15 15:18:15.096] [info] HBM2-CH_0: BW utilization 66% (6431 reads, 0 writes)
+[2026-03-15 15:18:15.100] [info] Tile  status Gemm, instructions left 100
+[2026-03-15 15:18:15.100] [info] Tile  status Gemm, instructions left 132
+[2026-03-15 15:18:15.100] [info] Core [0] Tile Stats | Issued: 38 Running: 2 Finished: 36
+[2026-03-15 15:18:15.100] [info] cycle: [128000]
+[2026-03-15 15:18:15.100] [info] Tile  status Gemm, instructions left 96
+[2026-03-15 15:18:15.100] [info] Tile  status Gemm, instructions left 128
+[2026-03-15 15:18:15.100] [info] Core [1] Tile Stats | Issued: 37 Running: 2 Finished: 35
+[2026-03-15 15:18:15.100] [info] cycle: [128000]
+[2026-03-15 15:18:15.100] [info] Tile  status Gemm, instructions left 100
+[2026-03-15 15:18:15.100] [info] Tile  status Gemm, instructions left 132
+[2026-03-15 15:18:15.100] [info] Core [2] Tile Stats | Issued: 37 Running: 2 Finished: 35
+[2026-03-15 15:18:15.100] [info] cycle: [128000]
+[2026-03-15 15:18:15.100] [info] Tile  status Gemm, instructions left 96
+[2026-03-15 15:18:15.100] [info] Tile  status Gemm, instructions left 128
+[2026-03-15 15:18:15.100] [info] Core [3] Tile Stats | Issued: 38 Running: 2 Finished: 36
+[2026-03-15 15:18:15.100] [info] cycle: [128000]
+[2026-03-15 15:18:15.680] [info] HBM2-CH_0: BW utilization 65% (6256 reads, 0 writes)
+[2026-03-15 15:18:15.684] [info] Tile  status Gemm, instructions left 68
+[2026-03-15 15:18:15.690] [info] Tile  status Gemm, instructions left 132
+[2026-03-15 15:18:15.690] [info] Core [0] Tile Stats | Issued: 38 Running: 2 Finished: 36
+[2026-03-15 15:18:15.690] [info] cycle: [136000]
+[2026-03-15 15:18:15.690] [info] Tile  status Gemm, instructions left 64
+[2026-03-15 15:18:15.690] [info] Tile  status Gemm, instructions left 128
+[2026-03-15 15:18:15.690] [info] Core [1] Tile Stats | Issued: 37 Running: 2 Finished: 35
+[2026-03-15 15:18:15.690] [info] cycle: [136000]
+[2026-03-15 15:18:15.690] [info] Tile  status Gemm, instructions left 68
+[2026-03-15 15:18:15.690] [info] Tile  status Gemm, instructions left 132
+[2026-03-15 15:18:15.690] [info] Core [2] Tile Stats | Issued: 37 Running: 2 Finished: 35
+[2026-03-15 15:18:15.690] [info] cycle: [136000]
+[2026-03-15 15:18:15.690] [info] Tile  status Gemm, instructions left 64
+[2026-03-15 15:18:15.690] [info] Tile  status Gemm, instructions left 128
+[2026-03-15 15:18:15.690] [info] Core [3] Tile Stats | Issued: 38 Running: 2 Finished: 36
+[2026-03-15 15:18:15.690] [info] cycle: [136000]
+[2026-03-15 15:18:16.368] [info] HBM2-CH_0: BW utilization 64% (6204 reads, 0 writes)
+[2026-03-15 15:18:16.373] [info] Tile  status Gemm, instructions left 36
+[2026-03-15 15:18:16.373] [info] Tile  status Gemm, instructions left 132
+[2026-03-15 15:18:16.373] [info] Core [0] Tile Stats | Issued: 38 Running: 2 Finished: 36
+[2026-03-15 15:18:16.373] [info] cycle: [144000]
+[2026-03-15 15:18:16.373] [info] Tile  status Gemm, instructions left 32
+[2026-03-15 15:18:16.373] [info] Tile  status Gemm, instructions left 128
+[2026-03-15 15:18:16.373] [info] Core [1] Tile Stats | Issued: 37 Running: 2 Finished: 35
+[2026-03-15 15:18:16.373] [info] cycle: [144000]
+[2026-03-15 15:18:16.373] [info] Tile  status Gemm, instructions left 36
+[2026-03-15 15:18:16.373] [info] Tile  status Gemm, instructions left 132
+[2026-03-15 15:18:16.373] [info] Core [2] Tile Stats | Issued: 37 Running: 2 Finished: 35
+[2026-03-15 15:18:16.373] [info] cycle: [144000]
+[2026-03-15 15:18:16.373] [info] Tile  status Gemm, instructions left 32
+[2026-03-15 15:18:16.373] [info] Tile  status Gemm, instructions left 128
+[2026-03-15 15:18:16.373] [info] Core [3] Tile Stats | Issued: 38 Running: 2 Finished: 36
+[2026-03-15 15:18:16.373] [info] cycle: [144000]
+[2026-03-15 15:18:16.928] [info] HBM2-CH_0: BW utilization 65% (6274 reads, 0 writes)
+[2026-03-15 15:18:16.933] [info] Tile  status Gemm, instructions left 36
+[2026-03-15 15:18:16.933] [info] Tile  status Gemm, instructions left 132
+[2026-03-15 15:18:16.933] [info] Core [0] Tile Stats | Issued: 38 Running: 2 Finished: 36
+[2026-03-15 15:18:16.933] [info] cycle: [152000]
+[2026-03-15 15:18:16.933] [info] Tile  status Gemm, instructions left 32
+[2026-03-15 15:18:16.933] [info] Tile  status Gemm, instructions left 128
+[2026-03-15 15:18:16.933] [info] Core [1] Tile Stats | Issued: 37 Running: 2 Finished: 35
+[2026-03-15 15:18:16.933] [info] cycle: [152000]
+[2026-03-15 15:18:16.933] [info] Tile  status Gemm, instructions left 36
+[2026-03-15 15:18:16.933] [info] Tile  status Gemm, instructions left 132
+[2026-03-15 15:18:16.933] [info] Core [2] Tile Stats | Issued: 37 Running: 2 Finished: 35
+[2026-03-15 15:18:16.933] [info] cycle: [152000]
+[2026-03-15 15:18:16.933] [info] Tile  status Gemm, instructions left 32
+[2026-03-15 15:18:16.933] [info] Tile  status Gemm, instructions left 128
+[2026-03-15 15:18:16.933] [info] Core [3] Tile Stats | Issued: 38 Running: 2 Finished: 36
+[2026-03-15 15:18:16.933] [info] cycle: [152000]
+[2026-03-15 15:18:17.513] [info] HBM2-CH_0: BW utilization 64% (6207 reads, 0 writes)
+[2026-03-15 15:18:17.518] [info] Tile  status Gemm, instructions left 132
+[2026-03-15 15:18:17.518] [info] Core [0] Tile Stats | Issued: 38 Running: 1 Finished: 37
+[2026-03-15 15:18:17.518] [info] cycle: [160000]
+[2026-03-15 15:18:17.518] [info] Tile  status Gemm, instructions left 128
+[2026-03-15 15:18:17.518] [info] Core [1] Tile Stats | Issued: 37 Running: 1 Finished: 36
+[2026-03-15 15:18:17.518] [info] cycle: [160000]
+[2026-03-15 15:18:17.518] [info] Tile  status Gemm, instructions left 132
+[2026-03-15 15:18:17.518] [info] Core [2] Tile Stats | Issued: 37 Running: 1 Finished: 36
+[2026-03-15 15:18:17.518] [info] cycle: [160000]
+[2026-03-15 15:18:17.518] [info] Tile  status Gemm, instructions left 128
+[2026-03-15 15:18:17.518] [info] Core [3] Tile Stats | Issued: 38 Running: 1 Finished: 37
+[2026-03-15 15:18:17.518] [info] cycle: [160000]
+[2026-03-15 15:18:18.152] [info] HBM2-CH_0: BW utilization 63% (6108 reads, 0 writes)
+[2026-03-15 15:18:18.158] [info] Tile  status Gemm, instructions left 100
+[2026-03-15 15:18:18.158] [info] Core [0] Tile Stats | Issued: 38 Running: 1 Finished: 37
+[2026-03-15 15:18:18.158] [info] cycle: [168000]
+[2026-03-15 15:18:18.158] [info] Tile  status Gemm, instructions left 96
+[2026-03-15 15:18:18.158] [info] Core [1] Tile Stats | Issued: 37 Running: 1 Finished: 36
+[2026-03-15 15:18:18.158] [info] cycle: [168000]
+[2026-03-15 15:18:18.158] [info] Tile  status Gemm, instructions left 100
+[2026-03-15 15:18:18.158] [info] Core [2] Tile Stats | Issued: 37 Running: 1 Finished: 36
+[2026-03-15 15:18:18.158] [info] cycle: [168000]
+[2026-03-15 15:18:18.158] [info] Tile  status Gemm, instructions left 96
+[2026-03-15 15:18:18.158] [info] Core [3] Tile Stats | Issued: 38 Running: 1 Finished: 37
+[2026-03-15 15:18:18.158] [info] cycle: [168000]
+[2026-03-15 15:18:18.771] [info] HBM2-CH_0: BW utilization 61% (5914 reads, 0 writes)
+[2026-03-15 15:18:18.778] [info] Tile  status Gemm, instructions left 100
+[2026-03-15 15:18:18.778] [info] Core [0] Tile Stats | Issued: 38 Running: 1 Finished: 37
+[2026-03-15 15:18:18.778] [info] cycle: [176000]
+[2026-03-15 15:18:18.778] [info] Tile  status Gemm, instructions left 96
+[2026-03-15 15:18:18.778] [info] Core [1] Tile Stats | Issued: 37 Running: 1 Finished: 36
+[2026-03-15 15:18:18.778] [info] cycle: [176000]
+[2026-03-15 15:18:18.778] [info] Tile  status Gemm, instructions left 100
+[2026-03-15 15:18:18.778] [info] Core [2] Tile Stats | Issued: 37 Running: 1 Finished: 36
+[2026-03-15 15:18:18.778] [info] cycle: [176000]
+[2026-03-15 15:18:18.778] [info] Tile  status Gemm, instructions left 96
+[2026-03-15 15:18:18.778] [info] Core [3] Tile Stats | Issued: 38 Running: 1 Finished: 37
+[2026-03-15 15:18:18.778] [info] cycle: [176000]
+[2026-03-15 15:18:19.425] [info] HBM2-CH_0: BW utilization 62% (5976 reads, 0 writes)
+[2026-03-15 15:18:19.432] [info] Tile  status Gemm, instructions left 68
+[2026-03-15 15:18:19.432] [info] Core [0] Tile Stats | Issued: 38 Running: 1 Finished: 37
+[2026-03-15 15:18:19.432] [info] cycle: [184000]
+[2026-03-15 15:18:19.432] [info] Tile  status Gemm, instructions left 64
+[2026-03-15 15:18:19.432] [info] Core [1] Tile Stats | Issued: 37 Running: 1 Finished: 36
+[2026-03-15 15:18:19.432] [info] cycle: [184000]
+[2026-03-15 15:18:19.432] [info] Tile  status Gemm, instructions left 68
+[2026-03-15 15:18:19.432] [info] Core [2] Tile Stats | Issued: 37 Running: 1 Finished: 36
+[2026-03-15 15:18:19.432] [info] cycle: [184000]
+[2026-03-15 15:18:19.432] [info] Tile  status Gemm, instructions left 64
+[2026-03-15 15:18:19.432] [info] Core [3] Tile Stats | Issued: 38 Running: 1 Finished: 37
+[2026-03-15 15:18:19.432] [info] cycle: [184000]
+[2026-03-15 15:18:20.119] [info] HBM2-CH_0: BW utilization 61% (5880 reads, 0 writes)
+[2026-03-15 15:18:20.125] [info] Tile  status Gemm, instructions left 36
+[2026-03-15 15:18:20.125] [info] Core [0] Tile Stats | Issued: 38 Running: 1 Finished: 37
+[2026-03-15 15:18:20.125] [info] cycle: [192000]
+[2026-03-15 15:18:20.125] [info] Tile  status Gemm, instructions left 32
+[2026-03-15 15:18:20.125] [info] Core [1] Tile Stats | Issued: 37 Running: 1 Finished: 36
+[2026-03-15 15:18:20.125] [info] cycle: [192000]
+[2026-03-15 15:18:20.125] [info] Tile  status Gemm, instructions left 36
+[2026-03-15 15:18:20.125] [info] Core [2] Tile Stats | Issued: 37 Running: 1 Finished: 36
+[2026-03-15 15:18:20.125] [info] cycle: [192000]
+[2026-03-15 15:18:20.125] [info] Tile  status Gemm, instructions left 32
+[2026-03-15 15:18:20.125] [info] Core [3] Tile Stats | Issued: 38 Running: 1 Finished: 37
+[2026-03-15 15:18:20.125] [info] cycle: [192000]
+[2026-03-15 15:18:20.548] [info] HBM2-CH_0: BW utilization 46% (4456 reads, 8 writes)
+[2026-03-15 15:18:20.548] [info] Tile  status Gemm, instructions left 1
+[2026-03-15 15:18:20.548] [info] Core [0] Tile Stats | Issued: 38 Running: 1 Finished: 37
+[2026-03-15 15:18:20.548] [info] cycle: [200000]
+[2026-03-15 15:18:20.548] [info] Tile  status Gemm, instructions left 0
+[2026-03-15 15:18:20.548] [info] Core [1] Tile Stats | Issued: 37 Running: 1 Finished: 36
+[2026-03-15 15:18:20.548] [info] cycle: [200000]
+[2026-03-15 15:18:20.548] [info] Tile  status Gemm, instructions left 1
+[2026-03-15 15:18:20.548] [info] Core [2] Tile Stats | Issued: 37 Running: 1 Finished: 36
+[2026-03-15 15:18:20.548] [info] cycle: [200000]
+[2026-03-15 15:18:20.548] [info] Tile  status Gemm, instructions left 0
+[2026-03-15 15:18:20.548] [info] Core [3] Tile Stats | Issued: 38 Running: 1 Finished: 37
+[2026-03-15 15:18:20.548] [info] cycle: [200000]
+[2026-03-15 15:18:20.586] [info] Layer /block/conv_proj/Gemm finish at 203388
+[2026-03-15 15:18:20.586] [info] Total compute time 90667
+[2026-03-15 15:18:20.586] [info] executable layer count 25
+[2026-03-15 15:18:20.586] [info] Start layer /block/Constant_8
+[2026-03-15 15:18:20.586] [info] Layer /block/Constant_8 finish at 203422
+[2026-03-15 15:18:20.586] [info] Total compute time 34
+[2026-03-15 15:18:20.586] [info] executable layer count 24
+[2026-03-15 15:18:20.586] [info] Start layer /block/Constant_9
+[2026-03-15 15:18:20.587] [info] Layer /block/Constant_9 finish at 203440
+[2026-03-15 15:18:20.587] [info] Total compute time 18
+[2026-03-15 15:18:20.587] [info] executable layer count 23
+[2026-03-15 15:18:20.587] [info] Start layer /block/Constant_10
+[2026-03-15 15:18:20.587] [info] Layer /block/Constant_10 finish at 203458
+[2026-03-15 15:18:20.587] [info] Total compute time 18
+[2026-03-15 15:18:20.587] [info] executable layer count 22
+[2026-03-15 15:18:20.587] [info] Start layer /block/Constant_11
+[2026-03-15 15:18:20.587] [info] Layer /block/Constant_11 finish at 203477
+[2026-03-15 15:18:20.587] [info] Total compute time 19
+[2026-03-15 15:18:20.587] [info] executable layer count 22
+[2026-03-15 15:18:20.587] [info] Start layer /block/Constant_12
+[2026-03-15 15:18:20.587] [info] Layer /block/Constant_12 finish at 203495
+[2026-03-15 15:18:20.587] [info] Total compute time 18
+[2026-03-15 15:18:20.587] [info] executable layer count 21
+[2026-03-15 15:18:20.587] [info] Start layer /block/Constant_13
+[2026-03-15 15:18:20.588] [info] Layer /block/Constant_13 finish at 203513
+[2026-03-15 15:18:20.588] [info] Total compute time 18
+[2026-03-15 15:18:20.588] [info] executable layer count 20
+[2026-03-15 15:18:20.588] [info] Start layer /block/Constant_14
+[2026-03-15 15:18:20.588] [info] Layer /block/Constant_14 finish at 203531
+[2026-03-15 15:18:20.588] [info] Total compute time 18
+[2026-03-15 15:18:20.588] [info] executable layer count 19
+[2026-03-15 15:18:20.588] [info] Start layer /block/Constant_15
+[2026-03-15 15:18:20.588] [info] Layer /block/Constant_15 finish at 203550
+[2026-03-15 15:18:20.588] [info] Total compute time 19
+[2026-03-15 15:18:20.588] [info] executable layer count 18
+[2026-03-15 15:18:20.588] [info] Start layer /block/Constant_16
+[2026-03-15 15:18:20.588] [info] Layer /block/Constant_16 finish at 203568
+[2026-03-15 15:18:20.588] [info] Total compute time 18
+[2026-03-15 15:18:20.588] [info] executable layer count 17
+[2026-03-15 15:18:20.588] [info] Start layer /block/Constant_17
+[2026-03-15 15:18:20.588] [info] Layer /block/Constant_17 finish at 203586
+[2026-03-15 15:18:20.588] [info] Total compute time 18
+[2026-03-15 15:18:20.588] [info] executable layer count 16
+[2026-03-15 15:18:20.588] [info] Start layer /block/Constant_18
+[2026-03-15 15:18:20.589] [info] Layer /block/Constant_18 finish at 203604
+[2026-03-15 15:18:20.589] [info] Total compute time 18
+[2026-03-15 15:18:20.589] [info] executable layer count 15
+[2026-03-15 15:18:20.589] [info] Start layer /block/Constant_19
+[2026-03-15 15:18:20.589] [info] Layer /block/Constant_19 finish at 203623
+[2026-03-15 15:18:20.589] [info] Total compute time 19
+[2026-03-15 15:18:20.589] [info] executable layer count 14
+[2026-03-15 15:18:20.589] [info] Start layer /block/Constant_20
+[2026-03-15 15:18:20.589] [info] Layer /block/Constant_20 finish at 203641
+[2026-03-15 15:18:20.589] [info] Total compute time 18
+[2026-03-15 15:18:20.589] [info] executable layer count 13
+[2026-03-15 15:18:20.589] [info] Start layer /block/Constant_21
+[2026-03-15 15:18:20.589] [info] Layer /block/Constant_21 finish at 203659
+[2026-03-15 15:18:20.589] [info] Total compute time 18
+[2026-03-15 15:18:20.589] [info] executable layer count 12
+[2026-03-15 15:18:20.589] [info] Start layer /block/Constant_22
+[2026-03-15 15:18:20.589] [info] Layer /block/Constant_22 finish at 203677
+[2026-03-15 15:18:20.589] [info] Total compute time 18
+[2026-03-15 15:18:20.589] [info] executable layer count 11
+[2026-03-15 15:18:20.589] [info] Start layer /block/Constant_23
+[2026-03-15 15:18:20.590] [info] Layer /block/Constant_23 finish at 203696
+[2026-03-15 15:18:20.590] [info] Total compute time 19
+[2026-03-15 15:18:20.590] [info] executable layer count 10
+[2026-03-15 15:18:20.590] [info] Start layer /block/Exp
+[2026-03-15 15:18:20.596] [info] Layer /block/Exp finish at 203886
+[2026-03-15 15:18:20.596] [info] Total compute time 190
+[2026-03-15 15:18:20.596] [info] executable layer count 10
+[2026-03-15 15:18:20.596] [info] Start layer /block/Constant_24
+[2026-03-15 15:18:20.597] [info] Layer /block/Constant_24 finish at 203909
+[2026-03-15 15:18:20.597] [info] Total compute time 23
+[2026-03-15 15:18:20.597] [info] executable layer count 9
+[2026-03-15 15:18:20.597] [info] Start layer /block/Constant_25
+[2026-03-15 15:18:20.602] [info] Layer /block/Constant_25 finish at 204057
+[2026-03-15 15:18:20.602] [info] Total compute time 148
+[2026-03-15 15:18:20.602] [info] executable layer count 8
+[2026-03-15 15:18:20.602] [info] Start layer /block/Constant_26
+[2026-03-15 15:18:20.602] [info] Layer /block/Constant_26 finish at 204082
+[2026-03-15 15:18:20.602] [info] Total compute time 25
+[2026-03-15 15:18:20.602] [info] executable layer count 7
+[2026-03-15 15:18:20.602] [info] Start layer /block/Constant_27
+[2026-03-15 15:18:20.602] [info] Layer /block/Constant_27 finish at 204100
+[2026-03-15 15:18:20.602] [info] Total compute time 18
+[2026-03-15 15:18:20.602] [info] executable layer count 7
+[2026-03-15 15:18:20.602] [info] Start layer /block/Constant_28
+[2026-03-15 15:18:20.602] [info] Layer /block/Constant_28 finish at 204118
+[2026-03-15 15:18:20.602] [info] Total compute time 18
+[2026-03-15 15:18:20.602] [info] executable layer count 6
+[2026-03-15 15:18:20.602] [info] Start layer /block/Slice
+[2026-03-15 15:18:20.604] [info] Layer /block/Slice finish at 204176
+[2026-03-15 15:18:20.604] [info] Total compute time 58
+[2026-03-15 15:18:20.604] [info] executable layer count 5
+[2026-03-15 15:18:20.604] [info] Start layer /block/Slice_1
+[2026-03-15 15:18:20.605] [info] Layer /block/Slice_1 finish at 204238
+[2026-03-15 15:18:20.605] [info] Total compute time 62
+[2026-03-15 15:18:20.605] [info] executable layer count 5
+[2026-03-15 15:18:20.605] [info] Start layer /block/Sigmoid
+[2026-03-15 15:18:20.606] [info] Layer /block/Sigmoid finish at 204296
+[2026-03-15 15:18:20.606] [info] Total compute time 58
+[2026-03-15 15:18:20.606] [info] executable layer count 5
+[2026-03-15 15:18:20.606] [info] Start layer /block/Slice_2
+[2026-03-15 15:18:20.608] [info] Layer /block/Slice_2 finish at 204374
+[2026-03-15 15:18:20.608] [info] Total compute time 78
+[2026-03-15 15:18:20.608] [info] executable layer count 5
+[2026-03-15 15:18:20.608] [info] Start layer /block/Neg
+[2026-03-15 15:18:20.614] [info] Layer /block/Neg finish at 204593
+[2026-03-15 15:18:20.614] [info] Total compute time 219
+[2026-03-15 15:18:20.614] [info] executable layer count 4
+[2026-03-15 15:18:20.614] [info] Start layer /block/Reshape_3
+[2026-03-15 15:18:20.626] [info] Layer /block/Reshape_3 finish at 204945
+[2026-03-15 15:18:20.626] [info] Total compute time 352
+[2026-03-15 15:18:20.626] [info] executable layer count 3
+[2026-03-15 15:18:20.626] [info] Start layer /block/Sigmoid_1
+[2026-03-15 15:18:20.629] [info] Layer /block/Sigmoid_1 finish at 205023
+[2026-03-15 15:18:20.629] [info] Total compute time 78
+[2026-03-15 15:18:20.629] [info] executable layer count 3
+[2026-03-15 15:18:20.629] [info] Start layer /block/Mul
+[2026-03-15 15:18:20.635] [info] Layer /block/Mul finish at 205193
+[2026-03-15 15:18:20.635] [info] Total compute time 170
+[2026-03-15 15:18:20.635] [info] executable layer count 5
+[2026-03-15 15:18:20.635] [info] Start layer /block/Concat
+[2026-03-15 15:18:20.636] [info] Layer /block/Concat finish at 205273
+[2026-03-15 15:18:20.636] [info] Total compute time 80
+[2026-03-15 15:18:20.636] [info] executable layer count 4
+[2026-03-15 15:18:20.636] [info] Start layer /block/Mul_6
+[2026-03-15 15:18:20.639] [info] Layer /block/Mul_6 finish at 205376
+[2026-03-15 15:18:20.639] [info] Total compute time 103
+[2026-03-15 15:18:20.639] [info] executable layer count 3
+[2026-03-15 15:18:20.639] [info] Start layer /block/x_proj/Gemm
+[2026-03-15 15:18:20.695] [info] HBM2-CH_0: BW utilization 19% (1352 reads, 533 writes)
+[2026-03-15 15:18:20.696] [info] Core [0] Tile Stats | Issued: 46 Running: 0 Finished: 46
+[2026-03-15 15:18:20.696] [info] cycle: [208000]
+[2026-03-15 15:18:20.696] [info] Tile  status Gemm, instructions left 1
+[2026-03-15 15:18:20.696] [info] Core [1] Tile Stats | Issued: 46 Running: 1 Finished: 45
+[2026-03-15 15:18:20.696] [info] cycle: [208000]
+[2026-03-15 15:18:20.696] [info] Core [2] Tile Stats | Issued: 45 Running: 0 Finished: 45
+[2026-03-15 15:18:20.696] [info] cycle: [208000]
+[2026-03-15 15:18:20.696] [info] Core [3] Tile Stats | Issued: 46 Running: 0 Finished: 46
+[2026-03-15 15:18:20.696] [info] cycle: [208000]
+[2026-03-15 15:18:20.704] [info] Layer /block/x_proj/Gemm finish at 208684
+[2026-03-15 15:18:20.704] [info] Total compute time 3308
+[2026-03-15 15:18:20.704] [info] executable layer count 5
+[2026-03-15 15:18:20.704] [info] Start layer /block/Reshape_2
+[2026-03-15 15:18:20.705] [info] Layer /block/Reshape_2 finish at 208714
+[2026-03-15 15:18:20.705] [info] Total compute time 30
+[2026-03-15 15:18:20.705] [info] executable layer count 4
+[2026-03-15 15:18:20.705] [info] Start layer /block/Mul_5
+[2026-03-15 15:18:20.706] [info] Layer /block/Mul_5 finish at 208774
+[2026-03-15 15:18:20.706] [info] Total compute time 60
+[2026-03-15 15:18:20.706] [info] executable layer count 3
+[2026-03-15 15:18:20.706] [info] Start layer /block/Slice_3
+[2026-03-15 15:18:20.706] [info] Layer /block/Slice_3 finish at 208795
+[2026-03-15 15:18:20.707] [info] Total compute time 21
+[2026-03-15 15:18:20.707] [info] executable layer count 3
+[2026-03-15 15:18:20.707] [info] Start layer /block/Slice_4
+[2026-03-15 15:18:20.707] [info] Layer /block/Slice_4 finish at 208819
+[2026-03-15 15:18:20.707] [info] Total compute time 24
+[2026-03-15 15:18:20.707] [info] executable layer count 3
+[2026-03-15 15:18:20.707] [info] Start layer /block/Slice_5
+[2026-03-15 15:18:20.707] [info] Layer /block/Slice_5 finish at 208837
+[2026-03-15 15:18:20.707] [info] Total compute time 18
+[2026-03-15 15:18:20.707] [info] executable layer count 3
+[2026-03-15 15:18:20.707] [info] Start layer /block/dt_proj/Gemm
+[2026-03-15 15:18:20.734] [info] Layer /block/dt_proj/Gemm finish at 209987
+[2026-03-15 15:18:20.734] [info] Total compute time 1150
+[2026-03-15 15:18:20.734] [info] executable layer count 3
+[2026-03-15 15:18:20.734] [info] Start layer /block/Reshape_1
+[2026-03-15 15:18:20.735] [info] Layer /block/Reshape_1 finish at 210011
+[2026-03-15 15:18:20.735] [info] Total compute time 24
+[2026-03-15 15:18:20.735] [info] executable layer count 2
+[2026-03-15 15:18:20.735] [info] Start layer /block/ssm_out/Gemm
+[2026-03-15 15:18:20.750] [info] Layer /block/ssm_out/Gemm finish at 211028
+[2026-03-15 15:18:20.750] [info] Total compute time 1017
+[2026-03-15 15:18:20.750] [info] executable layer count 2
+[2026-03-15 15:18:20.750] [info] Start layer /block/Softplus
+[2026-03-15 15:18:20.750] [info] Layer /block/Softplus finish at 211077
+[2026-03-15 15:18:20.750] [info] Total compute time 49
+[2026-03-15 15:18:20.750] [info] executable layer count 2
+[2026-03-15 15:18:20.750] [info] Start layer /block/Add_1
+[2026-03-15 15:18:20.752] [info] Layer /block/Add_1 finish at 211135
+[2026-03-15 15:18:20.752] [info] Total compute time 58
+[2026-03-15 15:18:20.752] [info] executable layer count 2
+[2026-03-15 15:18:20.752] [info] Start layer /block/Reshape
+[2026-03-15 15:18:20.752] [info] Layer /block/Reshape finish at 211175
+[2026-03-15 15:18:20.752] [info] Total compute time 40
+[2026-03-15 15:18:20.752] [info] executable layer count 3
+[2026-03-15 15:18:20.752] [info] Start layer /block/Mul_7
+[2026-03-15 15:18:20.754] [info] Layer /block/Mul_7 finish at 211256
+[2026-03-15 15:18:20.754] [info] Total compute time 81
+[2026-03-15 15:18:20.754] [info] executable layer count 3
+[2026-03-15 15:18:20.754] [info] Start layer /block/Mul_1
+[2026-03-15 15:18:20.767] [info] Layer /block/Mul_1 finish at 211675
+[2026-03-15 15:18:20.767] [info] Total compute time 419
+[2026-03-15 15:18:20.767] [info] executable layer count 3
+[2026-03-15 15:18:20.767] [info] Start layer /block/Mul_2
+[2026-03-15 15:18:20.768] [info] Layer /block/Mul_2 finish at 211745
+[2026-03-15 15:18:20.768] [info] Total compute time 70
+[2026-03-15 15:18:20.768] [info] executable layer count 3
+[2026-03-15 15:18:20.768] [info] Start layer /block/out_proj/Gemm
+[2026-03-15 15:18:21.067] [info] HBM2-CH_0: BW utilization 45% (4166 reads, 202 writes)
+[2026-03-15 15:18:21.073] [info] Tile  status Gemm, instructions left 34
+[2026-03-15 15:18:21.073] [info] Core [0] Tile Stats | Issued: 54 Running: 1 Finished: 53
+[2026-03-15 15:18:21.073] [info] cycle: [216000]
+[2026-03-15 15:18:21.073] [info] Tile  status Gemm, instructions left 34
+[2026-03-15 15:18:21.073] [info] Core [1] Tile Stats | Issued: 53 Running: 1 Finished: 52
+[2026-03-15 15:18:21.073] [info] cycle: [216000]
+[2026-03-15 15:18:21.073] [info] Tile  status Gemm, instructions left 34
+[2026-03-15 15:18:21.073] [info] Core [2] Tile Stats | Issued: 53 Running: 1 Finished: 52
+[2026-03-15 15:18:21.073] [info] cycle: [216000]
+[2026-03-15 15:18:21.073] [info] Tile  status Gemm, instructions left 34
+[2026-03-15 15:18:21.073] [info] Core [3] Tile Stats | Issued: 54 Running: 1 Finished: 53
+[2026-03-15 15:18:21.073] [info] cycle: [216000]
+[2026-03-15 15:18:21.579] [info] HBM2-CH_0: BW utilization 53% (5077 reads, 12 writes)
+[2026-03-15 15:18:21.580] [info] Tile  status Gemm, instructions left 1
+[2026-03-15 15:18:21.580] [info] Core [0] Tile Stats | Issued: 54 Running: 1 Finished: 53
+[2026-03-15 15:18:21.580] [info] cycle: [224000]
+[2026-03-15 15:18:21.580] [info] Tile  status Gemm, instructions left 1
+[2026-03-15 15:18:21.580] [info] Core [1] Tile Stats | Issued: 53 Running: 1 Finished: 52
+[2026-03-15 15:18:21.580] [info] cycle: [224000]
+[2026-03-15 15:18:21.580] [info] Tile  status Gemm, instructions left 1
+[2026-03-15 15:18:21.580] [info] Core [2] Tile Stats | Issued: 53 Running: 1 Finished: 52
+[2026-03-15 15:18:21.580] [info] cycle: [224000]
+[2026-03-15 15:18:21.580] [info] Tile  status Gemm, instructions left 1
+[2026-03-15 15:18:21.580] [info] Core [3] Tile Stats | Issued: 54 Running: 1 Finished: 53
+[2026-03-15 15:18:21.580] [info] cycle: [224000]
+[2026-03-15 15:18:21.600] [info] Layer /block/out_proj/Gemm finish at 225846
+[2026-03-15 15:18:21.600] [info] Total compute time 14101
+[2026-03-15 15:18:21.600] [info] executable layer count 2
+[2026-03-15 15:18:21.600] [info] Start layer /block/Exp_1
+[2026-03-15 15:18:21.606] [info] Layer /block/Exp_1 finish at 226036
+[2026-03-15 15:18:21.606] [info] Total compute time 190
+[2026-03-15 15:18:21.606] [info] executable layer count 2
+[2026-03-15 15:18:21.606] [info] Start layer /block/Mul_4
+[2026-03-15 15:18:21.611] [info] Layer /block/Mul_4 finish at 226248
+[2026-03-15 15:18:21.611] [info] Total compute time 212
+[2026-03-15 15:18:21.611] [info] executable layer count 1
+[2026-03-15 15:18:21.611] [info] Start layer /block/Mul_3
+[2026-03-15 15:18:21.621] [info] Layer /block/Mul_3 finish at 226626
+[2026-03-15 15:18:21.621] [info] Total compute time 378
+[2026-03-15 15:18:21.621] [info] executable layer count 1
+[2026-03-15 15:18:21.621] [info] Start layer /block/Add
+[2026-03-15 15:18:21.631] [info] Layer /block/Add finish at 226943
+[2026-03-15 15:18:21.631] [info] Total compute time 317
+[2026-03-15 15:18:21.631] [info] executable layer count 1
+[2026-03-15 15:18:21.631] [info] Start layer /block/Reshape_4
+[2026-03-15 15:18:21.636] [info] Layer /block/Reshape_4 finish at 227146
+[2026-03-15 15:18:21.636] [info] Total compute time 203
+[2026-03-15 15:18:21.636] [info] Model[mamba-370m-single] Request: 88 us, Start: 88 us, finish:227 us, Current Cycle:227146
+[2026-03-15 15:18:21.636] [info] No total_seq_len!
+[2026-03-15 15:18:21.641] [info] Simulation Finished at 227312 cycle 227 us
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:21.641] [info] Row hits: 116607, Row misses: 1876, Row conflicts: 30283
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 2280
+  total_num_read_requests: 146526
+  memory_system_cycles: 272883
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+[2026-03-15 15:18:21.641] [info] HBM2-CH_0: avg BW utilization 54% (146526 reads, 2280 writes)
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:21.641] [info] Row hits: 118477, Row misses: 1999, Row conflicts: 28193
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 2262
+  total_num_read_requests: 146456
+  memory_system_cycles: 272883
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:21.641] [info] Row hits: 118420, Row misses: 1958, Row conflicts: 28282
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 2261
+  total_num_read_requests: 146452
+  memory_system_cycles: 272883
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:21.641] [info] Row hits: 117339, Row misses: 1830, Row conflicts: 29545
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 2276
+  total_num_read_requests: 146476
+  memory_system_cycles: 272883
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:21.641] [info] Row hits: 118008, Row misses: 2011, Row conflicts: 28635
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 2260
+  total_num_read_requests: 146451
+  memory_system_cycles: 272883
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:21.641] [info] Row hits: 117380, Row misses: 1823, Row conflicts: 29495
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 2275
+  total_num_read_requests: 146477
+  memory_system_cycles: 272883
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:21.641] [info] Row hits: 116670, Row misses: 1855, Row conflicts: 30179
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 2276
+  total_num_read_requests: 146476
+  memory_system_cycles: 272883
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:21.641] [info] Row hits: 118341, Row misses: 1911, Row conflicts: 28417
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 2260
+  total_num_read_requests: 146463
+  memory_system_cycles: 272883
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:21.641] [info] Row hits: 117658, Row misses: 1901, Row conflicts: 29102
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 2261
+  total_num_read_requests: 146451
+  memory_system_cycles: 272883
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:21.641] [info] Row hits: 117191, Row misses: 2135, Row conflicts: 29371
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 2276
+  total_num_read_requests: 146464
+  memory_system_cycles: 272883
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:21.641] [info] Row hits: 115904, Row misses: 1812, Row conflicts: 30983
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 2272
+  total_num_read_requests: 146464
+  memory_system_cycles: 272883
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:21.641] [info] Row hits: 118310, Row misses: 1714, Row conflicts: 28635
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 2260
+  total_num_read_requests: 146451
+  memory_system_cycles: 272883
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:21.641] [info] Row hits: 116374, Row misses: 1899, Row conflicts: 30423
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 2274
+  total_num_read_requests: 146467
+  memory_system_cycles: 272883
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:21.641] [info] Row hits: 118246, Row misses: 1710, Row conflicts: 28704
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 2260
+  total_num_read_requests: 146451
+  memory_system_cycles: 272883
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:21.641] [info] Row hits: 117893, Row misses: 1726, Row conflicts: 29042
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 2261
+  total_num_read_requests: 146450
+  memory_system_cycles: 272883
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:21.641] [info] Row hits: 116926, Row misses: 1804, Row conflicts: 29976
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 2275
+  total_num_read_requests: 146470
+  memory_system_cycles: 272883
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Object Size Histogram
+128 bytes : 16  cumulative_bytes: 2048
+1048576 bytes : 1048576  cumulative_bytes: 1099511629824
+192 bytes : 60  cumulative_bytes: 1099511641344
+2048 bytes : 704  cumulative_bytes: 1099513083136
+262144 bytes : 262144  cumulative_bytes: 1168232559872
+393216 bytes : 86016  cumulative_bytes: 1202055427328
+3072 bytes : 2976  cumulative_bytes: 1202064569600
+160 bytes : 50  cumulative_bytes: 1202064577600
+256 bytes : 2464  cumulative_bytes: 1202065208384
+196608 bytes : 147456  cumulative_bytes: 1231056237632
+16384 bytes : 10240  cumulative_bytes: 1231224009792
+1536 bytes : 288  cumulative_bytes: 1231224452160
+32 bytes : 148  cumulative_bytes: 1231224456896
+1572864 bytes : 589824  cumulative_bytes: 2158937392832
+12288 bytes : 10752  cumulative_bytes: 2159069513408
+524288 bytes : 131072  cumulative_bytes: 2227788990144
+49152 bytes : 15360  cumulative_bytes: 2228543964864
+65536 bytes : 20480  cumulative_bytes: 2229886142144
+6144 bytes : 2304  cumulative_bytes: 2229900297920
+8192 bytes : 33792  cumulative_bytes: 2230177121984
+245760 bytes : 7680  cumulative_bytes: 2232064558784
+96 bytes : 36  cumulative_bytes: 2232064562240
+4096 bytes : 7296  cumulative_bytes: 2232094446656
+[2026-03-15 15:18:21.641] [info] Register model: mamba-790m-single
+[2026-03-15 15:18:21.641] [info] Model Name
+[2026-03-15 15:18:21.771] [info] has_l2,[false]
+[2026-03-15 15:18:21.771] [info] ======Start Simulation=====
+[2026-03-15 15:18:21.771] [info] Model Name: mamba-790m-single model started
+[2026-03-15 15:18:21.966] [info] [GemmWs] Keys K = 1536, N = 1, M = 6144
+[2026-03-15 15:18:21.966] [info] [GemmWS]: total 0.018880514 GFLOPs, 0.018902015 GB
+[2026-03-15 15:18:21.966] [info] [GemmWS]: Theoretical time(ms): 0.030785042326897383 Compute time: 0.00014404689352431888 Memory time: 0.030785042326897383
+[2026-03-15 15:18:22.271] [info] [GemmWs] Keys K = 12288, N = 1, M = 3072
+[2026-03-15 15:18:22.271] [info] [GemmWS]: total 0.07550055 GFLOPs, 0.075534336 GB
+[2026-03-15 15:18:22.271] [info] [GemmWS]: Theoretical time(ms): 0.12302008690312505 Compute time: 0.0005760234671470243 Memory time: 0.12302008690312505
+[2026-03-15 15:18:22.275] [info] [GemmWs] Keys K = 3072, N = 1, M = 128
+[2026-03-15 15:18:22.275] [info] [GemmWS]: total 0.00078656 GFLOPs, 0.000793088 GB
+[2026-03-15 15:18:22.275] [info] [GemmWS]: Theoretical time(ms): 0.0012916742662127945 Compute time: 6.0009766045254764e-06 Memory time: 0.0012916742662127945
+[2026-03-15 15:18:22.277] [info] [GemmWs] Keys K = 96, N = 1, M = 3072
+[2026-03-15 15:18:22.277] [info] [GemmWS]: total 0.0005928961 GFLOPs, 0.000602304 GB
+[2026-03-15 15:18:22.277] [info] [GemmWS]: Theoretical time(ms): 0.0009809511993807973 Compute time: 4.523438068559926e-06 Memory time: 0.0009809511993807973
+[2026-03-15 15:18:22.281] [info] [GemmWs] Keys K = 16, N = 1, M = 3072
+[2026-03-15 15:18:22.281] [info] [GemmWS]: total 0.000101376 GFLOPs, 0.000110624 GB
+[2026-03-15 15:18:22.281] [info] [GemmWS]: Theoretical time(ms): 0.00018016937985976256 Compute time: 7.734374807277788e-07 Memory time: 0.00018016937985976256
+[2026-03-15 15:18:22.317] [info] [GemmWs] Keys K = 3072, N = 1, M = 1536
+[2026-03-15 15:18:22.317] [info] [GemmWS]: total 0.0094387205 GFLOPs, 0.009449473 GB
+[2026-03-15 15:18:22.317] [info] [GemmWS]: Theoretical time(ms): 0.015390020053018816 Compute time: 7.20117228070194e-05 Memory time: 0.015390020053018816
+[2026-03-15 15:18:22.317] [info] ./models/mamba-790m-single/mamba-790m-single.onnx Model initialization time: 0.545695 seconds
+[2026-03-15 15:18:22.324] [info] Schedule model: mamba-790m-single at 227313000 us
+[2026-03-15 15:18:22.324] [info] MODEL mamba-790m-single Scheduled, Total Request: 1
+[2026-03-15 15:18:22.324] [info] executable layer count 33
+[2026-03-15 15:18:22.324] [info] Start layer Identity_29
+[2026-03-15 15:18:22.325] [info] Layer Identity_29 finish at 227360
+[2026-03-15 15:18:22.325] [info] Total compute time 48
+[2026-03-15 15:18:22.325] [info] executable layer count 32
+[2026-03-15 15:18:22.325] [info] Start layer /block/in_proj/Gemm
+[2026-03-15 15:18:22.617] [info] HBM2-CH_0: BW utilization 33% (3256 reads, 0 writes)
+[2026-03-15 15:18:22.622] [info] Tile  status Gemm, instructions left 40
+[2026-03-15 15:18:22.622] [info] Tile  status Gemm, instructions left 52
+[2026-03-15 15:18:22.622] [info] Core [0] Tile Stats | Issued: 61 Running: 2 Finished: 59
+[2026-03-15 15:18:22.622] [info] cycle: [232000]
+[2026-03-15 15:18:22.622] [info] Tile  status Gemm, instructions left 40
+[2026-03-15 15:18:22.622] [info] Tile  status Gemm, instructions left 52
+[2026-03-15 15:18:22.622] [info] Core [1] Tile Stats | Issued: 60 Running: 2 Finished: 58
+[2026-03-15 15:18:22.622] [info] cycle: [232000]
+[2026-03-15 15:18:22.622] [info] Tile  status Gemm, instructions left 40
+[2026-03-15 15:18:22.622] [info] Tile  status Gemm, instructions left 52
+[2026-03-15 15:18:22.622] [info] Core [2] Tile Stats | Issued: 60 Running: 2 Finished: 58
+[2026-03-15 15:18:22.622] [info] cycle: [232000]
+[2026-03-15 15:18:22.622] [info] Tile  status Gemm, instructions left 40
+[2026-03-15 15:18:22.622] [info] Tile  status Gemm, instructions left 52
+[2026-03-15 15:18:22.622] [info] Core [3] Tile Stats | Issued: 61 Running: 2 Finished: 59
+[2026-03-15 15:18:22.622] [info] cycle: [232000]
+[2026-03-15 15:18:23.148] [info] HBM2-CH_0: BW utilization 59% (5720 reads, 0 writes)
+[2026-03-15 15:18:23.155] [info] Tile  status Gemm, instructions left 28
+[2026-03-15 15:18:23.155] [info] Tile  status Gemm, instructions left 52
+[2026-03-15 15:18:23.155] [info] Core [0] Tile Stats | Issued: 61 Running: 2 Finished: 59
+[2026-03-15 15:18:23.155] [info] cycle: [240000]
+[2026-03-15 15:18:23.155] [info] Tile  status Gemm, instructions left 28
+[2026-03-15 15:18:23.155] [info] Tile  status Gemm, instructions left 52
+[2026-03-15 15:18:23.155] [info] Core [1] Tile Stats | Issued: 60 Running: 2 Finished: 58
+[2026-03-15 15:18:23.155] [info] cycle: [240000]
+[2026-03-15 15:18:23.155] [info] Tile  status Gemm, instructions left 28
+[2026-03-15 15:18:23.155] [info] Tile  status Gemm, instructions left 52
+[2026-03-15 15:18:23.155] [info] Core [2] Tile Stats | Issued: 60 Running: 2 Finished: 58
+[2026-03-15 15:18:23.155] [info] cycle: [240000]
+[2026-03-15 15:18:23.155] [info] Tile  status Gemm, instructions left 28
+[2026-03-15 15:18:23.155] [info] Tile  status Gemm, instructions left 52
+[2026-03-15 15:18:23.155] [info] Core [3] Tile Stats | Issued: 61 Running: 2 Finished: 59
+[2026-03-15 15:18:23.155] [info] cycle: [240000]
+[2026-03-15 15:18:23.705] [info] HBM2-CH_0: BW utilization 60% (5779 reads, 0 writes)
+[2026-03-15 15:18:23.712] [info] Tile  status Gemm, instructions left 52
+[2026-03-15 15:18:23.715] [info] Tile  status Gemm, instructions left 52
+[2026-03-15 15:18:23.715] [info] Core [0] Tile Stats | Issued: 62 Running: 2 Finished: 60
+[2026-03-15 15:18:23.715] [info] cycle: [248000]
+[2026-03-15 15:18:23.715] [info] Tile  status Gemm, instructions left 52
+[2026-03-15 15:18:23.715] [info] Tile  status Gemm, instructions left 52
+[2026-03-15 15:18:23.715] [info] Core [1] Tile Stats | Issued: 61 Running: 2 Finished: 59
+[2026-03-15 15:18:23.715] [info] cycle: [248000]
+[2026-03-15 15:18:23.715] [info] Tile  status Gemm, instructions left 52
+[2026-03-15 15:18:23.715] [info] Tile  status Gemm, instructions left 52
+[2026-03-15 15:18:23.715] [info] Core [2] Tile Stats | Issued: 61 Running: 2 Finished: 59
+[2026-03-15 15:18:23.715] [info] cycle: [248000]
+[2026-03-15 15:18:23.715] [info] Tile  status Gemm, instructions left 52
+[2026-03-15 15:18:23.715] [info] Tile  status Gemm, instructions left 52
+[2026-03-15 15:18:23.715] [info] Core [3] Tile Stats | Issued: 62 Running: 2 Finished: 60
+[2026-03-15 15:18:23.715] [info] cycle: [248000]
+[2026-03-15 15:18:24.264] [info] HBM2-CH_0: BW utilization 61% (5867 reads, 0 writes)
+[2026-03-15 15:18:24.271] [info] Tile  status Gemm, instructions left 28
+[2026-03-15 15:18:24.271] [info] Tile  status Gemm, instructions left 52
+[2026-03-15 15:18:24.271] [info] Core [0] Tile Stats | Issued: 62 Running: 2 Finished: 60
+[2026-03-15 15:18:24.271] [info] cycle: [256000]
+[2026-03-15 15:18:24.271] [info] Tile  status Gemm, instructions left 28
+[2026-03-15 15:18:24.271] [info] Tile  status Gemm, instructions left 52
+[2026-03-15 15:18:24.271] [info] Core [1] Tile Stats | Issued: 61 Running: 2 Finished: 59
+[2026-03-15 15:18:24.271] [info] cycle: [256000]
+[2026-03-15 15:18:24.271] [info] Tile  status Gemm, instructions left 28
+[2026-03-15 15:18:24.271] [info] Tile  status Gemm, instructions left 52
+[2026-03-15 15:18:24.271] [info] Core [2] Tile Stats | Issued: 61 Running: 2 Finished: 59
+[2026-03-15 15:18:24.271] [info] cycle: [256000]
+[2026-03-15 15:18:24.271] [info] Tile  status Gemm, instructions left 28
+[2026-03-15 15:18:24.271] [info] Tile  status Gemm, instructions left 52
+[2026-03-15 15:18:24.271] [info] Core [3] Tile Stats | Issued: 62 Running: 2 Finished: 60
+[2026-03-15 15:18:24.271] [info] cycle: [256000]
+[2026-03-15 15:18:24.835] [info] HBM2-CH_0: BW utilization 56% (5448 reads, 0 writes)
+[2026-03-15 15:18:24.842] [info] Tile  status Gemm, instructions left 1
+[2026-03-15 15:18:24.842] [info] Tile  status Gemm, instructions left 52
+[2026-03-15 15:18:24.842] [info] Core [0] Tile Stats | Issued: 62 Running: 2 Finished: 60
+[2026-03-15 15:18:24.842] [info] cycle: [264000]
+[2026-03-15 15:18:24.842] [info] Tile  status Gemm, instructions left 1
+[2026-03-15 15:18:24.842] [info] Tile  status Gemm, instructions left 52
+[2026-03-15 15:18:24.842] [info] Core [1] Tile Stats | Issued: 61 Running: 2 Finished: 59
+[2026-03-15 15:18:24.842] [info] cycle: [264000]
+[2026-03-15 15:18:24.842] [info] Tile  status Gemm, instructions left 1
+[2026-03-15 15:18:24.842] [info] Tile  status Gemm, instructions left 52
+[2026-03-15 15:18:24.842] [info] Core [2] Tile Stats | Issued: 61 Running: 2 Finished: 59
+[2026-03-15 15:18:24.842] [info] cycle: [264000]
+[2026-03-15 15:18:24.842] [info] Tile  status Gemm, instructions left 1
+[2026-03-15 15:18:24.842] [info] Tile  status Gemm, instructions left 52
+[2026-03-15 15:18:24.842] [info] Core [3] Tile Stats | Issued: 62 Running: 2 Finished: 60
+[2026-03-15 15:18:24.842] [info] cycle: [264000]
+[2026-03-15 15:18:25.442] [info] HBM2-CH_0: BW utilization 54% (5263 reads, 0 writes)
+[2026-03-15 15:18:25.450] [info] Tile  status Gemm, instructions left 40
+[2026-03-15 15:18:25.450] [info] Core [0] Tile Stats | Issued: 62 Running: 1 Finished: 61
+[2026-03-15 15:18:25.450] [info] cycle: [272000]
+[2026-03-15 15:18:25.450] [info] Tile  status Gemm, instructions left 40
+[2026-03-15 15:18:25.450] [info] Core [1] Tile Stats | Issued: 61 Running: 1 Finished: 60
+[2026-03-15 15:18:25.450] [info] cycle: [272000]
+[2026-03-15 15:18:25.450] [info] Tile  status Gemm, instructions left 40
+[2026-03-15 15:18:25.450] [info] Core [2] Tile Stats | Issued: 61 Running: 1 Finished: 60
+[2026-03-15 15:18:25.450] [info] cycle: [272000]
+[2026-03-15 15:18:25.450] [info] Tile  status Gemm, instructions left 40
+[2026-03-15 15:18:25.450] [info] Core [3] Tile Stats | Issued: 62 Running: 1 Finished: 61
+[2026-03-15 15:18:25.450] [info] cycle: [272000]
+[2026-03-15 15:18:26.078] [info] HBM2-CH_0: BW utilization 55% (5325 reads, 0 writes)
+[2026-03-15 15:18:26.086] [info] Tile  status Gemm, instructions left 16
+[2026-03-15 15:18:26.086] [info] Core [0] Tile Stats | Issued: 62 Running: 1 Finished: 61
+[2026-03-15 15:18:26.086] [info] cycle: [280000]
+[2026-03-15 15:18:26.086] [info] Tile  status Gemm, instructions left 16
+[2026-03-15 15:18:26.086] [info] Core [1] Tile Stats | Issued: 61 Running: 1 Finished: 60
+[2026-03-15 15:18:26.086] [info] cycle: [280000]
+[2026-03-15 15:18:26.086] [info] Tile  status Gemm, instructions left 16
+[2026-03-15 15:18:26.086] [info] Core [2] Tile Stats | Issued: 61 Running: 1 Finished: 60
+[2026-03-15 15:18:26.086] [info] cycle: [280000]
+[2026-03-15 15:18:26.086] [info] Tile  status Gemm, instructions left 16
+[2026-03-15 15:18:26.086] [info] Core [3] Tile Stats | Issued: 62 Running: 1 Finished: 61
+[2026-03-15 15:18:26.086] [info] cycle: [280000]
+[2026-03-15 15:18:26.250] [info] Layer /block/in_proj/Gemm finish at 284924
+[2026-03-15 15:18:26.250] [info] Total compute time 57564
+[2026-03-15 15:18:26.250] [info] executable layer count 31
+[2026-03-15 15:18:26.250] [info] Start layer /block/Constant
+[2026-03-15 15:18:26.250] [info] Layer /block/Constant finish at 284957
+[2026-03-15 15:18:26.250] [info] Total compute time 33
+[2026-03-15 15:18:26.250] [info] executable layer count 30
+[2026-03-15 15:18:26.250] [info] Start layer /block/Constant_1
+[2026-03-15 15:18:26.251] [info] Layer /block/Constant_1 finish at 284975
+[2026-03-15 15:18:26.251] [info] Total compute time 18
+[2026-03-15 15:18:26.251] [info] executable layer count 29
+[2026-03-15 15:18:26.251] [info] Start layer /block/Constant_2
+[2026-03-15 15:18:26.251] [info] Layer /block/Constant_2 finish at 284993
+[2026-03-15 15:18:26.251] [info] Total compute time 18
+[2026-03-15 15:18:26.251] [info] executable layer count 28
+[2026-03-15 15:18:26.251] [info] Start layer /block/Constant_3
+[2026-03-15 15:18:26.251] [info] Layer /block/Constant_3 finish at 285012
+[2026-03-15 15:18:26.251] [info] Total compute time 19
+[2026-03-15 15:18:26.251] [info] executable layer count 28
+[2026-03-15 15:18:26.251] [info] Start layer /block/Constant_4
+[2026-03-15 15:18:26.251] [info] Layer /block/Constant_4 finish at 285030
+[2026-03-15 15:18:26.251] [info] Total compute time 18
+[2026-03-15 15:18:26.251] [info] executable layer count 27
+[2026-03-15 15:18:26.251] [info] Start layer /block/Constant_5
+[2026-03-15 15:18:26.252] [info] Layer /block/Constant_5 finish at 285048
+[2026-03-15 15:18:26.252] [info] Total compute time 18
+[2026-03-15 15:18:26.252] [info] executable layer count 26
+[2026-03-15 15:18:26.252] [info] Start layer /block/Constant_6
+[2026-03-15 15:18:26.252] [info] Layer /block/Constant_6 finish at 285066
+[2026-03-15 15:18:26.252] [info] Total compute time 18
+[2026-03-15 15:18:26.252] [info] executable layer count 25
+[2026-03-15 15:18:26.252] [info] Start layer /block/Constant_7
+[2026-03-15 15:18:26.252] [info] Layer /block/Constant_7 finish at 285087
+[2026-03-15 15:18:26.252] [info] Total compute time 21
+[2026-03-15 15:18:26.252] [info] executable layer count 25
+[2026-03-15 15:18:26.252] [info] Start layer /block/conv_proj/Gemm
+[2026-03-15 15:18:26.481] [info] HBM2-CH_0: BW utilization 27% (2568 reads, 39 writes)
+[2026-03-15 15:18:26.489] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:26.489] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:26.489] [info] Core [0] Tile Stats | Issued: 66 Running: 2 Finished: 64
+[2026-03-15 15:18:26.489] [info] cycle: [288000]
+[2026-03-15 15:18:26.489] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:26.489] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:26.489] [info] Core [1] Tile Stats | Issued: 65 Running: 2 Finished: 63
+[2026-03-15 15:18:26.489] [info] cycle: [288000]
+[2026-03-15 15:18:26.489] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:26.489] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:26.489] [info] Core [2] Tile Stats | Issued: 65 Running: 2 Finished: 63
+[2026-03-15 15:18:26.489] [info] cycle: [288000]
+[2026-03-15 15:18:26.489] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:26.489] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:26.489] [info] Core [3] Tile Stats | Issued: 66 Running: 2 Finished: 64
+[2026-03-15 15:18:26.489] [info] cycle: [288000]
+[2026-03-15 15:18:27.039] [info] HBM2-CH_0: BW utilization 67% (6513 reads, 0 writes)
+[2026-03-15 15:18:27.047] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:27.047] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:27.047] [info] Core [0] Tile Stats | Issued: 66 Running: 2 Finished: 64
+[2026-03-15 15:18:27.047] [info] cycle: [296000]
+[2026-03-15 15:18:27.047] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:27.047] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:27.047] [info] Core [1] Tile Stats | Issued: 65 Running: 2 Finished: 63
+[2026-03-15 15:18:27.047] [info] cycle: [296000]
+[2026-03-15 15:18:27.047] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:27.047] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:27.047] [info] Core [2] Tile Stats | Issued: 65 Running: 2 Finished: 63
+[2026-03-15 15:18:27.047] [info] cycle: [296000]
+[2026-03-15 15:18:27.047] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:27.047] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:27.047] [info] Core [3] Tile Stats | Issued: 66 Running: 2 Finished: 64
+[2026-03-15 15:18:27.047] [info] cycle: [296000]
+[2026-03-15 15:18:27.692] [info] HBM2-CH_0: BW utilization 67% (6489 reads, 0 writes)
+[2026-03-15 15:18:27.700] [info] Tile  status Gemm, instructions left 148
+[2026-03-15 15:18:27.700] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:27.700] [info] Core [0] Tile Stats | Issued: 66 Running: 2 Finished: 64
+[2026-03-15 15:18:27.700] [info] cycle: [304000]
+[2026-03-15 15:18:27.700] [info] Tile  status Gemm, instructions left 144
+[2026-03-15 15:18:27.700] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:27.700] [info] Core [1] Tile Stats | Issued: 65 Running: 2 Finished: 63
+[2026-03-15 15:18:27.700] [info] cycle: [304000]
+[2026-03-15 15:18:27.700] [info] Tile  status Gemm, instructions left 148
+[2026-03-15 15:18:27.700] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:27.700] [info] Core [2] Tile Stats | Issued: 65 Running: 2 Finished: 63
+[2026-03-15 15:18:27.700] [info] cycle: [304000]
+[2026-03-15 15:18:27.700] [info] Tile  status Gemm, instructions left 144
+[2026-03-15 15:18:27.700] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:27.700] [info] Core [3] Tile Stats | Issued: 66 Running: 2 Finished: 64
+[2026-03-15 15:18:27.700] [info] cycle: [304000]
+[2026-03-15 15:18:28.296] [info] HBM2-CH_0: BW utilization 66% (6345 reads, 0 writes)
+[2026-03-15 15:18:28.305] [info] Tile  status Gemm, instructions left 148
+[2026-03-15 15:18:28.305] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:28.305] [info] Core [0] Tile Stats | Issued: 66 Running: 2 Finished: 64
+[2026-03-15 15:18:28.305] [info] cycle: [312000]
+[2026-03-15 15:18:28.305] [info] Tile  status Gemm, instructions left 144
+[2026-03-15 15:18:28.305] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:28.305] [info] Core [1] Tile Stats | Issued: 65 Running: 2 Finished: 63
+[2026-03-15 15:18:28.305] [info] cycle: [312000]
+[2026-03-15 15:18:28.305] [info] Tile  status Gemm, instructions left 148
+[2026-03-15 15:18:28.305] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:28.305] [info] Core [2] Tile Stats | Issued: 65 Running: 2 Finished: 63
+[2026-03-15 15:18:28.305] [info] cycle: [312000]
+[2026-03-15 15:18:28.305] [info] Tile  status Gemm, instructions left 144
+[2026-03-15 15:18:28.305] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:28.305] [info] Core [3] Tile Stats | Issued: 66 Running: 2 Finished: 64
+[2026-03-15 15:18:28.305] [info] cycle: [312000]
+[2026-03-15 15:18:28.875] [info] HBM2-CH_0: BW utilization 67% (6432 reads, 0 writes)
+[2026-03-15 15:18:28.884] [info] Tile  status Gemm, instructions left 100
+[2026-03-15 15:18:28.885] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:28.885] [info] Core [0] Tile Stats | Issued: 66 Running: 2 Finished: 64
+[2026-03-15 15:18:28.885] [info] cycle: [320000]
+[2026-03-15 15:18:28.885] [info] Tile  status Gemm, instructions left 96
+[2026-03-15 15:18:28.885] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:28.885] [info] Core [1] Tile Stats | Issued: 65 Running: 2 Finished: 63
+[2026-03-15 15:18:28.885] [info] cycle: [320000]
+[2026-03-15 15:18:28.885] [info] Tile  status Gemm, instructions left 100
+[2026-03-15 15:18:28.885] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:28.885] [info] Core [2] Tile Stats | Issued: 65 Running: 2 Finished: 63
+[2026-03-15 15:18:28.885] [info] cycle: [320000]
+[2026-03-15 15:18:28.885] [info] Tile  status Gemm, instructions left 96
+[2026-03-15 15:18:28.885] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:28.885] [info] Core [3] Tile Stats | Issued: 66 Running: 2 Finished: 64
+[2026-03-15 15:18:28.885] [info] cycle: [320000]
+[2026-03-15 15:18:29.428] [info] HBM2-CH_0: BW utilization 67% (6517 reads, 0 writes)
+[2026-03-15 15:18:29.437] [info] Tile  status Gemm, instructions left 100
+[2026-03-15 15:18:29.437] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:29.437] [info] Core [0] Tile Stats | Issued: 66 Running: 2 Finished: 64
+[2026-03-15 15:18:29.437] [info] cycle: [328000]
+[2026-03-15 15:18:29.437] [info] Tile  status Gemm, instructions left 96
+[2026-03-15 15:18:29.437] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:29.437] [info] Core [1] Tile Stats | Issued: 65 Running: 2 Finished: 63
+[2026-03-15 15:18:29.437] [info] cycle: [328000]
+[2026-03-15 15:18:29.437] [info] Tile  status Gemm, instructions left 100
+[2026-03-15 15:18:29.437] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:29.437] [info] Core [2] Tile Stats | Issued: 65 Running: 2 Finished: 63
+[2026-03-15 15:18:29.437] [info] cycle: [328000]
+[2026-03-15 15:18:29.437] [info] Tile  status Gemm, instructions left 96
+[2026-03-15 15:18:29.437] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:29.437] [info] Core [3] Tile Stats | Issued: 66 Running: 2 Finished: 64
+[2026-03-15 15:18:29.437] [info] cycle: [328000]
+[2026-03-15 15:18:29.963] [info] HBM2-CH_0: BW utilization 66% (6394 reads, 0 writes)
+[2026-03-15 15:18:29.972] [info] Tile  status Gemm, instructions left 52
+[2026-03-15 15:18:29.972] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:29.972] [info] Core [0] Tile Stats | Issued: 66 Running: 2 Finished: 64
+[2026-03-15 15:18:29.972] [info] cycle: [336000]
+[2026-03-15 15:18:29.972] [info] Tile  status Gemm, instructions left 48
+[2026-03-15 15:18:29.972] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:29.972] [info] Core [1] Tile Stats | Issued: 65 Running: 2 Finished: 63
+[2026-03-15 15:18:29.972] [info] cycle: [336000]
+[2026-03-15 15:18:29.972] [info] Tile  status Gemm, instructions left 52
+[2026-03-15 15:18:29.972] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:29.972] [info] Core [2] Tile Stats | Issued: 65 Running: 2 Finished: 63
+[2026-03-15 15:18:29.972] [info] cycle: [336000]
+[2026-03-15 15:18:29.972] [info] Tile  status Gemm, instructions left 48
+[2026-03-15 15:18:29.972] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:29.972] [info] Core [3] Tile Stats | Issued: 66 Running: 2 Finished: 64
+[2026-03-15 15:18:29.972] [info] cycle: [336000]
+[2026-03-15 15:18:30.516] [info] HBM2-CH_0: BW utilization 66% (6344 reads, 0 writes)
+[2026-03-15 15:18:30.525] [info] Tile  status Gemm, instructions left 52
+[2026-03-15 15:18:30.525] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:30.525] [info] Core [0] Tile Stats | Issued: 66 Running: 2 Finished: 64
+[2026-03-15 15:18:30.525] [info] cycle: [344000]
+[2026-03-15 15:18:30.525] [info] Tile  status Gemm, instructions left 48
+[2026-03-15 15:18:30.525] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:30.525] [info] Core [1] Tile Stats | Issued: 65 Running: 2 Finished: 63
+[2026-03-15 15:18:30.525] [info] cycle: [344000]
+[2026-03-15 15:18:30.525] [info] Tile  status Gemm, instructions left 52
+[2026-03-15 15:18:30.525] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:30.525] [info] Core [2] Tile Stats | Issued: 65 Running: 2 Finished: 63
+[2026-03-15 15:18:30.525] [info] cycle: [344000]
+[2026-03-15 15:18:30.525] [info] Tile  status Gemm, instructions left 48
+[2026-03-15 15:18:30.525] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:30.525] [info] Core [3] Tile Stats | Issued: 66 Running: 2 Finished: 64
+[2026-03-15 15:18:30.525] [info] cycle: [344000]
+[2026-03-15 15:18:31.073] [info] HBM2-CH_0: BW utilization 67% (6474 reads, 0 writes)
+[2026-03-15 15:18:31.082] [info] Tile  status Gemm, instructions left 1
+[2026-03-15 15:18:31.082] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:31.082] [info] Core [0] Tile Stats | Issued: 66 Running: 2 Finished: 64
+[2026-03-15 15:18:31.082] [info] cycle: [352000]
+[2026-03-15 15:18:31.082] [info] Tile  status Gemm, instructions left 0
+[2026-03-15 15:18:31.082] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:31.082] [info] Core [1] Tile Stats | Issued: 65 Running: 2 Finished: 63
+[2026-03-15 15:18:31.082] [info] cycle: [352000]
+[2026-03-15 15:18:31.082] [info] Tile  status Gemm, instructions left 1
+[2026-03-15 15:18:31.082] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:31.082] [info] Core [2] Tile Stats | Issued: 65 Running: 2 Finished: 63
+[2026-03-15 15:18:31.082] [info] cycle: [352000]
+[2026-03-15 15:18:31.082] [info] Tile  status Gemm, instructions left 0
+[2026-03-15 15:18:31.082] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:31.082] [info] Core [3] Tile Stats | Issued: 66 Running: 2 Finished: 64
+[2026-03-15 15:18:31.082] [info] cycle: [352000]
+[2026-03-15 15:18:31.633] [info] HBM2-CH_0: BW utilization 67% (6509 reads, 0 writes)
+[2026-03-15 15:18:31.643] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:31.643] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:31.643] [info] Core [0] Tile Stats | Issued: 67 Running: 2 Finished: 65
+[2026-03-15 15:18:31.643] [info] cycle: [360000]
+[2026-03-15 15:18:31.643] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:31.643] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:31.643] [info] Core [1] Tile Stats | Issued: 66 Running: 2 Finished: 64
+[2026-03-15 15:18:31.643] [info] cycle: [360000]
+[2026-03-15 15:18:31.643] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:31.643] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:31.643] [info] Core [2] Tile Stats | Issued: 66 Running: 2 Finished: 64
+[2026-03-15 15:18:31.643] [info] cycle: [360000]
+[2026-03-15 15:18:31.643] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:31.643] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:31.643] [info] Core [3] Tile Stats | Issued: 67 Running: 2 Finished: 65
+[2026-03-15 15:18:31.643] [info] cycle: [360000]
+[2026-03-15 15:18:32.197] [info] HBM2-CH_0: BW utilization 64% (6211 reads, 0 writes)
+[2026-03-15 15:18:32.206] [info] Tile  status Gemm, instructions left 148
+[2026-03-15 15:18:32.206] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:32.206] [info] Core [0] Tile Stats | Issued: 67 Running: 2 Finished: 65
+[2026-03-15 15:18:32.206] [info] cycle: [368000]
+[2026-03-15 15:18:32.206] [info] Tile  status Gemm, instructions left 144
+[2026-03-15 15:18:32.206] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:32.206] [info] Core [1] Tile Stats | Issued: 66 Running: 2 Finished: 64
+[2026-03-15 15:18:32.206] [info] cycle: [368000]
+[2026-03-15 15:18:32.206] [info] Tile  status Gemm, instructions left 148
+[2026-03-15 15:18:32.206] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:32.206] [info] Core [2] Tile Stats | Issued: 66 Running: 2 Finished: 64
+[2026-03-15 15:18:32.206] [info] cycle: [368000]
+[2026-03-15 15:18:32.206] [info] Tile  status Gemm, instructions left 144
+[2026-03-15 15:18:32.206] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:32.206] [info] Core [3] Tile Stats | Issued: 67 Running: 2 Finished: 65
+[2026-03-15 15:18:32.206] [info] cycle: [368000]
+[2026-03-15 15:18:32.732] [info] HBM2-CH_0: BW utilization 63% (6116 reads, 0 writes)
+[2026-03-15 15:18:32.742] [info] Tile  status Gemm, instructions left 148
+[2026-03-15 15:18:32.742] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:32.742] [info] Core [0] Tile Stats | Issued: 67 Running: 2 Finished: 65
+[2026-03-15 15:18:32.742] [info] cycle: [376000]
+[2026-03-15 15:18:32.742] [info] Tile  status Gemm, instructions left 144
+[2026-03-15 15:18:32.742] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:32.742] [info] Core [1] Tile Stats | Issued: 66 Running: 2 Finished: 64
+[2026-03-15 15:18:32.742] [info] cycle: [376000]
+[2026-03-15 15:18:32.742] [info] Tile  status Gemm, instructions left 148
+[2026-03-15 15:18:32.742] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:32.742] [info] Core [2] Tile Stats | Issued: 66 Running: 2 Finished: 64
+[2026-03-15 15:18:32.742] [info] cycle: [376000]
+[2026-03-15 15:18:32.742] [info] Tile  status Gemm, instructions left 144
+[2026-03-15 15:18:32.742] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:32.742] [info] Core [3] Tile Stats | Issued: 67 Running: 2 Finished: 65
+[2026-03-15 15:18:32.742] [info] cycle: [376000]
+[2026-03-15 15:18:33.269] [info] HBM2-CH_0: BW utilization 64% (6171 reads, 0 writes)
+[2026-03-15 15:18:33.280] [info] Tile  status Gemm, instructions left 100
+[2026-03-15 15:18:33.280] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:33.280] [info] Core [0] Tile Stats | Issued: 67 Running: 2 Finished: 65
+[2026-03-15 15:18:33.280] [info] cycle: [384000]
+[2026-03-15 15:18:33.280] [info] Tile  status Gemm, instructions left 96
+[2026-03-15 15:18:33.280] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:33.280] [info] Core [1] Tile Stats | Issued: 66 Running: 2 Finished: 64
+[2026-03-15 15:18:33.280] [info] cycle: [384000]
+[2026-03-15 15:18:33.280] [info] Tile  status Gemm, instructions left 100
+[2026-03-15 15:18:33.280] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:33.280] [info] Core [2] Tile Stats | Issued: 66 Running: 2 Finished: 64
+[2026-03-15 15:18:33.280] [info] cycle: [384000]
+[2026-03-15 15:18:33.280] [info] Tile  status Gemm, instructions left 96
+[2026-03-15 15:18:33.280] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:33.280] [info] Core [3] Tile Stats | Issued: 67 Running: 2 Finished: 65
+[2026-03-15 15:18:33.280] [info] cycle: [384000]
+[2026-03-15 15:18:33.814] [info] HBM2-CH_0: BW utilization 64% (6181 reads, 0 writes)
+[2026-03-15 15:18:33.824] [info] Tile  status Gemm, instructions left 100
+[2026-03-15 15:18:33.824] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:33.824] [info] Core [0] Tile Stats | Issued: 67 Running: 2 Finished: 65
+[2026-03-15 15:18:33.824] [info] cycle: [392000]
+[2026-03-15 15:18:33.824] [info] Tile  status Gemm, instructions left 96
+[2026-03-15 15:18:33.824] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:33.824] [info] Core [1] Tile Stats | Issued: 66 Running: 2 Finished: 64
+[2026-03-15 15:18:33.824] [info] cycle: [392000]
+[2026-03-15 15:18:33.824] [info] Tile  status Gemm, instructions left 100
+[2026-03-15 15:18:33.824] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:33.824] [info] Core [2] Tile Stats | Issued: 66 Running: 2 Finished: 64
+[2026-03-15 15:18:33.824] [info] cycle: [392000]
+[2026-03-15 15:18:33.824] [info] Tile  status Gemm, instructions left 96
+[2026-03-15 15:18:33.824] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:33.824] [info] Core [3] Tile Stats | Issued: 67 Running: 2 Finished: 65
+[2026-03-15 15:18:33.824] [info] cycle: [392000]
+[2026-03-15 15:18:34.360] [info] HBM2-CH_0: BW utilization 62% (6044 reads, 0 writes)
+[2026-03-15 15:18:34.371] [info] Tile  status Gemm, instructions left 52
+[2026-03-15 15:18:34.371] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:34.371] [info] Core [0] Tile Stats | Issued: 67 Running: 2 Finished: 65
+[2026-03-15 15:18:34.371] [info] cycle: [400000]
+[2026-03-15 15:18:34.371] [info] Tile  status Gemm, instructions left 48
+[2026-03-15 15:18:34.371] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:34.371] [info] Core [1] Tile Stats | Issued: 66 Running: 2 Finished: 64
+[2026-03-15 15:18:34.371] [info] cycle: [400000]
+[2026-03-15 15:18:34.371] [info] Tile  status Gemm, instructions left 52
+[2026-03-15 15:18:34.371] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:34.371] [info] Core [2] Tile Stats | Issued: 66 Running: 2 Finished: 64
+[2026-03-15 15:18:34.371] [info] cycle: [400000]
+[2026-03-15 15:18:34.371] [info] Tile  status Gemm, instructions left 48
+[2026-03-15 15:18:34.371] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:34.371] [info] Core [3] Tile Stats | Issued: 67 Running: 2 Finished: 65
+[2026-03-15 15:18:34.371] [info] cycle: [400000]
+[2026-03-15 15:18:34.913] [info] HBM2-CH_0: BW utilization 62% (6003 reads, 0 writes)
+[2026-03-15 15:18:34.924] [info] Tile  status Gemm, instructions left 52
+[2026-03-15 15:18:34.924] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:34.924] [info] Core [0] Tile Stats | Issued: 67 Running: 2 Finished: 65
+[2026-03-15 15:18:34.924] [info] cycle: [408000]
+[2026-03-15 15:18:34.924] [info] Tile  status Gemm, instructions left 48
+[2026-03-15 15:18:34.924] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:34.924] [info] Core [1] Tile Stats | Issued: 66 Running: 2 Finished: 64
+[2026-03-15 15:18:34.924] [info] cycle: [408000]
+[2026-03-15 15:18:34.924] [info] Tile  status Gemm, instructions left 52
+[2026-03-15 15:18:34.924] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:34.924] [info] Core [2] Tile Stats | Issued: 66 Running: 2 Finished: 64
+[2026-03-15 15:18:34.924] [info] cycle: [408000]
+[2026-03-15 15:18:34.924] [info] Tile  status Gemm, instructions left 48
+[2026-03-15 15:18:34.924] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:34.924] [info] Core [3] Tile Stats | Issued: 67 Running: 2 Finished: 65
+[2026-03-15 15:18:34.924] [info] cycle: [408000]
+[2026-03-15 15:18:35.467] [info] HBM2-CH_0: BW utilization 63% (6096 reads, 0 writes)
+[2026-03-15 15:18:35.478] [info] Tile  status Gemm, instructions left 1
+[2026-03-15 15:18:35.479] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:35.479] [info] Core [0] Tile Stats | Issued: 67 Running: 2 Finished: 65
+[2026-03-15 15:18:35.479] [info] cycle: [416000]
+[2026-03-15 15:18:35.479] [info] Tile  status Gemm, instructions left 0
+[2026-03-15 15:18:35.479] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:35.479] [info] Core [1] Tile Stats | Issued: 66 Running: 2 Finished: 64
+[2026-03-15 15:18:35.479] [info] cycle: [416000]
+[2026-03-15 15:18:35.479] [info] Tile  status Gemm, instructions left 1
+[2026-03-15 15:18:35.479] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:35.479] [info] Core [2] Tile Stats | Issued: 66 Running: 2 Finished: 64
+[2026-03-15 15:18:35.479] [info] cycle: [416000]
+[2026-03-15 15:18:35.479] [info] Tile  status Gemm, instructions left 0
+[2026-03-15 15:18:35.479] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:35.479] [info] Core [3] Tile Stats | Issued: 67 Running: 2 Finished: 65
+[2026-03-15 15:18:35.479] [info] cycle: [416000]
+[2026-03-15 15:18:36.050] [info] HBM2-CH_0: BW utilization 64% (6147 reads, 0 writes)
+[2026-03-15 15:18:36.062] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:36.062] [info] Core [0] Tile Stats | Issued: 67 Running: 1 Finished: 66
+[2026-03-15 15:18:36.062] [info] cycle: [424000]
+[2026-03-15 15:18:36.062] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:36.062] [info] Core [1] Tile Stats | Issued: 66 Running: 1 Finished: 65
+[2026-03-15 15:18:36.062] [info] cycle: [424000]
+[2026-03-15 15:18:36.062] [info] Tile  status Gemm, instructions left 196
+[2026-03-15 15:18:36.062] [info] Core [2] Tile Stats | Issued: 66 Running: 1 Finished: 65
+[2026-03-15 15:18:36.062] [info] cycle: [424000]
+[2026-03-15 15:18:36.062] [info] Tile  status Gemm, instructions left 192
+[2026-03-15 15:18:36.062] [info] Core [3] Tile Stats | Issued: 67 Running: 1 Finished: 66
+[2026-03-15 15:18:36.062] [info] cycle: [424000]
+[2026-03-15 15:18:36.624] [info] HBM2-CH_0: BW utilization 61% (5857 reads, 0 writes)
+[2026-03-15 15:18:36.636] [info] Tile  status Gemm, instructions left 148
+[2026-03-15 15:18:36.636] [info] Core [0] Tile Stats | Issued: 67 Running: 1 Finished: 66
+[2026-03-15 15:18:36.636] [info] cycle: [432000]
+[2026-03-15 15:18:36.636] [info] Tile  status Gemm, instructions left 144
+[2026-03-15 15:18:36.636] [info] Core [1] Tile Stats | Issued: 66 Running: 1 Finished: 65
+[2026-03-15 15:18:36.636] [info] cycle: [432000]
+[2026-03-15 15:18:36.636] [info] Tile  status Gemm, instructions left 148
+[2026-03-15 15:18:36.636] [info] Core [2] Tile Stats | Issued: 66 Running: 1 Finished: 65
+[2026-03-15 15:18:36.636] [info] cycle: [432000]
+[2026-03-15 15:18:36.636] [info] Tile  status Gemm, instructions left 144
+[2026-03-15 15:18:36.636] [info] Core [3] Tile Stats | Issued: 67 Running: 1 Finished: 66
+[2026-03-15 15:18:36.636] [info] cycle: [432000]
+[2026-03-15 15:18:37.229] [info] HBM2-CH_0: BW utilization 59% (5732 reads, 0 writes)
+[2026-03-15 15:18:37.242] [info] Tile  status Gemm, instructions left 148
+[2026-03-15 15:18:37.242] [info] Core [0] Tile Stats | Issued: 67 Running: 1 Finished: 66
+[2026-03-15 15:18:37.242] [info] cycle: [440000]
+[2026-03-15 15:18:37.242] [info] Tile  status Gemm, instructions left 144
+[2026-03-15 15:18:37.242] [info] Core [1] Tile Stats | Issued: 66 Running: 1 Finished: 65
+[2026-03-15 15:18:37.242] [info] cycle: [440000]
+[2026-03-15 15:18:37.242] [info] Tile  status Gemm, instructions left 148
+[2026-03-15 15:18:37.242] [info] Core [2] Tile Stats | Issued: 66 Running: 1 Finished: 65
+[2026-03-15 15:18:37.242] [info] cycle: [440000]
+[2026-03-15 15:18:37.242] [info] Tile  status Gemm, instructions left 144
+[2026-03-15 15:18:37.242] [info] Core [3] Tile Stats | Issued: 67 Running: 1 Finished: 66
+[2026-03-15 15:18:37.242] [info] cycle: [440000]
+[2026-03-15 15:18:37.824] [info] HBM2-CH_0: BW utilization 60% (5830 reads, 0 writes)
+[2026-03-15 15:18:37.837] [info] Tile  status Gemm, instructions left 100
+[2026-03-15 15:18:37.837] [info] Core [0] Tile Stats | Issued: 67 Running: 1 Finished: 66
+[2026-03-15 15:18:37.837] [info] cycle: [448000]
+[2026-03-15 15:18:37.837] [info] Tile  status Gemm, instructions left 96
+[2026-03-15 15:18:37.837] [info] Core [1] Tile Stats | Issued: 66 Running: 1 Finished: 65
+[2026-03-15 15:18:37.837] [info] cycle: [448000]
+[2026-03-15 15:18:37.837] [info] Tile  status Gemm, instructions left 100
+[2026-03-15 15:18:37.837] [info] Core [2] Tile Stats | Issued: 66 Running: 1 Finished: 65
+[2026-03-15 15:18:37.837] [info] cycle: [448000]
+[2026-03-15 15:18:37.837] [info] Tile  status Gemm, instructions left 96
+[2026-03-15 15:18:37.837] [info] Core [3] Tile Stats | Issued: 67 Running: 1 Finished: 66
+[2026-03-15 15:18:37.837] [info] cycle: [448000]
+[2026-03-15 15:18:38.421] [info] HBM2-CH_0: BW utilization 61% (5938 reads, 0 writes)
+[2026-03-15 15:18:38.434] [info] Tile  status Gemm, instructions left 100
+[2026-03-15 15:18:38.434] [info] Core [0] Tile Stats | Issued: 67 Running: 1 Finished: 66
+[2026-03-15 15:18:38.434] [info] cycle: [456000]
+[2026-03-15 15:18:38.434] [info] Tile  status Gemm, instructions left 96
+[2026-03-15 15:18:38.434] [info] Core [1] Tile Stats | Issued: 66 Running: 1 Finished: 65
+[2026-03-15 15:18:38.434] [info] cycle: [456000]
+[2026-03-15 15:18:38.434] [info] Tile  status Gemm, instructions left 100
+[2026-03-15 15:18:38.434] [info] Core [2] Tile Stats | Issued: 66 Running: 1 Finished: 65
+[2026-03-15 15:18:38.434] [info] cycle: [456000]
+[2026-03-15 15:18:38.434] [info] Tile  status Gemm, instructions left 96
+[2026-03-15 15:18:38.434] [info] Core [3] Tile Stats | Issued: 67 Running: 1 Finished: 66
+[2026-03-15 15:18:38.434] [info] cycle: [456000]
+[2026-03-15 15:18:39.017] [info] HBM2-CH_0: BW utilization 60% (5834 reads, 0 writes)
+[2026-03-15 15:18:39.031] [info] Tile  status Gemm, instructions left 100
+[2026-03-15 15:18:39.031] [info] Core [0] Tile Stats | Issued: 67 Running: 1 Finished: 66
+[2026-03-15 15:18:39.031] [info] cycle: [464000]
+[2026-03-15 15:18:39.031] [info] Tile  status Gemm, instructions left 96
+[2026-03-15 15:18:39.031] [info] Core [1] Tile Stats | Issued: 66 Running: 1 Finished: 65
+[2026-03-15 15:18:39.031] [info] cycle: [464000]
+[2026-03-15 15:18:39.031] [info] Tile  status Gemm, instructions left 100
+[2026-03-15 15:18:39.031] [info] Core [2] Tile Stats | Issued: 66 Running: 1 Finished: 65
+[2026-03-15 15:18:39.031] [info] cycle: [464000]
+[2026-03-15 15:18:39.031] [info] Tile  status Gemm, instructions left 96
+[2026-03-15 15:18:39.031] [info] Core [3] Tile Stats | Issued: 67 Running: 1 Finished: 66
+[2026-03-15 15:18:39.031] [info] cycle: [464000]
+[2026-03-15 15:18:39.613] [info] HBM2-CH_0: BW utilization 59% (5712 reads, 0 writes)
+[2026-03-15 15:18:39.627] [info] Tile  status Gemm, instructions left 52
+[2026-03-15 15:18:39.627] [info] Core [0] Tile Stats | Issued: 67 Running: 1 Finished: 66
+[2026-03-15 15:18:39.627] [info] cycle: [472000]
+[2026-03-15 15:18:39.627] [info] Tile  status Gemm, instructions left 48
+[2026-03-15 15:18:39.627] [info] Core [1] Tile Stats | Issued: 66 Running: 1 Finished: 65
+[2026-03-15 15:18:39.627] [info] cycle: [472000]
+[2026-03-15 15:18:39.627] [info] Tile  status Gemm, instructions left 52
+[2026-03-15 15:18:39.627] [info] Core [2] Tile Stats | Issued: 66 Running: 1 Finished: 65
+[2026-03-15 15:18:39.627] [info] cycle: [472000]
+[2026-03-15 15:18:39.627] [info] Tile  status Gemm, instructions left 48
+[2026-03-15 15:18:39.627] [info] Core [3] Tile Stats | Issued: 67 Running: 1 Finished: 66
+[2026-03-15 15:18:39.627] [info] cycle: [472000]
+[2026-03-15 15:18:40.057] [info] HBM2-CH_0: BW utilization 37% (3627 reads, 9 writes)
+[2026-03-15 15:18:40.061] [info] Tile  status Gemm, instructions left 52
+[2026-03-15 15:18:40.061] [info] Core [0] Tile Stats | Issued: 67 Running: 1 Finished: 66
+[2026-03-15 15:18:40.061] [info] cycle: [480000]
+[2026-03-15 15:18:40.061] [info] Tile  status Gemm, instructions left 48
+[2026-03-15 15:18:40.061] [info] Core [1] Tile Stats | Issued: 66 Running: 1 Finished: 65
+[2026-03-15 15:18:40.061] [info] cycle: [480000]
+[2026-03-15 15:18:40.061] [info] Tile  status Gemm, instructions left 52
+[2026-03-15 15:18:40.061] [info] Core [2] Tile Stats | Issued: 66 Running: 1 Finished: 65
+[2026-03-15 15:18:40.061] [info] cycle: [480000]
+[2026-03-15 15:18:40.061] [info] Tile  status Gemm, instructions left 48
+[2026-03-15 15:18:40.061] [info] Core [3] Tile Stats | Issued: 67 Running: 1 Finished: 66
+[2026-03-15 15:18:40.061] [info] cycle: [480000]
+[2026-03-15 15:18:40.159] [info] HBM2-CH_0: BW utilization 0% (0 reads, 3 writes)
+[2026-03-15 15:18:40.159] [info] Layer /block/conv_proj/Gemm finish at 487817
+[2026-03-15 15:18:40.159] [info] Total compute time 202730
+[2026-03-15 15:18:40.159] [info] executable layer count 25
+[2026-03-15 15:18:40.159] [info] Start layer /block/Constant_8
+[2026-03-15 15:18:40.159] [info] Layer /block/Constant_8 finish at 487850
+[2026-03-15 15:18:40.159] [info] Total compute time 33
+[2026-03-15 15:18:40.159] [info] executable layer count 24
+[2026-03-15 15:18:40.159] [info] Start layer /block/Constant_9
+[2026-03-15 15:18:40.159] [info] Layer /block/Constant_9 finish at 487868
+[2026-03-15 15:18:40.159] [info] Total compute time 18
+[2026-03-15 15:18:40.159] [info] executable layer count 23
+[2026-03-15 15:18:40.159] [info] Start layer /block/Constant_10
+[2026-03-15 15:18:40.160] [info] Layer /block/Constant_10 finish at 487886
+[2026-03-15 15:18:40.160] [info] Total compute time 18
+[2026-03-15 15:18:40.160] [info] executable layer count 22
+[2026-03-15 15:18:40.160] [info] Start layer /block/Constant_11
+[2026-03-15 15:18:40.160] [info] Layer /block/Constant_11 finish at 487905
+[2026-03-15 15:18:40.160] [info] Total compute time 19
+[2026-03-15 15:18:40.160] [info] executable layer count 22
+[2026-03-15 15:18:40.160] [info] Start layer /block/Constant_12
+[2026-03-15 15:18:40.160] [info] Layer /block/Constant_12 finish at 487923
+[2026-03-15 15:18:40.160] [info] Total compute time 18
+[2026-03-15 15:18:40.160] [info] executable layer count 21
+[2026-03-15 15:18:40.160] [info] Start layer /block/Constant_13
+[2026-03-15 15:18:40.160] [info] Layer /block/Constant_13 finish at 487941
+[2026-03-15 15:18:40.160] [info] Total compute time 18
+[2026-03-15 15:18:40.160] [info] executable layer count 20
+[2026-03-15 15:18:40.160] [info] Start layer /block/Constant_14
+[2026-03-15 15:18:40.161] [info] Layer /block/Constant_14 finish at 487959
+[2026-03-15 15:18:40.161] [info] Total compute time 18
+[2026-03-15 15:18:40.161] [info] executable layer count 19
+[2026-03-15 15:18:40.161] [info] Start layer /block/Constant_15
+[2026-03-15 15:18:40.161] [info] Layer /block/Constant_15 finish at 487978
+[2026-03-15 15:18:40.161] [info] Total compute time 19
+[2026-03-15 15:18:40.161] [info] executable layer count 18
+[2026-03-15 15:18:40.161] [info] Start layer /block/Constant_16
+[2026-03-15 15:18:40.161] [info] Layer /block/Constant_16 finish at 487996
+[2026-03-15 15:18:40.161] [info] Total compute time 18
+[2026-03-15 15:18:40.161] [info] executable layer count 17
+[2026-03-15 15:18:40.161] [info] Start layer /block/Constant_17
+[2026-03-15 15:18:40.161] [info] Core [0] Tile Stats | Issued: 69 Running: 0 Finished: 69
+[2026-03-15 15:18:40.161] [info] cycle: [488000]
+[2026-03-15 15:18:40.161] [info] Core [1] Tile Stats | Issued: 69 Running: 0 Finished: 69
+[2026-03-15 15:18:40.161] [info] cycle: [488000]
+[2026-03-15 15:18:40.161] [info] Tile  status /block/Constant_17, instructions left 1
+[2026-03-15 15:18:40.161] [info] Core [2] Tile Stats | Issued: 69 Running: 1 Finished: 68
+[2026-03-15 15:18:40.161] [info] cycle: [488000]
+[2026-03-15 15:18:40.161] [info] Core [3] Tile Stats | Issued: 69 Running: 0 Finished: 69
+[2026-03-15 15:18:40.161] [info] cycle: [488000]
+[2026-03-15 15:18:40.161] [info] Layer /block/Constant_17 finish at 488014
+[2026-03-15 15:18:40.161] [info] Total compute time 18
+[2026-03-15 15:18:40.161] [info] executable layer count 16
+[2026-03-15 15:18:40.161] [info] Start layer /block/Constant_18
+[2026-03-15 15:18:40.161] [info] Layer /block/Constant_18 finish at 488032
+[2026-03-15 15:18:40.161] [info] Total compute time 18
+[2026-03-15 15:18:40.161] [info] executable layer count 15
+[2026-03-15 15:18:40.161] [info] Start layer /block/Constant_19
+[2026-03-15 15:18:40.162] [info] Layer /block/Constant_19 finish at 488051
+[2026-03-15 15:18:40.162] [info] Total compute time 19
+[2026-03-15 15:18:40.162] [info] executable layer count 14
+[2026-03-15 15:18:40.162] [info] Start layer /block/Constant_20
+[2026-03-15 15:18:40.162] [info] Layer /block/Constant_20 finish at 488069
+[2026-03-15 15:18:40.162] [info] Total compute time 18
+[2026-03-15 15:18:40.162] [info] executable layer count 13
+[2026-03-15 15:18:40.162] [info] Start layer /block/Constant_21
+[2026-03-15 15:18:40.162] [info] Layer /block/Constant_21 finish at 488087
+[2026-03-15 15:18:40.162] [info] Total compute time 18
+[2026-03-15 15:18:40.162] [info] executable layer count 12
+[2026-03-15 15:18:40.162] [info] Start layer /block/Constant_22
+[2026-03-15 15:18:40.162] [info] Layer /block/Constant_22 finish at 488105
+[2026-03-15 15:18:40.162] [info] Total compute time 18
+[2026-03-15 15:18:40.162] [info] executable layer count 11
+[2026-03-15 15:18:40.162] [info] Start layer /block/Constant_23
+[2026-03-15 15:18:40.162] [info] Layer /block/Constant_23 finish at 488124
+[2026-03-15 15:18:40.162] [info] Total compute time 19
+[2026-03-15 15:18:40.162] [info] executable layer count 10
+[2026-03-15 15:18:40.162] [info] Start layer /block/Exp
+[2026-03-15 15:18:40.172] [info] Layer /block/Exp finish at 488386
+[2026-03-15 15:18:40.172] [info] Total compute time 262
+[2026-03-15 15:18:40.172] [info] executable layer count 10
+[2026-03-15 15:18:40.172] [info] Start layer /block/Constant_24
+[2026-03-15 15:18:40.172] [info] Layer /block/Constant_24 finish at 488405
+[2026-03-15 15:18:40.172] [info] Total compute time 19
+[2026-03-15 15:18:40.172] [info] executable layer count 9
+[2026-03-15 15:18:40.172] [info] Start layer /block/Constant_25
+[2026-03-15 15:18:40.180] [info] Layer /block/Constant_25 finish at 488650
+[2026-03-15 15:18:40.180] [info] Total compute time 245
+[2026-03-15 15:18:40.180] [info] executable layer count 8
+[2026-03-15 15:18:40.180] [info] Start layer /block/Constant_26
+[2026-03-15 15:18:40.180] [info] Layer /block/Constant_26 finish at 488669
+[2026-03-15 15:18:40.180] [info] Total compute time 19
+[2026-03-15 15:18:40.180] [info] executable layer count 7
+[2026-03-15 15:18:40.180] [info] Start layer /block/Constant_27
+[2026-03-15 15:18:40.180] [info] Layer /block/Constant_27 finish at 488688
+[2026-03-15 15:18:40.180] [info] Total compute time 19
+[2026-03-15 15:18:40.180] [info] executable layer count 7
+[2026-03-15 15:18:40.180] [info] Start layer /block/Constant_28
+[2026-03-15 15:18:40.180] [info] Layer /block/Constant_28 finish at 488706
+[2026-03-15 15:18:40.180] [info] Total compute time 18
+[2026-03-15 15:18:40.180] [info] executable layer count 6
+[2026-03-15 15:18:40.180] [info] Start layer /block/Slice
+[2026-03-15 15:18:40.182] [info] Layer /block/Slice finish at 488772
+[2026-03-15 15:18:40.182] [info] Total compute time 66
+[2026-03-15 15:18:40.182] [info] executable layer count 5
+[2026-03-15 15:18:40.182] [info] Start layer /block/Slice_1
+[2026-03-15 15:18:40.184] [info] Layer /block/Slice_1 finish at 488856
+[2026-03-15 15:18:40.184] [info] Total compute time 84
+[2026-03-15 15:18:40.184] [info] executable layer count 5
+[2026-03-15 15:18:40.184] [info] Start layer /block/Sigmoid
+[2026-03-15 15:18:40.185] [info] Layer /block/Sigmoid finish at 488927
+[2026-03-15 15:18:40.185] [info] Total compute time 71
+[2026-03-15 15:18:40.185] [info] executable layer count 5
+[2026-03-15 15:18:40.185] [info] Start layer /block/Slice_2
+[2026-03-15 15:18:40.188] [info] Layer /block/Slice_2 finish at 489033
+[2026-03-15 15:18:40.188] [info] Total compute time 106
+[2026-03-15 15:18:40.188] [info] executable layer count 5
+[2026-03-15 15:18:40.188] [info] Start layer /block/Neg
+[2026-03-15 15:18:40.198] [info] Layer /block/Neg finish at 489360
+[2026-03-15 15:18:40.198] [info] Total compute time 327
+[2026-03-15 15:18:40.198] [info] executable layer count 4
+[2026-03-15 15:18:40.198] [info] Start layer /block/Reshape_3
+[2026-03-15 15:18:40.218] [info] Layer /block/Reshape_3 finish at 489845
+[2026-03-15 15:18:40.218] [info] Total compute time 485
+[2026-03-15 15:18:40.218] [info] executable layer count 3
+[2026-03-15 15:18:40.218] [info] Start layer /block/Sigmoid_1
+[2026-03-15 15:18:40.228] [info] Layer /block/Sigmoid_1 finish at 490143
+[2026-03-15 15:18:40.228] [info] Total compute time 298
+[2026-03-15 15:18:40.228] [info] executable layer count 3
+[2026-03-15 15:18:40.228] [info] Start layer /block/Mul
+[2026-03-15 15:18:40.230] [info] Layer /block/Mul finish at 490227
+[2026-03-15 15:18:40.230] [info] Total compute time 84
+[2026-03-15 15:18:40.230] [info] executable layer count 5
+[2026-03-15 15:18:40.230] [info] Start layer /block/Concat
+[2026-03-15 15:18:40.233] [info] Layer /block/Concat finish at 490334
+[2026-03-15 15:18:40.233] [info] Total compute time 107
+[2026-03-15 15:18:40.233] [info] executable layer count 4
+[2026-03-15 15:18:40.233] [info] Start layer /block/Mul_6
+[2026-03-15 15:18:40.237] [info] Layer /block/Mul_6 finish at 490491
+[2026-03-15 15:18:40.237] [info] Total compute time 157
+[2026-03-15 15:18:40.237] [info] executable layer count 3
+[2026-03-15 15:18:40.237] [info] Start layer /block/x_proj/Gemm
+[2026-03-15 15:18:40.352] [info] Layer /block/x_proj/Gemm finish at 495600
+[2026-03-15 15:18:40.352] [info] Total compute time 5109
+[2026-03-15 15:18:40.352] [info] executable layer count 5
+[2026-03-15 15:18:40.352] [info] Start layer /block/Reshape_2
+[2026-03-15 15:18:40.352] [info] Layer /block/Reshape_2 finish at 495643
+[2026-03-15 15:18:40.352] [info] Total compute time 43
+[2026-03-15 15:18:40.352] [info] executable layer count 4
+[2026-03-15 15:18:40.352] [info] Start layer /block/Mul_5
+[2026-03-15 15:18:40.354] [info] Layer /block/Mul_5 finish at 495721
+[2026-03-15 15:18:40.354] [info] Total compute time 78
+[2026-03-15 15:18:40.354] [info] executable layer count 3
+[2026-03-15 15:18:40.354] [info] Start layer /block/Slice_3
+[2026-03-15 15:18:40.355] [info] Layer /block/Slice_3 finish at 495742
+[2026-03-15 15:18:40.355] [info] Total compute time 21
+[2026-03-15 15:18:40.355] [info] executable layer count 3
+[2026-03-15 15:18:40.355] [info] Start layer /block/Slice_4
+[2026-03-15 15:18:40.355] [info] Layer /block/Slice_4 finish at 495761
+[2026-03-15 15:18:40.355] [info] Total compute time 19
+[2026-03-15 15:18:40.355] [info] executable layer count 3
+[2026-03-15 15:18:40.355] [info] Start layer /block/Slice_5
+[2026-03-15 15:18:40.355] [info] Layer /block/Slice_5 finish at 495783
+[2026-03-15 15:18:40.355] [info] Total compute time 22
+[2026-03-15 15:18:40.355] [info] executable layer count 3
+[2026-03-15 15:18:40.355] [info] Start layer /block/dt_proj/Gemm
+[2026-03-15 15:18:40.356] [info] HBM2-CH_0: BW utilization 33% (2438 reads, 818 writes)
+[2026-03-15 15:18:40.364] [info] Tile  status Gemm, instructions left 8
+[2026-03-15 15:18:40.364] [info] Tile  status Gemm, instructions left 8
+[2026-03-15 15:18:40.364] [info] Core [0] Tile Stats | Issued: 78 Running: 2 Finished: 76
+[2026-03-15 15:18:40.364] [info] cycle: [496000]
+[2026-03-15 15:18:40.364] [info] Tile  status Gemm, instructions left 8
+[2026-03-15 15:18:40.364] [info] Tile  status Gemm, instructions left 8
+[2026-03-15 15:18:40.364] [info] Core [1] Tile Stats | Issued: 78 Running: 2 Finished: 76
+[2026-03-15 15:18:40.364] [info] cycle: [496000]
+[2026-03-15 15:18:40.364] [info] Tile  status Gemm, instructions left 8
+[2026-03-15 15:18:40.364] [info] Core [2] Tile Stats | Issued: 77 Running: 1 Finished: 76
+[2026-03-15 15:18:40.364] [info] cycle: [496000]
+[2026-03-15 15:18:40.364] [info] Tile  status Gemm, instructions left 8
+[2026-03-15 15:18:40.364] [info] Core [3] Tile Stats | Issued: 78 Running: 1 Finished: 77
+[2026-03-15 15:18:40.364] [info] cycle: [496000]
+[2026-03-15 15:18:40.411] [info] Layer /block/dt_proj/Gemm finish at 497569
+[2026-03-15 15:18:40.411] [info] Total compute time 1786
+[2026-03-15 15:18:40.411] [info] executable layer count 3
+[2026-03-15 15:18:40.411] [info] Start layer /block/Reshape_1
+[2026-03-15 15:18:40.412] [info] Layer /block/Reshape_1 finish at 497587
+[2026-03-15 15:18:40.412] [info] Total compute time 18
+[2026-03-15 15:18:40.412] [info] executable layer count 2
+[2026-03-15 15:18:40.412] [info] Start layer /block/ssm_out/Gemm
+[2026-03-15 15:18:40.435] [info] Layer /block/ssm_out/Gemm finish at 499129
+[2026-03-15 15:18:40.435] [info] Total compute time 1542
+[2026-03-15 15:18:40.435] [info] executable layer count 2
+[2026-03-15 15:18:40.435] [info] Start layer /block/Softplus
+[2026-03-15 15:18:40.436] [info] Layer /block/Softplus finish at 499170
+[2026-03-15 15:18:40.436] [info] Total compute time 41
+[2026-03-15 15:18:40.436] [info] executable layer count 2
+[2026-03-15 15:18:40.436] [info] Start layer /block/Add_1
+[2026-03-15 15:18:40.437] [info] Layer /block/Add_1 finish at 499236
+[2026-03-15 15:18:40.437] [info] Total compute time 66
+[2026-03-15 15:18:40.437] [info] executable layer count 2
+[2026-03-15 15:18:40.437] [info] Start layer /block/Reshape
+[2026-03-15 15:18:40.438] [info] Layer /block/Reshape finish at 499279
+[2026-03-15 15:18:40.438] [info] Total compute time 43
+[2026-03-15 15:18:40.438] [info] executable layer count 3
+[2026-03-15 15:18:40.438] [info] Start layer /block/Mul_7
+[2026-03-15 15:18:40.440] [info] Layer /block/Mul_7 finish at 499381
+[2026-03-15 15:18:40.440] [info] Total compute time 102
+[2026-03-15 15:18:40.440] [info] executable layer count 3
+[2026-03-15 15:18:40.440] [info] Start layer /block/Mul_1
+[2026-03-15 15:18:40.457] [info] Layer /block/Mul_1 finish at 499983
+[2026-03-15 15:18:40.457] [info] Total compute time 602
+[2026-03-15 15:18:40.457] [info] executable layer count 3
+[2026-03-15 15:18:40.457] [info] Start layer /block/Mul_2
+[2026-03-15 15:18:40.460] [info] Layer /block/Mul_2 finish at 500087
+[2026-03-15 15:18:40.460] [info] Total compute time 104
+[2026-03-15 15:18:40.460] [info] executable layer count 3
+[2026-03-15 15:18:40.460] [info] Start layer /block/out_proj/Gemm
+[2026-03-15 15:18:40.688] [info] HBM2-CH_0: BW utilization 49% (4479 reads, 276 writes)
+[2026-03-15 15:18:40.700] [info] Tile  status Gemm, instructions left 25
+[2026-03-15 15:18:40.700] [info] Tile  status Gemm, instructions left 25
+[2026-03-15 15:18:40.700] [info] Core [0] Tile Stats | Issued: 86 Running: 2 Finished: 84
+[2026-03-15 15:18:40.700] [info] cycle: [504000]
+[2026-03-15 15:18:40.700] [info] Tile  status Gemm, instructions left 25
+[2026-03-15 15:18:40.700] [info] Tile  status Gemm, instructions left 25
+[2026-03-15 15:18:40.700] [info] Core [1] Tile Stats | Issued: 86 Running: 2 Finished: 84
+[2026-03-15 15:18:40.700] [info] cycle: [504000]
+[2026-03-15 15:18:40.700] [info] Tile  status Gemm, instructions left 25
+[2026-03-15 15:18:40.700] [info] Tile  status Gemm, instructions left 25
+[2026-03-15 15:18:40.700] [info] Core [2] Tile Stats | Issued: 86 Running: 2 Finished: 84
+[2026-03-15 15:18:40.700] [info] cycle: [504000]
+[2026-03-15 15:18:40.700] [info] Tile  status Gemm, instructions left 25
+[2026-03-15 15:18:40.700] [info] Tile  status Gemm, instructions left 25
+[2026-03-15 15:18:40.700] [info] Core [3] Tile Stats | Issued: 86 Running: 2 Finished: 84
+[2026-03-15 15:18:40.700] [info] cycle: [504000]
+[2026-03-15 15:18:41.166] [info] HBM2-CH_0: BW utilization 60% (5814 reads, 0 writes)
+[2026-03-15 15:18:41.180] [info] Tile  status Gemm, instructions left 1
+[2026-03-15 15:18:41.180] [info] Tile  status Gemm, instructions left 25
+[2026-03-15 15:18:41.180] [info] Core [0] Tile Stats | Issued: 86 Running: 2 Finished: 84
+[2026-03-15 15:18:41.180] [info] cycle: [512000]
+[2026-03-15 15:18:41.180] [info] Tile  status Gemm, instructions left 1
+[2026-03-15 15:18:41.180] [info] Tile  status Gemm, instructions left 25
+[2026-03-15 15:18:41.180] [info] Core [1] Tile Stats | Issued: 86 Running: 2 Finished: 84
+[2026-03-15 15:18:41.180] [info] cycle: [512000]
+[2026-03-15 15:18:41.180] [info] Tile  status Gemm, instructions left 1
+[2026-03-15 15:18:41.180] [info] Tile  status Gemm, instructions left 25
+[2026-03-15 15:18:41.180] [info] Core [2] Tile Stats | Issued: 86 Running: 2 Finished: 84
+[2026-03-15 15:18:41.180] [info] cycle: [512000]
+[2026-03-15 15:18:41.180] [info] Tile  status Gemm, instructions left 1
+[2026-03-15 15:18:41.180] [info] Tile  status Gemm, instructions left 25
+[2026-03-15 15:18:41.180] [info] Core [3] Tile Stats | Issued: 86 Running: 2 Finished: 84
+[2026-03-15 15:18:41.180] [info] cycle: [512000]
+[2026-03-15 15:18:41.665] [info] HBM2-CH_0: BW utilization 61% (5943 reads, 0 writes)
+[2026-03-15 15:18:41.679] [info] Tile  status Gemm, instructions left 1
+[2026-03-15 15:18:41.679] [info] Tile  status Gemm, instructions left 25
+[2026-03-15 15:18:41.679] [info] Core [0] Tile Stats | Issued: 87 Running: 2 Finished: 85
+[2026-03-15 15:18:41.679] [info] cycle: [520000]
+[2026-03-15 15:18:41.679] [info] Tile  status Gemm, instructions left 1
+[2026-03-15 15:18:41.679] [info] Tile  status Gemm, instructions left 25
+[2026-03-15 15:18:41.679] [info] Core [1] Tile Stats | Issued: 87 Running: 2 Finished: 85
+[2026-03-15 15:18:41.679] [info] cycle: [520000]
+[2026-03-15 15:18:41.679] [info] Tile  status Gemm, instructions left 1
+[2026-03-15 15:18:41.679] [info] Tile  status Gemm, instructions left 25
+[2026-03-15 15:18:41.679] [info] Core [2] Tile Stats | Issued: 87 Running: 2 Finished: 85
+[2026-03-15 15:18:41.679] [info] cycle: [520000]
+[2026-03-15 15:18:41.679] [info] Tile  status Gemm, instructions left 1
+[2026-03-15 15:18:41.679] [info] Tile  status Gemm, instructions left 25
+[2026-03-15 15:18:41.679] [info] Core [3] Tile Stats | Issued: 87 Running: 2 Finished: 85
+[2026-03-15 15:18:41.679] [info] cycle: [520000]
+[2026-03-15 15:18:42.067] [info] HBM2-CH_0: BW utilization 43% (4208 reads, 15 writes)
+[2026-03-15 15:18:42.070] [info] Tile  status Gemm, instructions left 1
+[2026-03-15 15:18:42.070] [info] Core [0] Tile Stats | Issued: 87 Running: 1 Finished: 86
+[2026-03-15 15:18:42.070] [info] cycle: [528000]
+[2026-03-15 15:18:42.070] [info] Tile  status Gemm, instructions left 1
+[2026-03-15 15:18:42.070] [info] Core [1] Tile Stats | Issued: 87 Running: 1 Finished: 86
+[2026-03-15 15:18:42.070] [info] cycle: [528000]
+[2026-03-15 15:18:42.070] [info] Tile  status Gemm, instructions left 1
+[2026-03-15 15:18:42.070] [info] Core [2] Tile Stats | Issued: 87 Running: 1 Finished: 86
+[2026-03-15 15:18:42.070] [info] cycle: [528000]
+[2026-03-15 15:18:42.070] [info] Tile  status Gemm, instructions left 1
+[2026-03-15 15:18:42.070] [info] Core [3] Tile Stats | Issued: 87 Running: 1 Finished: 86
+[2026-03-15 15:18:42.070] [info] cycle: [528000]
+[2026-03-15 15:18:42.090] [info] Layer /block/out_proj/Gemm finish at 529825
+[2026-03-15 15:18:42.090] [info] Total compute time 29738
+[2026-03-15 15:18:42.090] [info] executable layer count 2
+[2026-03-15 15:18:42.090] [info] Start layer /block/Exp_1
+[2026-03-15 15:18:42.100] [info] Layer /block/Exp_1 finish at 530091
+[2026-03-15 15:18:42.100] [info] Total compute time 266
+[2026-03-15 15:18:42.100] [info] executable layer count 2
+[2026-03-15 15:18:42.100] [info] Start layer /block/Mul_4
+[2026-03-15 15:18:42.108] [info] Layer /block/Mul_4 finish at 530366
+[2026-03-15 15:18:42.108] [info] Total compute time 275
+[2026-03-15 15:18:42.108] [info] executable layer count 1
+[2026-03-15 15:18:42.108] [info] Start layer /block/Mul_3
+[2026-03-15 15:18:42.126] [info] Layer /block/Mul_3 finish at 530959
+[2026-03-15 15:18:42.126] [info] Total compute time 593
+[2026-03-15 15:18:42.126] [info] executable layer count 1
+[2026-03-15 15:18:42.126] [info] Start layer /block/Add
+[2026-03-15 15:18:42.139] [info] Layer /block/Add finish at 531433
+[2026-03-15 15:18:42.139] [info] Total compute time 474
+[2026-03-15 15:18:42.139] [info] executable layer count 1
+[2026-03-15 15:18:42.139] [info] Start layer /block/Reshape_4
+[2026-03-15 15:18:42.145] [info] Layer /block/Reshape_4 finish at 531667
+[2026-03-15 15:18:42.145] [info] Total compute time 234
+[2026-03-15 15:18:42.145] [info] Model[mamba-790m-single] Request: 227 us, Start: 227 us, finish:531 us, Current Cycle:531667
+[2026-03-15 15:18:42.145] [info] No total_seq_len!
+[2026-03-15 15:18:42.152] [info] Simulation Finished at 531907 cycle 531 us
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:42.152] [info] Row hits: 271941, Row misses: 4096, Row conflicts: 83273
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 4224
+  total_num_read_requests: 355133
+  memory_system_cycles: 638543
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+[2026-03-15 15:18:42.152] [info] HBM2-CH_0: avg BW utilization 56% (355133 reads, 4224 writes)
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:42.152] [info] Row hits: 270943, Row misses: 3787, Row conflicts: 84433
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 4203
+  total_num_read_requests: 355015
+  memory_system_cycles: 638543
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:42.152] [info] Row hits: 270911, Row misses: 3692, Row conflicts: 84551
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 4202
+  total_num_read_requests: 355011
+  memory_system_cycles: 638543
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:42.152] [info] Row hits: 272916, Row misses: 4097, Row conflicts: 82217
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 4219
+  total_num_read_requests: 355054
+  memory_system_cycles: 638543
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:42.152] [info] Row hits: 268722, Row misses: 3503, Row conflicts: 86929
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 4204
+  total_num_read_requests: 355016
+  memory_system_cycles: 638543
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:42.152] [info] Row hits: 273170, Row misses: 4041, Row conflicts: 82003
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 4219
+  total_num_read_requests: 355055
+  memory_system_cycles: 638543
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:42.152] [info] Row hits: 272244, Row misses: 4066, Row conflicts: 82908
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 4218
+  total_num_read_requests: 355054
+  memory_system_cycles: 638543
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:42.152] [info] Row hits: 268731, Row misses: 3450, Row conflicts: 86986
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 4202
+  total_num_read_requests: 355028
+  memory_system_cycles: 638543
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:42.152] [info] Row hits: 269213, Row misses: 3574, Row conflicts: 86371
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 4201
+  total_num_read_requests: 355016
+  memory_system_cycles: 638543
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:42.152] [info] Row hits: 274144, Row misses: 4168, Row conflicts: 80898
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 4218
+  total_num_read_requests: 355042
+  memory_system_cycles: 638543
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:42.152] [info] Row hits: 272950, Row misses: 3983, Row conflicts: 82278
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 4214
+  total_num_read_requests: 355042
+  memory_system_cycles: 638543
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:42.153] [info] Row hits: 270491, Row misses: 3444, Row conflicts: 85225
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 4203
+  total_num_read_requests: 355017
+  memory_system_cycles: 638543
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:42.153] [info] Row hits: 272359, Row misses: 3980, Row conflicts: 82880
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 4217
+  total_num_read_requests: 355057
+  memory_system_cycles: 638543
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:42.153] [info] Row hits: 269799, Row misses: 3304, Row conflicts: 86057
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 4201
+  total_num_read_requests: 355016
+  memory_system_cycles: 638543
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:42.153] [info] Row hits: 269678, Row misses: 3323, Row conflicts: 86161
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 4203
+  total_num_read_requests: 355015
+  memory_system_cycles: 638543
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-15 15:18:42.153] [info] Row hits: 273216, Row misses: 3916, Row conflicts: 82089
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 4218
+  total_num_read_requests: 355054
+  memory_system_cycles: 638543
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Object Size Histogram
+786432 bytes : 319488  cumulative_bytes: 251255586816
+128 bytes : 16  cumulative_bytes: 251255588864
+98304 bytes : 30720  cumulative_bytes: 254275487744
+1048576 bytes : 1048576  cumulative_bytes: 1353787115520
+192 bytes : 96  cumulative_bytes: 1353787133952
+2048 bytes : 704  cumulative_bytes: 1353788575744
+24576 bytes : 21504  cumulative_bytes: 1354317058048
+262144 bytes : 262144  cumulative_bytes: 1423036534784
+393216 bytes : 675840  cumulative_bytes: 1688787636224
+3072 bytes : 4128  cumulative_bytes: 1688800317440
+160 bytes : 50  cumulative_bytes: 1688800325440
+256 bytes : 4656  cumulative_bytes: 1688801517376
+196608 bytes : 147456  cumulative_bytes: 1717792546624
+16384 bytes : 10240  cumulative_bytes: 1717960318784
+1536 bytes : 288  cumulative_bytes: 1717960761152
+32 bytes : 225  cumulative_bytes: 1717960768352
+1572864 bytes : 2949120  cumulative_bytes: 6356525448032
+12288 bytes : 17664  cumulative_bytes: 6356742503264
+524288 bytes : 131072  cumulative_bytes: 6425461980000
+49152 bytes : 15360  cumulative_bytes: 6426216954720
+65536 bytes : 20480  cumulative_bytes: 6427559132000
+6144 bytes : 9408  cumulative_bytes: 6427616934752
+8192 bytes : 59904  cumulative_bytes: 6428107668320
+245760 bytes : 7680  cumulative_bytes: 6429995105120
+96 bytes : 36  cumulative_bytes: 6429995108576
+4096 bytes : 11136  cumulative_bytes: 6430040721632
+[2026-03-15 15:18:42.153] [info] No mapping file path : ./models/mamba-10.4b-single/mamba-10.4b-single.mapping
+[2026-03-15 15:18:42.153] [info] Register model: mamba-10.4b-single
+[2026-03-15 15:18:42.153] [info] Model Name
+[2026-03-15 15:18:42.153] [error] Error opening file: ./models/mamba-10.4b-single/mamba-10.4b-single.onnx

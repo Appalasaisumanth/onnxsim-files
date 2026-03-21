@@ -61,7 +61,12 @@ struct SimulationConfig {
   std::string icnt_config_path;
   uint32_t icnt_freq;
   uint32_t icnt_latency;
-  uint32_t icnt_print_interval=0;
+  uint64_t icnt_print_interval=8000;
+  uint64_t _icnt_interval=8000;
+
+  uint32_t  l2_size;
+  bool use_l2=false;
+
 
   /* Sheduler config */
   std::string scheduler_type;
@@ -70,6 +75,9 @@ struct SimulationConfig {
   uint32_t precision;
   uint32_t full_precision = 4;
   std::string layout;
+
+  /* per core tiles and ins numbers*/
+
 
   /*
    * This map stores the partition information: <partition_id, core_id>

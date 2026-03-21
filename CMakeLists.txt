@@ -1,6 +1,8 @@
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -rdynamic")
 cmake_minimum_required(VERSION 3.15.0)
 set(project_name "AiFrameworkSim")
 project(${project_name})
+
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 include("${CMAKE_SOURCE_DIR}/build/conanbuildinfo.cmake")

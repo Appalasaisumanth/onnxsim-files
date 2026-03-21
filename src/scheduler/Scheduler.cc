@@ -35,6 +35,25 @@ Scheduler::Scheduler(SimulationConfig config, const cycle_type* core_cycle, cons
 
   for (int i=0; i<config.num_cores;i++)
     _core_executable_tile_queue[i] = std::deque<std::unique_ptr<Tile>>();
+
+
+     _tile_num.resize(config.num_cores, 0);
+    _ins_num.resize(config.num_cores, 0);
+
+    // Clear PQ (safety)
+    while (!core_pq.empty())
+        core_pq.pop();
+
+    // Push all cores initially
+    for (uint32_t core_id = 0; core_id < config.num_cores; core_id++) {
+
+        CoreLoad load;
+        load.tile_count = 0;
+        load.ins_count  = 0;
+        load.core_id    = core_id;
+
+        core_pq.push(load);
+    }
 }
 
 void Scheduler::schedule_model(std::unique_ptr<Model> model,
@@ -51,45 +70,117 @@ uint32_t Scheduler::cpu_to_partition(uint32_t cpu) {
   return _cpu_to_partition[cpu];
 }
 
-void Scheduler::issue_tile_per_core(std::vector<uint32_t>& allowed_cpu, int offset, uint32_t partition_id) {
+void Scheduler::issue_tile_per_core(std::vector<uint32_t>& allowed_cpu,
+                                    int offset,
+                                    uint32_t partition_id) {
+
   while(!_executable_tile_queue[partition_id].empty()) {
-    std::unique_ptr<Tile>& tile = _executable_tile_queue[partition_id].front();
-    /* Barrier! */
+
+    std::unique_ptr<Tile>& tile =
+        _executable_tile_queue[partition_id].front();
+
+    /* Barrier → stop issuing */
     if (tile->status == Tile::Status::BAR)
       break;
 
-    uint32_t core_id = offset;
-    if (tile->core_id == -1) { // -1 is global id
-      core_id += _core_rr_id;
-      _core_rr_id = _core_rr_id + 1; // increase with round robin
-    } else {
-      core_id = tile->core_id + _nr_layer;
+    /* Get least-loaded core */
+    CoreLoad top = core_pq.top();
+    core_pq.pop();
+
+    uint32_t core_id = top.core_id + offset;
+
+    bool count_tile = true;
+
+    if (tile->skip)
+      count_tile = false;
+
+    if (count_tile) {
+
+      _tile_num[core_id]++;
+
+      uint32_t valid_ins = 0;
+
+      for (auto &ins_ptr : tile->instructions) {
+        if (ins_ptr->opcode == Opcode::BAR)
+          continue;
+        valid_ins++;
+      }
+
+      _ins_num[core_id] += valid_ins;
+
+      /* Update PQ load */
+      top.tile_count = _tile_num[core_id];
+      top.ins_count  = _ins_num[core_id];
     }
+
+    /* Remap to allowed CPU set */
     core_id = allowed_cpu[core_id % allowed_cpu.size()];
-    spdlog::debug("pushed to queue[{}], tile->core_id: {}", core_id, tile->core_id);
+
     tile->core_id = core_id;
-    _core_executable_tile_queue[core_id].push_back(std::move(tile));
+
+    _core_executable_tile_queue[core_id]
+        .push_back(std::move(tile));
+
     _executable_tile_queue[partition_id].pop_front();
+
+    /* Reinsert updated load */
+    core_pq.push(top);
   }
 }
-
 void Scheduler::issue_tile_per_core() {
+
   while(!_executable_tile_queue[0].empty()) {
-    std::unique_ptr<Tile>& tile = _executable_tile_queue[0].front();
-    /* Barrier! */
+
+    std::unique_ptr<Tile>& tile =
+        _executable_tile_queue[0].front();
+
+    /* Barrier → stop issuing */
     if (tile->status == Tile::Status::BAR)
       break;
 
-    if (tile->core_id == -1) { // -1 is global id
-      tile->core_id = _core_rr_id % _config.num_cores;
-      _core_rr_id++; // increase with round robin
-    } else {
-      tile->core_id = (tile->core_id + _nr_layer) % _config.num_cores;
+    /* Get least-loaded core */
+    CoreLoad top = core_pq.top();
+    core_pq.pop();
+
+    uint32_t core_id = top.core_id;
+
+    bool count_tile = true;
+
+    if (tile->skip)
+      count_tile = false;
+
+    if (count_tile) {
+
+      _tile_num[core_id]++;
+
+      uint32_t valid_ins = 0;
+
+      for (auto &ins_ptr : tile->instructions) {
+        if (ins_ptr->opcode == Opcode::BAR)
+          continue;
+        valid_ins++;
+      }
+
+      _ins_num[core_id] += valid_ins;
+
+      /* Update PQ load */
+      top.tile_count = _tile_num[core_id];
+      top.ins_count  = _ins_num[core_id];
     }
-    _core_executable_tile_queue[tile->core_id].push_back(std::move(tile));
+
+    /* Assign tile */
+    tile->core_id = core_id;
+
+    _core_executable_tile_queue[core_id]
+        .push_back(std::move(tile));
+
     _executable_tile_queue[0].pop_front();
+
+    /* Reinsert updated core load */
+    core_pq.push(top);
   }
 }
+
 
 /*TODO: Add base address for each addr in tiles */
 std::unique_ptr<Tile> Scheduler::get_tile(uint32_t core_id) {
@@ -108,10 +199,12 @@ std::unique_ptr<Tile> Scheduler::get_tile(uint32_t core_id) {
       spdlog::debug("Layer {} Core {} Get Tile at {}", _active_layers_map[tile->layer_id].name, core_id,
                     *_core_cycle);
       return tile;
-    } else {
+    } else 
+    {
       std::unique_ptr<Tile>& tile = _executable_tile_queue[partition_id].front();
       int layer_id = tile->layer_id;
-      if (tile->status == Tile::Status::BAR) {
+      if (tile->status == Tile::Status::BAR) 
+      {
         LayerStat stat = _active_layers_map[layer_id];
         if (stat.launched_tiles == stat.finished_tiles) {
           /* POP only if all lauched tiles are finished */

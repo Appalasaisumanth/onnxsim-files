@@ -57,6 +57,7 @@ void Model::initialize_model(std::vector<std::unique_ptr<Tensor>>& weight_table)
     spdlog::error("Error opening file: {}", _onnx_path);
     exit(EXIT_FAILURE);
   }
+  spdlog::info("Model Name: {} model started", _name);
   google::protobuf::io::IstreamInputStream zero_copy_input(&model_istream);
   model_proto.ParseFromZeroCopyStream(&zero_copy_input) && model_istream.eof();
   auto input = model_proto.graph().input();

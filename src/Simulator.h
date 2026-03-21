@@ -7,6 +7,9 @@
 #include "Model.h"
 #include "scheduler/Scheduler.h"
 #include "scheduler/LanguageScheduler.h"
+#include  "Cache.h"
+
+
 #include <queue>
 
 #define CORE_MASK 0x1 << 1
@@ -53,6 +56,10 @@ class Simulator {
   uint64_t _dram_time;
 
   addr_type _dram_ch_stride_size;
+  uint32_t  l2_size;
+  bool _use_l2=false;
+  std::vector<std::unique_ptr<Cache>> _l2_banks;
+
 
   uint64_t _core_cycles;
 
@@ -66,8 +73,17 @@ class Simulator {
   uint64_t _nr_to_core=0;
   uint64_t _nr_from_mem=0;
   uint64_t _nr_to_mem=0;
+  uint64_t _nr_to_l2=0;
+  uint64_t _nr_from_l2=0;
+  std::unordered_map<uint32_t,uint64_t> object_size_hist;
+
   cycle_type _icnt_cycle=0;
   uint64_t _icnt_interval=0;
+  cycle_type l2_cycles=0;
+
+  // tile and ins numbers 
+    std::vector<uint32_t>_tile_num;
+  std::vector<uint32_t>_ins_num;
 
   struct CompareModel {
     bool operator()(const std::unique_ptr<Model>& a, const std::unique_ptr<Model>& b) const {

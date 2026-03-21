@@ -87,7 +87,9 @@ int main(int argc, char** argv) {
   models_list_file >> models_list;
   models_list_file.close();
   auto simulator = std::make_unique<Simulator>(config, language_mode);
-  for (json model_config : models_list["models"]) {
+  
+  for (json model_config : models_list["models"]) 
+  {
     if(language_mode) {
       std::string model_name = model_config["name"];
       std::string model_path =
@@ -118,8 +120,10 @@ int main(int argc, char** argv) {
       spdlog::info("Register model: {}", model_name);
       simulator->register_model(std::move(model));
     }
+    simulator->run_simulator();
+
   }
-  simulator->run_simulator();
+  
 
   /* Simulation time measurement */
   auto end = std::chrono::high_resolution_clock::now();

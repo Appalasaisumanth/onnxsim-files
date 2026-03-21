@@ -58,18 +58,30 @@ void Core::issue(std::unique_ptr<Tile> op) {
   }
   _current_layer_id = op->layer_id;
   _current_fused_op_id = op->fused_op_id;
+  if(_core_cycle%8000==0)
+  spdlog::info("Issue tile {} on core {}, spad_id {}, accum_spad_id {}", op->optype, _id, spad_id, acc_spad_id);
 
   op->spad_id = spad_id;
   op->accum_spad_id = acc_spad_id;
   op->status = Tile::Status::RUNNING;
-  if (op->skip) {
-    op->status = Tile::Status::FINISH;
-    _finished_tiles.push(std::move(op));
-    return;
-  }
+ if (op->skip) {
+  op->status = Tile::Status::FINISH;
+
+  _stat_tiles_issued++;     // issued
+ 
+  _stat_tiles_finished++;   // finished immediately
+  _ins_executed += op->instructions.size();
+  _finished_tiles.push(std::move(op));
+  return;
+}
+
   if (_running_layer != op->layer_id) {
     _running_layer = op->layer_id;
   }
+  _stat_tiles_issued++;
+   _ins_executed += op->instructions.size();
+_stat_tiles_running++;
+
   _tiles.push_back(std::move(op));
 }
 
@@ -148,12 +160,18 @@ void Core::cycle() {
     }
   }
   for (auto tile = _tiles.begin() ; tile < _tiles.end(); tile++) {
+     if(_core_cycle%8000==0)
+    spdlog::info("Tile  status {}, instructions left {}", (*tile)->optype, (*tile)->instructions.size());
     if ((*tile)->instructions.empty() && (*tile)->inst_finished) {
       (*tile)->status = Tile::Status::FINISH;
       (*tile)->stat.cycles = _core_cycle - (*tile)->stat.start_cycle;
       (*tile)->stat.memory_stall =
           (*tile)->stat.cycles - (*tile)->stat.compute_cycles;
-      _finished_tiles.push(std::move(*tile));
+     
+      _stat_tiles_running--;
+_stat_tiles_finished++;
+
+ _finished_tiles.push(std::move(*tile));
       _tiles.erase(tile);
       break;
     }
@@ -217,41 +235,74 @@ bool Core::can_issue_compute(std::unique_ptr<Instruction>& inst) {
 
 void Core::print_stats() {
   update_stats();
-  spdlog::info(
-      "Core [{}] : MatMul active cycle {} Vector active cycle {} ",
-      _id, _stat_tot_matmul_cycle, _stat_tot_vec_compute_cycle);
+  // spdlog::info(
+  //     "Core [{}] : MatMul active cycle {} Vector active cycle {} ",
+  //     _id, _stat_tot_matmul_cycle, _stat_tot_vec_compute_cycle);
 
-  spdlog::info(
-      "Core [{}] : Memory unit idle cycle {} Systolic bubble cycle {} "
-      "Core idle cycle {} ",
-      _id, _stat_tot_memory_idle_cycle, _stat_tot_systolic_bubble_cycle, _stat_tot_idle_cycle);
+  // spdlog::info(
+  //     "Core [{}] : Memory unit idle cycle {} Systolic bubble cycle {} "
+  //     "Core idle cycle {} ",
+  //     _id, _stat_tot_memory_idle_cycle, _stat_tot_systolic_bubble_cycle, _stat_tot_idle_cycle);
 
-  spdlog::info("Core [{}] : Systolic Array Utilization(%) {:.2f} ({:.2f}% PE util), Vector Unit Utilization(%) {:.2f}, Total cycle: {}",
-      _id, static_cast<float>(_stat_tot_systolic_active_cycle * 100) / _core_cycle,
-      static_cast<float>(_stat_tot_matmul_cycle * 100) / _core_cycle,
-      static_cast<float>(_stat_tot_vec_compute_cycle * 100) / _core_cycle, _core_cycle);
+  // spdlog::info("Core [{}] : Systolic Array Utilization(%) {:.2f} ({:.2f}% PE util), Vector Unit Utilization(%) {:.2f}, Total cycle: {}",
+  //     _id, static_cast<float>(_stat_tot_systolic_active_cycle * 100) / _core_cycle,
+  //     static_cast<float>(_stat_tot_matmul_cycle * 100) / _core_cycle,
+  //     static_cast<float>(_stat_tot_vec_compute_cycle * 100) / _core_cycle, _core_cycle);
+ spdlog::info(
+  "Core [{}] Tile Stats | Issued: {} Running: {} Finished: {}",
+  _id,
+  _stat_tiles_issued,
+  _stat_tiles_running,
+  _stat_tiles_finished
+);
+
+  double ins_per_tile = 0.0;
+
+  if (_stat_tiles_issued != 0) {
+    ins_per_tile =
+        (double)_ins_executed / _stat_tiles_issued;
+  }
+
+  // spdlog::info(
+  //   "ins executed [{}] ins executed per tile {:.2f}",
+  //   _ins_executed,
+  //   ins_per_tile
+  // );
+_stat_tiles_issued=0;
+  _stat_tiles_running=0;
+  _stat_tiles_finished=0;
+  _ins_executed =0;
+
 }
 
 void Core::print_current_stats() {
-  auto level = spdlog::level::info;
-  if(_id != 0) 
-    level = spdlog::level::debug;
-    spdlog::log(level,
-      "Core [{}] : MatMul active cycle {} Vector active cycle {} ",
-      _id, _stat_matmul_cycle, _stat_vec_compute_cycle);
+  // auto level = spdlog::level::info;
+  // if(_id != 0) 
+  //   level = spdlog::level::debug;
+  //   spdlog::log(level,
+  //     "Core [{}] : MatMul active cycle {} Vector active cycle {} ",
+  //     _id, _stat_matmul_cycle, _stat_vec_compute_cycle);
 
-  spdlog::log(level,
-      "Core [{}] : issued tile {} ", _id, _tiles.size());
+  // spdlog::log(level,
+  //     "Core [{}] : issued tile {} ", _id, _tiles.size());
 
-  spdlog::log(level,
-      "Core [{}] : Memory unit idle cycle {} Systolic bubble cycle {} "
-      "Core idle cycle {} ",
-      _id, _stat_memory_idle_cycle, _stat_systolic_bubble_cycle, _stat_idle_cycle);
-  spdlog::log(level,"Core [{}] : Systolic Array Utilization(%) {:.2f} ({:.2f}% PE util), Vector Unit Utilization(%) {:.2f}, Total cycle: {}",
-      _id, static_cast<float>(_stat_systolic_active_cycle * 100) / _config.core_print_interval,
-      static_cast<float>(_stat_matmul_cycle * 100) / _config.core_print_interval,
-      static_cast<float>(_stat_vec_compute_cycle * 100) / _config.core_print_interval, _core_cycle);
-  update_stats();
+  // spdlog::log(level,
+  //     "Core [{}] : Memory unit idle cycle {} Systolic bubble cycle {} "
+  //     "Core idle cycle {} ",
+  //     _id, _stat_memory_idle_cycle, _stat_systolic_bubble_cycle, _stat_idle_cycle);
+  // spdlog::log(level,"Core [{}] : Systolic Array Utilization(%) {:.2f} ({:.2f}% PE util), Vector Unit Utilization(%) {:.2f}, Total cycle: {}",
+  //     _id, static_cast<float>(_stat_systolic_active_cycle * 100) / _config.core_print_interval,
+  //     static_cast<float>(_stat_matmul_cycle * 100) / _config.core_print_interval,
+  //     static_cast<float>(_stat_vec_compute_cycle * 100) / _config.core_print_interval, _core_cycle);
+   spdlog::info(
+  "Core [{}] Tile Stats | Issued: {} Running: {} Finished: {}",
+  _id,
+  _stat_tiles_issued,
+  _stat_tiles_running,
+  _stat_tiles_finished
+);
+spdlog::info("cycle: [{}]",_core_cycle);
+
 }
 
 void Core::update_stats() {
@@ -342,17 +393,28 @@ void Core::handle_ld_inst_queue() {
       }
       for (addr_type addr : front->src_addrs) {
         assert(front->base_addr != GARBEGE_ADDR);
+
+        uint32_t obj_size =
+            front->size * _config.dram_req_size;
+
         MemoryAccess *access =
-            new MemoryAccess({.id = generate_mem_access_id(),
-                              .dram_address = addr + front->base_addr,
-                              .spad_address = front->dest_addr,
-                              .size = _config.dram_req_size,
-                              .write = false,
-                              .request = true,
-                              .core_id = _id,
-                              .start_cycle = _core_cycle,
-                              .buffer_id = buffer_id});
+            new MemoryAccess({
+                .id = generate_mem_access_id(),
+                .dram_address = addr + front->base_addr,
+                .spad_address = front->dest_addr,
+                .size = obj_size,
+                .object_size = obj_size,
+
+                .write = false,
+                .request = true,
+                .core_id = _id,
+                .start_cycle = _core_cycle,
+                .buffer_id = buffer_id
+            });
+
         _request_queue.push(access);
+
+
       }
       _ld_inst_queue.pop();
     } else {
@@ -362,34 +424,52 @@ void Core::handle_ld_inst_queue() {
 }
 
 void Core::handle_st_inst_queue() {
-  if (!_st_inst_queue.empty()) {
+  if (!_st_inst_queue.empty()) 
+  {
     std::unique_ptr<Instruction> front = std::move(_st_inst_queue.front());
-    if (front->opcode == Opcode::MOVOUT || front->opcode == Opcode::MOVOUT_POOL) {
+    if (front->opcode == Opcode::MOVOUT || front->opcode == Opcode::MOVOUT_POOL) 
+    {
       Sram *buffer;
+
       int buffer_id;
-      if (front->dest_addr >= ACCUM_SPAD_BASE) {
+      if (front->dest_addr >= ACCUM_SPAD_BASE) 
+      {
         buffer = &_acc_spad;
         buffer_id = front->accum_spad_id;
-      } else {
+      } 
+      else 
+      {
         buffer = &_spad;
         buffer_id = front->spad_id;
       }
-      if(buffer->check_hit(front->dest_addr, buffer_id)) {
+      if(buffer->check_hit(front->dest_addr, buffer_id)) 
+      {
         for (addr_type addr : front->src_addrs) {
-          assert(front->base_addr != GARBEGE_ADDR);
-          MemoryAccess *access =
-              new MemoryAccess{.id = generate_mem_access_id(),
-                              .dram_address = addr + front->base_addr,
-                              .spad_address = front->dest_addr,
-                              .size = _config.dram_req_size,
-                              .write = true,
-                              .request = true,
-                              .core_id = _id,
-                              .start_cycle = _core_cycle,
-                              .buffer_id = buffer_id};
-          _waiting_write_reqs++;
-          _request_queue.push(access);
-        }
+
+  assert(front->base_addr != GARBEGE_ADDR);
+
+  uint32_t obj_size =
+      front->size * _config.dram_req_size;
+
+  MemoryAccess *access =
+      new MemoryAccess({
+          .id = generate_mem_access_id(),
+          .dram_address = addr + front->base_addr,
+          .spad_address = front->dest_addr,
+
+          // 🔴 OBJECT SIZE
+          .size = obj_size,
+          .object_size = obj_size,
+
+          .write = true,
+          .request = true,
+          .core_id = _id,
+          .start_cycle = _core_cycle,
+          .buffer_id = buffer_id
+      });
+
+  _waiting_write_reqs++;
+  _request_queue.push(access);        }
         if(front->last_inst) {
           spdlog::trace("Finished last store {}", front->spad_id);
           front->my_tile->inst_finished = true;

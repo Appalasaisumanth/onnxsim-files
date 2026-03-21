@@ -14,6 +14,15 @@ Sram::Sram(SimulationConfig config, const cycle_type& core_cycle, bool accum, ui
   _current_size[1] = 0;
   _accum = accum;
 }
+Sram::Sram(SimulationConfig config, const cycle_type& core_cycle)
+    : _core_cycle(core_cycle) {
+  _size = config.l2_size KB /2 ;
+  _data_width = config.dram_req_size;
+  int precision = config.precision;
+  _current_size[0] = 0; // multiple of _data_width
+  _current_size[1] = 0;
+  
+}
 
 bool Sram::check_hit(addr_type address, int buffer_id) {
   if (_cache_table[buffer_id].find(address) == _cache_table[buffer_id].end())
@@ -44,8 +53,10 @@ void Sram::flush(int buffer_id) {
 
 int Sram::prefetch(addr_type address, int buffer_id, size_t allocated_size,
                     size_t count) {
-  if (_cache_table[buffer_id].find(address) == _cache_table[buffer_id].end()) {
-    if (!check_remain(allocated_size, buffer_id)) {
+  if (_cache_table[buffer_id].find(address) == _cache_table[buffer_id].end()) 
+  {
+    if (!check_remain(allocated_size, buffer_id)) 
+    {
       print_all(buffer_id);
       assert(0);
       return 0;

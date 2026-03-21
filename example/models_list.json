@@ -1,8 +1,12 @@
 {
- "models": [
+  "models": [
     {
-        "name": "resnet18",
-        "batch_size" : 1
+      "name": "mamba-130m-s1-b24",
+      "batch_size": 1
+    },
+    {
+      "name": "mamba-130m-s128-b24",
+      "batch_size": 1
     }
- ]
+  ]
 }

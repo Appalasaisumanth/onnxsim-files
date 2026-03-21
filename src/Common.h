@@ -36,7 +36,9 @@ typedef struct {
   uint32_t id;
   addr_type dram_address;
   addr_type spad_address;
-  uint64_t size;
+    uint32_t size;
+  uint32_t object_size; 
+
   bool write;
   bool request;
   uint32_t core_id;
@@ -45,7 +47,6 @@ typedef struct {
   cycle_type dram_finish_cycle;
   int buffer_id;
 } MemoryAccess;
-
 enum class Opcode {
   MOVIN,
   MOVOUT,

@@ -1,0 +1,541 @@
+Great — you shared the **entire scheduler stack** 👍
+Now I’ll explain the differences between all these schedulers in:
+
+* Concept
+* Tile dispatch
+* Core usage
+* Request handling
+* Parallelism style
+* When each is used
+
+I’ll first give a **high-level intuition**, then a **detailed table**, then **per-scheduler deep explanation tied to your code**.
+
+---
+
+# 1️⃣ Big picture — what this file implements
+
+This system schedules **LLM inference/training tiles** across cores.
+
+Hierarchy:
+
+```
+Request (prompt / generation job)
+   ↓
+Model
+   ↓
+Layers (Attention / FFN / etc.)
+   ↓
+Tiles (matrix compute chunks)
+   ↓
+Cores
+```
+
+Schedulers decide:
+
+* Which request runs
+* Which layer launches
+* Which tile goes to which core
+* When barriers occur
+
+---
+
+# 2️⃣ Scheduler types in your code
+
+From `Scheduler::create()`:
+
+| Config string  | Class created          |
+| -------------- | ---------------------- |
+| simple         | Scheduler (base)       |
+| partition_cpu  | DedicatedCPUScheduler  |
+| time_multiplex | TimeMultiplexScheduler |
+| spatial_split  | HalfSplitScheduler     |
+
+So you have **4 scheduling policies**.
+
+---
+
+# 3️⃣ High-level intuition
+
+| Scheduler      | Analogy                                    |
+| -------------- | ------------------------------------------ |
+| Simple         | Run one model layer at a time on all cores |
+| Time-Multiplex | Time-share cores across requests           |
+| Dedicated CPU  | Each request gets fixed cores              |
+| Half Split     | Spatially split cores across requests      |
+
+---
+
+# 4️⃣ Detailed comparison table
+
+## Core scheduling philosophy
+
+| Feature           | Simple    | Time-Multiplex | Dedicated CPU          | Half Split         |
+| ----------------- | --------- | -------------- | ---------------------- | ------------------ |
+| Base class        | Scheduler | Scheduler      | TimeMultiplexScheduler | Scheduler          |
+| Parallel requests | ❌         | ✅              | ✅                      | ✅                  |
+| Parallel layers   | ❌         | Limited        | Limited                | Yes (spatial)      |
+| Core sharing      | Full      | Time-shared    | Partitioned            | Spatially split    |
+| Tile queues       | Global    | Global         | Partition queues       | Per-request queues |
+
+---
+
+## Request execution style
+
+| Feature                    | Simple | Time-Multiplex | Dedicated CPU | Half Split |
+| -------------------------- | ------ | -------------- | ------------- | ---------- |
+| One request at a time      | ✅      | ❌              | ❌             | ❌          |
+| Round-robin requests       | ❌      | ✅              | ❌             | Spatial RR |
+| Fixed request-core mapping | ❌      | ❌              | ✅             | ✅          |
+| Concurrent inference       | ❌      | ✅              | ✅             | ✅          |
+
+---
+
+## Layer launch policy
+
+| Feature                    | Simple | Time-Multiplex | Dedicated CPU | Half Split |
+| -------------------------- | ------ | -------------- | ------------- | ---------- |
+| Launch when all tiles done | ✅      | ❌              | ❌             | ❌          |
+| Multiple active layers     | ❌      | ✅              | ✅             | ✅          |
+| Barrier enforced           | Strong | Medium         | Medium        | Weak       |
+
+---
+
+## Tile distribution
+
+| Feature               | Simple | Time-Multiplex | Dedicated CPU    | Half Split   |
+| --------------------- | ------ | -------------- | ---------------- | ------------ |
+| issue_tile_per_core() | Global | Global         | Partitioned      | Per request  |
+| Round-robin cores     | ✅      | ✅              | Within partition | Within split |
+| Tile locality         | ❌      | ❌              | ✅                | ✅            |
+
+---
+
+# 5️⃣ Queue structure differences
+
+## Simple / TimeMultiplex / Dedicated
+
+Shared structures:
+
+```
+_request_queue
+_executable_tile_queue[partition]
+_core_executable_tile_queue[core]
+```
+
+Flow:
+
+```
+Layer → Partition queue → Core queue → Execution
+```
+
+---
+
+## HalfSplitScheduler
+
+Adds:
+
+```
+_executable_tile_queue_table[request_id]
+```
+
+Flow:
+
+```
+Layer → Request queue → Core subset → Execution
+```
+
+So tiles stay request-local.
+
+---
+
+# 6️⃣ Code behavior comparison
+
+---
+
+# 🔹 1. Simple Scheduler (Base)
+
+### Layer launch condition
+
+From `refresh_status()`:
+
+```
+if request exists
+AND all tile queues empty
+AND no active layers
+→ launch next layer
+```
+
+So:
+
+➡️ Strict sequential layers
+➡️ No overlap
+
+---
+
+### Tile issuing
+
+```
+issue_tile_per_core()
+```
+
+Tiles distributed across all cores round-robin.
+
+---
+
+### Execution model
+
+```
+Layer 0 → finish → Layer 1 → finish → …
+```
+
+No interleaving.
+
+---
+
+### Use case
+
+* Single inference
+* Deterministic latency
+* No batching
+
+---
+
+# 🔹 2. TimeMultiplexScheduler
+
+Extends base scheduler.
+
+Key change:
+
+### Request round-robin
+
+From code:
+
+```
+_request_rr = (_request_rr + 1) % _request_queue.size()
+```
+
+So next layer comes from different request.
+
+---
+
+### Layer overlap
+
+Condition:
+
+```
+if tile queues empty → launch layer from next request
+```
+
+So layers from different requests interleave in time.
+
+---
+
+### Core usage
+
+All cores shared.
+
+But time-sliced across requests.
+
+---
+
+### Execution example
+
+```
+Req1 Layer0
+Req2 Layer0
+Req3 Layer0
+Req1 Layer1
+Req2 Layer1
+```
+
+---
+
+### Benefit
+
+* Better throughput
+* Fair sharing
+
+Cost:
+
+* Cache thrashing
+* Weight reloads
+
+---
+
+# 🔹 3. DedicatedCPUScheduler
+
+Extends TimeMultiplex but overrides `refresh_status()`.
+
+Key idea:
+
+➡️ Each request mapped to CPU partition.
+
+From config:
+
+```
+_partition_map
+_cpu_to_partition
+```
+
+Example:
+
+```
+Req1 → Cores 0–7
+Req2 → Cores 8–15
+```
+
+---
+
+### Layer launch rule
+
+For each core:
+
+```
+If its queue empty → launch layer of its request
+```
+
+So requests run truly parallel.
+
+---
+
+### Tile issuing
+
+```
+issue_tile_per_core(allowed_cpu, offset, partition_id)
+```
+
+Tiles only go to that partition’s cores.
+
+---
+
+### Execution model
+
+```
+Req1 uses cores 0–7 continuously
+Req2 uses cores 8–15 continuously
+```
+
+No time sharing.
+
+---
+
+### Benefits
+
+* Weight locality
+* KV cache locality
+* No context switching
+
+Cost:
+
+* Idle cores if request small
+
+---
+
+# 🔹 4. HalfSplitScheduler (Spatial Split)
+
+Most different design.
+
+---
+
+### Core assignment
+
+```
+target_id = core_id % request_count
+```
+
+So cores split evenly.
+
+Example:
+
+| Core | Request |
+| ---- | ------- |
+| 0    | Req0    |
+| 1    | Req1    |
+| 2    | Req0    |
+| 3    | Req1    |
+
+---
+
+### Tile queues
+
+Per request:
+
+```
+_executable_tile_queue_table[request_id]
+```
+
+No global queue.
+
+---
+
+### Layer launch
+
+Each request launches layers independently when its queue empty.
+
+---
+
+### Tile execution
+
+Core always pulls from its assigned request.
+
+No stealing.
+
+---
+
+### Execution model
+
+True spatial parallelism:
+
+```
+Req1 Layer0 on cores 0,2,4
+Req2 Layer0 on cores 1,3,5
+```
+
+---
+
+### Benefits
+
+* Strong isolation
+* Predictable latency
+* Parallel decoding
+
+Cost:
+
+* Load imbalance
+* Idle cores possible
+
+---
+
+# 7️⃣ Barrier handling differences
+
+All schedulers respect:
+
+```
+Tile::Status::BAR
+```
+
+Meaning:
+
+➡️ Next tiles wait until prior tiles finish.
+
+But enforcement differs:
+
+| Scheduler     | Barrier strictness |
+| ------------- | ------------------ |
+| Simple        | Very strict        |
+| TimeMultiplex | Medium             |
+| Dedicated     | Medium             |
+| HalfSplit     | Per-request only   |
+
+---
+
+# 8️⃣ Active layer tracking
+
+All use:
+
+```
+_active_layers_map
+LayerStat
+```
+
+Tracks:
+
+* start_cycle
+* finish_cycle
+* launched_tiles
+* finished_tiles
+* remain_tiles
+
+But:
+
+| Scheduler     | Scope             |
+| ------------- | ----------------- |
+| Simple        | Single request    |
+| TimeMultiplex | Multi request     |
+| Dedicated     | Per partition     |
+| HalfSplit     | Per request queue |
+
+---
+
+# 9️⃣ Memory locality impact
+
+| Scheduler     | Weight reuse | KV reuse |
+| ------------- | ------------ | -------- |
+| Simple        | High         | High     |
+| TimeMultiplex | Low          | Low      |
+| Dedicated     | High         | High     |
+| HalfSplit     | Medium       | High     |
+
+---
+
+# 🔟 Throughput vs Latency tradeoff
+
+| Scheduler     | Throughput | Latency     |
+| ------------- | ---------- | ----------- |
+| Simple        | Low        | Low         |
+| TimeMultiplex | High       | Medium      |
+| Dedicated     | High       | Low         |
+| HalfSplit     | Medium     | Predictable |
+
+---
+
+# 11️⃣ When each is used (LLM inference)
+
+| Scenario             | Best scheduler |
+| -------------------- | -------------- |
+| Single long prompt   | Simple         |
+| Multi-user batching  | TimeMultiplex  |
+| Multi-tenant serving | Dedicated      |
+| Real-time decoding   | HalfSplit      |
+
+---
+
+# 12️⃣ Where IterLevelScheduler fits
+
+Your first snippet:
+
+```
+IterLevelScheduler::cycle()
+```
+
+This is **request admission control**, not tile scheduling.
+
+It:
+
+1️⃣ Moves requests → active set
+2️⃣ Initializes prompt/gen phase
+3️⃣ Calls model execution
+
+So hierarchy:
+
+```
+IterLevelScheduler → manages requests
+Scheduler → manages tiles
+```
+
+---
+
+# Final summary table
+
+| Feature                | Simple | TimeMultiplex | DedicatedCPU | HalfSplit |
+| ---------------------- | ------ | ------------- | ------------ | --------- |
+| Requests parallel      | ❌      | ✅             | ✅            | ✅         |
+| Layers parallel        | ❌      | ✅             | ✅            | ✅         |
+| Core partition         | ❌      | ❌             | ✅            | ✅         |
+| Time sharing           | ❌      | ✅             | ❌            | ❌         |
+| Spatial split          | ❌      | ❌             | Partial      | ✅         |
+| Weight locality        | High   | Low           | High         | Medium    |
+| KV locality            | High   | Low           | High         | High      |
+| Throughput             | Low    | High          | High         | Medium    |
+| Latency predictability | High   | Low           | High         | High      |
+
+---
+
+If you want, next I can:
+
+* Draw execution timelines per scheduler
+* Show tile flow diagrams
+* Map this to autoregressive decoding vs prefill
+* Explain which scheduler your logs correspond to
+
+That will make simulator traces much easier to read.

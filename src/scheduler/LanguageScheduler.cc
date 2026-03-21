@@ -44,7 +44,7 @@ LangScheduler::LangScheduler(std::string name, std::string path, std::unique_ptr
   if(_scheduler_config.contains("check_mem_size"))
     _check_mem_size = _scheduler_config["check_mem_size"];
   else
-    _check_mem_size = true;
+    _check_mem_size = false;
   _cycle = 0;
   _max_dims = {_max_seq_length, _cache_dim};
   parse_request_trace(path); 

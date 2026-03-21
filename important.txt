@@ -1,0 +1,10 @@
+Only ONE packet delivered per dest per cycle
+
+
+1️⃣5️⃣ Real hardware mapping
+Code concept	Hardware equivalent
+in_buffers[src][dest]	Link pipeline / router input VC
+finish_cycle	Link traversal latency
+out_buffers[dest]	Egress port queue
+RR arbitration	Crossbar arbiter
+1 push / cycle	Port bandwidth limit

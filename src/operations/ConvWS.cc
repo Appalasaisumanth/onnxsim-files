@@ -36,7 +36,7 @@ void ConvWS::initialize_tiles(MappingTable& mapping_table) {
                             .accum = false});
       _tiles.push_back(std::move(tile));
       initialize_matmul_instructions(_tiles.back().get());
-      spdlog::info("Group convolution {}", _id);
+      // spdlog::info("Group convolution {}", _id);
     }
     return;
   }

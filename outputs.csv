@@ -1,0 +1,93 @@
+| Core | GEMM Tiles Issued | Total Tiles Finished | Total Instructions Issued | Instructions per Tile |  newer scheduler 
+| ---- | ----------------- | -------------------- | ------------------------- | --------------------- |
+| 0    | 125               | 125                  | 16531                     | 132.25                |
+| 1    | 123               | 123                  | 16599                     | 134.95                |
+| 2    | 123               | 123                  | 16599                     | 134.95                |
+| 3    | 123               | 123                  | 16671                     | 135.54                |
+
+
+| Core | GEMM Tiles Issued | Total Tiles Finished | Total Instructions Issued | Instructions per Tile |
+| ---- | ----------------- | -------------------- | ------------------------- | --------------------- |
+| 0    | 119               | 119                  | 15702                     | 131.95                | old scheduler 
+| 1    | 129               | 129                  | 17500                     | 135.66                |
+| 2    | 128               | 128                  | 17500                     | 136.72                |
+| 3    | 118               | 118                  | 15698                     | 133.03                |
+
+comparision  opt-66b
+old scheduler: 6575883  
+new_scheduler: 6406915
+| Core | GEMM Tiles Issued (Run 1) | GEMM Tiles Issued (Run 2) | Δ Tiles | Total Instructions (Run 1) | Total Instructions (Run 2) | Δ Instructions | Ins/Tile (Run 1) | Ins/Tile (Run 2) |
+| ---- | ------------------------- | ------------------------- | ------- | -------------------------- | -------------------------- | -------------- | ---------------- | ---------------- |
+| 0    | 125                       | 119                       | -6      | 16531                      | 15702                      | -829           | 132.25           | 131.95           |
+| 1    | 123                       | 129                       | +6      | 16599                      | 17500                      | +901           | 134.95           | 135.66           |
+| 2    | 123                       | 128                       | +5      | 16599                      | 17500                      | +901           | 134.95           | 136.72           |
+| 3    | 123                       | 118                       | -5      | 16671                      | 15698                      | -973           | 135.54           | 133.03           |
+
+opt-125m
+old scheduler: 6641354
+new_scheduler: 6472789 
+| Core | Tiles Issued (First) | Tiles Issued (New) | Δ Tiles | Total Instructions (First) | Total Instructions (New) | Δ Instructions | Ins/Tile (First) | Ins/Tile (New) |
+| ---- | -------------------- | ------------------ | ------- | -------------------------- | ------------------------ | -------------- | ---------------- | -------------- |
+| 0    | 134                  | 140                | +6      | 15923                      | 16766                    | +843           | 14.73            | 15.67          |
+| 1    | 143                  | 140                | -3      | 17716                      | 16824                    | -892           | 15.43            | 13.24          |
+| 2    | 143                  | 138                | -5      | 17720                      | 16820                    | -900           | 14.67            | 14.73          |
+| 3    | 135                  | 137                | +2      | 15938                      | 16887                    | +949           | 14.12            | 15.43          |
+
+llama-8b 
+old scheduler:  8041149 
+new_scheduler:  7791009
+| Core | Tiles Issued (Old) | Tiles Issued (New) | Δ Tiles | Total Instructions (Old) | Total Instructions (New) | Δ Instructions | Ins/Tile (Old) | Ins/Tile (New) |
+| ---- | ------------------ | ------------------ | ------- | ------------------------ | ------------------------ | -------------- | -------------- | -------------- |
+| 0    | 170                | 179                | +9      | 19336                    | 20197                    | +861           | 94.81          | 87.97          |
+| 1    | 184                | 178                | -6      | 21589                    | 20842                    | -747           | 94.46          | 105.74         |
+| 2    | 183                | 177                | -6      | 21593                    | 20220                    | -1373          | 96.83          | 87.18          |
+| 3    | 175                | 178                | +3      | 19658                    | 20917                    | +1259          | 93.00          | 98.29          |
+
+
+
+
+umanth@sumanth-HP-Pavilion-Laptop-15-eg2xxx:~/ONNXim$ python3 helper.py
+
+--- BASIC STATS ---
+   core     addr
+0     0  3542784
+1     0  3542816
+2     0  3542848
+3     0  3542880
+4     0  3542912
+
+Total unique addresses  : 529808
+Shared unique addresses : 56856
+Percentage shared       : 10.73%
+
+Addresses shared by ALL cores : 29792
+Percentage shared by ALL      : 5.62%
+[[177888.  33576.  38776.  38416.]
+ [ 33576. 171072.  33592.  33120.]
+ [ 38776.  33592. 139336.  37936.]
+ [ 38416.  33120.  37936. 162752.]]
+
+Heatmap saved as: core_sharing_heatmap.png
+sumanth@sumanth-HP-Pavilion-Laptop-15-eg2xxx:~/ONNXim$ python3 helper.py
+
+--- BASIC STATS ---
+   core      addr
+0     0  50348800
+1     0  50348832
+2     0  50348864
+3     0  50348896
+4     0  50348928
+
+Total unique addresses  : 14189184
+Shared unique addresses : 346344
+Percentage shared       : 2.44%
+
+Addresses shared by ALL cores : 94192
+Percentage shared by ALL      : 0.66%
+[[3581632.  143520.  169304.  168880.]
+ [ 143520. 4000736.  140976.  139792.]
+ [ 169304.  140976. 3596336.  172640.]
+ [ 168880.  139792.  172640. 3604112.]]
+
+Heatmap saved as: core_sharing_heatmap_llama.png
+sumanth@sumanth-HP-Pavilion-Laptop-15-eg2xxx:~/ONNXim$ 

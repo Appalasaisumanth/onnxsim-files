@@ -4,6 +4,7 @@
 class Sram {
  public:
   Sram(SimulationConfig config, const cycle_type& core_cycle, bool accum, uint32_t core_id);
+  Sram(SimulationConfig config,const cycle_type& core_cycle);
 
   bool check_hit(addr_type address, int buffer_id);
   bool check_full(int buffer_id);
@@ -18,6 +19,9 @@ class Sram {
   int get_size() { return _size; }
   int get_current_size(int buffer_id) { return _current_size[buffer_id]; }
   void print_all(int buffer_id);
+ protected:
+  int _data_width;
+  int _current_size[2];
  private:
   struct SramEntry {
     bool valid;
@@ -28,8 +32,6 @@ class Sram {
   };
 
   int _size;
-  int _data_width;
-  int _current_size[2];
   bool _accum;
 
   const cycle_type& _core_cycle;

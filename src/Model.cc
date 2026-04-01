@@ -99,7 +99,21 @@ void Model::initialize_model(std::vector<std::unique_ptr<Tensor>>& weight_table)
     input_tensor->set_produced();
     _tensor_map[id] = std::move(input_tensor);
   }
-
+// After the input parsing loop
+if (_name.find("mamba") != std::string::npos) {
+  // For Mamba, states are carried over. We expect input names like:
+  // "conv_state_0", "ssm_state_0", ... 
+  // Just make sure dynamic seq_len=1 is applied
+  for (auto& [id, tensor] : _tensor_map) {
+    if (tensor->_name.find("conv_state") != std::string::npos || 
+        tensor->_name.find("ssm_state") != std::string::npos) {
+      // Force seq_len dimension to 1 for autoregressive steps
+      if (!tensor->_dims.empty()) {
+        tensor->_dims[0] = 1;   // seq_len dim
+      }
+    }
+  }
+}
   for(auto it = weight_table.begin(); it != weight_table.end(); it++) {
     //initialize weights
     auto tensor = std::make_unique<Tensor>(*it->get());
@@ -221,6 +235,8 @@ bool Model::check_exist_in_exeutable(uint32_t op_id) {
 }
 
 bool Model::check_regressive() {
+  spdlog::info("Check regressive: seq_len={}, past_seq_len={}, total={}", 
+               _axis_map["seq_len"], _axis_map["past_seq_len"], _axis_map["total_seq_len"]);
   if (_axis_map.find("total_seq_len") == _axis_map.end()){
     spdlog::info("No total_seq_len!");
     return false;
@@ -236,18 +252,22 @@ void Model::prepare_regressive() {
   /* This method should be called when check_regressive() is true */
   if (_axis_map["past_seq_len"] == 0) {
     _axis_map["past_seq_len"] = _axis_map["seq_len"];
-    _axis_map["seq_len"] = 1;
+  _axis_map["seq_len"] = 1;
     _axis_map["total_seq_len"]++;
   } else {
-    _axis_map["past_seq_len"]++;
+_axis_map["past_seq_len"]++;
     _axis_map["seq_len"] = 1;
-    _axis_map["total_seq_len"]++;
+_axis_map["total_seq_len"]++;
   }
 
-  _operation_map.clear();
-  _tensor_map.clear();
-  _executable_layer.clear();
-  nr_skip = 0;
-  _start_time = 0;
-  _started = false;
+ _operation_map.clear();
+_tensor_map.clear();
+_executable_layer.clear();
+nr_skip = 0;
+_start_time = 0;
+
+  // Keep _operation_map and _tensor_map ! 
+  // States will be updated via new input tensors in the next initialize call
+  spdlog::info("Prepare regressive: seq_len={}, past_seq_len={}, total={}", 
+               _axis_map["seq_len"], _axis_map["past_seq_len"], _axis_map["total_seq_len"]);
 }

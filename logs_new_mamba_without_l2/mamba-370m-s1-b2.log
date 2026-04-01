@@ -1,0 +1,1079 @@
+[2026-03-31 21:14:54.248] [info] CPU 0: Partition 0
+[2026-03-31 21:14:54.248] [info] CPU 1: Partition 0
+[2026-03-31 21:14:54.248] [info] CPU 2: Partition 0
+[2026-03-31 21:14:54.248] [info] CPU 3: Partition 0
+[2026-03-31 21:14:54.248] [info] Running in default mode
+[2026-03-31 21:14:54.248] [info] Simulator Configuration:
+[2026-03-31 21:14:54.248] [info] [Core 0] Systolic Array Throughput: 131072 GFLOPS, Spad size: 32768 KB, Accumulator size: 4096 KB
+[2026-03-31 21:14:54.248] [info] [Core 1] Systolic Array Throughput: 131072 GFLOPS, Spad size: 32768 KB, Accumulator size: 4096 KB
+[2026-03-31 21:14:54.248] [info] [Core 2] Systolic Array Throughput: 131072 GFLOPS, Spad size: 32768 KB, Accumulator size: 4096 KB
+[2026-03-31 21:14:54.248] [info] [Core 3] Systolic Array Throughput: 131072 GFLOPS, Spad size: 32768 KB, Accumulator size: 4096 KB
+[2026-03-31 21:14:54.248] [info] DRAM Bandwidth 614 GB/s
+[2026-03-31 21:14:54.248] [info] Ramulator2 config: ./configs/../configs/ramulator2_configs/HBM2.yaml
+[2026-03-31 21:14:54.265] [info] Initialize SimpleInterconnect
+[2026-03-31 21:14:54.268] [info] ICNT print interval: 8000 cycles
+[2026-03-31 21:14:54.268] [info] num cores : [4]
+[2026-03-31 21:14:54.268] [info] Register model: mamba-370m-s1-b2
+[2026-03-31 21:14:54.268] [info] Model Name
+[2026-03-31 21:14:54.495] [info] has_l2,[false]
+[2026-03-31 21:14:54.495] [info] ======Start Simulation=====
+[2026-03-31 21:14:54.496] [info] Model Name: mamba-370m-s1-b2 model started
+[2026-03-31 21:14:54.752] [info] [GemmWs] Keys K = 101, N = 1, M = 4096
+[2026-03-31 21:14:54.752] [info] [GemmWS]: total 0.000831488 GFLOPs, 0.00084397796 GB
+[2026-03-31 21:14:54.752] [info] [GemmWS]: Theoretical time(ms): 0.0013745569731327123 Compute time: 6.343749969772716e-06 Memory time: 0.0013745569731327123
+[2026-03-31 21:14:55.117] [info] [GemmWs] Keys K = 8192, N = 1, M = 2048
+[2026-03-31 21:14:55.117] [info] [GemmWS]: total 0.03355648 GFLOPs, 0.03357901 GB
+[2026-03-31 21:14:55.117] [info] [GemmWS]: Theoretical time(ms): 0.054688942327629775 Compute time: 0.00025601562470001227 Memory time: 0.054688942327629775
+[2026-03-31 21:14:55.120] [info] [GemmWs] Keys K = 2048, N = 1, M = 96
+[2026-03-31 21:14:55.120] [info] [GemmWS]: total 0.00039331202 GFLOPs, 0.00039769599 GB
+[2026-03-31 21:14:55.120] [info] [GemmWS]: Theoretical time(ms): 0.0006477133069893171 Compute time: 3.0007325513281558e-06 Memory time: 0.0006477133069893171
+[2026-03-31 21:14:55.120] [info] [GemmWs] Keys K = 16, N = 1, M = 2048
+[2026-03-31 21:14:55.120] [info] [GemmWS]: total 6.7584e-05 GFLOPs, 7.376e-05 GB
+[2026-03-31 21:14:55.120] [info] [GemmWS]: Theoretical time(ms): 0.00012013029504487349 Compute time: 5.156249871518526e-07 Memory time: 0.00012013029504487349
+[2026-03-31 21:14:55.123] [info] [GemmWs] Keys K = 2048, N = 1, M = 101
+[2026-03-31 21:14:55.123] [info] [GemmWS]: total 0.000413797 GFLOPs, 0.000418196 GB
+[2026-03-31 21:14:55.123] [info] [GemmWS]: Theoretical time(ms): 0.000681100971178239 Compute time: 3.1570206449060834e-06 Memory time: 0.000681100971178239
+[2026-03-31 21:14:55.127] [info] [GemmWs] Keys K = 101, N = 1, M = 4096
+[2026-03-31 21:14:55.127] [info] [GemmWS]: total 0.000831488 GFLOPs, 0.00084397796 GB
+[2026-03-31 21:14:55.127] [info] [GemmWS]: Theoretical time(ms): 0.0013745569731327123 Compute time: 6.343749969772716e-06 Memory time: 0.0013745569731327123
+[2026-03-31 21:14:55.345] [info] [GemmWs] Keys K = 8192, N = 1, M = 2048
+[2026-03-31 21:14:55.345] [info] [GemmWS]: total 0.03355648 GFLOPs, 0.03357901 GB
+[2026-03-31 21:14:55.345] [info] [GemmWS]: Theoretical time(ms): 0.054688942327629775 Compute time: 0.00025601562470001227 Memory time: 0.054688942327629775
+[2026-03-31 21:14:55.347] [info] [GemmWs] Keys K = 2048, N = 1, M = 96
+[2026-03-31 21:14:55.347] [info] [GemmWS]: total 0.00039331202 GFLOPs, 0.00039769599 GB
+[2026-03-31 21:14:55.347] [info] [GemmWS]: Theoretical time(ms): 0.0006477133069893171 Compute time: 3.0007325513281558e-06 Memory time: 0.0006477133069893171
+[2026-03-31 21:14:55.348] [info] [GemmWs] Keys K = 16, N = 1, M = 2048
+[2026-03-31 21:14:55.348] [info] [GemmWS]: total 6.7584e-05 GFLOPs, 7.376e-05 GB
+[2026-03-31 21:14:55.348] [info] [GemmWS]: Theoretical time(ms): 0.00012013029504487349 Compute time: 5.156249871518526e-07 Memory time: 0.00012013029504487349
+[2026-03-31 21:14:55.350] [info] [GemmWs] Keys K = 2048, N = 1, M = 101
+[2026-03-31 21:14:55.350] [info] [GemmWS]: total 0.000413797 GFLOPs, 0.000418196 GB
+[2026-03-31 21:14:55.350] [info] [GemmWS]: Theoretical time(ms): 0.000681100971178239 Compute time: 3.1570206449060834e-06 Memory time: 0.000681100971178239
+[2026-03-31 21:14:55.350] [info] ./models/mamba-370m-s1-b2/mamba-370m-s1-b2.onnx Model initialization time: 0.854686 seconds
+[2026-03-31 21:14:55.360] [info] Schedule model: mamba-370m-s1-b2 at 1000 us
+[2026-03-31 21:14:55.360] [info] MODEL mamba-370m-s1-b2 Scheduled, Total Request: 1
+[2026-03-31 21:14:55.360] [info] executable layer count 25
+[2026-03-31 21:14:55.360] [info] Start layer Identity_16
+[2026-03-31 21:14:55.360] [info] Issue tile Identity_16 on core 0, spad_id 1, accum_spad_id 1
+[2026-03-31 21:14:55.360] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-31 21:14:55.523] [info] HBM2-CH_0: BW utilization 0% (1 reads, 0 writes)
+[2026-03-31 21:14:55.523] [info] Layer Identity_16 finish at 8000
+[2026-03-31 21:14:55.523] [info] Total compute time 8000
+[2026-03-31 21:14:55.523] [info] executable layer count 24
+[2026-03-31 21:14:55.523] [info] Start layer Identity_17
+[2026-03-31 21:14:55.523] [info] Issue tile Identity_17 on core 1, spad_id 1, accum_spad_id 1
+[2026-03-31 21:14:55.700] [info] HBM2-CH_0: BW utilization 0% (8 reads, 8 writes)
+[2026-03-31 21:14:55.700] [info] Layer Identity_17 finish at 16000
+[2026-03-31 21:14:55.700] [info] Total compute time 8000
+[2026-03-31 21:14:55.700] [info] executable layer count 23
+[2026-03-31 21:14:55.700] [info] Start layer Identity_18
+[2026-03-31 21:14:55.700] [info] Issue tile Identity_18 on core 2, spad_id 1, accum_spad_id 1
+[2026-03-31 21:14:55.955] [info] HBM2-CH_0: BW utilization 0% (1 reads, 1 writes)
+[2026-03-31 21:14:55.956] [info] Layer Identity_18 finish at 24000
+[2026-03-31 21:14:55.956] [info] Total compute time 8000
+[2026-03-31 21:14:55.956] [info] executable layer count 22
+[2026-03-31 21:14:55.956] [info] Start layer Identity_19
+[2026-03-31 21:14:55.956] [info] Issue tile Identity_19 on core 3, spad_id 1, accum_spad_id 1
+[2026-03-31 21:14:56.240] [info] HBM2-CH_0: BW utilization 0% (8 reads, 7 writes)
+[2026-03-31 21:14:56.240] [info] Layer Identity_19 finish at 32000
+[2026-03-31 21:14:56.240] [info] Total compute time 8000
+[2026-03-31 21:14:56.240] [info] executable layer count 22
+[2026-03-31 21:14:56.240] [info] Start layer Identity_20
+[2026-03-31 21:14:56.470] [info] HBM2-CH_0: BW utilization 0% (16 reads, 16 writes)
+[2026-03-31 21:14:56.471] [info] Layer Identity_20 finish at 40000
+[2026-03-31 21:14:56.471] [info] Total compute time 8000
+[2026-03-31 21:14:56.471] [info] executable layer count 21
+[2026-03-31 21:14:56.471] [info] Start layer Identity_21
+[2026-03-31 21:14:56.471] [info] Issue tile Identity_21 on core 1, spad_id 1, accum_spad_id 1
+[2026-03-31 21:14:56.631] [info] HBM2-CH_0: BW utilization 0% (8 reads, 7 writes)
+[2026-03-31 21:14:56.632] [info] Layer Identity_21 finish at 48000
+[2026-03-31 21:14:56.632] [info] Total compute time 8000
+[2026-03-31 21:14:56.632] [info] executable layer count 20
+[2026-03-31 21:14:56.632] [info] Start layer Identity_22
+[2026-03-31 21:14:56.632] [info] Issue tile Identity_22 on core 2, spad_id 1, accum_spad_id 1
+[2026-03-31 21:14:56.794] [info] HBM2-CH_0: BW utilization 0% (8 reads, 8 writes)
+[2026-03-31 21:14:56.794] [info] Layer Identity_22 finish at 56000
+[2026-03-31 21:14:56.794] [info] Total compute time 8000
+[2026-03-31 21:14:56.794] [info] executable layer count 19
+[2026-03-31 21:14:56.794] [info] Start layer /blocks.0/in_proj/Gemm
+[2026-03-31 21:14:56.794] [info] Issue tile Gemm on core 2, spad_id 1, accum_spad_id 1
+[2026-03-31 21:14:56.794] [info] Issue tile Gemm on core 3, spad_id 1, accum_spad_id 1
+[2026-03-31 21:14:56.959] [info] HBM2-CH_0: BW utilization 4% (417 reads, 3 writes)
+[2026-03-31 21:14:56.959] [info] Issue tile Gemm on core 0, spad_id 1, accum_spad_id 1
+[2026-03-31 21:14:56.959] [info] Issue tile Gemm on core 1, spad_id 1, accum_spad_id 1
+[2026-03-31 21:14:56.959] [info] Issue tile Gemm on core 2, spad_id 1, accum_spad_id 1
+[2026-03-31 21:14:56.959] [info] Issue tile Gemm on core 3, spad_id 1, accum_spad_id 1
+[2026-03-31 21:14:57.112] [info] HBM2-CH_0: BW utilization 2% (208 reads, 2 writes)
+[2026-03-31 21:14:57.112] [info] Issue tile Gemm on core 0, spad_id 0, accum_spad_id 0
+[2026-03-31 21:14:57.113] [info] Issue tile Gemm on core 1, spad_id 0, accum_spad_id 0
+[2026-03-31 21:14:57.113] [info] Issue tile Gemm on core 2, spad_id 0, accum_spad_id 0
+[2026-03-31 21:14:57.113] [info] Issue tile Gemm on core 3, spad_id 0, accum_spad_id 0
+[2026-03-31 21:14:57.268] [info] HBM2-CH_0: BW utilization 2% (208 reads, 2 writes)
+[2026-03-31 21:14:57.269] [info] Issue tile Gemm on core 0, spad_id 1, accum_spad_id 1
+[2026-03-31 21:14:57.269] [info] Issue tile Gemm on core 1, spad_id 1, accum_spad_id 1
+[2026-03-31 21:14:57.269] [info] Issue tile Gemm on core 2, spad_id 1, accum_spad_id 1
+[2026-03-31 21:14:57.269] [info] Issue tile Gemm on core 3, spad_id 1, accum_spad_id 1
+[2026-03-31 21:14:57.431] [info] HBM2-CH_0: BW utilization 2% (208 reads, 3 writes)
+[2026-03-31 21:14:57.432] [info] Issue tile Gemm on core 0, spad_id 0, accum_spad_id 0
+[2026-03-31 21:14:57.432] [info] Issue tile Gemm on core 1, spad_id 0, accum_spad_id 0
+[2026-03-31 21:14:57.432] [info] Issue tile Gemm on core 2, spad_id 0, accum_spad_id 0
+[2026-03-31 21:14:57.432] [info] Issue tile Gemm on core 3, spad_id 0, accum_spad_id 0
+[2026-03-31 21:14:57.584] [info] HBM2-CH_0: BW utilization 2% (208 reads, 2 writes)
+[2026-03-31 21:14:57.584] [info] Issue tile Gemm on core 0, spad_id 1, accum_spad_id 1
+[2026-03-31 21:14:57.584] [info] Issue tile Gemm on core 1, spad_id 1, accum_spad_id 1
+[2026-03-31 21:14:57.584] [info] Issue tile Gemm on core 2, spad_id 1, accum_spad_id 1
+[2026-03-31 21:14:57.584] [info] Issue tile Gemm on core 3, spad_id 1, accum_spad_id 1
+[2026-03-31 21:14:57.753] [info] HBM2-CH_0: BW utilization 2% (208 reads, 1 writes)
+[2026-03-31 21:14:57.754] [info] Issue tile Gemm on core 0, spad_id 0, accum_spad_id 0
+[2026-03-31 21:14:57.754] [info] Issue tile Gemm on core 1, spad_id 0, accum_spad_id 0
+[2026-03-31 21:14:57.754] [info] Issue tile Gemm on core 2, spad_id 0, accum_spad_id 0
+[2026-03-31 21:14:57.754] [info] Issue tile Gemm on core 3, spad_id 0, accum_spad_id 0
+[2026-03-31 21:14:57.988] [info] HBM2-CH_0: BW utilization 2% (207 reads, 2 writes)
+[2026-03-31 21:14:58.145] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-31 21:14:58.146] [info] Layer /blocks.0/in_proj/Gemm finish at 120000
+[2026-03-31 21:14:58.146] [info] Total compute time 64000
+[2026-03-31 21:14:58.146] [info] executable layer count 18
+[2026-03-31 21:14:58.146] [info] Start layer /blocks.0/Constant
+[2026-03-31 21:14:58.146] [info] Issue tile /blocks.0/Constant on core 3, spad_id 1, accum_spad_id 1
+[2026-03-31 21:14:58.308] [info] HBM2-CH_0: BW utilization 0% (1 reads, 0 writes)
+[2026-03-31 21:14:58.309] [info] Layer /blocks.0/Constant finish at 128000
+[2026-03-31 21:14:58.309] [info] Total compute time 8000
+[2026-03-31 21:14:58.309] [info] executable layer count 17
+[2026-03-31 21:14:58.309] [info] Start layer /blocks.0/Constant_1
+[2026-03-31 21:14:58.467] [info] HBM2-CH_0: BW utilization 0% (1 reads, 1 writes)
+[2026-03-31 21:14:58.468] [info] Layer /blocks.0/Constant_1 finish at 136000
+[2026-03-31 21:14:58.468] [info] Total compute time 8000
+[2026-03-31 21:14:58.468] [info] executable layer count 16
+[2026-03-31 21:14:58.468] [info] Start layer /blocks.0/Constant_2
+[2026-03-31 21:14:58.468] [info] Issue tile /blocks.0/Constant_2 on core 1, spad_id 1, accum_spad_id 1
+[2026-03-31 21:14:58.636] [info] HBM2-CH_0: BW utilization 0% (1 reads, 0 writes)
+[2026-03-31 21:14:58.637] [info] Layer /blocks.0/Constant_2 finish at 144000
+[2026-03-31 21:14:58.637] [info] Total compute time 8000
+[2026-03-31 21:14:58.637] [info] executable layer count 15
+[2026-03-31 21:14:58.637] [info] Start layer /blocks.0/Constant_3
+[2026-03-31 21:14:58.637] [info] Issue tile /blocks.0/Constant_3 on core 2, spad_id 1, accum_spad_id 1
+[2026-03-31 21:14:58.830] [info] HBM2-CH_0: BW utilization 0% (1 reads, 0 writes)
+[2026-03-31 21:14:58.831] [info] Layer /blocks.0/Constant_3 finish at 152000
+[2026-03-31 21:14:58.831] [info] Total compute time 8000
+[2026-03-31 21:14:58.831] [info] executable layer count 15
+[2026-03-31 21:14:58.831] [info] Start layer /blocks.0/conv_proj/Gemm
+[2026-03-31 21:14:58.831] [info] Issue tile Gemm on core 2, spad_id 1, accum_spad_id 1
+[2026-03-31 21:14:58.831] [info] Issue tile Gemm on core 3, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:01.003] [info] HBM2-CH_0: BW utilization 69% (6652 reads, 0 writes)
+[2026-03-31 21:15:01.012] [info] Issue tile Gemm on core 2, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:01.810] [info] HBM2-CH_0: BW utilization 30% (2959 reads, 1 writes)
+[2026-03-31 21:15:01.813] [info] Issue tile Gemm on core 0, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:01.813] [info] Issue tile Gemm on core 1, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:01.813] [info] Issue tile Gemm on core 2, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:01.813] [info] Issue tile Gemm on core 3, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:02.729] [info] HBM2-CH_0: BW utilization 29% (2840 reads, 1 writes)
+[2026-03-31 21:15:02.732] [info] Issue tile Gemm on core 0, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:02.732] [info] Issue tile Gemm on core 1, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:02.732] [info] Issue tile Gemm on core 2, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:02.732] [info] Issue tile Gemm on core 3, spad_id 0, accum_spad_id 0
+[2026-03-31 21:15:03.753] [info] HBM2-CH_0: BW utilization 56% (5417 reads, 0 writes)
+[2026-03-31 21:15:03.754] [info] Issue tile Gemm on core 0, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:03.754] [info] Issue tile Gemm on core 1, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:03.754] [info] Issue tile Gemm on core 2, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:03.754] [info] Issue tile Gemm on core 3, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:04.661] [info] HBM2-CH_0: BW utilization 43% (4128 reads, 0 writes)
+[2026-03-31 21:15:04.663] [info] Issue tile Gemm on core 0, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:04.663] [info] Issue tile Gemm on core 1, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:04.663] [info] Issue tile Gemm on core 2, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:04.663] [info] Issue tile Gemm on core 3, spad_id 0, accum_spad_id 0
+[2026-03-31 21:15:05.174] [info] HBM2-CH_0: BW utilization 29% (2840 reads, 1 writes)
+[2026-03-31 21:15:05.175] [info] Issue tile Gemm on core 0, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:05.177] [info] Issue tile Gemm on core 1, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:05.177] [info] Issue tile Gemm on core 2, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:05.177] [info] Issue tile Gemm on core 3, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:06.179] [info] HBM2-CH_0: BW utilization 56% (5417 reads, 0 writes)
+[2026-03-31 21:15:06.181] [info] Issue tile Gemm on core 0, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:06.181] [info] Issue tile Gemm on core 1, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:06.181] [info] Issue tile Gemm on core 2, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:06.181] [info] Issue tile Gemm on core 3, spad_id 0, accum_spad_id 0
+[2026-03-31 21:15:07.153] [info] HBM2-CH_0: BW utilization 43% (4129 reads, 1 writes)
+[2026-03-31 21:15:07.155] [info] Issue tile Gemm on core 0, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:07.155] [info] Issue tile Gemm on core 1, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:07.155] [info] Issue tile Gemm on core 2, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:07.155] [info] Issue tile Gemm on core 3, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:07.700] [info] HBM2-CH_0: BW utilization 29% (2839 reads, 1 writes)
+[2026-03-31 21:15:07.701] [info] Issue tile Gemm on core 0, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:07.701] [info] Issue tile Gemm on core 1, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:07.701] [info] Issue tile Gemm on core 2, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:07.701] [info] Issue tile Gemm on core 3, spad_id 0, accum_spad_id 0
+[2026-03-31 21:15:08.642] [info] HBM2-CH_0: BW utilization 56% (5418 reads, 0 writes)
+[2026-03-31 21:15:08.644] [info] Issue tile Gemm on core 0, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:08.644] [info] Issue tile Gemm on core 1, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:08.644] [info] Issue tile Gemm on core 2, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:08.644] [info] Issue tile Gemm on core 3, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:09.523] [info] HBM2-CH_0: BW utilization 43% (4128 reads, 0 writes)
+[2026-03-31 21:15:09.524] [info] Issue tile Gemm on core 0, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:09.524] [info] Issue tile Gemm on core 1, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:09.526] [info] Issue tile Gemm on core 2, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:09.526] [info] Issue tile Gemm on core 3, spad_id 0, accum_spad_id 0
+[2026-03-31 21:15:10.016] [info] HBM2-CH_0: BW utilization 29% (2840 reads, 1 writes)
+[2026-03-31 21:15:10.017] [info] Issue tile Gemm on core 0, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:10.017] [info] Issue tile Gemm on core 1, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:10.017] [info] Issue tile Gemm on core 2, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:10.017] [info] Issue tile Gemm on core 3, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:10.979] [info] HBM2-CH_0: BW utilization 56% (5417 reads, 0 writes)
+[2026-03-31 21:15:10.981] [info] Issue tile Gemm on core 0, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:10.981] [info] Issue tile Gemm on core 1, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:10.981] [info] Issue tile Gemm on core 2, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:10.981] [info] Issue tile Gemm on core 3, spad_id 0, accum_spad_id 0
+[2026-03-31 21:15:11.901] [info] HBM2-CH_0: BW utilization 43% (4129 reads, 0 writes)
+[2026-03-31 21:15:11.903] [info] Issue tile Gemm on core 0, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:11.903] [info] Issue tile Gemm on core 1, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:11.903] [info] Issue tile Gemm on core 2, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:11.903] [info] Issue tile Gemm on core 3, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:12.406] [info] HBM2-CH_0: BW utilization 29% (2839 reads, 1 writes)
+[2026-03-31 21:15:12.408] [info] Issue tile Gemm on core 0, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:12.408] [info] Issue tile Gemm on core 1, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:12.408] [info] Issue tile Gemm on core 3, spad_id 0, accum_spad_id 0
+[2026-03-31 21:15:12.762] [info] HBM2-CH_0: BW utilization 42% (4064 reads, 0 writes)
+[2026-03-31 21:15:12.925] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-31 21:15:12.928] [info] Layer /blocks.0/conv_proj/Gemm finish at 288000
+[2026-03-31 21:15:12.928] [info] Total compute time 136000
+[2026-03-31 21:15:12.928] [info] executable layer count 15
+[2026-03-31 21:15:12.928] [info] Start layer /blocks.0/Constant_4
+[2026-03-31 21:15:12.928] [info] Issue tile /blocks.0/Constant_4 on core 3, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:13.089] [info] HBM2-CH_0: BW utilization 0% (1 reads, 0 writes)
+[2026-03-31 21:15:13.091] [info] Layer /blocks.0/Constant_4 finish at 296000
+[2026-03-31 21:15:13.091] [info] Total compute time 8000
+[2026-03-31 21:15:13.091] [info] executable layer count 14
+[2026-03-31 21:15:13.091] [info] Start layer /blocks.0/Constant_5
+[2026-03-31 21:15:13.249] [info] HBM2-CH_0: BW utilization 0% (1 reads, 0 writes)
+[2026-03-31 21:15:13.252] [info] Layer /blocks.0/Constant_5 finish at 304000
+[2026-03-31 21:15:13.252] [info] Total compute time 8000
+[2026-03-31 21:15:13.252] [info] executable layer count 13
+[2026-03-31 21:15:13.252] [info] Start layer /blocks.0/Constant_6
+[2026-03-31 21:15:13.405] [info] HBM2-CH_0: BW utilization 0% (1 reads, 0 writes)
+[2026-03-31 21:15:13.408] [info] Layer /blocks.0/Constant_6 finish at 312000
+[2026-03-31 21:15:13.408] [info] Total compute time 8000
+[2026-03-31 21:15:13.408] [info] executable layer count 12
+[2026-03-31 21:15:13.408] [info] Start layer /blocks.0/Constant_7
+[2026-03-31 21:15:13.408] [info] Issue tile /blocks.0/Constant_7 on core 1, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:13.567] [info] HBM2-CH_0: BW utilization 0% (1 reads, 0 writes)
+[2026-03-31 21:15:13.569] [info] Layer /blocks.0/Constant_7 finish at 320000
+[2026-03-31 21:15:13.569] [info] Total compute time 8000
+[2026-03-31 21:15:13.570] [info] executable layer count 11
+[2026-03-31 21:15:13.570] [info] Start layer /blocks.1/Constant
+[2026-03-31 21:15:13.570] [info] Issue tile /blocks.1/Constant on core 3, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:13.731] [info] HBM2-CH_0: BW utilization 0% (1 reads, 0 writes)
+[2026-03-31 21:15:13.734] [info] Layer /blocks.1/Constant finish at 328000
+[2026-03-31 21:15:13.734] [info] Total compute time 8000
+[2026-03-31 21:15:13.734] [info] executable layer count 10
+[2026-03-31 21:15:13.734] [info] Start layer /blocks.1/Constant_1
+[2026-03-31 21:15:13.894] [info] HBM2-CH_0: BW utilization 0% (1 reads, 0 writes)
+[2026-03-31 21:15:13.897] [info] Layer /blocks.1/Constant_1 finish at 336000
+[2026-03-31 21:15:13.897] [info] Total compute time 8000
+[2026-03-31 21:15:13.897] [info] executable layer count 9
+[2026-03-31 21:15:13.897] [info] Start layer /blocks.1/Constant_2
+[2026-03-31 21:15:14.057] [info] HBM2-CH_0: BW utilization 0% (1 reads, 0 writes)
+[2026-03-31 21:15:14.060] [info] Layer /blocks.1/Constant_2 finish at 344000
+[2026-03-31 21:15:14.060] [info] Total compute time 8000
+[2026-03-31 21:15:14.060] [info] executable layer count 8
+[2026-03-31 21:15:14.060] [info] Start layer /blocks.1/Constant_3
+[2026-03-31 21:15:14.060] [info] Issue tile /blocks.1/Constant_3 on core 1, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:14.216] [info] HBM2-CH_0: BW utilization 0% (1 reads, 0 writes)
+[2026-03-31 21:15:14.219] [info] Layer /blocks.1/Constant_3 finish at 352000
+[2026-03-31 21:15:14.219] [info] Total compute time 8000
+[2026-03-31 21:15:14.219] [info] executable layer count 7
+[2026-03-31 21:15:14.219] [info] Start layer /blocks.1/Constant_4
+[2026-03-31 21:15:14.219] [info] Issue tile /blocks.1/Constant_4 on core 3, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:14.379] [info] HBM2-CH_0: BW utilization 0% (1 reads, 0 writes)
+[2026-03-31 21:15:14.382] [info] Layer /blocks.1/Constant_4 finish at 360000
+[2026-03-31 21:15:14.382] [info] Total compute time 8000
+[2026-03-31 21:15:14.382] [info] executable layer count 6
+[2026-03-31 21:15:14.382] [info] Start layer /blocks.1/Constant_5
+[2026-03-31 21:15:14.543] [info] HBM2-CH_0: BW utilization 0% (1 reads, 0 writes)
+[2026-03-31 21:15:14.546] [info] Layer /blocks.1/Constant_5 finish at 368000
+[2026-03-31 21:15:14.553] [info] Total compute time 8000
+[2026-03-31 21:15:14.553] [info] executable layer count 5
+[2026-03-31 21:15:14.553] [info] Start layer /blocks.1/Constant_6
+[2026-03-31 21:15:14.849] [info] HBM2-CH_0: BW utilization 0% (1 reads, 0 writes)
+[2026-03-31 21:15:14.854] [info] Layer /blocks.1/Constant_6 finish at 376000
+[2026-03-31 21:15:14.854] [info] Total compute time 8000
+[2026-03-31 21:15:14.854] [info] executable layer count 4
+[2026-03-31 21:15:14.854] [info] Start layer /blocks.1/Constant_7
+[2026-03-31 21:15:14.854] [info] Issue tile /blocks.1/Constant_7 on core 1, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:15.142] [info] HBM2-CH_0: BW utilization 0% (1 reads, 0 writes)
+[2026-03-31 21:15:15.148] [info] Layer /blocks.1/Constant_7 finish at 384000
+[2026-03-31 21:15:15.148] [info] Total compute time 8000
+[2026-03-31 21:15:15.148] [info] executable layer count 3
+[2026-03-31 21:15:15.148] [info] Start layer /blocks.1/conv_proj/Gemm
+[2026-03-31 21:15:15.148] [info] Issue tile Gemm on core 1, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:15.148] [info] Issue tile Gemm on core 2, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:15.148] [info] Issue tile Gemm on core 3, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:17.422] [info] HBM2-CH_0: BW utilization 61% (5904 reads, 0 writes)
+[2026-03-31 21:15:17.478] [info] Issue tile Gemm on core 1, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:18.573] [info] HBM2-CH_0: BW utilization 38% (3706 reads, 1 writes)
+[2026-03-31 21:15:18.576] [info] Issue tile Gemm on core 0, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:18.577] [info] Issue tile Gemm on core 1, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:18.577] [info] Issue tile Gemm on core 2, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:18.577] [info] Issue tile Gemm on core 3, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:19.183] [info] HBM2-CH_0: BW utilization 29% (2836 reads, 1 writes)
+[2026-03-31 21:15:19.186] [info] Issue tile Gemm on core 0, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:19.186] [info] Issue tile Gemm on core 1, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:19.186] [info] Issue tile Gemm on core 2, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:19.186] [info] Issue tile Gemm on core 3, spad_id 0, accum_spad_id 0
+[2026-03-31 21:15:21.686] [info] HBM2-CH_0: BW utilization 56% (5418 reads, 0 writes)
+[2026-03-31 21:15:21.692] [info] Issue tile Gemm on core 0, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:21.692] [info] Issue tile Gemm on core 1, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:21.692] [info] Issue tile Gemm on core 2, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:21.692] [info] Issue tile Gemm on core 3, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:23.712] [info] HBM2-CH_0: BW utilization 43% (4128 reads, 1 writes)
+[2026-03-31 21:15:23.718] [info] Issue tile Gemm on core 0, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:23.718] [info] Issue tile Gemm on core 1, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:23.718] [info] Issue tile Gemm on core 2, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:23.718] [info] Issue tile Gemm on core 3, spad_id 0, accum_spad_id 0
+[2026-03-31 21:15:24.946] [info] HBM2-CH_0: BW utilization 29% (2837 reads, 1 writes)
+[2026-03-31 21:15:24.952] [info] Issue tile Gemm on core 0, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:24.954] [info] Issue tile Gemm on core 1, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:24.954] [info] Issue tile Gemm on core 2, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:24.954] [info] Issue tile Gemm on core 3, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:26.426] [info] HBM2-CH_0: BW utilization 56% (5417 reads, 0 writes)
+[2026-03-31 21:15:26.429] [info] Issue tile Gemm on core 0, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:26.430] [info] Issue tile Gemm on core 1, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:26.430] [info] Issue tile Gemm on core 2, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:26.430] [info] Issue tile Gemm on core 3, spad_id 0, accum_spad_id 0
+[2026-03-31 21:15:27.345] [info] HBM2-CH_0: BW utilization 43% (4128 reads, 1 writes)
+[2026-03-31 21:15:27.349] [info] Issue tile Gemm on core 0, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:27.349] [info] Issue tile Gemm on core 1, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:27.349] [info] Issue tile Gemm on core 2, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:27.349] [info] Issue tile Gemm on core 3, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:27.961] [info] HBM2-CH_0: BW utilization 29% (2837 reads, 1 writes)
+[2026-03-31 21:15:27.964] [info] Issue tile Gemm on core 0, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:27.964] [info] Issue tile Gemm on core 1, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:27.964] [info] Issue tile Gemm on core 2, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:27.964] [info] Issue tile Gemm on core 3, spad_id 0, accum_spad_id 0
+[2026-03-31 21:15:29.369] [info] HBM2-CH_0: BW utilization 56% (5417 reads, 0 writes)
+[2026-03-31 21:15:29.376] [info] Issue tile Gemm on core 0, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:29.377] [info] Issue tile Gemm on core 1, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:29.377] [info] Issue tile Gemm on core 2, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:29.377] [info] Issue tile Gemm on core 3, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:31.315] [info] HBM2-CH_0: BW utilization 43% (4129 reads, 0 writes)
+[2026-03-31 21:15:31.321] [info] Issue tile Gemm on core 0, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:31.321] [info] Issue tile Gemm on core 1, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:31.321] [info] Issue tile Gemm on core 2, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:31.321] [info] Issue tile Gemm on core 3, spad_id 0, accum_spad_id 0
+[2026-03-31 21:15:32.557] [info] HBM2-CH_0: BW utilization 29% (2836 reads, 1 writes)
+[2026-03-31 21:15:32.564] [info] Issue tile Gemm on core 0, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:32.565] [info] Issue tile Gemm on core 1, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:32.565] [info] Issue tile Gemm on core 2, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:32.565] [info] Issue tile Gemm on core 3, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:34.987] [info] HBM2-CH_0: BW utilization 56% (5418 reads, 0 writes)
+[2026-03-31 21:15:34.994] [info] Issue tile Gemm on core 0, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:34.995] [info] Issue tile Gemm on core 1, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:34.995] [info] Issue tile Gemm on core 2, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:34.995] [info] Issue tile Gemm on core 3, spad_id 0, accum_spad_id 0
+[2026-03-31 21:15:36.896] [info] HBM2-CH_0: BW utilization 43% (4128 reads, 1 writes)
+[2026-03-31 21:15:36.903] [info] Issue tile Gemm on core 0, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:36.903] [info] Issue tile Gemm on core 1, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:36.903] [info] Issue tile Gemm on core 2, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:36.904] [info] Issue tile Gemm on core 3, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:38.090] [info] HBM2-CH_0: BW utilization 29% (2837 reads, 1 writes)
+[2026-03-31 21:15:38.097] [info] Issue tile Gemm on core 0, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:38.098] [info] Issue tile Gemm on core 2, spad_id 0, accum_spad_id 1
+[2026-03-31 21:15:38.098] [info] Issue tile Gemm on core 3, spad_id 0, accum_spad_id 0
+[2026-03-31 21:15:38.812] [info] HBM2-CH_0: BW utilization 42% (4063 reads, 0 writes)
+[2026-03-31 21:15:39.031] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-31 21:15:39.036] [info] Layer /blocks.1/conv_proj/Gemm finish at 520000
+[2026-03-31 21:15:39.036] [info] Total compute time 136000
+[2026-03-31 21:15:39.036] [info] executable layer count 3
+[2026-03-31 21:15:39.036] [info] Start layer /blocks.0/Slice
+[2026-03-31 21:15:39.036] [info] Issue tile /blocks.0/Slice on core 3, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:39.203] [info] HBM2-CH_0: BW utilization 0% (15 reads, 16 writes)
+[2026-03-31 21:15:39.208] [info] Layer /blocks.0/Slice finish at 528000
+[2026-03-31 21:15:39.208] [info] Total compute time 8000
+[2026-03-31 21:15:39.208] [info] executable layer count 3
+[2026-03-31 21:15:39.208] [info] Start layer /blocks.0/Sigmoid
+[2026-03-31 21:15:39.366] [info] HBM2-CH_0: BW utilization 0% (7 reads, 8 writes)
+[2026-03-31 21:15:39.371] [info] Layer /blocks.0/Sigmoid finish at 536000
+[2026-03-31 21:15:39.371] [info] Total compute time 8000
+[2026-03-31 21:15:39.371] [info] executable layer count 3
+[2026-03-31 21:15:39.371] [info] Start layer /blocks.1/Sigmoid
+[2026-03-31 21:15:39.371] [info] Issue tile /blocks.1/Sigmoid on core 2, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:39.530] [info] HBM2-CH_0: BW utilization 0% (9 reads, 8 writes)
+[2026-03-31 21:15:39.535] [info] Layer /blocks.1/Sigmoid finish at 544000
+[2026-03-31 21:15:39.535] [info] Total compute time 8000
+[2026-03-31 21:15:39.535] [info] executable layer count 3
+[2026-03-31 21:15:39.535] [info] Start layer /blocks.0/Sigmoid_1
+[2026-03-31 21:15:39.699] [info] HBM2-CH_0: BW utilization 0% (16 reads, 16 writes)
+[2026-03-31 21:15:39.705] [info] Layer /blocks.0/Sigmoid_1 finish at 552000
+[2026-03-31 21:15:39.705] [info] Total compute time 8000
+[2026-03-31 21:15:39.705] [info] executable layer count 3
+[2026-03-31 21:15:39.705] [info] Start layer /blocks.0/Mul
+[2026-03-31 21:15:39.705] [info] Issue tile /blocks.0/Mul on core 3, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:39.888] [info] HBM2-CH_0: BW utilization 0% (15 reads, 7 writes)
+[2026-03-31 21:15:39.894] [info] Layer /blocks.0/Mul finish at 560000
+[2026-03-31 21:15:39.894] [info] Total compute time 8000
+[2026-03-31 21:15:39.894] [info] executable layer count 4
+[2026-03-31 21:15:39.894] [info] Start layer /blocks.1/Mul
+[2026-03-31 21:15:40.076] [info] HBM2-CH_0: BW utilization 0% (17 reads, 9 writes)
+[2026-03-31 21:15:40.081] [info] Layer /blocks.1/Mul finish at 568000
+[2026-03-31 21:15:40.081] [info] Total compute time 8000
+[2026-03-31 21:15:40.081] [info] executable layer count 5
+[2026-03-31 21:15:40.081] [info] Start layer /blocks.0/Mul_2
+[2026-03-31 21:15:40.081] [info] Issue tile /blocks.0/Mul_2 on core 2, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:40.253] [info] HBM2-CH_0: BW utilization 0% (32 reads, 16 writes)
+[2026-03-31 21:15:40.258] [info] Layer /blocks.0/Mul_2 finish at 576000
+[2026-03-31 21:15:40.258] [info] Total compute time 8000
+[2026-03-31 21:15:40.258] [info] executable layer count 4
+[2026-03-31 21:15:40.258] [info] Start layer /blocks.0/x_proj/Gemm
+[2026-03-31 21:15:40.474] [info] HBM2-CH_0: BW utilization 8% (777 reads, 0 writes)
+[2026-03-31 21:15:40.479] [info] Layer /blocks.0/x_proj/Gemm finish at 584000
+[2026-03-31 21:15:40.479] [info] Total compute time 8000
+[2026-03-31 21:15:40.479] [info] executable layer count 4
+[2026-03-31 21:15:40.479] [info] Start layer /blocks.0/Mul_1
+[2026-03-31 21:15:40.479] [info] Issue tile /blocks.0/Mul_1 on core 3, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:40.647] [info] HBM2-CH_0: BW utilization 0% (15 reads, 8 writes)
+[2026-03-31 21:15:40.656] [info] Layer /blocks.0/Mul_1 finish at 592000
+[2026-03-31 21:15:40.656] [info] Total compute time 8000
+[2026-03-31 21:15:40.656] [info] executable layer count 3
+[2026-03-31 21:15:40.656] [info] Start layer /blocks.1/x_proj/Gemm
+[2026-03-31 21:15:41.099] [info] HBM2-CH_0: BW utilization 8% (778 reads, 0 writes)
+[2026-03-31 21:15:41.108] [info] Layer /blocks.1/x_proj/Gemm finish at 600000
+[2026-03-31 21:15:41.108] [info] Total compute time 8000
+[2026-03-31 21:15:41.108] [info] executable layer count 3
+[2026-03-31 21:15:41.108] [info] Start layer /blocks.1/Mul_1
+[2026-03-31 21:15:41.108] [info] Issue tile /blocks.1/Mul_1 on core 2, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:41.401] [info] HBM2-CH_0: BW utilization 0% (16 reads, 9 writes)
+[2026-03-31 21:15:41.410] [info] Layer /blocks.1/Mul_1 finish at 608000
+[2026-03-31 21:15:41.410] [info] Total compute time 8000
+[2026-03-31 21:15:41.410] [info] executable layer count 2
+[2026-03-31 21:15:41.410] [info] Start layer /blocks.0/Slice_1
+[2026-03-31 21:15:41.688] [info] HBM2-CH_0: BW utilization 0% (0 reads, 1 writes)
+[2026-03-31 21:15:41.697] [info] Layer /blocks.0/Slice_1 finish at 616000
+[2026-03-31 21:15:41.697] [info] Total compute time 8000
+[2026-03-31 21:15:41.697] [info] executable layer count 2
+[2026-03-31 21:15:41.697] [info] Start layer /blocks.1/Slice_1
+[2026-03-31 21:15:41.697] [info] Issue tile /blocks.1/Slice_1 on core 3, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:41.986] [info] HBM2-CH_0: BW utilization 0% (0 reads, 1 writes)
+[2026-03-31 21:15:41.996] [info] Layer /blocks.1/Slice_1 finish at 624000
+[2026-03-31 21:15:41.996] [info] Total compute time 8000
+[2026-03-31 21:15:41.996] [info] executable layer count 2
+[2026-03-31 21:15:41.996] [info] Start layer /blocks.0/ssm_out/Gemm
+[2026-03-31 21:15:41.996] [info] Issue tile Gemm on core 3, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:42.260] [info] HBM2-CH_0: BW utilization 0% (75 reads, 4 writes)
+[2026-03-31 21:15:42.269] [info] Issue tile Gemm on core 0, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:42.269] [info] Issue tile Gemm on core 1, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:42.269] [info] Issue tile Gemm on core 2, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:42.269] [info] Issue tile Gemm on core 3, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:42.527] [info] HBM2-CH_0: BW utilization 0% (39 reads, 2 writes)
+[2026-03-31 21:15:42.535] [info] Issue tile Gemm on core 0, spad_id 0, accum_spad_id 0
+[2026-03-31 21:15:42.535] [info] Issue tile Gemm on core 1, spad_id 0, accum_spad_id 0
+[2026-03-31 21:15:42.535] [info] Issue tile Gemm on core 2, spad_id 0, accum_spad_id 0
+[2026-03-31 21:15:42.535] [info] Issue tile Gemm on core 3, spad_id 0, accum_spad_id 0
+[2026-03-31 21:15:42.778] [info] HBM2-CH_0: BW utilization 0% (37 reads, 2 writes)
+[2026-03-31 21:15:42.968] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-31 21:15:42.973] [info] Layer /blocks.0/ssm_out/Gemm finish at 656000
+[2026-03-31 21:15:42.973] [info] Total compute time 32000
+[2026-03-31 21:15:42.973] [info] executable layer count 2
+[2026-03-31 21:15:42.973] [info] Start layer /blocks.1/ssm_out/Gemm
+[2026-03-31 21:15:42.973] [info] Issue tile Gemm on core 3, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:43.137] [info] HBM2-CH_0: BW utilization 0% (68 reads, 4 writes)
+[2026-03-31 21:15:43.142] [info] Issue tile Gemm on core 0, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:43.142] [info] Issue tile Gemm on core 1, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:43.142] [info] Issue tile Gemm on core 2, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:43.142] [info] Issue tile Gemm on core 3, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:43.299] [info] HBM2-CH_0: BW utilization 0% (34 reads, 2 writes)
+[2026-03-31 21:15:43.305] [info] Issue tile Gemm on core 0, spad_id 0, accum_spad_id 0
+[2026-03-31 21:15:43.305] [info] Issue tile Gemm on core 1, spad_id 0, accum_spad_id 0
+[2026-03-31 21:15:43.305] [info] Issue tile Gemm on core 2, spad_id 0, accum_spad_id 0
+[2026-03-31 21:15:43.305] [info] Issue tile Gemm on core 3, spad_id 0, accum_spad_id 0
+[2026-03-31 21:15:43.464] [info] HBM2-CH_0: BW utilization 0% (35 reads, 2 writes)
+[2026-03-31 21:15:43.639] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-31 21:15:43.645] [info] Layer /blocks.1/ssm_out/Gemm finish at 688000
+[2026-03-31 21:15:43.645] [info] Total compute time 32000
+[2026-03-31 21:15:43.645] [info] executable layer count 2
+[2026-03-31 21:15:43.645] [info] Start layer /blocks.0/Add
+[2026-03-31 21:15:43.896] [info] HBM2-CH_0: BW utilization 0% (16 reads, 8 writes)
+[2026-03-31 21:15:43.906] [info] Layer /blocks.0/Add finish at 696000
+[2026-03-31 21:15:43.906] [info] Total compute time 8000
+[2026-03-31 21:15:43.906] [info] executable layer count 2
+[2026-03-31 21:15:43.906] [info] Start layer /blocks.1/Add
+[2026-03-31 21:15:44.190] [info] HBM2-CH_0: BW utilization 0% (17 reads, 8 writes)
+[2026-03-31 21:15:44.201] [info] Layer /blocks.1/Add finish at 704000
+[2026-03-31 21:15:44.201] [info] Total compute time 8000
+[2026-03-31 21:15:44.201] [info] executable layer count 1
+[2026-03-31 21:15:44.201] [info] Start layer /blocks.0/Mul_3
+[2026-03-31 21:15:44.494] [info] HBM2-CH_0: BW utilization 0% (32 reads, 16 writes)
+[2026-03-31 21:15:44.504] [info] Layer /blocks.0/Mul_3 finish at 712000
+[2026-03-31 21:15:44.504] [info] Total compute time 8000
+[2026-03-31 21:15:44.504] [info] executable layer count 1
+[2026-03-31 21:15:44.504] [info] Start layer /blocks.0/out_proj/Gemm
+[2026-03-31 21:15:44.504] [info] Issue tile Gemm on core 3, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:44.959] [info] HBM2-CH_0: BW utilization 8% (818 reads, 0 writes)
+[2026-03-31 21:15:44.971] [info] Layer /blocks.0/out_proj/Gemm finish at 720000
+[2026-03-31 21:15:44.971] [info] Total compute time 8000
+[2026-03-31 21:15:44.971] [info] executable layer count 1
+[2026-03-31 21:15:44.971] [info] Start layer /blocks.1/in_proj/Gemm
+[2026-03-31 21:15:44.971] [info] Issue tile Gemm on core 3, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:45.308] [info] HBM2-CH_0: BW utilization 4% (408 reads, 5 writes)
+[2026-03-31 21:15:45.318] [info] Issue tile Gemm on core 0, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:45.318] [info] Issue tile Gemm on core 1, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:45.318] [info] Issue tile Gemm on core 2, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:45.318] [info] Issue tile Gemm on core 3, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:45.610] [info] HBM2-CH_0: BW utilization 2% (204 reads, 2 writes)
+[2026-03-31 21:15:45.621] [info] Issue tile Gemm on core 0, spad_id 0, accum_spad_id 0
+[2026-03-31 21:15:45.621] [info] Issue tile Gemm on core 1, spad_id 0, accum_spad_id 0
+[2026-03-31 21:15:45.621] [info] Issue tile Gemm on core 2, spad_id 0, accum_spad_id 0
+[2026-03-31 21:15:45.621] [info] Issue tile Gemm on core 3, spad_id 0, accum_spad_id 0
+[2026-03-31 21:15:45.919] [info] HBM2-CH_0: BW utilization 2% (204 reads, 1 writes)
+[2026-03-31 21:15:45.930] [info] Issue tile Gemm on core 0, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:45.930] [info] Issue tile Gemm on core 1, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:45.930] [info] Issue tile Gemm on core 2, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:45.930] [info] Issue tile Gemm on core 3, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:46.216] [info] HBM2-CH_0: BW utilization 2% (204 reads, 2 writes)
+[2026-03-31 21:15:46.226] [info] Issue tile Gemm on core 0, spad_id 0, accum_spad_id 0
+[2026-03-31 21:15:46.226] [info] Issue tile Gemm on core 1, spad_id 0, accum_spad_id 0
+[2026-03-31 21:15:46.226] [info] Issue tile Gemm on core 2, spad_id 0, accum_spad_id 0
+[2026-03-31 21:15:46.226] [info] Issue tile Gemm on core 3, spad_id 0, accum_spad_id 0
+[2026-03-31 21:15:46.514] [info] HBM2-CH_0: BW utilization 2% (204 reads, 2 writes)
+[2026-03-31 21:15:46.524] [info] Issue tile Gemm on core 0, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:46.524] [info] Issue tile Gemm on core 1, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:46.524] [info] Issue tile Gemm on core 2, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:46.524] [info] Issue tile Gemm on core 3, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:46.809] [info] HBM2-CH_0: BW utilization 2% (204 reads, 2 writes)
+[2026-03-31 21:15:46.820] [info] Issue tile Gemm on core 0, spad_id 0, accum_spad_id 0
+[2026-03-31 21:15:46.820] [info] Issue tile Gemm on core 1, spad_id 0, accum_spad_id 0
+[2026-03-31 21:15:46.820] [info] Issue tile Gemm on core 2, spad_id 0, accum_spad_id 0
+[2026-03-31 21:15:46.820] [info] Issue tile Gemm on core 3, spad_id 0, accum_spad_id 0
+[2026-03-31 21:15:47.095] [info] HBM2-CH_0: BW utilization 2% (204 reads, 3 writes)
+[2026-03-31 21:15:47.382] [info] HBM2-CH_0: BW utilization 0% (0 reads, 0 writes)
+[2026-03-31 21:15:47.394] [info] Layer /blocks.1/in_proj/Gemm finish at 784000
+[2026-03-31 21:15:47.394] [info] Total compute time 64000
+[2026-03-31 21:15:47.394] [info] executable layer count 1
+[2026-03-31 21:15:47.394] [info] Start layer /blocks.1/Slice
+[2026-03-31 21:15:47.672] [info] HBM2-CH_0: BW utilization 0% (17 reads, 16 writes)
+[2026-03-31 21:15:47.684] [info] Layer /blocks.1/Slice finish at 792000
+[2026-03-31 21:15:47.684] [info] Total compute time 8000
+[2026-03-31 21:15:47.684] [info] executable layer count 1
+[2026-03-31 21:15:47.684] [info] Start layer /blocks.1/Sigmoid_1
+[2026-03-31 21:15:48.007] [info] HBM2-CH_0: BW utilization 0% (16 reads, 17 writes)
+[2026-03-31 21:15:48.020] [info] Layer /blocks.1/Sigmoid_1 finish at 800000
+[2026-03-31 21:15:48.020] [info] Total compute time 8000
+[2026-03-31 21:15:48.020] [info] executable layer count 1
+[2026-03-31 21:15:48.020] [info] Start layer /blocks.1/Mul_2
+[2026-03-31 21:15:48.323] [info] HBM2-CH_0: BW utilization 0% (33 reads, 16 writes)
+[2026-03-31 21:15:48.335] [info] Layer /blocks.1/Mul_2 finish at 808000
+[2026-03-31 21:15:48.335] [info] Total compute time 8000
+[2026-03-31 21:15:48.335] [info] executable layer count 1
+[2026-03-31 21:15:48.335] [info] Start layer /blocks.1/Mul_3
+[2026-03-31 21:15:48.335] [info] Issue tile /blocks.1/Mul_3 on core 3, spad_id 1, accum_spad_id 1
+[2026-03-31 21:15:48.629] [info] HBM2-CH_0: BW utilization 0% (32 reads, 15 writes)
+[2026-03-31 21:15:48.641] [info] Layer /blocks.1/Mul_3 finish at 816000
+[2026-03-31 21:15:48.641] [info] Total compute time 8000
+[2026-03-31 21:15:48.641] [info] executable layer count 1
+[2026-03-31 21:15:48.641] [info] Start layer /blocks.1/out_proj/Gemm
+[2026-03-31 21:15:49.040] [info] HBM2-CH_0: BW utilization 8% (815 reads, 0 writes)
+[2026-03-31 21:15:49.051] [info] Layer /blocks.1/out_proj/Gemm finish at 824000
+[2026-03-31 21:15:49.051] [info] Total compute time 8000
+[2026-03-31 21:15:49.051] [info] Model[mamba-370m-s1-b2] Request: 0 us, Start: 0 us, finish:824 us, Current Cycle:824000
+[2026-03-31 21:15:49.051] [info] No total_seq_len!
+[2026-03-31 21:15:49.051] [info] Simulation Finished at 824001 cycle 824 us
+[2026-03-31 21:15:49.051] [info] [ICNT] Core->ICNT request 0GB/Sec,0
+[2026-03-31 21:15:49.051] [info] [ICNT] Core<-ICNT request 0GB/Sec,0
+[2026-03-31 21:15:49.051] [info] [ICNT] ICNT->MEM request 0GB/Sec,0
+[2026-03-31 21:15:49.051] [info] [ICNT] ICNT<-MEM request 0GB/Sec,0
+[2026-03-31 21:15:49.051] [info] ===== SRAM stats =====
+[2026-03-31 21:15:49.051] [info]   Hits           : 14996
+[2026-03-31 21:15:49.051] [info]   Misses         : 466149
+[2026-03-31 21:15:49.051] [info]   Hit rate       : 0.0312
+[2026-03-31 21:15:49.051] [info]   Read hits      : 14996
+[2026-03-31 21:15:49.051] [info]   Write hits     : 0
+[2026-03-31 21:15:49.051] [info]   Prefetches     : 128
+[2026-03-31 21:15:49.051] [info]   Bytes requested: 16501024
+[2026-03-31 21:15:49.051] [info]   Bytes received : 16533792
+[2026-03-31 21:15:49.051] [info] ===== Acc-SRAM stats =====
+[2026-03-31 21:15:49.051] [info]   Hits           : 70
+[2026-03-31 21:15:49.051] [info]   Misses         : 31267
+[2026-03-31 21:15:49.051] [info]   Hit rate       : 0.0022
+[2026-03-31 21:15:49.051] [info]   Read hits      : 0
+[2026-03-31 21:15:49.051] [info]   Write hits     : 70
+[2026-03-31 21:15:49.051] [info]   Prefetches     : 27
+[2026-03-31 21:15:49.051] [info]   Bytes requested: 6400
+[2026-03-31 21:15:49.051] [info]   Bytes received : 13408
+[2026-03-31 21:15:49.051] [info] Core [0] : MatMul active cycle 472 Vector active cycle 6 
+[2026-03-31 21:15:49.051] [info] Core [0] : Memory unit idle cycle 791651 Systolic bubble cycle 0 Core idle cycle 272017 
+[2026-03-31 21:15:49.051] [info] Core [0] : Systolic Array Utilization(%) 8.65 (0.06% PE util), Vector Unit Utilization(%) 0.00, Total cycle: 824001
+[2026-03-31 21:15:49.051] [info] Core [0] Tile Stats | Issued: 67 Running: 0 Finished: 67
+[2026-03-31 21:15:49.051] [info] ins executed [714] ins executed per tile 10.66
+[2026-03-31 21:15:49.051] [info] Core [0] : Systolic Inst Issue Count : 512
+[2026-03-31 21:15:49.051] [info] Core [0] : Systolic PRELOAD Issue Count : 512
+[2026-03-31 21:15:49.051] [info] ===== SRAM stats =====
+[2026-03-31 21:15:49.051] [info]   Hits           : 14871
+[2026-03-31 21:15:49.051] [info]   Misses         : 427291
+[2026-03-31 21:15:49.051] [info]   Hit rate       : 0.0336
+[2026-03-31 21:15:49.051] [info]   Read hits      : 14871
+[2026-03-31 21:15:49.051] [info]   Write hits     : 0
+[2026-03-31 21:15:49.051] [info]   Prefetches     : 128
+[2026-03-31 21:15:49.051] [info]   Bytes requested: 15819648
+[2026-03-31 21:15:49.051] [info]   Bytes received : 15868800
+[2026-03-31 21:15:49.051] [info] ===== Acc-SRAM stats =====
+[2026-03-31 21:15:49.051] [info]   Hits           : 72
+[2026-03-31 21:15:49.051] [info]   Misses         : 27211
+[2026-03-31 21:15:49.051] [info]   Hit rate       : 0.0026
+[2026-03-31 21:15:49.051] [info]   Read hits      : 0
+[2026-03-31 21:15:49.051] [info]   Write hits     : 72
+[2026-03-31 21:15:49.051] [info]   Prefetches     : 27
+[2026-03-31 21:15:49.051] [info]   Bytes requested: 6400
+[2026-03-31 21:15:49.051] [info]   Bytes received : 13408
+[2026-03-31 21:15:49.051] [info] Core [1] : MatMul active cycle 452 Vector active cycle 10 
+[2026-03-31 21:15:49.051] [info] Core [1] : Memory unit idle cycle 792976 Systolic bubble cycle 0 Core idle cycle 280011 
+[2026-03-31 21:15:49.051] [info] Core [1] : Systolic Array Utilization(%) 8.34 (0.05% PE util), Vector Unit Utilization(%) 0.00, Total cycle: 824001
+[2026-03-31 21:15:49.051] [info] Core [1] Tile Stats | Issued: 67 Running: 0 Finished: 67
+[2026-03-31 21:15:49.051] [info] ins executed [699] ins executed per tile 10.43
+[2026-03-31 21:15:49.051] [info] Core [1] : Systolic Inst Issue Count : 492
+[2026-03-31 21:15:49.051] [info] Core [1] : Systolic PRELOAD Issue Count : 492
+[2026-03-31 21:15:49.051] [info] ===== SRAM stats =====
+[2026-03-31 21:15:49.051] [info]   Hits           : 14544
+[2026-03-31 21:15:49.052] [info]   Misses         : 464539
+[2026-03-31 21:15:49.052] [info]   Hit rate       : 0.0304
+[2026-03-31 21:15:49.052] [info]   Read hits      : 14544
+[2026-03-31 21:15:49.052] [info]   Write hits     : 0
+[2026-03-31 21:15:49.052] [info]   Prefetches     : 131
+[2026-03-31 21:15:49.052] [info]   Bytes requested: 15860800
+[2026-03-31 21:15:49.052] [info]   Bytes received : 15877184
+[2026-03-31 21:15:49.052] [info] ===== Acc-SRAM stats =====
+[2026-03-31 21:15:49.052] [info]   Hits           : 72
+[2026-03-31 21:15:49.052] [info]   Misses         : 23349
+[2026-03-31 21:15:49.052] [info]   Hit rate       : 0.0031
+[2026-03-31 21:15:49.052] [info]   Read hits      : 0
+[2026-03-31 21:15:49.052] [info]   Write hits     : 72
+[2026-03-31 21:15:49.052] [info]   Prefetches     : 27
+[2026-03-31 21:15:49.052] [info]   Bytes requested: 6432
+[2026-03-31 21:15:49.052] [info]   Bytes received : 13504
+[2026-03-31 21:15:49.052] [info] Core [2] : MatMul active cycle 452 Vector active cycle 7 
+[2026-03-31 21:15:49.052] [info] Core [2] : Memory unit idle cycle 792902 Systolic bubble cycle 0 Core idle cycle 272010 
+[2026-03-31 21:15:49.052] [info] Core [2] : Systolic Array Utilization(%) 8.35 (0.05% PE util), Vector Unit Utilization(%) 0.00, Total cycle: 824001
+[2026-03-31 21:15:49.052] [info] Core [2] Tile Stats | Issued: 68 Running: 0 Finished: 68
+[2026-03-31 21:15:49.052] [info] ins executed [699] ins executed per tile 10.28
+[2026-03-31 21:15:49.052] [info] Core [2] : Systolic Inst Issue Count : 492
+[2026-03-31 21:15:49.052] [info] Core [2] : Systolic PRELOAD Issue Count : 492
+[2026-03-31 21:15:49.052] [info] ===== SRAM stats =====
+[2026-03-31 21:15:49.052] [info]   Hits           : 5024
+[2026-03-31 21:15:49.052] [info]   Misses         : 589200
+[2026-03-31 21:15:49.052] [info]   Hit rate       : 0.0085
+[2026-03-31 21:15:49.052] [info]   Read hits      : 5024
+[2026-03-31 21:15:49.052] [info]   Write hits     : 0
+[2026-03-31 21:15:49.052] [info]   Prefetches     : 130
+[2026-03-31 21:15:49.052] [info]   Bytes requested: 23121984
+[2026-03-31 21:15:49.052] [info]   Bytes received : 23121984
+[2026-03-31 21:15:49.052] [info] ===== Acc-SRAM stats =====
+[2026-03-31 21:15:49.052] [info]   Hits           : 50
+[2026-03-31 21:15:49.052] [info]   Misses         : 14922
+[2026-03-31 21:15:49.052] [info]   Hit rate       : 0.0033
+[2026-03-31 21:15:49.052] [info]   Read hits      : 0
+[2026-03-31 21:15:49.052] [info]   Write hits     : 50
+[2026-03-31 21:15:49.052] [info]   Prefetches     : 57
+[2026-03-31 21:15:49.052] [info]   Bytes requested: 14560
+[2026-03-31 21:15:49.052] [info]   Bytes received : 29120
+[2026-03-31 21:15:49.052] [info] Core [3] : MatMul active cycle 672 Vector active cycle 3 
+[2026-03-31 21:15:49.052] [info] Core [3] : Memory unit idle cycle 778707 Systolic bubble cycle 0 Core idle cycle 272001 
+[2026-03-31 21:15:49.052] [info] Core [3] : Systolic Array Utilization(%) 11.90 (0.08% PE util), Vector Unit Utilization(%) 0.00, Total cycle: 824001
+[2026-03-31 21:15:49.052] [info] Core [3] Tile Stats | Issued: 67 Running: 0 Finished: 67
+[2026-03-31 21:15:49.052] [info] ins executed [934] ins executed per tile 13.94
+[2026-03-31 21:15:49.052] [info] Core [3] : Systolic Inst Issue Count : 712
+[2026-03-31 21:15:49.052] [info] Core [3] : Systolic PRELOAD Issue Count : 712
+Frontend:
+  impl: GEM5
+
+[2026-03-31 21:15:49.052] [info] Row hits: 102067, Row misses: 3097, Row conflicts: 34381
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 307
+  total_num_read_requests: 139238
+  memory_system_cycles: 989196
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+[2026-03-31 21:15:49.052] [info] HBM2-CH_0: avg BW utilization 14% (139238 reads, 307 writes)
+Frontend:
+  impl: GEM5
+
+[2026-03-31 21:15:49.052] [info] Row hits: 101640, Row misses: 3158, Row conflicts: 34741
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 307
+  total_num_read_requests: 139232
+  memory_system_cycles: 989196
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-31 21:15:49.052] [info] Row hits: 101623, Row misses: 3115, Row conflicts: 34770
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 308
+  total_num_read_requests: 139200
+  memory_system_cycles: 989196
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-31 21:15:49.052] [info] Row hits: 102019, Row misses: 3228, Row conflicts: 34269
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 309
+  total_num_read_requests: 139207
+  memory_system_cycles: 989196
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-31 21:15:49.053] [info] Row hits: 102491, Row misses: 3150, Row conflicts: 33900
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 309
+  total_num_read_requests: 139232
+  memory_system_cycles: 989196
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-31 21:15:49.053] [info] Row hits: 101881, Row misses: 3276, Row conflicts: 34327
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 308
+  total_num_read_requests: 139176
+  memory_system_cycles: 989196
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-31 21:15:49.053] [info] Row hits: 102035, Row misses: 3355, Row conflicts: 34124
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 308
+  total_num_read_requests: 139206
+  memory_system_cycles: 989196
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-31 21:15:49.053] [info] Row hits: 102673, Row misses: 3255, Row conflicts: 33613
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 309
+  total_num_read_requests: 139232
+  memory_system_cycles: 989196
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-31 21:15:49.053] [info] Row hits: 101957, Row misses: 3151, Row conflicts: 34434
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 310
+  total_num_read_requests: 139232
+  memory_system_cycles: 989196
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-31 21:15:49.053] [info] Row hits: 102476, Row misses: 3118, Row conflicts: 33919
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 306
+  total_num_read_requests: 139207
+  memory_system_cycles: 989196
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-31 21:15:49.053] [info] Row hits: 102648, Row misses: 3058, Row conflicts: 33807
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 306
+  total_num_read_requests: 139207
+  memory_system_cycles: 989196
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-31 21:15:49.053] [info] Row hits: 102231, Row misses: 3157, Row conflicts: 34154
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 310
+  total_num_read_requests: 139232
+  memory_system_cycles: 989196
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-31 21:15:49.053] [info] Row hits: 102532, Row misses: 3212, Row conflicts: 33772
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 310
+  total_num_read_requests: 139206
+  memory_system_cycles: 989196
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-31 21:15:49.054] [info] Row hits: 102107, Row misses: 3176, Row conflicts: 34256
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 308
+  total_num_read_requests: 139231
+  memory_system_cycles: 989196
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-31 21:15:49.054] [info] Row hits: 101925, Row misses: 3037, Row conflicts: 34577
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 308
+  total_num_read_requests: 139231
+  memory_system_cycles: 989196
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Frontend:
+  impl: GEM5
+
+[2026-03-31 21:15:49.054] [info] Row hits: 102593, Row misses: 3218, Row conflicts: 33719
+MemorySystem:
+  impl: GenericDRAM
+  total_num_other_requests: 0
+  total_num_write_requests: 308
+  total_num_read_requests: 139222
+  memory_system_cycles: 989196
+  DRAM:
+    impl: HBM2
+  AddrMapper:
+    impl: RoBaRaCoCh
+  Controller:
+    impl: Generic
+    id: Channel 0
+    Scheduler:
+      impl: FRFCFS
+    RefreshManager:
+      impl: AllBank
+
+
+
+Object Size Histogram
+393216 bytes : 24576  cumulative_bytes: 9663676416
+5376 bytes : 16128  cumulative_bytes: 9750380544
+32768 bytes : 32768  cumulative_bytes: 10824122368
+32 bytes : 64  cumulative_bytes: 10824124416
+688128 bytes : 2064384  cumulative_bytes: 1431384557568
+25856 bytes : 51712  cumulative_bytes: 1432721623040
+256 bytes : 2304  cumulative_bytes: 1432722212864
+8192 bytes : 5632  cumulative_bytes: 1432768350208
+413696 bytes : 25856  cumulative_bytes: 1443464873984
+192 bytes : 60  cumulative_bytes: 1443464885504
+4096 bytes : 8448  cumulative_bytes: 1443499488512
+224 bytes : 490  cumulative_bytes: 1443499598272
+[2026-03-31 21:15:49.054] [info] Simulation time: 54.807231 seconds
+[2026-03-31 21:15:49.054] [info] no.of tiles :[53.281500292]
+[2026-03-31 21:15:49.054] [info] Total tile: 269, simulated tile per seconds(TPS): 5.048657

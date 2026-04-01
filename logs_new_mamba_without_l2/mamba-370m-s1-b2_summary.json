@@ -1,0 +1,131 @@
+{
+  "model": {
+    "name": null,
+    "num_layers_total": null,
+    "num_sim_layers": null,
+    "weight_size_GB": null,
+    "has_l2": "false",
+    "scheduler": null
+  },
+  "hardware": {
+    "num_cores": 4,
+    "systolic_throughput_GFLOPS": 131072.0,
+    "spad_size_KB": 32768,
+    "accumulator_size_KB": 4096,
+    "dram_bandwidth_GBs": 614.0,
+    "tensor_parallelism": null,
+    "pipeline_parallelism": null
+  },
+  "timing": {
+    "total_cycles": 824001,
+    "total_us": 824,
+    "total_compute_cycles": 8000,
+    "wall_clock_seconds": 54.807231,
+    "model_init_seconds": 0.854686,
+    "total_tiles": 269,
+    "tiles_per_second": 5.048657,
+    "cycles_per_wall_sec": 15035.0
+  },
+  "compute": {
+    "total_GFLOPs": 0.067113,
+    "effective_TFLOPS": 0.0,
+    "avg_systolic_util_pct": 9.31,
+    "avg_pe_util_pct": 0.06,
+    "avg_memory_idle_pct": 95.7595,
+    "avg_core_idle_pct": 33.2536,
+    "gemm_memory_bound_pct": 100.0,
+    "gemm_avg_arithmetic_intensity": 0.9993
+  },
+  "per_core": {
+    "avg": {
+      "systolic_array_util_pct": 9.31,
+      "pe_util_pct": 0.06,
+      "memory_idle_pct": 95.7595,
+      "tiles_finished": 67.25,
+      "sram_hit_rate": 0.024759,
+      "acc_sram_hit_rate": 0.002721
+    }
+  },
+  "sram_totals": {
+    "input_sram": {
+      "hits": 49435,
+      "misses": 1947179,
+      "hit_rate": 0.024759
+    },
+    "acc_sram": {
+      "hits": 264,
+      "misses": 96749,
+      "hit_rate": 0.002721
+    }
+  },
+  "dram": {
+    "avg_bw_utilization_pct": 14,
+    "total_reads": 139238,
+    "total_writes": 307,
+    "num_channels": 16,
+    "avg_row_hit_rate_pct": 73.2343,
+    "avg_row_miss_rate_pct": 2.2738,
+    "avg_row_conflict_rate_pct": 24.4919,
+    "avg_memory_system_cycles": 989196.0
+  },
+  "l2_cache": null,
+  "layer_breakdown": {
+    "gemm": {
+      "cycles": 496000,
+      "pct": 60.19,
+      "count": 10
+    },
+    "other": {
+      "cycles": 248000,
+      "pct": 30.1,
+      "count": 31
+    },
+    "elementwise_mul": {
+      "cycles": 64000,
+      "pct": 7.77,
+      "count": 8
+    },
+    "elementwise_add": {
+      "cycles": 16000,
+      "pct": 1.94,
+      "count": 2
+    }
+  },
+  "object_histogram": {
+    "total_GB": 1443.5,
+    "avg_object_size_B": 646606.96,
+    "largest_object_B": 688128,
+    "top_5_by_bytes": [
+      {
+        "size_bytes": 688128,
+        "count": 2064384,
+        "total_MB": 1420560.4,
+        "bytes_pct": 98.4109
+      },
+      {
+        "size_bytes": 413696,
+        "count": 25856,
+        "total_MB": 10696.5,
+        "bytes_pct": 0.741
+      },
+      {
+        "size_bytes": 393216,
+        "count": 24576,
+        "total_MB": 9663.7,
+        "bytes_pct": 0.6695
+      },
+      {
+        "size_bytes": 25856,
+        "count": 51712,
+        "total_MB": 1337.1,
+        "bytes_pct": 0.0926
+      },
+      {
+        "size_bytes": 32768,
+        "count": 32768,
+        "total_MB": 1073.7,
+        "bytes_pct": 0.0744
+      }
+    ]
+  }
+}

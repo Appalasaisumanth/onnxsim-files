@@ -34,6 +34,7 @@ std::unique_ptr<Operation> OperationFactory::create_operation(
 
   // ── compute-heavy specialised ops ─────────────────────────────────────────
   if (op == "Conv" || op == "FusedConv") {
+    //spdlog::info("Creating Conv operation for node {} on core {}", node_proto.name().c_str(), target_core);
     if (_config.core_config[target_core].core_type == CoreType::SYSTOLIC_OS)
       return std::make_unique<ConvOS>(_config, model, node_proto, target_core);
     else if (_config.core_config[target_core].core_type == CoreType::SYSTOLIC_WS)
@@ -104,6 +105,7 @@ std::unique_ptr<Operation> OperationFactory::create_operation(
       op == "Constant"        ||
       op == "ConstantOfShape" ||
       op == "Concat"          ||
+      op == "ReduceSum"       ||
       op == "Identity") {
     return std::make_unique<ShapeOp>(_config, model, node_proto, target_core);
   }
@@ -210,6 +212,7 @@ std::unique_ptr<Operation> OperationFactory::copy_operation(Operation* op) {
 
   // ── shape / metadata ops ──────────────────────────────────────────────────
   if (optype == "Reshape"         ||
+      optype == "ReduceSum"       ||
       optype == "Transpose"       ||
       optype == "Unsqueeze"       ||
       optype == "Squeeze"         ||

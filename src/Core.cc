@@ -161,7 +161,7 @@ void Core::cycle() {
   }
   for (auto tile = _tiles.begin() ; tile < _tiles.end(); tile++) {
      if(_core_cycle%8000==0)
-    spdlog::info("Tile  status {}, instructions left {}", (*tile)->optype, (*tile)->instructions.size());
+    //spdlog::info("Tile  status {}, instructions left {}", (*tile)->optype, (*tile)->instructions.size());
     if ((*tile)->instructions.empty() && (*tile)->inst_finished) {
       (*tile)->status = Tile::Status::FINISH;
       (*tile)->stat.cycles = _core_cycle - (*tile)->stat.start_cycle;
@@ -234,20 +234,22 @@ bool Core::can_issue_compute(std::unique_ptr<Instruction>& inst) {
 }
 
 void Core::print_stats() {
+  _spad.print_stats();
+  _acc_spad.print_stats();
   update_stats();
-  // spdlog::info(
-  //     "Core [{}] : MatMul active cycle {} Vector active cycle {} ",
-  //     _id, _stat_tot_matmul_cycle, _stat_tot_vec_compute_cycle);
+  spdlog::info(
+      "Core [{}] : MatMul active cycle {} Vector active cycle {} ",
+      _id, _stat_tot_matmul_cycle, _stat_tot_vec_compute_cycle);
 
-  // spdlog::info(
-  //     "Core [{}] : Memory unit idle cycle {} Systolic bubble cycle {} "
-  //     "Core idle cycle {} ",
-  //     _id, _stat_tot_memory_idle_cycle, _stat_tot_systolic_bubble_cycle, _stat_tot_idle_cycle);
+  spdlog::info(
+      "Core [{}] : Memory unit idle cycle {} Systolic bubble cycle {} "
+      "Core idle cycle {} ",
+      _id, _stat_tot_memory_idle_cycle, _stat_tot_systolic_bubble_cycle, _stat_tot_idle_cycle);
 
-  // spdlog::info("Core [{}] : Systolic Array Utilization(%) {:.2f} ({:.2f}% PE util), Vector Unit Utilization(%) {:.2f}, Total cycle: {}",
-  //     _id, static_cast<float>(_stat_tot_systolic_active_cycle * 100) / _core_cycle,
-  //     static_cast<float>(_stat_tot_matmul_cycle * 100) / _core_cycle,
-  //     static_cast<float>(_stat_tot_vec_compute_cycle * 100) / _core_cycle, _core_cycle);
+  spdlog::info("Core [{}] : Systolic Array Utilization(%) {:.2f} ({:.2f}% PE util), Vector Unit Utilization(%) {:.2f}, Total cycle: {}",
+      _id, static_cast<float>(_stat_tot_systolic_active_cycle * 100) / _core_cycle,
+      static_cast<float>(_stat_tot_matmul_cycle * 100) / _core_cycle,
+      static_cast<float>(_stat_tot_vec_compute_cycle * 100) / _core_cycle, _core_cycle);
  spdlog::info(
   "Core [{}] Tile Stats | Issued: {} Running: {} Finished: {}",
   _id,
@@ -263,11 +265,11 @@ void Core::print_stats() {
         (double)_ins_executed / _stat_tiles_issued;
   }
 
-  // spdlog::info(
-  //   "ins executed [{}] ins executed per tile {:.2f}",
-  //   _ins_executed,
-  //   ins_per_tile
-  // );
+  spdlog::info(
+    "ins executed [{}] ins executed per tile {:.2f}",
+    _ins_executed,
+    ins_per_tile
+  );
 _stat_tiles_issued=0;
   _stat_tiles_running=0;
   _stat_tiles_finished=0;
@@ -294,14 +296,14 @@ void Core::print_current_stats() {
   //     _id, static_cast<float>(_stat_systolic_active_cycle * 100) / _config.core_print_interval,
   //     static_cast<float>(_stat_matmul_cycle * 100) / _config.core_print_interval,
   //     static_cast<float>(_stat_vec_compute_cycle * 100) / _config.core_print_interval, _core_cycle);
-   spdlog::info(
-  "Core [{}] Tile Stats | Issued: {} Running: {} Finished: {}",
-  _id,
-  _stat_tiles_issued,
-  _stat_tiles_running,
-  _stat_tiles_finished
-);
-spdlog::info("cycle: [{}]",_core_cycle);
+//    spdlog::info(
+//   "Core [{}] Tile Stats | Issued: {} Running: {} Finished: {}",
+//   _id,
+//   _stat_tiles_issued,
+//   _stat_tiles_running,
+//   _stat_tiles_finished
+// );
+// spdlog::info("cycle: [{}]",_core_cycle);
 
 }
 

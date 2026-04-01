@@ -168,9 +168,9 @@ cycle_type SystolicWS::get_vector_compute_cycles(std::unique_ptr<Instruction>& i
 }
 
 void SystolicWS::print_stats() {
-  // Core::print_stats();
-  // spdlog::info("Core [{}] : Systolic Inst Issue Count : {}", _id,
-  //              _stat_systolic_inst_issue_count);
-  // spdlog::info("Core [{}] : Systolic PRELOAD Issue Count : {}", _id,
-  //              _stat_systolic_preload_issue_count);
+  Core::print_stats();
+  spdlog::info("Core [{}] : Systolic Inst Issue Count : {}", _id,
+               _stat_systolic_inst_issue_count);
+  spdlog::info("Core [{}] : Systolic PRELOAD Issue Count : {}", _id,
+               _stat_systolic_preload_issue_count);
 }

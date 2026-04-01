@@ -1,0 +1,4795 @@
+{
+  "hardware_config": {
+    "num_cores": 4,
+    "dram_bandwidth_GBs": 614.0,
+    "systolic_throughput_GFLOPS": 131072.0,
+    "spad_size_KB": 32768,
+    "accumulator_size_KB": 4096,
+    "ramulator_config": "./configs/../configs/ramulator2_configs/HBM2.yaml",
+    "interconnect": "SimpleInterconnect",
+    "tensor_parallelism": null,
+    "pipeline_parallelism": null
+  },
+  "model_info": {
+    "name": null,
+    "num_layers_total": null,
+    "num_sim_layers": null,
+    "has_l2": "false",
+    "weight_size_GB": null,
+    "scheduler": null
+  },
+  "memory_usage": {
+    "total_GB": null,
+    "weight_GB": null,
+    "kv_cache_GB": null,
+    "activation_GB": null
+  },
+  "simulation_timing": {
+    "total_cycles": 1808468,
+    "total_us": 1808,
+    "model_init_seconds": 3.801001,
+    "wall_clock_seconds": 181.005715,
+    "request_finish_us": 1808,
+    "request_cycles": null,
+    "avg_tiles_per_layer": 175.80481783,
+    "total_tiles": 2155,
+    "tiles_per_second": 12.257912
+  },
+  "per_core_stats": {
+    "core_0": {
+      "matmul_active_cycles": 4758,
+      "vector_active_cycles": 80,
+      "memory_unit_idle_cycles": 1495845,
+      "systolic_bubble_cycles": 7966,
+      "core_idle_cycles": 71419,
+      "systolic_array_util_pct": 37.23,
+      "pe_util_pct": 0.26,
+      "vector_unit_util_pct": 0.0,
+      "total_cycles": 1808468,
+      "tiles_issued": 539,
+      "tiles_finished": 539,
+      "instructions_executed": 6750,
+      "instructions_per_tile": 12.52,
+      "systolic_inst_issue_count": 4902,
+      "systolic_preload_count": 4902
+    },
+    "core_1": {
+      "matmul_active_cycles": 4752,
+      "vector_active_cycles": 79,
+      "memory_unit_idle_cycles": 1496128,
+      "systolic_bubble_cycles": 7585,
+      "core_idle_cycles": 72538,
+      "systolic_array_util_pct": 37.18,
+      "pe_util_pct": 0.26,
+      "vector_unit_util_pct": 0.0,
+      "total_cycles": 1808468,
+      "tiles_issued": 539,
+      "tiles_finished": 539,
+      "instructions_executed": 6744,
+      "instructions_per_tile": 12.51,
+      "systolic_inst_issue_count": 4896,
+      "systolic_preload_count": 4896
+    },
+    "core_2": {
+      "matmul_active_cycles": 4740,
+      "vector_active_cycles": 76,
+      "memory_unit_idle_cycles": 1496905,
+      "systolic_bubble_cycles": 7802,
+      "core_idle_cycles": 73754,
+      "systolic_array_util_pct": 37.1,
+      "pe_util_pct": 0.26,
+      "vector_unit_util_pct": 0.0,
+      "total_cycles": 1808468,
+      "tiles_issued": 539,
+      "tiles_finished": 539,
+      "instructions_executed": 6728,
+      "instructions_per_tile": 12.48,
+      "systolic_inst_issue_count": 4884,
+      "systolic_preload_count": 4884
+    },
+    "core_3": {
+      "matmul_active_cycles": 4758,
+      "vector_active_cycles": 77,
+      "memory_unit_idle_cycles": 1495803,
+      "systolic_bubble_cycles": 8227,
+      "core_idle_cycles": 71725,
+      "systolic_array_util_pct": 37.22,
+      "pe_util_pct": 0.26,
+      "vector_unit_util_pct": 0.0,
+      "total_cycles": 1808468,
+      "tiles_issued": 538,
+      "tiles_finished": 538,
+      "instructions_executed": 6744,
+      "instructions_per_tile": 12.54,
+      "systolic_inst_issue_count": 4902,
+      "systolic_preload_count": 4902
+    },
+    "avg_across_cores": {
+      "matmul_active_cycles": 4752.0,
+      "vector_active_cycles": 78.0,
+      "memory_unit_idle_cycles": 1496170.25,
+      "systolic_bubble_cycles": 7895.0,
+      "core_idle_cycles": 72359.0,
+      "systolic_array_util_pct": 37.1825,
+      "pe_util_pct": 0.26,
+      "vector_unit_util_pct": 0.0,
+      "total_cycles": 1808468.0,
+      "tiles_issued": 538.75,
+      "tiles_finished": 538.75,
+      "instructions_executed": 6741.5,
+      "instructions_per_tile": 12.5125,
+      "systolic_inst_issue_count": 4896.0,
+      "systolic_preload_count": 4896.0
+    }
+  },
+  "icnt_bandwidth": {
+    "Core_to_ICNT": {
+      "bandwidth_GBs": 79831.0,
+      "total_bytes": 19957766
+    },
+    "Core_from_ICNT": {
+      "bandwidth_GBs": 79831.0,
+      "total_bytes": 19957766
+    },
+    "ICNT_to_MEM": {
+      "bandwidth_GBs": 79831.0,
+      "total_bytes": 19957766
+    },
+    "ICNT_from_MEM": {
+      "bandwidth_GBs": 79831.0,
+      "total_bytes": 19957766
+    }
+  },
+  "dram_stats": {
+    "num_channels_found": 16,
+    "per_channel_samples": [
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 1244394,
+        "total_num_write_requests": 3172,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 2171029,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 950831,
+        "row_misses": 11033,
+        "row_conflicts": 284504
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 1244152,
+        "total_num_write_requests": 3174,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 2171029,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 949654,
+        "row_misses": 10891,
+        "row_conflicts": 285548
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 1244140,
+        "total_num_write_requests": 3181,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 2171029,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 948332,
+        "row_misses": 11019,
+        "row_conflicts": 286712
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 1244178,
+        "total_num_write_requests": 3175,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 2171029,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 950066,
+        "row_misses": 11101,
+        "row_conflicts": 284977
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 1244153,
+        "total_num_write_requests": 3179,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 2171029,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 948789,
+        "row_misses": 10929,
+        "row_conflicts": 286317
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 1244204,
+        "total_num_write_requests": 3175,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 2171029,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 950657,
+        "row_misses": 10937,
+        "row_conflicts": 284541
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 1244178,
+        "total_num_write_requests": 3171,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 2171029,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 950343,
+        "row_misses": 11160,
+        "row_conflicts": 284608
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 1244153,
+        "total_num_write_requests": 3176,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 2171029,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 948400,
+        "row_misses": 10648,
+        "row_conflicts": 287002
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 1244151,
+        "total_num_write_requests": 3171,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 2171029,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 950010,
+        "row_misses": 10612,
+        "row_conflicts": 285439
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 1244217,
+        "total_num_write_requests": 3175,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 2171029,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 950119,
+        "row_misses": 10958,
+        "row_conflicts": 285074
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 1244190,
+        "total_num_write_requests": 3176,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 2171029,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 950740,
+        "row_misses": 10776,
+        "row_conflicts": 284600
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 1244129,
+        "total_num_write_requests": 3179,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 2171029,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 950142,
+        "row_misses": 10693,
+        "row_conflicts": 285205
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 1244217,
+        "total_num_write_requests": 3179,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 2171029,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 948345,
+        "row_misses": 10961,
+        "row_conflicts": 286869
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 1244143,
+        "total_num_write_requests": 3176,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 2171029,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 949649,
+        "row_misses": 10582,
+        "row_conflicts": 285805
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 1244151,
+        "total_num_write_requests": 3172,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 2171029,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 950238,
+        "row_misses": 10936,
+        "row_conflicts": 284869
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 1244213,
+        "total_num_write_requests": 3172,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 2171029,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 948530,
+        "row_misses": 10830,
+        "row_conflicts": 286796
+      }
+    ],
+    "avg_across_channels": {
+      "total_num_read_requests": 1244185.19,
+      "total_num_write_requests": 3175.19,
+      "total_num_other_requests": 0.0,
+      "memory_system_cycles": 2171029.0,
+      "row_hits": 949677.81,
+      "row_misses": 10879.12,
+      "row_conflicts": 285554.12,
+      "impl": "GenericDRAM",
+      "dram_impl": "HBM2",
+      "addr_mapper": "RoBaRaCoCh",
+      "scheduler": "FRFCFS",
+      "refresh_manager": "AllBank",
+      "row_hit_rate_pct": 76.21
+    }
+  },
+  "dram_avg_bw_summary": {
+    "avg_bw_utilization_pct": 57,
+    "total_reads": 1244394,
+    "total_writes": 3172
+  },
+  "layer_timeline": [
+    {
+      "layer": "Identity_192",
+      "finish_cycle": 29,
+      "compute_cycles": 29,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_193",
+      "finish_cycle": 70,
+      "compute_cycles": 41,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_194",
+      "finish_cycle": 101,
+      "compute_cycles": 31,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_195",
+      "finish_cycle": 127,
+      "compute_cycles": 26,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_196",
+      "finish_cycle": 179,
+      "compute_cycles": 52,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_197",
+      "finish_cycle": 222,
+      "compute_cycles": 43,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_198",
+      "finish_cycle": 255,
+      "compute_cycles": 33,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_199",
+      "finish_cycle": 297,
+      "compute_cycles": 42,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_200",
+      "finish_cycle": 322,
+      "compute_cycles": 25,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_201",
+      "finish_cycle": 349,
+      "compute_cycles": 27,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_202",
+      "finish_cycle": 401,
+      "compute_cycles": 52,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_203",
+      "finish_cycle": 445,
+      "compute_cycles": 44,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_204",
+      "finish_cycle": 479,
+      "compute_cycles": 34,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_205",
+      "finish_cycle": 521,
+      "compute_cycles": 42,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_206",
+      "finish_cycle": 539,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_207",
+      "finish_cycle": 565,
+      "compute_cycles": 26,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_208",
+      "finish_cycle": 619,
+      "compute_cycles": 54,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_209",
+      "finish_cycle": 664,
+      "compute_cycles": 45,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_210",
+      "finish_cycle": 696,
+      "compute_cycles": 32,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_211",
+      "finish_cycle": 739,
+      "compute_cycles": 43,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_212",
+      "finish_cycle": 760,
+      "compute_cycles": 21,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_213",
+      "finish_cycle": 786,
+      "compute_cycles": 26,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_214",
+      "finish_cycle": 839,
+      "compute_cycles": 53,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_215",
+      "finish_cycle": 884,
+      "compute_cycles": 45,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_216",
+      "finish_cycle": 911,
+      "compute_cycles": 27,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_217",
+      "finish_cycle": 953,
+      "compute_cycles": 42,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_218",
+      "finish_cycle": 974,
+      "compute_cycles": 21,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_219",
+      "finish_cycle": 1000,
+      "compute_cycles": 26,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_220",
+      "finish_cycle": 1056,
+      "compute_cycles": 56,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_221",
+      "finish_cycle": 1101,
+      "compute_cycles": 45,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_222",
+      "finish_cycle": 1128,
+      "compute_cycles": 27,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_223",
+      "finish_cycle": 1170,
+      "compute_cycles": 42,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_224",
+      "finish_cycle": 1190,
+      "compute_cycles": 20,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_225",
+      "finish_cycle": 1222,
+      "compute_cycles": 32,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_226",
+      "finish_cycle": 1273,
+      "compute_cycles": 51,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_227",
+      "finish_cycle": 1317,
+      "compute_cycles": 44,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_228",
+      "finish_cycle": 1344,
+      "compute_cycles": 27,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_229",
+      "finish_cycle": 1387,
+      "compute_cycles": 43,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_230",
+      "finish_cycle": 1412,
+      "compute_cycles": 25,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_231",
+      "finish_cycle": 1444,
+      "compute_cycles": 32,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_232",
+      "finish_cycle": 1498,
+      "compute_cycles": 54,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_233",
+      "finish_cycle": 1542,
+      "compute_cycles": 44,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_234",
+      "finish_cycle": 1568,
+      "compute_cycles": 26,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_235",
+      "finish_cycle": 1611,
+      "compute_cycles": 43,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_236",
+      "finish_cycle": 1637,
+      "compute_cycles": 26,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_237",
+      "finish_cycle": 1670,
+      "compute_cycles": 33,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_238",
+      "finish_cycle": 1724,
+      "compute_cycles": 54,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_239",
+      "finish_cycle": 1768,
+      "compute_cycles": 44,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_240",
+      "finish_cycle": 1795,
+      "compute_cycles": 27,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_241",
+      "finish_cycle": 1838,
+      "compute_cycles": 43,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_242",
+      "finish_cycle": 1863,
+      "compute_cycles": 25,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_243",
+      "finish_cycle": 1891,
+      "compute_cycles": 28,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_244",
+      "finish_cycle": 1945,
+      "compute_cycles": 54,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_245",
+      "finish_cycle": 1988,
+      "compute_cycles": 43,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_246",
+      "finish_cycle": 2022,
+      "compute_cycles": 34,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_247",
+      "finish_cycle": 2065,
+      "compute_cycles": 43,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_248",
+      "finish_cycle": 2091,
+      "compute_cycles": 26,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_249",
+      "finish_cycle": 2117,
+      "compute_cycles": 26,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_250",
+      "finish_cycle": 2169,
+      "compute_cycles": 52,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_251",
+      "finish_cycle": 2212,
+      "compute_cycles": 43,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_252",
+      "finish_cycle": 2245,
+      "compute_cycles": 33,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_253",
+      "finish_cycle": 2287,
+      "compute_cycles": 42,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_254",
+      "finish_cycle": 2327,
+      "compute_cycles": 40,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_255",
+      "finish_cycle": 2354,
+      "compute_cycles": 27,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_256",
+      "finish_cycle": 2416,
+      "compute_cycles": 62,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_257",
+      "finish_cycle": 2472,
+      "compute_cycles": 56,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_258",
+      "finish_cycle": 2504,
+      "compute_cycles": 32,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_259",
+      "finish_cycle": 2558,
+      "compute_cycles": 54,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_260",
+      "finish_cycle": 2582,
+      "compute_cycles": 24,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_261",
+      "finish_cycle": 2624,
+      "compute_cycles": 42,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_262",
+      "finish_cycle": 2677,
+      "compute_cycles": 53,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_263",
+      "finish_cycle": 2722,
+      "compute_cycles": 45,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_264",
+      "finish_cycle": 2750,
+      "compute_cycles": 28,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_265",
+      "finish_cycle": 2793,
+      "compute_cycles": 43,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_266",
+      "finish_cycle": 2816,
+      "compute_cycles": 23,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_267",
+      "finish_cycle": 2843,
+      "compute_cycles": 27,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_268",
+      "finish_cycle": 2896,
+      "compute_cycles": 53,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_269",
+      "finish_cycle": 2941,
+      "compute_cycles": 45,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_270",
+      "finish_cycle": 2984,
+      "compute_cycles": 43,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_271",
+      "finish_cycle": 3027,
+      "compute_cycles": 43,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_272",
+      "finish_cycle": 3049,
+      "compute_cycles": 22,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_273",
+      "finish_cycle": 3081,
+      "compute_cycles": 32,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_274",
+      "finish_cycle": 3132,
+      "compute_cycles": 51,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_275",
+      "finish_cycle": 3175,
+      "compute_cycles": 43,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_276",
+      "finish_cycle": 3202,
+      "compute_cycles": 27,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_277",
+      "finish_cycle": 3244,
+      "compute_cycles": 42,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_278",
+      "finish_cycle": 3273,
+      "compute_cycles": 29,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_279",
+      "finish_cycle": 3306,
+      "compute_cycles": 33,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_280",
+      "finish_cycle": 3360,
+      "compute_cycles": 54,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_281",
+      "finish_cycle": 3404,
+      "compute_cycles": 44,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_282",
+      "finish_cycle": 3429,
+      "compute_cycles": 25,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_283",
+      "finish_cycle": 3472,
+      "compute_cycles": 43,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_284",
+      "finish_cycle": 3499,
+      "compute_cycles": 27,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_285",
+      "finish_cycle": 3531,
+      "compute_cycles": 32,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_286",
+      "finish_cycle": 3583,
+      "compute_cycles": 52,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_287",
+      "finish_cycle": 3627,
+      "compute_cycles": 44,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_288",
+      "finish_cycle": 3653,
+      "compute_cycles": 26,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_289",
+      "finish_cycle": 3696,
+      "compute_cycles": 43,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_290",
+      "finish_cycle": 3720,
+      "compute_cycles": 24,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_291",
+      "finish_cycle": 3749,
+      "compute_cycles": 29,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_292",
+      "finish_cycle": 3802,
+      "compute_cycles": 53,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_293",
+      "finish_cycle": 3846,
+      "compute_cycles": 44,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_294",
+      "finish_cycle": 3878,
+      "compute_cycles": 32,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_295",
+      "finish_cycle": 3921,
+      "compute_cycles": 43,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_296",
+      "finish_cycle": 3947,
+      "compute_cycles": 26,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_297",
+      "finish_cycle": 3973,
+      "compute_cycles": 26,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_298",
+      "finish_cycle": 4024,
+      "compute_cycles": 51,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_299",
+      "finish_cycle": 4068,
+      "compute_cycles": 44,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_300",
+      "finish_cycle": 4102,
+      "compute_cycles": 34,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_301",
+      "finish_cycle": 4145,
+      "compute_cycles": 43,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_302",
+      "finish_cycle": 4163,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_303",
+      "finish_cycle": 4190,
+      "compute_cycles": 27,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_304",
+      "finish_cycle": 4244,
+      "compute_cycles": 54,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_305",
+      "finish_cycle": 4288,
+      "compute_cycles": 44,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_306",
+      "finish_cycle": 4319,
+      "compute_cycles": 31,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_307",
+      "finish_cycle": 4361,
+      "compute_cycles": 42,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_308",
+      "finish_cycle": 4382,
+      "compute_cycles": 21,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_309",
+      "finish_cycle": 4409,
+      "compute_cycles": 27,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_310",
+      "finish_cycle": 4461,
+      "compute_cycles": 52,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_311",
+      "finish_cycle": 4506,
+      "compute_cycles": 45,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_312",
+      "finish_cycle": 4535,
+      "compute_cycles": 29,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_313",
+      "finish_cycle": 4577,
+      "compute_cycles": 42,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_314",
+      "finish_cycle": 4600,
+      "compute_cycles": 23,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_315",
+      "finish_cycle": 4626,
+      "compute_cycles": 26,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_316",
+      "finish_cycle": 4679,
+      "compute_cycles": 53,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_317",
+      "finish_cycle": 4724,
+      "compute_cycles": 45,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_318",
+      "finish_cycle": 4750,
+      "compute_cycles": 26,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_319",
+      "finish_cycle": 4793,
+      "compute_cycles": 43,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_320",
+      "finish_cycle": 4814,
+      "compute_cycles": 21,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_321",
+      "finish_cycle": 4848,
+      "compute_cycles": 34,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_322",
+      "finish_cycle": 4899,
+      "compute_cycles": 51,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_323",
+      "finish_cycle": 4943,
+      "compute_cycles": 44,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_324",
+      "finish_cycle": 4970,
+      "compute_cycles": 27,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_325",
+      "finish_cycle": 5013,
+      "compute_cycles": 43,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_326",
+      "finish_cycle": 5040,
+      "compute_cycles": 27,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_327",
+      "finish_cycle": 5072,
+      "compute_cycles": 32,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_328",
+      "finish_cycle": 5127,
+      "compute_cycles": 55,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_329",
+      "finish_cycle": 5170,
+      "compute_cycles": 43,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_330",
+      "finish_cycle": 5216,
+      "compute_cycles": 46,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/in_proj/Gemm",
+      "finish_cycle": 15957,
+      "compute_cycles": 10741,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/Constant",
+      "finish_cycle": 15990,
+      "compute_cycles": 33,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/Constant_1",
+      "finish_cycle": 16009,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/Constant_2",
+      "finish_cycle": 16027,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/Constant_3",
+      "finish_cycle": 16045,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/conv_proj/Gemm",
+      "finish_cycle": 68637,
+      "compute_cycles": 52592,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/Constant_4",
+      "finish_cycle": 68670,
+      "compute_cycles": 33,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/Constant_5",
+      "finish_cycle": 68689,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/Constant_6",
+      "finish_cycle": 68707,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/Constant_7",
+      "finish_cycle": 68725,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/Constant",
+      "finish_cycle": 68743,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/Constant_1",
+      "finish_cycle": 68762,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/Constant_2",
+      "finish_cycle": 68780,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/Constant_3",
+      "finish_cycle": 68798,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/Constant_4",
+      "finish_cycle": 68816,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/Constant_5",
+      "finish_cycle": 68835,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/Constant_6",
+      "finish_cycle": 68853,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/Constant_7",
+      "finish_cycle": 68871,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.2/Constant",
+      "finish_cycle": 68889,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.2/Constant_1",
+      "finish_cycle": 68908,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.2/Constant_2",
+      "finish_cycle": 68926,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.2/Constant_3",
+      "finish_cycle": 68944,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.2/Constant_4",
+      "finish_cycle": 68962,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.2/Constant_5",
+      "finish_cycle": 68981,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.2/Constant_6",
+      "finish_cycle": 68999,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.2/Constant_7",
+      "finish_cycle": 69017,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.3/Constant",
+      "finish_cycle": 69035,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.3/Constant_1",
+      "finish_cycle": 69054,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.3/Constant_2",
+      "finish_cycle": 69072,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.3/Constant_3",
+      "finish_cycle": 69090,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.3/Constant_4",
+      "finish_cycle": 69108,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.3/Constant_5",
+      "finish_cycle": 69127,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.3/Constant_6",
+      "finish_cycle": 69145,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.3/Constant_7",
+      "finish_cycle": 69163,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.4/Constant",
+      "finish_cycle": 69181,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.4/Constant_1",
+      "finish_cycle": 69200,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.4/Constant_2",
+      "finish_cycle": 69218,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.4/Constant_3",
+      "finish_cycle": 69236,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.4/Constant_4",
+      "finish_cycle": 69254,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.4/Constant_5",
+      "finish_cycle": 69273,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.4/Constant_6",
+      "finish_cycle": 69291,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.4/Constant_7",
+      "finish_cycle": 69309,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.5/Constant",
+      "finish_cycle": 69327,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.5/Constant_1",
+      "finish_cycle": 69346,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.5/Constant_2",
+      "finish_cycle": 69364,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.5/Constant_3",
+      "finish_cycle": 69382,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.5/Constant_4",
+      "finish_cycle": 69400,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.5/Constant_5",
+      "finish_cycle": 69419,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.5/Constant_6",
+      "finish_cycle": 69437,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.5/Constant_7",
+      "finish_cycle": 69455,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.6/Constant",
+      "finish_cycle": 69473,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.6/Constant_1",
+      "finish_cycle": 69492,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.6/Constant_2",
+      "finish_cycle": 69510,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.6/Constant_3",
+      "finish_cycle": 69528,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.6/Constant_4",
+      "finish_cycle": 69546,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.6/Constant_5",
+      "finish_cycle": 69565,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.6/Constant_6",
+      "finish_cycle": 69583,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.6/Constant_7",
+      "finish_cycle": 69601,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.7/Constant",
+      "finish_cycle": 69619,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.7/Constant_1",
+      "finish_cycle": 69638,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.7/Constant_2",
+      "finish_cycle": 69656,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.7/Constant_3",
+      "finish_cycle": 69674,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.7/Constant_4",
+      "finish_cycle": 69692,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.7/Constant_5",
+      "finish_cycle": 69713,
+      "compute_cycles": 21,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.7/Constant_6",
+      "finish_cycle": 69731,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.7/Constant_7",
+      "finish_cycle": 69749,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.8/Constant",
+      "finish_cycle": 69767,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.8/Constant_1",
+      "finish_cycle": 69786,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.8/Constant_2",
+      "finish_cycle": 69804,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.8/Constant_3",
+      "finish_cycle": 69822,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.8/Constant_4",
+      "finish_cycle": 69840,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.8/Constant_5",
+      "finish_cycle": 69859,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.8/Constant_6",
+      "finish_cycle": 69877,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.8/Constant_7",
+      "finish_cycle": 69895,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.9/Constant",
+      "finish_cycle": 69913,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.9/Constant_1",
+      "finish_cycle": 69932,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.9/Constant_2",
+      "finish_cycle": 69950,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.9/Constant_3",
+      "finish_cycle": 69968,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.9/Constant_4",
+      "finish_cycle": 69986,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.9/Constant_5",
+      "finish_cycle": 70005,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.9/Constant_6",
+      "finish_cycle": 70023,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.9/Constant_7",
+      "finish_cycle": 70041,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.10/Constant",
+      "finish_cycle": 70059,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.10/Constant_1",
+      "finish_cycle": 70078,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.10/Constant_2",
+      "finish_cycle": 70096,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.10/Constant_3",
+      "finish_cycle": 70114,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.10/Constant_4",
+      "finish_cycle": 70132,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.10/Constant_5",
+      "finish_cycle": 70151,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.10/Constant_6",
+      "finish_cycle": 70169,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.10/Constant_7",
+      "finish_cycle": 70187,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.11/Constant",
+      "finish_cycle": 70205,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.11/Constant_1",
+      "finish_cycle": 70224,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.11/Constant_2",
+      "finish_cycle": 70242,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.11/Constant_3",
+      "finish_cycle": 70260,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.11/Constant_4",
+      "finish_cycle": 70278,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.11/Constant_5",
+      "finish_cycle": 70297,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.11/Constant_6",
+      "finish_cycle": 70315,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.11/Constant_7",
+      "finish_cycle": 70333,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.12/Constant",
+      "finish_cycle": 70351,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.12/Constant_1",
+      "finish_cycle": 70370,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.12/Constant_2",
+      "finish_cycle": 70388,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.12/Constant_3",
+      "finish_cycle": 70406,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.12/Constant_4",
+      "finish_cycle": 70424,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.12/Constant_5",
+      "finish_cycle": 70443,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.12/Constant_6",
+      "finish_cycle": 70461,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.12/Constant_7",
+      "finish_cycle": 70479,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.13/Constant",
+      "finish_cycle": 70497,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.13/Constant_1",
+      "finish_cycle": 70516,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.13/Constant_2",
+      "finish_cycle": 70534,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.13/Constant_3",
+      "finish_cycle": 70552,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.13/Constant_4",
+      "finish_cycle": 70570,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.13/Constant_5",
+      "finish_cycle": 70589,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.13/Constant_6",
+      "finish_cycle": 70607,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.13/Constant_7",
+      "finish_cycle": 70625,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.14/Constant",
+      "finish_cycle": 70643,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.14/Constant_1",
+      "finish_cycle": 70662,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.14/Constant_2",
+      "finish_cycle": 70680,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.14/Constant_3",
+      "finish_cycle": 70698,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.14/Constant_4",
+      "finish_cycle": 70716,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.14/Constant_5",
+      "finish_cycle": 70735,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.14/Constant_6",
+      "finish_cycle": 70753,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.14/Constant_7",
+      "finish_cycle": 70771,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.15/Constant",
+      "finish_cycle": 70789,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.15/Constant_1",
+      "finish_cycle": 70808,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.15/Constant_2",
+      "finish_cycle": 70826,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.15/Constant_3",
+      "finish_cycle": 70844,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.15/Constant_4",
+      "finish_cycle": 70862,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.15/Constant_5",
+      "finish_cycle": 70881,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.15/Constant_6",
+      "finish_cycle": 70899,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.15/Constant_7",
+      "finish_cycle": 70917,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.16/Constant",
+      "finish_cycle": 70935,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.16/Constant_1",
+      "finish_cycle": 70954,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.16/Constant_2",
+      "finish_cycle": 70972,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.16/Constant_3",
+      "finish_cycle": 70990,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.16/Constant_4",
+      "finish_cycle": 71008,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.16/Constant_5",
+      "finish_cycle": 71027,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.16/Constant_6",
+      "finish_cycle": 71045,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.16/Constant_7",
+      "finish_cycle": 71063,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.17/Constant",
+      "finish_cycle": 71084,
+      "compute_cycles": 21,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.17/Constant_1",
+      "finish_cycle": 71103,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.17/Constant_2",
+      "finish_cycle": 71121,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.17/Constant_3",
+      "finish_cycle": 71139,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.17/Constant_4",
+      "finish_cycle": 71157,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.17/Constant_5",
+      "finish_cycle": 71176,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.17/Constant_6",
+      "finish_cycle": 71194,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.17/Constant_7",
+      "finish_cycle": 71212,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.18/Constant",
+      "finish_cycle": 71230,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.18/Constant_1",
+      "finish_cycle": 71249,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.18/Constant_2",
+      "finish_cycle": 71267,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.18/Constant_3",
+      "finish_cycle": 71288,
+      "compute_cycles": 21,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.18/Constant_4",
+      "finish_cycle": 71306,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.18/Constant_5",
+      "finish_cycle": 71325,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.18/Constant_6",
+      "finish_cycle": 71343,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.18/Constant_7",
+      "finish_cycle": 71361,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.19/Constant",
+      "finish_cycle": 71379,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.19/Constant_1",
+      "finish_cycle": 71398,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.19/Constant_2",
+      "finish_cycle": 71416,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.19/Constant_3",
+      "finish_cycle": 71434,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.19/Constant_4",
+      "finish_cycle": 71452,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.19/Constant_5",
+      "finish_cycle": 71471,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.19/Constant_6",
+      "finish_cycle": 71489,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.19/Constant_7",
+      "finish_cycle": 71507,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.20/Constant",
+      "finish_cycle": 71525,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.20/Constant_1",
+      "finish_cycle": 71544,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.20/Constant_2",
+      "finish_cycle": 71562,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.20/Constant_3",
+      "finish_cycle": 71580,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.20/Constant_4",
+      "finish_cycle": 71598,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.20/Constant_5",
+      "finish_cycle": 71617,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.20/Constant_6",
+      "finish_cycle": 71635,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.20/Constant_7",
+      "finish_cycle": 71653,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.21/Constant",
+      "finish_cycle": 71671,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.21/Constant_1",
+      "finish_cycle": 71690,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.21/Constant_2",
+      "finish_cycle": 71708,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.21/Constant_3",
+      "finish_cycle": 71726,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.21/Constant_4",
+      "finish_cycle": 71744,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.21/Constant_5",
+      "finish_cycle": 71763,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.21/Constant_6",
+      "finish_cycle": 71781,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.21/Constant_7",
+      "finish_cycle": 71799,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.22/Constant",
+      "finish_cycle": 71817,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.22/Constant_1",
+      "finish_cycle": 71836,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.22/Constant_2",
+      "finish_cycle": 71854,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.22/Constant_3",
+      "finish_cycle": 71872,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.22/Constant_4",
+      "finish_cycle": 71890,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.22/Constant_5",
+      "finish_cycle": 71909,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.22/Constant_6",
+      "finish_cycle": 71927,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.22/Constant_7",
+      "finish_cycle": 71945,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.23/Constant",
+      "finish_cycle": 71963,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.23/Constant_1",
+      "finish_cycle": 71982,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.23/Constant_2",
+      "finish_cycle": 72000,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.23/Constant_3",
+      "finish_cycle": 72018,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.23/Constant_4",
+      "finish_cycle": 72036,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.23/Constant_5",
+      "finish_cycle": 72055,
+      "compute_cycles": 19,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.23/Constant_6",
+      "finish_cycle": 72073,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.23/Constant_7",
+      "finish_cycle": 72091,
+      "compute_cycles": 18,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.23/conv_proj/Gemm",
+      "finish_cycle": 124522,
+      "compute_cycles": 52431,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.22/conv_proj/Gemm",
+      "finish_cycle": 181053,
+      "compute_cycles": 56531,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.21/conv_proj/Gemm",
+      "finish_cycle": 235900,
+      "compute_cycles": 54847,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.20/conv_proj/Gemm",
+      "finish_cycle": 283192,
+      "compute_cycles": 47292,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.19/conv_proj/Gemm",
+      "finish_cycle": 336788,
+      "compute_cycles": 53596,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.18/conv_proj/Gemm",
+      "finish_cycle": 393068,
+      "compute_cycles": 56280,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.17/conv_proj/Gemm",
+      "finish_cycle": 446202,
+      "compute_cycles": 53134,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.16/conv_proj/Gemm",
+      "finish_cycle": 498583,
+      "compute_cycles": 52381,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.15/conv_proj/Gemm",
+      "finish_cycle": 552211,
+      "compute_cycles": 53628,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.14/conv_proj/Gemm",
+      "finish_cycle": 608128,
+      "compute_cycles": 55917,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.13/conv_proj/Gemm",
+      "finish_cycle": 661899,
+      "compute_cycles": 53771,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.12/conv_proj/Gemm",
+      "finish_cycle": 710114,
+      "compute_cycles": 48215,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.11/conv_proj/Gemm",
+      "finish_cycle": 764636,
+      "compute_cycles": 54522,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.10/conv_proj/Gemm",
+      "finish_cycle": 820901,
+      "compute_cycles": 56265,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.9/conv_proj/Gemm",
+      "finish_cycle": 873741,
+      "compute_cycles": 52840,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.8/conv_proj/Gemm",
+      "finish_cycle": 925884,
+      "compute_cycles": 52143,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.7/conv_proj/Gemm",
+      "finish_cycle": 978215,
+      "compute_cycles": 52331,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.6/conv_proj/Gemm",
+      "finish_cycle": 1033602,
+      "compute_cycles": 55387,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.5/conv_proj/Gemm",
+      "finish_cycle": 1087575,
+      "compute_cycles": 53973,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.4/conv_proj/Gemm",
+      "finish_cycle": 1135559,
+      "compute_cycles": 47984,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.3/conv_proj/Gemm",
+      "finish_cycle": 1189562,
+      "compute_cycles": 54003,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.2/conv_proj/Gemm",
+      "finish_cycle": 1245952,
+      "compute_cycles": 56390,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/conv_proj/Gemm",
+      "finish_cycle": 1299427,
+      "compute_cycles": 53475,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/Slice",
+      "finish_cycle": 1299476,
+      "compute_cycles": 49,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/Sigmoid",
+      "finish_cycle": 1299534,
+      "compute_cycles": 58,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.23/Sigmoid",
+      "finish_cycle": 1299587,
+      "compute_cycles": 53,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.22/Sigmoid",
+      "finish_cycle": 1299641,
+      "compute_cycles": 54,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.21/Sigmoid",
+      "finish_cycle": 1299695,
+      "compute_cycles": 54,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.20/Sigmoid",
+      "finish_cycle": 1299749,
+      "compute_cycles": 54,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.19/Sigmoid",
+      "finish_cycle": 1299803,
+      "compute_cycles": 54,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.18/Sigmoid",
+      "finish_cycle": 1299856,
+      "compute_cycles": 53,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.17/Sigmoid",
+      "finish_cycle": 1299909,
+      "compute_cycles": 53,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.16/Sigmoid",
+      "finish_cycle": 1299963,
+      "compute_cycles": 54,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.15/Sigmoid",
+      "finish_cycle": 1300016,
+      "compute_cycles": 53,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.14/Sigmoid",
+      "finish_cycle": 1300069,
+      "compute_cycles": 53,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.13/Sigmoid",
+      "finish_cycle": 1300120,
+      "compute_cycles": 51,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.12/Sigmoid",
+      "finish_cycle": 1300173,
+      "compute_cycles": 53,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.11/Sigmoid",
+      "finish_cycle": 1300225,
+      "compute_cycles": 52,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.10/Sigmoid",
+      "finish_cycle": 1300277,
+      "compute_cycles": 52,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.9/Sigmoid",
+      "finish_cycle": 1300330,
+      "compute_cycles": 53,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.8/Sigmoid",
+      "finish_cycle": 1300384,
+      "compute_cycles": 54,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.7/Sigmoid",
+      "finish_cycle": 1300436,
+      "compute_cycles": 52,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.6/Sigmoid",
+      "finish_cycle": 1300489,
+      "compute_cycles": 53,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.5/Sigmoid",
+      "finish_cycle": 1300543,
+      "compute_cycles": 54,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.4/Sigmoid",
+      "finish_cycle": 1300597,
+      "compute_cycles": 54,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.3/Sigmoid",
+      "finish_cycle": 1300651,
+      "compute_cycles": 54,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.2/Sigmoid",
+      "finish_cycle": 1300704,
+      "compute_cycles": 53,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/Sigmoid",
+      "finish_cycle": 1300757,
+      "compute_cycles": 53,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/Sigmoid_1",
+      "finish_cycle": 1300817,
+      "compute_cycles": 60,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/Mul",
+      "finish_cycle": 1300875,
+      "compute_cycles": 58,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.23/Mul",
+      "finish_cycle": 1300931,
+      "compute_cycles": 56,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.22/Mul",
+      "finish_cycle": 1300985,
+      "compute_cycles": 54,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.21/Mul",
+      "finish_cycle": 1301041,
+      "compute_cycles": 56,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.20/Mul",
+      "finish_cycle": 1301100,
+      "compute_cycles": 59,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.19/Mul",
+      "finish_cycle": 1301162,
+      "compute_cycles": 62,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.18/Mul",
+      "finish_cycle": 1301220,
+      "compute_cycles": 58,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.17/Mul",
+      "finish_cycle": 1301280,
+      "compute_cycles": 60,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.16/Mul",
+      "finish_cycle": 1301337,
+      "compute_cycles": 57,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.15/Mul",
+      "finish_cycle": 1301391,
+      "compute_cycles": 54,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.14/Mul",
+      "finish_cycle": 1301448,
+      "compute_cycles": 57,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.13/Mul",
+      "finish_cycle": 1301491,
+      "compute_cycles": 43,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.12/Mul",
+      "finish_cycle": 1301535,
+      "compute_cycles": 44,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.11/Mul",
+      "finish_cycle": 1301579,
+      "compute_cycles": 44,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.10/Mul",
+      "finish_cycle": 1301622,
+      "compute_cycles": 43,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.9/Mul",
+      "finish_cycle": 1301679,
+      "compute_cycles": 57,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.8/Mul",
+      "finish_cycle": 1301739,
+      "compute_cycles": 60,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.7/Mul",
+      "finish_cycle": 1301794,
+      "compute_cycles": 55,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.6/Mul",
+      "finish_cycle": 1301850,
+      "compute_cycles": 56,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.5/Mul",
+      "finish_cycle": 1301907,
+      "compute_cycles": 57,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.4/Mul",
+      "finish_cycle": 1301966,
+      "compute_cycles": 59,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.3/Mul",
+      "finish_cycle": 1302026,
+      "compute_cycles": 60,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.2/Mul",
+      "finish_cycle": 1302085,
+      "compute_cycles": 59,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/Mul",
+      "finish_cycle": 1302145,
+      "compute_cycles": 60,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/Mul_2",
+      "finish_cycle": 1302218,
+      "compute_cycles": 73,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/x_proj/Gemm",
+      "finish_cycle": 1304706,
+      "compute_cycles": 2488,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/Mul_1",
+      "finish_cycle": 1304779,
+      "compute_cycles": 73,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.23/x_proj/Gemm",
+      "finish_cycle": 1307273,
+      "compute_cycles": 2494,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.23/Mul_1",
+      "finish_cycle": 1307318,
+      "compute_cycles": 45,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.22/x_proj/Gemm",
+      "finish_cycle": 1309803,
+      "compute_cycles": 2485,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.22/Mul_1",
+      "finish_cycle": 1309850,
+      "compute_cycles": 47,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.21/x_proj/Gemm",
+      "finish_cycle": 1312335,
+      "compute_cycles": 2485,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.21/Mul_1",
+      "finish_cycle": 1312411,
+      "compute_cycles": 76,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.20/x_proj/Gemm",
+      "finish_cycle": 1314891,
+      "compute_cycles": 2480,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.20/Mul_1",
+      "finish_cycle": 1314936,
+      "compute_cycles": 45,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.19/x_proj/Gemm",
+      "finish_cycle": 1317420,
+      "compute_cycles": 2484,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.19/Mul_1",
+      "finish_cycle": 1317465,
+      "compute_cycles": 45,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.18/x_proj/Gemm",
+      "finish_cycle": 1319945,
+      "compute_cycles": 2480,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.18/Mul_1",
+      "finish_cycle": 1319991,
+      "compute_cycles": 46,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.17/x_proj/Gemm",
+      "finish_cycle": 1322470,
+      "compute_cycles": 2479,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.17/Mul_1",
+      "finish_cycle": 1322514,
+      "compute_cycles": 44,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.16/x_proj/Gemm",
+      "finish_cycle": 1324996,
+      "compute_cycles": 2482,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.16/Mul_1",
+      "finish_cycle": 1325042,
+      "compute_cycles": 46,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.15/x_proj/Gemm",
+      "finish_cycle": 1327521,
+      "compute_cycles": 2479,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.15/Mul_1",
+      "finish_cycle": 1327566,
+      "compute_cycles": 45,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.14/x_proj/Gemm",
+      "finish_cycle": 1330046,
+      "compute_cycles": 2480,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.14/Mul_1",
+      "finish_cycle": 1330091,
+      "compute_cycles": 45,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.13/x_proj/Gemm",
+      "finish_cycle": 1332582,
+      "compute_cycles": 2491,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.13/Mul_1",
+      "finish_cycle": 1332629,
+      "compute_cycles": 47,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.12/x_proj/Gemm",
+      "finish_cycle": 1335107,
+      "compute_cycles": 2478,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.12/Mul_1",
+      "finish_cycle": 1335154,
+      "compute_cycles": 47,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.11/x_proj/Gemm",
+      "finish_cycle": 1337638,
+      "compute_cycles": 2484,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.11/Mul_1",
+      "finish_cycle": 1337683,
+      "compute_cycles": 45,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.10/x_proj/Gemm",
+      "finish_cycle": 1340164,
+      "compute_cycles": 2481,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.10/Mul_1",
+      "finish_cycle": 1340209,
+      "compute_cycles": 45,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.9/x_proj/Gemm",
+      "finish_cycle": 1342692,
+      "compute_cycles": 2483,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.9/Mul_1",
+      "finish_cycle": 1342739,
+      "compute_cycles": 47,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.8/x_proj/Gemm",
+      "finish_cycle": 1345221,
+      "compute_cycles": 2482,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.8/Mul_1",
+      "finish_cycle": 1345268,
+      "compute_cycles": 47,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.7/x_proj/Gemm",
+      "finish_cycle": 1347756,
+      "compute_cycles": 2488,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.7/Mul_1",
+      "finish_cycle": 1347801,
+      "compute_cycles": 45,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.6/x_proj/Gemm",
+      "finish_cycle": 1350281,
+      "compute_cycles": 2480,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.6/Mul_1",
+      "finish_cycle": 1350328,
+      "compute_cycles": 47,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.5/x_proj/Gemm",
+      "finish_cycle": 1352814,
+      "compute_cycles": 2486,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.5/Mul_1",
+      "finish_cycle": 1352858,
+      "compute_cycles": 44,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.4/x_proj/Gemm",
+      "finish_cycle": 1355338,
+      "compute_cycles": 2480,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.4/Mul_1",
+      "finish_cycle": 1355383,
+      "compute_cycles": 45,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.3/x_proj/Gemm",
+      "finish_cycle": 1357866,
+      "compute_cycles": 2483,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.3/Mul_1",
+      "finish_cycle": 1357914,
+      "compute_cycles": 48,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.2/x_proj/Gemm",
+      "finish_cycle": 1360396,
+      "compute_cycles": 2482,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.2/Mul_1",
+      "finish_cycle": 1360441,
+      "compute_cycles": 45,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/x_proj/Gemm",
+      "finish_cycle": 1362922,
+      "compute_cycles": 2481,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/Mul_1",
+      "finish_cycle": 1362966,
+      "compute_cycles": 44,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/Slice_1",
+      "finish_cycle": 1363000,
+      "compute_cycles": 34,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.23/Slice_1",
+      "finish_cycle": 1363034,
+      "compute_cycles": 34,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.22/Slice_1",
+      "finish_cycle": 1363067,
+      "compute_cycles": 33,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.21/Slice_1",
+      "finish_cycle": 1363101,
+      "compute_cycles": 34,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.20/Slice_1",
+      "finish_cycle": 1363134,
+      "compute_cycles": 33,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.19/Slice_1",
+      "finish_cycle": 1363167,
+      "compute_cycles": 33,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.18/Slice_1",
+      "finish_cycle": 1363200,
+      "compute_cycles": 33,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.17/Slice_1",
+      "finish_cycle": 1363234,
+      "compute_cycles": 34,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.16/Slice_1",
+      "finish_cycle": 1363267,
+      "compute_cycles": 33,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.15/Slice_1",
+      "finish_cycle": 1363300,
+      "compute_cycles": 33,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.14/Slice_1",
+      "finish_cycle": 1363333,
+      "compute_cycles": 33,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.13/Slice_1",
+      "finish_cycle": 1363367,
+      "compute_cycles": 34,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.12/Slice_1",
+      "finish_cycle": 1363400,
+      "compute_cycles": 33,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.11/Slice_1",
+      "finish_cycle": 1363433,
+      "compute_cycles": 33,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.10/Slice_1",
+      "finish_cycle": 1363466,
+      "compute_cycles": 33,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.9/Slice_1",
+      "finish_cycle": 1363500,
+      "compute_cycles": 34,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.8/Slice_1",
+      "finish_cycle": 1363533,
+      "compute_cycles": 33,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.7/Slice_1",
+      "finish_cycle": 1363566,
+      "compute_cycles": 33,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.6/Slice_1",
+      "finish_cycle": 1363599,
+      "compute_cycles": 33,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.5/Slice_1",
+      "finish_cycle": 1363633,
+      "compute_cycles": 34,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.4/Slice_1",
+      "finish_cycle": 1363666,
+      "compute_cycles": 33,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.3/Slice_1",
+      "finish_cycle": 1363699,
+      "compute_cycles": 33,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.2/Slice_1",
+      "finish_cycle": 1363732,
+      "compute_cycles": 33,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/Slice_1",
+      "finish_cycle": 1363766,
+      "compute_cycles": 34,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/ssm_out/Gemm",
+      "finish_cycle": 1364695,
+      "compute_cycles": 929,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.23/ssm_out/Gemm",
+      "finish_cycle": 1365624,
+      "compute_cycles": 929,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.22/ssm_out/Gemm",
+      "finish_cycle": 1366544,
+      "compute_cycles": 920,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.21/ssm_out/Gemm",
+      "finish_cycle": 1367479,
+      "compute_cycles": 935,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.20/ssm_out/Gemm",
+      "finish_cycle": 1368405,
+      "compute_cycles": 926,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.19/ssm_out/Gemm",
+      "finish_cycle": 1369360,
+      "compute_cycles": 955,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.18/ssm_out/Gemm",
+      "finish_cycle": 1370278,
+      "compute_cycles": 918,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.17/ssm_out/Gemm",
+      "finish_cycle": 1371213,
+      "compute_cycles": 935,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.16/ssm_out/Gemm",
+      "finish_cycle": 1372150,
+      "compute_cycles": 937,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.15/ssm_out/Gemm",
+      "finish_cycle": 1373076,
+      "compute_cycles": 926,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.14/ssm_out/Gemm",
+      "finish_cycle": 1374031,
+      "compute_cycles": 955,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.13/ssm_out/Gemm",
+      "finish_cycle": 1374994,
+      "compute_cycles": 963,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.12/ssm_out/Gemm",
+      "finish_cycle": 1375938,
+      "compute_cycles": 944,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.11/ssm_out/Gemm",
+      "finish_cycle": 1376864,
+      "compute_cycles": 926,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.10/ssm_out/Gemm",
+      "finish_cycle": 1377782,
+      "compute_cycles": 918,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.9/ssm_out/Gemm",
+      "finish_cycle": 1378722,
+      "compute_cycles": 940,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.8/ssm_out/Gemm",
+      "finish_cycle": 1379651,
+      "compute_cycles": 929,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.7/ssm_out/Gemm",
+      "finish_cycle": 1380572,
+      "compute_cycles": 921,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.6/ssm_out/Gemm",
+      "finish_cycle": 1381508,
+      "compute_cycles": 936,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.5/ssm_out/Gemm",
+      "finish_cycle": 1382429,
+      "compute_cycles": 921,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.4/ssm_out/Gemm",
+      "finish_cycle": 1383383,
+      "compute_cycles": 954,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.3/ssm_out/Gemm",
+      "finish_cycle": 1384302,
+      "compute_cycles": 919,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.2/ssm_out/Gemm",
+      "finish_cycle": 1385249,
+      "compute_cycles": 947,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/ssm_out/Gemm",
+      "finish_cycle": 1386204,
+      "compute_cycles": 955,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/Add",
+      "finish_cycle": 1386255,
+      "compute_cycles": 51,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.23/Add",
+      "finish_cycle": 1386311,
+      "compute_cycles": 56,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.22/Add",
+      "finish_cycle": 1386369,
+      "compute_cycles": 58,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.21/Add",
+      "finish_cycle": 1386427,
+      "compute_cycles": 58,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.20/Add",
+      "finish_cycle": 1386483,
+      "compute_cycles": 56,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.19/Add",
+      "finish_cycle": 1386539,
+      "compute_cycles": 56,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.18/Add",
+      "finish_cycle": 1386593,
+      "compute_cycles": 54,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.17/Add",
+      "finish_cycle": 1386649,
+      "compute_cycles": 56,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.16/Add",
+      "finish_cycle": 1386706,
+      "compute_cycles": 57,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.15/Add",
+      "finish_cycle": 1386766,
+      "compute_cycles": 60,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.14/Add",
+      "finish_cycle": 1386823,
+      "compute_cycles": 57,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.13/Add",
+      "finish_cycle": 1386881,
+      "compute_cycles": 58,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.12/Add",
+      "finish_cycle": 1386940,
+      "compute_cycles": 59,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.11/Add",
+      "finish_cycle": 1386997,
+      "compute_cycles": 57,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.10/Add",
+      "finish_cycle": 1387052,
+      "compute_cycles": 55,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.9/Add",
+      "finish_cycle": 1387109,
+      "compute_cycles": 57,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.8/Add",
+      "finish_cycle": 1387166,
+      "compute_cycles": 57,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.7/Add",
+      "finish_cycle": 1387226,
+      "compute_cycles": 60,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.6/Add",
+      "finish_cycle": 1387284,
+      "compute_cycles": 58,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.5/Add",
+      "finish_cycle": 1387342,
+      "compute_cycles": 58,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.4/Add",
+      "finish_cycle": 1387398,
+      "compute_cycles": 56,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.3/Add",
+      "finish_cycle": 1387453,
+      "compute_cycles": 55,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.2/Add",
+      "finish_cycle": 1387506,
+      "compute_cycles": 53,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/Add",
+      "finish_cycle": 1387563,
+      "compute_cycles": 57,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/Mul_3",
+      "finish_cycle": 1387633,
+      "compute_cycles": 70,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/out_proj/Gemm",
+      "finish_cycle": 1394806,
+      "compute_cycles": 7173,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/in_proj/Gemm",
+      "finish_cycle": 1405525,
+      "compute_cycles": 10719,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/Slice",
+      "finish_cycle": 1405559,
+      "compute_cycles": 34,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/Sigmoid_1",
+      "finish_cycle": 1405616,
+      "compute_cycles": 57,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/Mul_2",
+      "finish_cycle": 1405683,
+      "compute_cycles": 67,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/Mul_3",
+      "finish_cycle": 1405751,
+      "compute_cycles": 68,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/out_proj/Gemm",
+      "finish_cycle": 1412925,
+      "compute_cycles": 7174,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.2/in_proj/Gemm",
+      "finish_cycle": 1423482,
+      "compute_cycles": 10557,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.2/Slice",
+      "finish_cycle": 1423524,
+      "compute_cycles": 42,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.2/Sigmoid_1",
+      "finish_cycle": 1423578,
+      "compute_cycles": 54,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.2/Mul_2",
+      "finish_cycle": 1423645,
+      "compute_cycles": 67,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.2/Mul_3",
+      "finish_cycle": 1423708,
+      "compute_cycles": 63,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.2/out_proj/Gemm",
+      "finish_cycle": 1430907,
+      "compute_cycles": 7199,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.3/in_proj/Gemm",
+      "finish_cycle": 1441487,
+      "compute_cycles": 10580,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.3/Slice",
+      "finish_cycle": 1441529,
+      "compute_cycles": 42,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.3/Sigmoid_1",
+      "finish_cycle": 1441580,
+      "compute_cycles": 51,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.3/Mul_2",
+      "finish_cycle": 1441647,
+      "compute_cycles": 67,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.3/Mul_3",
+      "finish_cycle": 1441706,
+      "compute_cycles": 59,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.3/out_proj/Gemm",
+      "finish_cycle": 1448896,
+      "compute_cycles": 7190,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.4/in_proj/Gemm",
+      "finish_cycle": 1459523,
+      "compute_cycles": 10627,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.4/Slice",
+      "finish_cycle": 1459566,
+      "compute_cycles": 43,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.4/Sigmoid_1",
+      "finish_cycle": 1459619,
+      "compute_cycles": 53,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.4/Mul_2",
+      "finish_cycle": 1459683,
+      "compute_cycles": 64,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.4/Mul_3",
+      "finish_cycle": 1459744,
+      "compute_cycles": 61,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.4/out_proj/Gemm",
+      "finish_cycle": 1466994,
+      "compute_cycles": 7250,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.5/in_proj/Gemm",
+      "finish_cycle": 1477816,
+      "compute_cycles": 10822,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.5/Slice",
+      "finish_cycle": 1477857,
+      "compute_cycles": 41,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.5/Sigmoid_1",
+      "finish_cycle": 1477915,
+      "compute_cycles": 58,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.5/Mul_2",
+      "finish_cycle": 1477976,
+      "compute_cycles": 61,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.5/Mul_3",
+      "finish_cycle": 1478039,
+      "compute_cycles": 63,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.5/out_proj/Gemm",
+      "finish_cycle": 1485011,
+      "compute_cycles": 6972,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.6/in_proj/Gemm",
+      "finish_cycle": 1495568,
+      "compute_cycles": 10557,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.6/Slice",
+      "finish_cycle": 1495606,
+      "compute_cycles": 38,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.6/Sigmoid_1",
+      "finish_cycle": 1495664,
+      "compute_cycles": 58,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.6/Mul_2",
+      "finish_cycle": 1495724,
+      "compute_cycles": 60,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.6/Mul_3",
+      "finish_cycle": 1495790,
+      "compute_cycles": 66,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.6/out_proj/Gemm",
+      "finish_cycle": 1502868,
+      "compute_cycles": 7078,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.7/in_proj/Gemm",
+      "finish_cycle": 1513394,
+      "compute_cycles": 10526,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.7/Slice",
+      "finish_cycle": 1513428,
+      "compute_cycles": 34,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.7/Sigmoid_1",
+      "finish_cycle": 1513485,
+      "compute_cycles": 57,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.7/Mul_2",
+      "finish_cycle": 1513548,
+      "compute_cycles": 63,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.7/Mul_3",
+      "finish_cycle": 1513614,
+      "compute_cycles": 66,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.7/out_proj/Gemm",
+      "finish_cycle": 1520730,
+      "compute_cycles": 7116,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.8/in_proj/Gemm",
+      "finish_cycle": 1531265,
+      "compute_cycles": 10535,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.8/Slice",
+      "finish_cycle": 1531299,
+      "compute_cycles": 34,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.8/Sigmoid_1",
+      "finish_cycle": 1531354,
+      "compute_cycles": 55,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.8/Mul_2",
+      "finish_cycle": 1531420,
+      "compute_cycles": 66,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.8/Mul_3",
+      "finish_cycle": 1531482,
+      "compute_cycles": 62,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.8/out_proj/Gemm",
+      "finish_cycle": 1538663,
+      "compute_cycles": 7181,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.9/in_proj/Gemm",
+      "finish_cycle": 1549272,
+      "compute_cycles": 10609,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.9/Slice",
+      "finish_cycle": 1549306,
+      "compute_cycles": 34,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.9/Sigmoid_1",
+      "finish_cycle": 1549367,
+      "compute_cycles": 61,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.9/Mul_2",
+      "finish_cycle": 1549432,
+      "compute_cycles": 65,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.9/Mul_3",
+      "finish_cycle": 1549495,
+      "compute_cycles": 63,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.9/out_proj/Gemm",
+      "finish_cycle": 1556497,
+      "compute_cycles": 7002,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.10/in_proj/Gemm",
+      "finish_cycle": 1567111,
+      "compute_cycles": 10614,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.10/Slice",
+      "finish_cycle": 1567149,
+      "compute_cycles": 38,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.10/Sigmoid_1",
+      "finish_cycle": 1567205,
+      "compute_cycles": 56,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.10/Mul_2",
+      "finish_cycle": 1567272,
+      "compute_cycles": 67,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.10/Mul_3",
+      "finish_cycle": 1567336,
+      "compute_cycles": 64,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.10/out_proj/Gemm",
+      "finish_cycle": 1574556,
+      "compute_cycles": 7220,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.11/in_proj/Gemm",
+      "finish_cycle": 1585291,
+      "compute_cycles": 10735,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.11/Slice",
+      "finish_cycle": 1585334,
+      "compute_cycles": 43,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.11/Sigmoid_1",
+      "finish_cycle": 1585385,
+      "compute_cycles": 51,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.11/Mul_2",
+      "finish_cycle": 1585453,
+      "compute_cycles": 68,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.11/Mul_3",
+      "finish_cycle": 1585515,
+      "compute_cycles": 62,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.11/out_proj/Gemm",
+      "finish_cycle": 1592483,
+      "compute_cycles": 6968,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.12/in_proj/Gemm",
+      "finish_cycle": 1603058,
+      "compute_cycles": 10575,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.12/Slice",
+      "finish_cycle": 1603101,
+      "compute_cycles": 43,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.12/Sigmoid_1",
+      "finish_cycle": 1603158,
+      "compute_cycles": 57,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.12/Mul_2",
+      "finish_cycle": 1603225,
+      "compute_cycles": 67,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.12/Mul_3",
+      "finish_cycle": 1603288,
+      "compute_cycles": 63,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.12/out_proj/Gemm",
+      "finish_cycle": 1610419,
+      "compute_cycles": 7131,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.13/in_proj/Gemm",
+      "finish_cycle": 1621140,
+      "compute_cycles": 10721,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.13/Slice",
+      "finish_cycle": 1621179,
+      "compute_cycles": 39,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.13/Sigmoid_1",
+      "finish_cycle": 1621236,
+      "compute_cycles": 57,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.13/Mul_2",
+      "finish_cycle": 1621298,
+      "compute_cycles": 62,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.13/Mul_3",
+      "finish_cycle": 1621361,
+      "compute_cycles": 63,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.13/out_proj/Gemm",
+      "finish_cycle": 1628495,
+      "compute_cycles": 7134,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.14/in_proj/Gemm",
+      "finish_cycle": 1639011,
+      "compute_cycles": 10516,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.14/Slice",
+      "finish_cycle": 1639049,
+      "compute_cycles": 38,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.14/Sigmoid_1",
+      "finish_cycle": 1639107,
+      "compute_cycles": 58,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.14/Mul_2",
+      "finish_cycle": 1639168,
+      "compute_cycles": 61,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.14/Mul_3",
+      "finish_cycle": 1639233,
+      "compute_cycles": 65,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.14/out_proj/Gemm",
+      "finish_cycle": 1646353,
+      "compute_cycles": 7120,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.15/in_proj/Gemm",
+      "finish_cycle": 1656992,
+      "compute_cycles": 10639,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.15/Slice",
+      "finish_cycle": 1657027,
+      "compute_cycles": 35,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.15/Sigmoid_1",
+      "finish_cycle": 1657083,
+      "compute_cycles": 56,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.15/Mul_2",
+      "finish_cycle": 1657146,
+      "compute_cycles": 63,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.15/Mul_3",
+      "finish_cycle": 1657209,
+      "compute_cycles": 63,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.15/out_proj/Gemm",
+      "finish_cycle": 1664236,
+      "compute_cycles": 7027,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.16/in_proj/Gemm",
+      "finish_cycle": 1674975,
+      "compute_cycles": 10739,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.16/Slice",
+      "finish_cycle": 1675009,
+      "compute_cycles": 34,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.16/Sigmoid_1",
+      "finish_cycle": 1675068,
+      "compute_cycles": 59,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.16/Mul_2",
+      "finish_cycle": 1675133,
+      "compute_cycles": 65,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.16/Mul_3",
+      "finish_cycle": 1675196,
+      "compute_cycles": 63,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.16/out_proj/Gemm",
+      "finish_cycle": 1682528,
+      "compute_cycles": 7332,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.17/in_proj/Gemm",
+      "finish_cycle": 1693243,
+      "compute_cycles": 10715,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.17/Slice",
+      "finish_cycle": 1693277,
+      "compute_cycles": 34,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.17/Sigmoid_1",
+      "finish_cycle": 1693339,
+      "compute_cycles": 62,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.17/Mul_2",
+      "finish_cycle": 1693405,
+      "compute_cycles": 66,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.17/Mul_3",
+      "finish_cycle": 1693471,
+      "compute_cycles": 66,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.17/out_proj/Gemm",
+      "finish_cycle": 1700592,
+      "compute_cycles": 7121,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.18/in_proj/Gemm",
+      "finish_cycle": 1711252,
+      "compute_cycles": 10660,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.18/Slice",
+      "finish_cycle": 1711290,
+      "compute_cycles": 38,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.18/Sigmoid_1",
+      "finish_cycle": 1711346,
+      "compute_cycles": 56,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.18/Mul_2",
+      "finish_cycle": 1711414,
+      "compute_cycles": 68,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.18/Mul_3",
+      "finish_cycle": 1711478,
+      "compute_cycles": 64,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.18/out_proj/Gemm",
+      "finish_cycle": 1718770,
+      "compute_cycles": 7292,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.19/in_proj/Gemm",
+      "finish_cycle": 1729391,
+      "compute_cycles": 10621,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.19/Slice",
+      "finish_cycle": 1729433,
+      "compute_cycles": 42,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.19/Sigmoid_1",
+      "finish_cycle": 1729484,
+      "compute_cycles": 51,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.19/Mul_2",
+      "finish_cycle": 1729551,
+      "compute_cycles": 67,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.19/Mul_3",
+      "finish_cycle": 1729610,
+      "compute_cycles": 59,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.19/out_proj/Gemm",
+      "finish_cycle": 1736608,
+      "compute_cycles": 6998,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.20/in_proj/Gemm",
+      "finish_cycle": 1747140,
+      "compute_cycles": 10532,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.20/Slice",
+      "finish_cycle": 1747183,
+      "compute_cycles": 43,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.20/Sigmoid_1",
+      "finish_cycle": 1747240,
+      "compute_cycles": 57,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.20/Mul_2",
+      "finish_cycle": 1747303,
+      "compute_cycles": 63,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.20/Mul_3",
+      "finish_cycle": 1747363,
+      "compute_cycles": 60,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.20/out_proj/Gemm",
+      "finish_cycle": 1754649,
+      "compute_cycles": 7286,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.21/in_proj/Gemm",
+      "finish_cycle": 1765215,
+      "compute_cycles": 10566,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.21/Slice",
+      "finish_cycle": 1765254,
+      "compute_cycles": 39,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.21/Sigmoid_1",
+      "finish_cycle": 1765311,
+      "compute_cycles": 57,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.21/Mul_2",
+      "finish_cycle": 1765376,
+      "compute_cycles": 65,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.21/Mul_3",
+      "finish_cycle": 1765438,
+      "compute_cycles": 62,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.21/out_proj/Gemm",
+      "finish_cycle": 1772541,
+      "compute_cycles": 7103,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.22/in_proj/Gemm",
+      "finish_cycle": 1783143,
+      "compute_cycles": 10602,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.22/Slice",
+      "finish_cycle": 1783179,
+      "compute_cycles": 36,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.22/Sigmoid_1",
+      "finish_cycle": 1783234,
+      "compute_cycles": 55,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.22/Mul_2",
+      "finish_cycle": 1783294,
+      "compute_cycles": 60,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.22/Mul_3",
+      "finish_cycle": 1783362,
+      "compute_cycles": 68,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.22/out_proj/Gemm",
+      "finish_cycle": 1790558,
+      "compute_cycles": 7196,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.23/in_proj/Gemm",
+      "finish_cycle": 1801177,
+      "compute_cycles": 10619,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.23/Slice",
+      "finish_cycle": 1801212,
+      "compute_cycles": 35,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.23/Sigmoid_1",
+      "finish_cycle": 1801269,
+      "compute_cycles": 57,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.23/Mul_2",
+      "finish_cycle": 1801331,
+      "compute_cycles": 62,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.23/Mul_3",
+      "finish_cycle": 1801398,
+      "compute_cycles": 67,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.23/out_proj/Gemm",
+      "finish_cycle": 1808463,
+      "compute_cycles": 7065,
+      "type": "other"
+    }
+  ],
+  "gemm_ops": [
+    {
+      "K": 6144,
+      "N": 1,
+      "M": 1536,
+      "gflops": 0.018875906,
+      "data_GB": 0.018892799,
+      "theoretical_ms": 0.030770032026339322,
+      "compute_ms": 0.00014401173586975347,
+      "memory_ms": 0.030770032026339322,
+      "bound": "memory"
+    },
+    {
+      "K": 6144,
+      "N": 1,
+      "M": 1536,
+      "gflops": 0.018875906,
+      "data_GB": 0.018892799,
+      "theoretical_ms": 0.030770032026339322,
+      "compute_ms": 0.00014401173586975347,
+      "memory_ms": 0.030770032026339322,
+      "bound": "memory"
+    },
+    {
+      "K": 6144,
+      "N": 1,
+      "M": 1536,
+      "gflops": 0.018875906,
+      "data_GB": 0.018892799,
+      "theoretical_ms": 0.030770032026339322,
+      "compute_ms": 0.00014401173586975347,
+      "memory_ms": 0.030770032026339322,
+      "bound": "memory"
+    },
+    {
+      "K": 6144,
+      "N": 1,
+      "M": 1536,
+      "gflops": 0.018875906,
+      "data_GB": 0.018892799,
+      "theoretical_ms": 0.030770032026339322,
+      "compute_ms": 0.00014401173586975347,
+      "memory_ms": 0.030770032026339322,
+      "bound": "memory"
+    },
+    {
+      "K": 6144,
+      "N": 1,
+      "M": 1536,
+      "gflops": 0.018875906,
+      "data_GB": 0.018892799,
+      "theoretical_ms": 0.030770032026339322,
+      "compute_ms": 0.00014401173586975347,
+      "memory_ms": 0.030770032026339322,
+      "bound": "memory"
+    },
+    {
+      "K": 6144,
+      "N": 1,
+      "M": 1536,
+      "gflops": 0.018875906,
+      "data_GB": 0.018892799,
+      "theoretical_ms": 0.030770032026339322,
+      "compute_ms": 0.00014401173586975347,
+      "memory_ms": 0.030770032026339322,
+      "bound": "memory"
+    },
+    {
+      "K": 6144,
+      "N": 1,
+      "M": 1536,
+      "gflops": 0.018875906,
+      "data_GB": 0.018892799,
+      "theoretical_ms": 0.030770032026339322,
+      "compute_ms": 0.00014401173586975347,
+      "memory_ms": 0.030770032026339322,
+      "bound": "memory"
+    },
+    {
+      "K": 6144,
+      "N": 1,
+      "M": 1536,
+      "gflops": 0.018875906,
+      "data_GB": 0.018892799,
+      "theoretical_ms": 0.030770032026339322,
+      "compute_ms": 0.00014401173586975347,
+      "memory_ms": 0.030770032026339322,
+      "bound": "memory"
+    },
+    {
+      "K": 6144,
+      "N": 1,
+      "M": 1536,
+      "gflops": 0.018875906,
+      "data_GB": 0.018892799,
+      "theoretical_ms": 0.030770032026339322,
+      "compute_ms": 0.00014401173586975347,
+      "memory_ms": 0.030770032026339322,
+      "bound": "memory"
+    },
+    {
+      "K": 6144,
+      "N": 1,
+      "M": 1536,
+      "gflops": 0.018875906,
+      "data_GB": 0.018892799,
+      "theoretical_ms": 0.030770032026339322,
+      "compute_ms": 0.00014401173586975347,
+      "memory_ms": 0.030770032026339322,
+      "bound": "memory"
+    },
+    {
+      "K": 6144,
+      "N": 1,
+      "M": 1536,
+      "gflops": 0.018875906,
+      "data_GB": 0.018892799,
+      "theoretical_ms": 0.030770032026339322,
+      "compute_ms": 0.00014401173586975347,
+      "memory_ms": 0.030770032026339322,
+      "bound": "memory"
+    },
+    {
+      "K": 6144,
+      "N": 1,
+      "M": 1536,
+      "gflops": 0.018875906,
+      "data_GB": 0.018892799,
+      "theoretical_ms": 0.030770032026339322,
+      "compute_ms": 0.00014401173586975347,
+      "memory_ms": 0.030770032026339322,
+      "bound": "memory"
+    },
+    {
+      "K": 6144,
+      "N": 1,
+      "M": 1536,
+      "gflops": 0.018875906,
+      "data_GB": 0.018892799,
+      "theoretical_ms": 0.030770032026339322,
+      "compute_ms": 0.00014401173586975347,
+      "memory_ms": 0.030770032026339322,
+      "bound": "memory"
+    },
+    {
+      "K": 6144,
+      "N": 1,
+      "M": 1536,
+      "gflops": 0.018875906,
+      "data_GB": 0.018892799,
+      "theoretical_ms": 0.030770032026339322,
+      "compute_ms": 0.00014401173586975347,
+      "memory_ms": 0.030770032026339322,
+      "bound": "memory"
+    },
+    {
+      "K": 6144,
+      "N": 1,
+      "M": 1536,
+      "gflops": 0.018875906,
+      "data_GB": 0.018892799,
+      "theoretical_ms": 0.030770032026339322,
+      "compute_ms": 0.00014401173586975347,
+      "memory_ms": 0.030770032026339322,
+      "bound": "memory"
+    },
+    {
+      "K": 6144,
+      "N": 1,
+      "M": 1536,
+      "gflops": 0.018875906,
+      "data_GB": 0.018892799,
+      "theoretical_ms": 0.030770032026339322,
+      "compute_ms": 0.00014401173586975347,
+      "memory_ms": 0.030770032026339322,
+      "bound": "memory"
+    },
+    {
+      "K": 6144,
+      "N": 1,
+      "M": 1536,
+      "gflops": 0.018875906,
+      "data_GB": 0.018892799,
+      "theoretical_ms": 0.030770032026339322,
+      "compute_ms": 0.00014401173586975347,
+      "memory_ms": 0.030770032026339322,
+      "bound": "memory"
+    },
+    {
+      "K": 6144,
+      "N": 1,
+      "M": 1536,
+      "gflops": 0.018875906,
+      "data_GB": 0.018892799,
+      "theoretical_ms": 0.030770032026339322,
+      "compute_ms": 0.00014401173586975347,
+      "memory_ms": 0.030770032026339322,
+      "bound": "memory"
+    },
+    {
+      "K": 6144,
+      "N": 1,
+      "M": 1536,
+      "gflops": 0.018875906,
+      "data_GB": 0.018892799,
+      "theoretical_ms": 0.030770032026339322,
+      "compute_ms": 0.00014401173586975347,
+      "memory_ms": 0.030770032026339322,
+      "bound": "memory"
+    },
+    {
+      "K": 6144,
+      "N": 1,
+      "M": 1536,
+      "gflops": 0.018875906,
+      "data_GB": 0.018892799,
+      "theoretical_ms": 0.030770032026339322,
+      "compute_ms": 0.00014401173586975347,
+      "memory_ms": 0.030770032026339322,
+      "bound": "memory"
+    },
+    {
+      "K": 6144,
+      "N": 1,
+      "M": 1536,
+      "gflops": 0.018875906,
+      "data_GB": 0.018892799,
+      "theoretical_ms": 0.030770032026339322,
+      "compute_ms": 0.00014401173586975347,
+      "memory_ms": 0.030770032026339322,
+      "bound": "memory"
+    },
+    {
+      "K": 6144,
+      "N": 1,
+      "M": 1536,
+      "gflops": 0.018875906,
+      "data_GB": 0.018892799,
+      "theoretical_ms": 0.030770032026339322,
+      "compute_ms": 0.00014401173586975347,
+      "memory_ms": 0.030770032026339322,
+      "bound": "memory"
+    },
+    {
+      "K": 6144,
+      "N": 1,
+      "M": 1536,
+      "gflops": 0.018875906,
+      "data_GB": 0.018892799,
+      "theoretical_ms": 0.030770032026339322,
+      "compute_ms": 0.00014401173586975347,
+      "memory_ms": 0.030770032026339322,
+      "bound": "memory"
+    },
+    {
+      "K": 6144,
+      "N": 1,
+      "M": 1536,
+      "gflops": 0.018875906,
+      "data_GB": 0.018892799,
+      "theoretical_ms": 0.030770032026339322,
+      "compute_ms": 0.00014401173586975347,
+      "memory_ms": 0.030770032026339322,
+      "bound": "memory"
+    }
+  ],
+  "attention_ops": [],
+  "object_size_histogram": [
+    {
+      "size_bytes": 393216,
+      "count": 1769472,
+      "cumulative_bytes": 695784701952
+    },
+    {
+      "size_bytes": 4096,
+      "count": 36864,
+      "cumulative_bytes": 695935696896
+    },
+    {
+      "size_bytes": 786432,
+      "count": 14155776,
+      "cumulative_bytes": 11828490928128
+    },
+    {
+      "size_bytes": 32,
+      "count": 672,
+      "cumulative_bytes": 11828490949632
+    },
+    {
+      "size_bytes": 196608,
+      "count": 3538944,
+      "cumulative_bytes": 12524275651584
+    },
+    {
+      "size_bytes": 256,
+      "count": 20736,
+      "cumulative_bytes": 12524280960000
+    },
+    {
+      "size_bytes": 245760,
+      "count": 184320,
+      "cumulative_bytes": 12569579443200
+    },
+    {
+      "size_bytes": 6144,
+      "count": 165504,
+      "cumulative_bytes": 12570596299776
+    },
+    {
+      "size_bytes": 160,
+      "count": 710,
+      "cumulative_bytes": 12570596413376
+    },
+    {
+      "size_bytes": 3072,
+      "count": 54912,
+      "cumulative_bytes": 12570765103040
+    },
+    {
+      "size_bytes": 1536,
+      "count": 29856,
+      "cumulative_bytes": 12570810961856
+    }
+  ],
+  "summary_metrics": {
+    "total_compute_GFLOPs": 0.453022,
+    "effective_TFLOPS": 0.0,
+    "avg_systolic_util_pct": 37.1825,
+    "avg_pe_util_pct": 0.26,
+    "avg_memory_idle_pct": 82.7314,
+    "dram_avg_bw_utilization_pct": 57,
+    "gemm_memory_bound_fraction": 1.0,
+    "compute_cycles_by_layer_type": {
+      "other": 1808463
+    }
+  }
+}
+
+(onnx-env) sumanth@sumanth-HP-Pavilion-Laptop-15-eg2xxx:~/ONNXim$ python parser.py mamba_130m_24_laers
+Parsed results written to: mamba_130m_24_laers.parsed.json
+
+============================================================
+  SIMULATION SUMMARY
+============================================================
+
+Model         : None  (None layers)
+Weight size   : None GB
+Cores         : 4  @  131072.0 GFLOPS each
+DRAM BW spec  : 614.0 GB/s (HBM2)
+
+── Timing ──
+  Total cycles        : 1,808,468
+  Total time          : 1808 µs
+  Wall-clock sim time : 181.01 s
+  Model init time     : 3.801 s
+  TPS (tiles/sec)     : 12.26  (2155 tiles total)
+
+── Compute ──
+  Total GFLOPs        : 0.4530
+  Effective TFLOPS    : 0.0
+  Avg SA utilization  : 37.1825 %
+  Avg PE utilization  : 0.26 %
+  Avg memory-idle     : 82.7314 %
+  GEMM memory-bound   : 100.0 %
+
+── DRAM ──
+  Avg BW utilization  : 57 %
+  Total reads         : 1,244,394
+  Total writes        : 3,172
+  Channels sampled    : 16
+  Avg row hit rate    : 76.21 %  (hits=949678, misses=10879, conflicts=285554)
+  Avg mem sys cycles  : 2171029
+
+── Compute by Layer Type (cycles) ──
+  other                  :  1,808,463
+
+── Per-Core Stats ──
+  core_0: SA_util=37.23%  PE_util=0.26%  vec_util=0.0%  tiles=539
+  core_1: SA_util=37.18%  PE_util=0.26%  vec_util=0.0%  tiles=539
+  core_2: SA_util=37.1%  PE_util=0.26%  vec_util=0.0%  tiles=539
+  core_3: SA_util=37.22%  PE_util=0.26%  vec_util=0.0%  tiles=538
+  avg_core : SA_util=37.1825%  PE_util=0.26%  vec_util=0.0%
+
+(onnx-env) sumanth@sumanth-HP-Pavilion-Laptop-15-eg2xxx:~/ONNXim$ 

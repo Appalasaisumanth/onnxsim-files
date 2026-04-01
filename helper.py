@@ -1,77 +1,103 @@
-import torch
-import torch.nn as nn
-from transformers import AutoTokenizer, AutoModelForCausalLM
-import onnx
+import os
+import json
+import pandas as pd
+import csv
+def write_csv(rows, output_file):
+    if not rows:
+        return
 
-# model_name = "state-spaces/mamba-130m-hf"
+    all_keys = set()
+    for r in rows:
+        all_keys.update(r.keys())
 
-# tokenizer = AutoTokenizer.from_pretrained(model_name)
-# base_model = AutoModelForCausalLM.from_pretrained(model_name)
+    fieldnames = ["file"] + sorted(k for k in all_keys if k != "file")
 
-# base_model.eval()
-# base_model.config.use_cache = False
+    with open(output_file, "w", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(rows)
 
+def flatten_dict(d, parent_key="", sep="."):
+    items = {}
 
-# class MambaWrapper(nn.Module):
-#     def __init__(self, model):
-#         super().__init__()
-#         self.model = model
+    if isinstance(d, dict):
+        for k, v in d.items():
+            new_key = f"{parent_key}{sep}{k}" if parent_key else k
+            items.update(flatten_dict(v, new_key, sep))
 
-#     def forward(self, input_ids, attention_mask):
-#         out = self.model(
-#             input_ids=input_ids,
-#             attention_mask=attention_mask,
-#             use_cache=False,
-#             return_dict=True
-#         )
-#         return out.logits
+    elif isinstance(d, list):
+        for i, v in enumerate(d):
+            new_key = f"{parent_key}{sep}{i}" if parent_key else str(i)
+            items.update(flatten_dict(v, new_key, sep))
 
+    else:
+        items[parent_key] = d
 
-# model = MambaWrapper(base_model)
-# model.eval()
+    return items
+def reduce_heavy_sections(summary):
+    s = dict(summary)
 
-# dummy = tokenizer("Hello world", return_tensors="pt")
+    # ── Handle per_core ─────────────────────────────
+    if "per_core" in s:
+        avg = s["per_core"].get("avg", {})
+        
+        # Replace full per_core with only avg
+        s["per_core"] = {
+            "avg": avg
+        }
 
-# input_ids = dummy["input_ids"]
-# attention_mask = dummy["attention_mask"]
+    # ── Handle L2 cache ─────────────────────────────
+    if "l2_cache" in s and s["l2_cache"]:
+        l2 = s["l2_cache"]
 
-# seq_len = 1
-# batch = 1
+        # Remove per-bank completely
+        l2.pop("per_bank", None)
 
-# dummy_input_ids = torch.ones(batch, seq_len, dtype=torch.long)
-# dummy_attention = torch.ones(batch, seq_len, dtype=torch.long)
+        # Keep only aggregate fields (already there)
+        s["l2_cache"] = l2
 
-# torch.onnx.export(
-#     model,
-#     (dummy_input_ids, dummy_attention),
-#     "models/mamba/mamba.onnx",
-#     input_names=["input_ids", "attention_mask"],
-#     output_names=["logits"],
-#     opset_version=18,
-#     dynamo=False
-#)
+    return s
 
-import onnx
+base_dir = "./"
+files = [f for f in os.listdir(base_dir) if f.endswith("_summary.json")]
 
-m = onnx.load("models/mamba-130m-single/mamba-130m-single.onnx")
+rows = []
 
-# build shape lookup
-shapes = {}
-for vi in list(m.graph.input) + list(m.graph.value_info) + list(m.graph.output):
-    dims = [d.dim_value for d in vi.type.tensor_type.shape.dim]
-    shapes[vi.name] = dims
+for file in files:
+    with open(os.path.join(base_dir, file)) as f:
+        data = json.load(f)
 
-for init in m.graph.initializer:
-    shapes[init.name] = list(init.dims)
+    # -------------------------
+    # REMOVE unwanted sections
+    # -------------------------
+    data.pop("per_core", None)
 
-# print all Gemm/MatMul nodes with their shapes
-for node in m.graph.node:
-    if node.op_type in ("Gemm", "MatMul"):
-        print(f"\n{node.op_type}  name={node.name}")
-        for i, inp in enumerate(node.input):
-            s = shapes.get(inp, "UNKNOWN")
-            flag = " ← 1D PROBLEM" if isinstance(s, list) and len(s) < 2 else ""
-            print(f"  input[{i}] '{inp}': {s}{flag}")
-        for i, out in enumerate(node.output):
-            s = shapes.get(out, "UNKNOWN")
-            print(f"  output[{i}] '{out}': {s}")
+    if "l2_cache" in data and data["l2_cache"]:
+        data["l2_cache"].pop("per_bank", None)
+
+    # -------------------------
+    # FLATTEN
+    # -------------------------
+    # Reduce heavy nested sections
+    cleaned_summary = reduce_heavy_sections(data)
+
+    # Flatten
+    summary_flat = flatten_dict(cleaned_summary)
+
+    # Add filename
+    summary_flat["_name"] = file
+    print(summary_flat["_name"])
+    rows.append(summary_flat)
+# print(rows)
+
+# -------------------------
+# CREATE DATAFRAME
+# -------------------------
+df = pd.DataFrame(rows)
+
+# -------------------------
+# SAVE
+# -------------------------
+write_csv(rows,"flattened_summary.csv")
+
+print("Done. Saved as flattened_summary.csv")

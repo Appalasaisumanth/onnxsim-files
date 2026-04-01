@@ -31,7 +31,7 @@ LangScheduler::LangScheduler(std::string name, std::string path, std::unique_ptr
   _run_single_layer = _language_model->is_run_single_layer();
   _num_layers = model_config["num_hidden_layers"];
   _num_layers = _num_layers / (uint64_t) model_config["pipeline_parallel_size"];
-  _num_sim_layers = _run_single_layer ? 1 : _num_layers;
+  _num_sim_layers = _run_single_layer ? _num_layers : _num_layers;
   _num_attention_heads = model_config["num_attention_heads"];
   _num_kv_heads = model_config["num_kv_heads"];
   _hidden_size = model_config["hidden_size"];
@@ -62,6 +62,10 @@ std::unique_ptr<Model> LangScheduler::pop_model() {
 }
 
 void LangScheduler::cycle() {
+  // //if(_cycle % 1000)spdlog::info("DEBUG: active_requests={}, model_queue={}, requests_in_model={}",
+  //   _active_requests.size(),
+  //   _model_queue.size(),
+  //   _requests_in_model.size());
   _cycle++;
   //Reqeust Queue to Active Requests if active is empty
   if(_active_requests.empty()) {
@@ -81,7 +85,7 @@ void LangScheduler::cycle() {
   }
 
   //Active Requests to Model Queue
-  if(_model_queue.empty() && _requests_in_model.empty()) {
+  if(!_active_requests.empty() && _model_queue.empty()) {
     init_inputs_and_model();
   }
 }
@@ -92,7 +96,7 @@ void LangScheduler::finish_model(uint32_t model_id) {
     if(!_active_requests[req_id]->gen_phase) {
       uint32_t promtp_len = _active_requests[req_id]->prompt_length;
       _active_requests[req_id]->gen_phase = true;
-      _active_requests[req_id]->current_length += promtp_len + 1;
+      _active_requests[req_id]->current_length = promtp_len + 1;
     }
     else {
       _active_requests[req_id]->current_length += 1;

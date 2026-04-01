@@ -1,0 +1,131 @@
+{
+  "model": {
+    "name": null,
+    "num_layers_total": null,
+    "num_sim_layers": null,
+    "weight_size_GB": null,
+    "has_l2": "false",
+    "scheduler": null
+  },
+  "hardware": {
+    "num_cores": 4,
+    "systolic_throughput_GFLOPS": 131072.0,
+    "spad_size_KB": 32768,
+    "accumulator_size_KB": 4096,
+    "dram_bandwidth_GBs": 614.0,
+    "tensor_parallelism": null,
+    "pipeline_parallelism": null
+  },
+  "timing": {
+    "total_cycles": 161944001,
+    "total_us": 161944,
+    "total_compute_cycles": 8000,
+    "wall_clock_seconds": 5426.17022,
+    "model_init_seconds": 0.368057,
+    "total_tiles": 44800,
+    "tiles_per_second": 8.257838,
+    "cycles_per_wall_sec": 29845.0
+  },
+  "compute": {
+    "total_GFLOPs": 9.664464,
+    "effective_TFLOPS": 0.0,
+    "avg_systolic_util_pct": 8.8825,
+    "avg_pe_util_pct": 0.06,
+    "avg_memory_idle_pct": 95.888,
+    "avg_core_idle_pct": 42.0864,
+    "gemm_memory_bound_pct": 100.0,
+    "gemm_avg_arithmetic_intensity": 0.9991
+  },
+  "per_core": {
+    "avg": {
+      "systolic_array_util_pct": 8.8825,
+      "pe_util_pct": 0.06,
+      "memory_idle_pct": 95.888,
+      "tiles_finished": 11200.0,
+      "sram_hit_rate": 0.005558,
+      "acc_sram_hit_rate": 0.001238
+    }
+  },
+  "sram_totals": {
+    "input_sram": {
+      "hits": 2908176,
+      "misses": 520369069,
+      "hit_rate": 0.005558
+    },
+    "acc_sram": {
+      "hits": 56320,
+      "misses": 45434855,
+      "hit_rate": 0.001238
+    }
+  },
+  "dram": {
+    "avg_bw_utilization_pct": 94885502092,
+    "total_reads": 26539888,
+    "total_writes": 61328,
+    "num_channels": 16,
+    "avg_row_hit_rate_pct": 75.6519,
+    "avg_row_miss_rate_pct": 1.2539,
+    "avg_row_conflict_rate_pct": 23.0942,
+    "avg_memory_system_cycles": 194410565.0
+  },
+  "l2_cache": null,
+  "layer_breakdown": {
+    "gemm": {
+      "cycles": 77976000,
+      "pct": 48.15,
+      "count": 2560
+    },
+    "other": {
+      "cycles": 63487745,
+      "pct": 39.2,
+      "count": 7936
+    },
+    "elementwise_mul": {
+      "cycles": 16384000,
+      "pct": 10.12,
+      "count": 2048
+    },
+    "elementwise_add": {
+      "cycles": 4096000,
+      "pct": 2.53,
+      "count": 512
+    }
+  },
+  "object_histogram": {
+    "total_GB": 268176.435,
+    "avg_object_size_B": 630172.18,
+    "largest_object_B": 786432,
+    "top_5_by_bytes": [
+      {
+        "size_bytes": 786432,
+        "count": 301989888,
+        "total_MB": 237494511.6,
+        "bytes_pct": 88.5591
+      },
+      {
+        "size_bytes": 393216,
+        "count": 37748736,
+        "total_MB": 14843407.0,
+        "bytes_pct": 5.5349
+      },
+      {
+        "size_bytes": 196608,
+        "count": 75497472,
+        "total_MB": 14843407.0,
+        "bytes_pct": 5.5349
+      },
+      {
+        "size_bytes": 245760,
+        "count": 3932160,
+        "total_MB": 966367.6,
+        "bytes_pct": 0.3603
+      },
+      {
+        "size_bytes": 6144,
+        "count": 3440640,
+        "total_MB": 21139.3,
+        "bytes_pct": 0.0079
+      }
+    ]
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "model": {
+    "name": null,
+    "num_layers_total": null,
+    "num_sim_layers": null,
+    "weight_size_GB": null,
+    "has_l2": "true",
+    "scheduler": null
+  },
+  "hardware": {
+    "num_cores": 4,
+    "systolic_throughput_GFLOPS": 131072.0,
+    "spad_size_KB": 32768,
+    "accumulator_size_KB": 4096,
+    "dram_bandwidth_GBs": 614.0,
+    "tensor_parallelism": null,
+    "pipeline_parallelism": null
+  },
+  "timing": {
+    "total_cycles": 123632001,
+    "total_us": 123632,
+    "total_compute_cycles": 8000,
+    "wall_clock_seconds": 5616.752334,
+    "model_init_seconds": 0.267513,
+    "total_tiles": 206,
+    "tiles_per_second": 0.035954,
+    "cycles_per_wall_sec": 22011.0
+  },
+  "compute": {
+    "total_GFLOPs": 0.037752,
+    "effective_TFLOPS": 0.0,
+    "avg_systolic_util_pct": 0.0475,
+    "avg_pe_util_pct": 0.0,
+    "avg_memory_idle_pct": 99.979,
+    "avg_core_idle_pct": 2.831,
+    "gemm_memory_bound_pct": 100.0,
+    "gemm_avg_arithmetic_intensity": 0.9991
+  },
+  "per_core": {
+    "avg": {
+      "systolic_array_util_pct": 0.0475,
+      "pe_util_pct": 0.0,
+      "memory_idle_pct": 99.979,
+      "tiles_finished": 43.75,
+      "sram_hit_rate": 0.454664,
+      "acc_sram_hit_rate": 0.001233
+    }
+  },
+  "sram_totals": {
+    "input_sram": {
+      "hits": 1564108465,
+      "misses": 1876036657,
+      "hit_rate": 0.454664
+    },
+    "acc_sram": {
+      "hits": 220,
+      "misses": 178185,
+      "hit_rate": 0.001233
+    }
+  },
+  "dram": {
+    "avg_bw_utilization_pct": 124289324124,
+    "total_reads": 119342100,
+    "total_writes": 3989,
+    "num_channels": 16,
+    "avg_row_hit_rate_pct": 98.7931,
+    "avg_row_miss_rate_pct": 0.0001,
+    "avg_row_conflict_rate_pct": 1.2069,
+    "avg_memory_system_cycles": 148417768.0
+  },
+  "l2_cache": {
+    "num_banks": 16,
+    "num_ways": 16,
+    "num_sets": 32768,
+    "cycles": 148417768,
+    "overall_hit_rate": 0.705261,
+    "overall_miss_rate": 0.294739,
+    "cache_util_pct": 78.4989,
+    "total_hits": 1172388,
+    "total_misses": 489958,
+    "total_evictions": 0,
+    "total_writebacks": 0,
+    "total_conflicts": 0,
+    "miss_q_depth": 16834,
+    "pool_size": 20930,
+    "avg_hits": 73274.25,
+    "avg_misses": 30622.38,
+    "avg_evictions": 0.0,
+    "avg_writebacks": 0.0,
+    "min_bank_hit_rate": 0.6989,
+    "max_bank_hit_rate": 0.7137,
+    "hit_rate_variance": 1.816e-05
+  },
+  "layer_breakdown": {
+    "gemm": {
+      "cycles": 123304000,
+      "pct": 99.73,
+      "count": 10
+    },
+    "other": {
+      "cycles": 248000,
+      "pct": 0.2,
+      "count": 31
+    },
+    "elementwise_mul": {
+      "cycles": 64000,
+      "pct": 0.05,
+      "count": 8
+    },
+    "elementwise_add": {
+      "cycles": 16000,
+      "pct": 0.01,
+      "count": 2
+    }
+  },
+  "object_histogram": {
+    "total_GB": 1047.564,
+    "avg_object_size_B": 630172.18,
+    "largest_object_B": 786432,
+    "top_5_by_bytes": [
+      {
+        "size_bytes": 786432,
+        "count": 1179648,
+        "total_MB": 927712.9,
+        "bytes_pct": 88.5591
+      },
+      {
+        "size_bytes": 393216,
+        "count": 147456,
+        "total_MB": 57982.1,
+        "bytes_pct": 5.5349
+      },
+      {
+        "size_bytes": 196608,
+        "count": 294912,
+        "total_MB": 57982.1,
+        "bytes_pct": 5.5349
+      },
+      {
+        "size_bytes": 245760,
+        "count": 15360,
+        "total_MB": 3774.9,
+        "bytes_pct": 0.3603
+      },
+      {
+        "size_bytes": 6144,
+        "count": 13440,
+        "total_MB": 82.6,
+        "bytes_pct": 0.0079
+      }
+    ]
+  }
+}

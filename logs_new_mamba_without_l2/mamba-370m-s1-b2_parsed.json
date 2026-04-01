@@ -1,0 +1,1151 @@
+{
+  "hardware_config": {
+    "num_cores": 4,
+    "dram_bandwidth_GBs": 614.0,
+    "ramulator_config": "./configs/../configs/ramulator2_configs/HBM2.yaml",
+    "interconnect": "SimpleInterconnect",
+    "tensor_parallelism": null,
+    "pipeline_parallelism": null,
+    "systolic_throughput_GFLOPS": 131072.0,
+    "spad_size_KB": 32768,
+    "accumulator_size_KB": 4096
+  },
+  "model_info": {
+    "name": null,
+    "num_layers_total": null,
+    "num_sim_layers": null,
+    "has_l2": "false",
+    "weight_size_GB": null,
+    "scheduler": null
+  },
+  "memory_usage": {
+    "total_GB": null,
+    "weight_GB": null,
+    "kv_cache_GB": null,
+    "activation_GB": null
+  },
+  "simulation_timing": {
+    "total_cycles": 824001,
+    "total_us": 824,
+    "model_init_seconds": 0.854686,
+    "wall_clock_seconds": 54.807231,
+    "request_finish_us": 824,
+    "avg_tiles_per_layer": 53.281500292,
+    "total_tiles": 269,
+    "tiles_per_second": 5.048657,
+    "total_compute_cycles": 8000
+  },
+  "per_core_stats": {
+    "core_0": {
+      "total_cycles": 824001,
+      "matmul_active_cycles": 472,
+      "vector_active_cycles": 6,
+      "memory_unit_idle_cycles": 791651,
+      "systolic_bubble_cycles": 0,
+      "core_idle_cycles": 272017,
+      "active_cycles": -239667,
+      "memory_idle_pct": 96.074,
+      "core_idle_pct": 33.0117,
+      "compute_util_pct": -29.0858,
+      "systolic_array_util_pct": 8.65,
+      "pe_util_pct": 0.06,
+      "vector_unit_util_pct": 0.0,
+      "tiles_issued": 67,
+      "tiles_finished": 67,
+      "instructions_executed": 714,
+      "instructions_per_tile": 10.66,
+      "systolic_inst_issue_count": 512,
+      "systolic_preload_count": 512,
+      "sram": {
+        "hits": 14996,
+        "misses": 466149,
+        "hit_rate": 0.0312,
+        "read_hits": 14996,
+        "write_hits": 0,
+        "prefetches": 128,
+        "bytes_requested": 16501024,
+        "bytes_received": 16533792,
+        "total_accesses": 481145,
+        "prefetch_effectiveness_pct": 0.1982
+      },
+      "acc_sram": {
+        "hits": 70,
+        "misses": 31267,
+        "hit_rate": 0.0022,
+        "read_hits": 0,
+        "write_hits": 70,
+        "prefetches": 27,
+        "bytes_requested": 6400,
+        "bytes_received": 13408,
+        "total_accesses": 31337,
+        "prefetch_effectiveness_pct": 52.2673
+      }
+    },
+    "core_1": {
+      "total_cycles": 824001,
+      "matmul_active_cycles": 452,
+      "vector_active_cycles": 10,
+      "memory_unit_idle_cycles": 792976,
+      "systolic_bubble_cycles": 0,
+      "core_idle_cycles": 280011,
+      "active_cycles": -248986,
+      "memory_idle_pct": 96.2348,
+      "core_idle_pct": 33.9819,
+      "compute_util_pct": -30.2167,
+      "systolic_array_util_pct": 8.34,
+      "pe_util_pct": 0.05,
+      "vector_unit_util_pct": 0.0,
+      "tiles_issued": 67,
+      "tiles_finished": 67,
+      "instructions_executed": 699,
+      "instructions_per_tile": 10.43,
+      "systolic_inst_issue_count": 492,
+      "systolic_preload_count": 492,
+      "sram": {
+        "hits": 14871,
+        "misses": 427291,
+        "hit_rate": 0.0336,
+        "read_hits": 14871,
+        "write_hits": 0,
+        "prefetches": 128,
+        "bytes_requested": 15819648,
+        "bytes_received": 15868800,
+        "total_accesses": 442162,
+        "prefetch_effectiveness_pct": 0.3097
+      },
+      "acc_sram": {
+        "hits": 72,
+        "misses": 27211,
+        "hit_rate": 0.0026,
+        "read_hits": 0,
+        "write_hits": 72,
+        "prefetches": 27,
+        "bytes_requested": 6400,
+        "bytes_received": 13408,
+        "total_accesses": 27283,
+        "prefetch_effectiveness_pct": 52.2673
+      }
+    },
+    "core_2": {
+      "total_cycles": 824001,
+      "matmul_active_cycles": 452,
+      "vector_active_cycles": 7,
+      "memory_unit_idle_cycles": 792902,
+      "systolic_bubble_cycles": 0,
+      "core_idle_cycles": 272010,
+      "active_cycles": -240911,
+      "memory_idle_pct": 96.2259,
+      "core_idle_pct": 33.0109,
+      "compute_util_pct": -29.2367,
+      "systolic_array_util_pct": 8.35,
+      "pe_util_pct": 0.05,
+      "vector_unit_util_pct": 0.0,
+      "tiles_issued": 68,
+      "tiles_finished": 68,
+      "instructions_executed": 699,
+      "instructions_per_tile": 10.28,
+      "systolic_inst_issue_count": 492,
+      "systolic_preload_count": 492,
+      "sram": {
+        "hits": 14544,
+        "misses": 464539,
+        "hit_rate": 0.0304,
+        "read_hits": 14544,
+        "write_hits": 0,
+        "prefetches": 131,
+        "bytes_requested": 15860800,
+        "bytes_received": 15877184,
+        "total_accesses": 479083,
+        "prefetch_effectiveness_pct": 0.1032
+      },
+      "acc_sram": {
+        "hits": 72,
+        "misses": 23349,
+        "hit_rate": 0.0031,
+        "read_hits": 0,
+        "write_hits": 72,
+        "prefetches": 27,
+        "bytes_requested": 6432,
+        "bytes_received": 13504,
+        "total_accesses": 23421,
+        "prefetch_effectiveness_pct": 52.3697
+      }
+    },
+    "core_3": {
+      "total_cycles": 824001,
+      "matmul_active_cycles": 672,
+      "vector_active_cycles": 3,
+      "memory_unit_idle_cycles": 778707,
+      "systolic_bubble_cycles": 0,
+      "core_idle_cycles": 272001,
+      "active_cycles": -226707,
+      "memory_idle_pct": 94.5032,
+      "core_idle_pct": 33.0098,
+      "compute_util_pct": -27.513,
+      "systolic_array_util_pct": 11.9,
+      "pe_util_pct": 0.08,
+      "vector_unit_util_pct": 0.0,
+      "tiles_issued": 67,
+      "tiles_finished": 67,
+      "instructions_executed": 934,
+      "instructions_per_tile": 13.94,
+      "systolic_inst_issue_count": 712,
+      "systolic_preload_count": 712,
+      "sram": {
+        "hits": 5024,
+        "misses": 589200,
+        "hit_rate": 0.0085,
+        "read_hits": 5024,
+        "write_hits": 0,
+        "prefetches": 130,
+        "bytes_requested": 23121984,
+        "bytes_received": 23121984,
+        "total_accesses": 594224,
+        "prefetch_effectiveness_pct": 0.0
+      },
+      "acc_sram": {
+        "hits": 50,
+        "misses": 14922,
+        "hit_rate": 0.0033,
+        "read_hits": 0,
+        "write_hits": 50,
+        "prefetches": 57,
+        "bytes_requested": 14560,
+        "bytes_received": 29120,
+        "total_accesses": 14972,
+        "prefetch_effectiveness_pct": 50.0
+      }
+    },
+    "avg_across_cores": {
+      "total_cycles": 824001.0,
+      "matmul_active_cycles": 512.0,
+      "vector_active_cycles": 6.5,
+      "memory_unit_idle_cycles": 789059.0,
+      "systolic_bubble_cycles": 0.0,
+      "core_idle_cycles": 274009.75,
+      "active_cycles": -239067.75,
+      "memory_idle_pct": 95.7595,
+      "core_idle_pct": 33.2536,
+      "compute_util_pct": -29.013,
+      "systolic_array_util_pct": 9.31,
+      "pe_util_pct": 0.06,
+      "vector_unit_util_pct": 0.0,
+      "tiles_issued": 67.25,
+      "tiles_finished": 67.25,
+      "instructions_executed": 761.5,
+      "instructions_per_tile": 11.3275,
+      "systolic_inst_issue_count": 552.0,
+      "systolic_preload_count": 552.0,
+      "sram": {
+        "hits": 12358.75,
+        "misses": 486794.75,
+        "read_hits": 12358.75,
+        "write_hits": 0.0,
+        "prefetches": 129.25,
+        "bytes_requested": 17825864.0,
+        "bytes_received": 17850440.0,
+        "total_accesses": 499153.5,
+        "hit_rate": 0.024759
+      },
+      "acc_sram": {
+        "hits": 66.0,
+        "misses": 24187.25,
+        "read_hits": 0.0,
+        "write_hits": 66.0,
+        "prefetches": 34.5,
+        "bytes_requested": 8448.0,
+        "bytes_received": 17360.0,
+        "total_accesses": 24253.25,
+        "hit_rate": 0.002721
+      }
+    }
+  },
+  "icnt_bandwidth": {
+    "Core_to_ICNT": {
+      "bandwidth_GBs": 0.0,
+      "total_bytes": 0
+    },
+    "Core_from_ICNT": {
+      "bandwidth_GBs": 0.0,
+      "total_bytes": 0
+    },
+    "ICNT_to_MEM": {
+      "bandwidth_GBs": 0.0,
+      "total_bytes": 0
+    },
+    "ICNT_from_MEM": {
+      "bandwidth_GBs": 0.0,
+      "total_bytes": 0
+    }
+  },
+  "dram_stats": {
+    "num_channels_found": 16,
+    "per_channel_samples": [
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 139238,
+        "total_num_write_requests": 307,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 989196,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 102067,
+        "row_misses": 3097,
+        "row_conflicts": 34381
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 139232,
+        "total_num_write_requests": 307,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 989196,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 101640,
+        "row_misses": 3158,
+        "row_conflicts": 34741
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 139200,
+        "total_num_write_requests": 308,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 989196,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 101623,
+        "row_misses": 3115,
+        "row_conflicts": 34770
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 139207,
+        "total_num_write_requests": 309,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 989196,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 102019,
+        "row_misses": 3228,
+        "row_conflicts": 34269
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 139232,
+        "total_num_write_requests": 309,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 989196,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 102491,
+        "row_misses": 3150,
+        "row_conflicts": 33900
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 139176,
+        "total_num_write_requests": 308,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 989196,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 101881,
+        "row_misses": 3276,
+        "row_conflicts": 34327
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 139206,
+        "total_num_write_requests": 308,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 989196,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 102035,
+        "row_misses": 3355,
+        "row_conflicts": 34124
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 139232,
+        "total_num_write_requests": 309,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 989196,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 102673,
+        "row_misses": 3255,
+        "row_conflicts": 33613
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 139232,
+        "total_num_write_requests": 310,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 989196,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 101957,
+        "row_misses": 3151,
+        "row_conflicts": 34434
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 139207,
+        "total_num_write_requests": 306,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 989196,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 102476,
+        "row_misses": 3118,
+        "row_conflicts": 33919
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 139207,
+        "total_num_write_requests": 306,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 989196,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 102648,
+        "row_misses": 3058,
+        "row_conflicts": 33807
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 139232,
+        "total_num_write_requests": 310,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 989196,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 102231,
+        "row_misses": 3157,
+        "row_conflicts": 34154
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 139206,
+        "total_num_write_requests": 310,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 989196,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 102532,
+        "row_misses": 3212,
+        "row_conflicts": 33772
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 139231,
+        "total_num_write_requests": 308,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 989196,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 102107,
+        "row_misses": 3176,
+        "row_conflicts": 34256
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 139231,
+        "total_num_write_requests": 308,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 989196,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 101925,
+        "row_misses": 3037,
+        "row_conflicts": 34577
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 139222,
+        "total_num_write_requests": 308,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 989196,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 102593,
+        "row_misses": 3218,
+        "row_conflicts": 33719
+      }
+    ],
+    "avg_across_channels": {
+      "total_num_read_requests": 139218.19,
+      "total_num_write_requests": 308.19,
+      "total_num_other_requests": 0.0,
+      "memory_system_cycles": 989196.0,
+      "row_hits": 102181.12,
+      "row_misses": 3172.56,
+      "row_conflicts": 34172.69,
+      "impl": "GenericDRAM",
+      "dram_impl": "HBM2",
+      "addr_mapper": "RoBaRaCoCh",
+      "scheduler": "FRFCFS",
+      "refresh_manager": "AllBank",
+      "row_hit_rate_pct": 73.2343,
+      "row_miss_rate_pct": 2.2738,
+      "row_conflict_rate_pct": 24.4919
+    },
+    "avg_bw_summary": {
+      "avg_bw_utilization_pct": 14,
+      "total_reads": 139238,
+      "total_writes": 307
+    }
+  },
+  "l2_bank_stats": {},
+  "layer_timeline": [
+    {
+      "layer": "Identity_16",
+      "finish_cycle": 8000,
+      "compute_cycles": 8000,
+      "start_cycle": 0,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_17",
+      "finish_cycle": 16000,
+      "compute_cycles": 8000,
+      "start_cycle": 8000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_18",
+      "finish_cycle": 24000,
+      "compute_cycles": 8000,
+      "start_cycle": 16000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_19",
+      "finish_cycle": 32000,
+      "compute_cycles": 8000,
+      "start_cycle": 24000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_20",
+      "finish_cycle": 40000,
+      "compute_cycles": 8000,
+      "start_cycle": 32000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_21",
+      "finish_cycle": 48000,
+      "compute_cycles": 8000,
+      "start_cycle": 40000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_22",
+      "finish_cycle": 56000,
+      "compute_cycles": 8000,
+      "start_cycle": 48000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/in_proj/Gemm",
+      "finish_cycle": 120000,
+      "compute_cycles": 64000,
+      "start_cycle": 56000,
+      "idle_cycles": 0,
+      "type": "gemm"
+    },
+    {
+      "layer": "/blocks.0/Constant",
+      "finish_cycle": 128000,
+      "compute_cycles": 8000,
+      "start_cycle": 120000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/Constant_1",
+      "finish_cycle": 136000,
+      "compute_cycles": 8000,
+      "start_cycle": 128000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/Constant_2",
+      "finish_cycle": 144000,
+      "compute_cycles": 8000,
+      "start_cycle": 136000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/Constant_3",
+      "finish_cycle": 152000,
+      "compute_cycles": 8000,
+      "start_cycle": 144000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/conv_proj/Gemm",
+      "finish_cycle": 288000,
+      "compute_cycles": 136000,
+      "start_cycle": 152000,
+      "idle_cycles": 0,
+      "type": "gemm"
+    },
+    {
+      "layer": "/blocks.0/Constant_4",
+      "finish_cycle": 296000,
+      "compute_cycles": 8000,
+      "start_cycle": 288000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/Constant_5",
+      "finish_cycle": 304000,
+      "compute_cycles": 8000,
+      "start_cycle": 296000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/Constant_6",
+      "finish_cycle": 312000,
+      "compute_cycles": 8000,
+      "start_cycle": 304000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/Constant_7",
+      "finish_cycle": 320000,
+      "compute_cycles": 8000,
+      "start_cycle": 312000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/Constant",
+      "finish_cycle": 328000,
+      "compute_cycles": 8000,
+      "start_cycle": 320000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/Constant_1",
+      "finish_cycle": 336000,
+      "compute_cycles": 8000,
+      "start_cycle": 328000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/Constant_2",
+      "finish_cycle": 344000,
+      "compute_cycles": 8000,
+      "start_cycle": 336000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/Constant_3",
+      "finish_cycle": 352000,
+      "compute_cycles": 8000,
+      "start_cycle": 344000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/Constant_4",
+      "finish_cycle": 360000,
+      "compute_cycles": 8000,
+      "start_cycle": 352000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/Constant_5",
+      "finish_cycle": 368000,
+      "compute_cycles": 8000,
+      "start_cycle": 360000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/Constant_6",
+      "finish_cycle": 376000,
+      "compute_cycles": 8000,
+      "start_cycle": 368000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/Constant_7",
+      "finish_cycle": 384000,
+      "compute_cycles": 8000,
+      "start_cycle": 376000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/conv_proj/Gemm",
+      "finish_cycle": 520000,
+      "compute_cycles": 136000,
+      "start_cycle": 384000,
+      "idle_cycles": 0,
+      "type": "gemm"
+    },
+    {
+      "layer": "/blocks.0/Slice",
+      "finish_cycle": 528000,
+      "compute_cycles": 8000,
+      "start_cycle": 520000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/Sigmoid",
+      "finish_cycle": 536000,
+      "compute_cycles": 8000,
+      "start_cycle": 528000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/Sigmoid",
+      "finish_cycle": 544000,
+      "compute_cycles": 8000,
+      "start_cycle": 536000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/Sigmoid_1",
+      "finish_cycle": 552000,
+      "compute_cycles": 8000,
+      "start_cycle": 544000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/Mul",
+      "finish_cycle": 560000,
+      "compute_cycles": 8000,
+      "start_cycle": 552000,
+      "idle_cycles": 0,
+      "type": "elementwise_mul"
+    },
+    {
+      "layer": "/blocks.1/Mul",
+      "finish_cycle": 568000,
+      "compute_cycles": 8000,
+      "start_cycle": 560000,
+      "idle_cycles": 0,
+      "type": "elementwise_mul"
+    },
+    {
+      "layer": "/blocks.0/Mul_2",
+      "finish_cycle": 576000,
+      "compute_cycles": 8000,
+      "start_cycle": 568000,
+      "idle_cycles": 0,
+      "type": "elementwise_mul"
+    },
+    {
+      "layer": "/blocks.0/x_proj/Gemm",
+      "finish_cycle": 584000,
+      "compute_cycles": 8000,
+      "start_cycle": 576000,
+      "idle_cycles": 0,
+      "type": "gemm"
+    },
+    {
+      "layer": "/blocks.0/Mul_1",
+      "finish_cycle": 592000,
+      "compute_cycles": 8000,
+      "start_cycle": 584000,
+      "idle_cycles": 0,
+      "type": "elementwise_mul"
+    },
+    {
+      "layer": "/blocks.1/x_proj/Gemm",
+      "finish_cycle": 600000,
+      "compute_cycles": 8000,
+      "start_cycle": 592000,
+      "idle_cycles": 0,
+      "type": "gemm"
+    },
+    {
+      "layer": "/blocks.1/Mul_1",
+      "finish_cycle": 608000,
+      "compute_cycles": 8000,
+      "start_cycle": 600000,
+      "idle_cycles": 0,
+      "type": "elementwise_mul"
+    },
+    {
+      "layer": "/blocks.0/Slice_1",
+      "finish_cycle": 616000,
+      "compute_cycles": 8000,
+      "start_cycle": 608000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/Slice_1",
+      "finish_cycle": 624000,
+      "compute_cycles": 8000,
+      "start_cycle": 616000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/ssm_out/Gemm",
+      "finish_cycle": 656000,
+      "compute_cycles": 32000,
+      "start_cycle": 624000,
+      "idle_cycles": 0,
+      "type": "gemm"
+    },
+    {
+      "layer": "/blocks.1/ssm_out/Gemm",
+      "finish_cycle": 688000,
+      "compute_cycles": 32000,
+      "start_cycle": 656000,
+      "idle_cycles": 0,
+      "type": "gemm"
+    },
+    {
+      "layer": "/blocks.0/Add",
+      "finish_cycle": 696000,
+      "compute_cycles": 8000,
+      "start_cycle": 688000,
+      "idle_cycles": 0,
+      "type": "elementwise_add"
+    },
+    {
+      "layer": "/blocks.1/Add",
+      "finish_cycle": 704000,
+      "compute_cycles": 8000,
+      "start_cycle": 696000,
+      "idle_cycles": 0,
+      "type": "elementwise_add"
+    },
+    {
+      "layer": "/blocks.0/Mul_3",
+      "finish_cycle": 712000,
+      "compute_cycles": 8000,
+      "start_cycle": 704000,
+      "idle_cycles": 0,
+      "type": "elementwise_mul"
+    },
+    {
+      "layer": "/blocks.0/out_proj/Gemm",
+      "finish_cycle": 720000,
+      "compute_cycles": 8000,
+      "start_cycle": 712000,
+      "idle_cycles": 0,
+      "type": "gemm"
+    },
+    {
+      "layer": "/blocks.1/in_proj/Gemm",
+      "finish_cycle": 784000,
+      "compute_cycles": 64000,
+      "start_cycle": 720000,
+      "idle_cycles": 0,
+      "type": "gemm"
+    },
+    {
+      "layer": "/blocks.1/Slice",
+      "finish_cycle": 792000,
+      "compute_cycles": 8000,
+      "start_cycle": 784000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/Sigmoid_1",
+      "finish_cycle": 800000,
+      "compute_cycles": 8000,
+      "start_cycle": 792000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/Mul_2",
+      "finish_cycle": 808000,
+      "compute_cycles": 8000,
+      "start_cycle": 800000,
+      "idle_cycles": 0,
+      "type": "elementwise_mul"
+    },
+    {
+      "layer": "/blocks.1/Mul_3",
+      "finish_cycle": 816000,
+      "compute_cycles": 8000,
+      "start_cycle": 808000,
+      "idle_cycles": 0,
+      "type": "elementwise_mul"
+    },
+    {
+      "layer": "/blocks.1/out_proj/Gemm",
+      "finish_cycle": 824000,
+      "compute_cycles": 8000,
+      "start_cycle": 816000,
+      "idle_cycles": 0,
+      "type": "gemm"
+    }
+  ],
+  "gemm_ops": [
+    {
+      "K": 8192,
+      "N": 1,
+      "M": 2048,
+      "gflops": 0.03355648,
+      "data_GB": 0.03357901,
+      "theoretical_ms": 0.054688942327629775,
+      "compute_ms": 0.00025601562470001227,
+      "memory_ms": 0.054688942327629775,
+      "bound": "memory",
+      "arithmetic_intensity": 0.9993
+    },
+    {
+      "K": 8192,
+      "N": 1,
+      "M": 2048,
+      "gflops": 0.03355648,
+      "data_GB": 0.03357901,
+      "theoretical_ms": 0.054688942327629775,
+      "compute_ms": 0.00025601562470001227,
+      "memory_ms": 0.054688942327629775,
+      "bound": "memory",
+      "arithmetic_intensity": 0.9993
+    }
+  ],
+  "attention_ops": [],
+  "object_size_histogram": {
+    "entries": [
+      {
+        "size_bytes": 393216,
+        "count": 24576,
+        "total_bytes": 9663676416,
+        "cumulative_bytes": 9663676416,
+        "bytes_fraction_pct": 0.6695
+      },
+      {
+        "size_bytes": 5376,
+        "count": 16128,
+        "total_bytes": 86704128,
+        "cumulative_bytes": 9750380544,
+        "bytes_fraction_pct": 0.006
+      },
+      {
+        "size_bytes": 32768,
+        "count": 32768,
+        "total_bytes": 1073741824,
+        "cumulative_bytes": 10824122368,
+        "bytes_fraction_pct": 0.0744
+      },
+      {
+        "size_bytes": 32,
+        "count": 64,
+        "total_bytes": 2048,
+        "cumulative_bytes": 10824124416,
+        "bytes_fraction_pct": 0.0
+      },
+      {
+        "size_bytes": 688128,
+        "count": 2064384,
+        "total_bytes": 1420560433152,
+        "cumulative_bytes": 1431384557568,
+        "bytes_fraction_pct": 98.4109
+      },
+      {
+        "size_bytes": 25856,
+        "count": 51712,
+        "total_bytes": 1337065472,
+        "cumulative_bytes": 1432721623040,
+        "bytes_fraction_pct": 0.0926
+      },
+      {
+        "size_bytes": 256,
+        "count": 2304,
+        "total_bytes": 589824,
+        "cumulative_bytes": 1432722212864,
+        "bytes_fraction_pct": 0.0
+      },
+      {
+        "size_bytes": 8192,
+        "count": 5632,
+        "total_bytes": 46137344,
+        "cumulative_bytes": 1432768350208,
+        "bytes_fraction_pct": 0.0032
+      },
+      {
+        "size_bytes": 413696,
+        "count": 25856,
+        "total_bytes": 10696523776,
+        "cumulative_bytes": 1443464873984,
+        "bytes_fraction_pct": 0.741
+      },
+      {
+        "size_bytes": 192,
+        "count": 60,
+        "total_bytes": 11520,
+        "cumulative_bytes": 1443464885504,
+        "bytes_fraction_pct": 0.0
+      },
+      {
+        "size_bytes": 4096,
+        "count": 8448,
+        "total_bytes": 34603008,
+        "cumulative_bytes": 1443499488512,
+        "bytes_fraction_pct": 0.0024
+      },
+      {
+        "size_bytes": 224,
+        "count": 490,
+        "total_bytes": 109760,
+        "cumulative_bytes": 1443499598272,
+        "bytes_fraction_pct": 0.0
+      }
+    ],
+    "total_bytes": 1443499598272,
+    "total_count": 2232422,
+    "num_size_classes": 12,
+    "top_5_by_bytes": [
+      {
+        "size_bytes": 688128,
+        "count": 2064384,
+        "total_bytes": 1420560433152,
+        "cumulative_bytes": 1431384557568,
+        "bytes_fraction_pct": 98.4109
+      },
+      {
+        "size_bytes": 413696,
+        "count": 25856,
+        "total_bytes": 10696523776,
+        "cumulative_bytes": 1443464873984,
+        "bytes_fraction_pct": 0.741
+      },
+      {
+        "size_bytes": 393216,
+        "count": 24576,
+        "total_bytes": 9663676416,
+        "cumulative_bytes": 9663676416,
+        "bytes_fraction_pct": 0.6695
+      },
+      {
+        "size_bytes": 25856,
+        "count": 51712,
+        "total_bytes": 1337065472,
+        "cumulative_bytes": 1432721623040,
+        "bytes_fraction_pct": 0.0926
+      },
+      {
+        "size_bytes": 32768,
+        "count": 32768,
+        "total_bytes": 1073741824,
+        "cumulative_bytes": 10824122368,
+        "bytes_fraction_pct": 0.0744
+      }
+    ],
+    "avg_object_size": 646606.96,
+    "largest_object_bytes": 688128
+  },
+  "summary_metrics": {
+    "total_compute_GFLOPs": 0.067113,
+    "effective_TFLOPS": 0.0,
+    "total_simulated_cycles": 824001,
+    "wall_clock_seconds": 54.807231,
+    "tiles_per_second": 5.048657,
+    "simulated_cycles_per_wall_second": 15035.0,
+    "avg_systolic_util_pct": 9.31,
+    "avg_pe_util_pct": 0.06,
+    "avg_memory_idle_pct": 95.7595,
+    "avg_core_idle_pct": 33.2536,
+    "total_sram_hits": 49435,
+    "total_sram_misses": 1947179,
+    "total_sram_hit_rate": 0.024759,
+    "total_acc_sram_hits": 264,
+    "total_acc_sram_misses": 96749,
+    "total_acc_sram_hit_rate": 0.002721,
+    "dram_avg_bw_utilization_pct": 14,
+    "dram_total_reads": 139238,
+    "dram_total_writes": 307,
+    "gemm_memory_bound_fraction": 1.0,
+    "gemm_avg_arithmetic_intensity": 0.9993,
+    "compute_cycles_by_layer_type": {
+      "other": 248000,
+      "gemm": 496000,
+      "elementwise_mul": 64000,
+      "elementwise_add": 16000
+    },
+    "layer_count_by_type": {
+      "other": 31,
+      "gemm": 10,
+      "elementwise_mul": 8,
+      "elementwise_add": 2
+    }
+  }
+}

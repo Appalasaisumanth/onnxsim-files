@@ -91,11 +91,11 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-import os
-import math
 import onnx
 from onnx import shape_inference, numpy_helper
 from collections import Counter
+import os
+import math
 
 MODELS = {
     "mamba-130m": dict(d_model=768,  d_inner=1536, d_state=16, d_conv=4, dt_rank=48,  n_layer=1, vocab_size=50280),
@@ -421,8 +421,8 @@ def write_models_list(entries, path="example/models_list.json"):
 if __name__ == "__main__":
 
     EXPORT_VARIANTS = [
-        ("mamba-130m",  1,  24),
-        ("mamba-130m",  128, 24),
+        ("mamba-130m",  1,  2),
+        ("mamba-130m",  128, 2),
     ]
 
     entries = []
@@ -432,8 +432,140 @@ if __name__ == "__main__":
         stem, folder = export_model(model_name, cfg, seq_len=seq_len, n_blocks=n_blocks)
         entries.append({
             "name":       stem,
-            "batch_size": 1
+            "batch_size": 1,
+            "seq_len":seq_len
         })
 
     write_models_list(entries)
     print("\nDone.")
+
+
+
+
+    '''
+    The ONNX graph is not what you expect. The issue is in your Python export — your `MambaBlock` is **not implementing the real Mamba algorithm**. Let me break down what's wrong:
+
+## What the ONNX nodes reveal
+
+The pattern repeating twice (for 2 blocks) is:
+```
+Gemm → Slice → Gemm → Sigmoid → Mul → Gemm → Slice → Gemm → Mul → Add → Sigmoid → Mul → Mul → Gemm
+```
+
+That's only **4 Gemms per block** but you should have **6 Gemms**. More critically, there's **no SSM state update** (no `Exp`, no elementwise `dA`/`dB` computation, no `[S, d_inner, d_state]` tensor ops).
+
+## Root cause in your Python code
+
+```python
+# Step 6 — SSM readout is WRONG
+y_ssm = self.ssm_out(C)   # [S, d_state] → [S, d_inner]
+```
+
+Your `ssm_out` is a `Linear(d_state → d_inner)` applied only to `C`, **completely bypassing the actual SSM recurrence** (`dA`, `dB`, `h` update). The real computation:
+
+```python
+# What you have (WRONG):
+y_ssm = self.ssm_out(C)   # just a linear on C, ignores h entirely
+
+# What it should be:
+A   = -torch.exp(self.A_log.float())           # [d_inner, d_state]
+dA  = torch.exp(dt.unsqueeze(-1) * A)          # [S, d_inner, d_state]
+dB  = dt.unsqueeze(-1) * B.unsqueeze(1)        # [S, d_inner, d_state]
+h   = ssm_state.reshape(S, d_inner, d_state)
+new_h = dA * h + dB * xa.unsqueeze(-1)         # [S, d_inner, d_state]
+y_ssm = (new_h * C.unsqueeze(1)).sum(-1)       # [S, d_inner]  ← h @ C contraction
+```
+
+## Also wrong: `conv_proj` 
+
+```python
+# You have (WRONG):
+self.conv_proj = nn.Linear(d_inner * d_conv, d_inner, bias=True)
+xa_pre = self.conv_proj(conv_state_flat)   # flattened linear, not depthwise conv
+
+# Should be depthwise conv1d — approximated for ONNX as:
+# per-channel multiply+sum over d_conv kernel positions
+```
+
+## Corrected MambaBlock forward
+
+```python
+def forward(self, x, conv_state_flat, ssm_state):
+    S  = x.shape[0]
+    di = self.d_inner
+    ds = self.d_state
+    dr = self.dt_rank
+
+    # 1. in_proj: [S, d_model] → [S, 2*d_inner]
+    proj = self.in_proj(x)
+    xi, z = proj[:, :di], proj[:, di:]
+
+    # 2. depthwise conv (approximated as grouped linear over conv window)
+    #    conv_state: [S, d_inner * d_conv], shift and apply
+    new_cs = torch.cat([conv_state_flat[:, di:], xi], dim=1)  # shift register
+    #    reshape to [S, d_inner, d_conv], apply per-channel weights
+    cs_3d   = new_cs.reshape(S, di, self.d_conv)              # [S, d_inner, d_conv]
+    w_conv  = self.conv_proj.weight.reshape(di, self.d_conv)  # [d_inner, d_conv]
+    x_conv  = (cs_3d * w_conv.unsqueeze(0)).sum(-1)           # [S, d_inner]
+    x_conv  = x_conv + self.conv_proj.bias
+    xa      = F.silu(x_conv)                                  # [S, d_inner]
+
+    # 3. x_proj: [S, d_inner] → [S, dt_rank + 2*d_state]
+    xp     = self.x_proj(xa)
+    dt_raw = xp[:, :dr]
+    B      = xp[:, dr:dr+ds]                                  # [S, d_state]
+    C      = xp[:, dr+ds:]                                    # [S, d_state]
+
+    # 4. dt_proj: [S, dt_rank] → [S, d_inner]
+    dt = F.softplus(self.dt_proj(dt_raw))                     # [S, d_inner]
+
+    # 5. SSM state update — THE CRITICAL MISSING PART
+    A   = -torch.exp(self.A_log.float())                      # [d_inner, d_state]
+    dt3 = dt.unsqueeze(-1)                                    # [S, d_inner, 1]
+    dA  = torch.exp(dt3 * A.unsqueeze(0))                     # [S, d_inner, d_state]
+    dB  = dt3 * B.unsqueeze(1)                                # [S, d_inner, d_state]
+    h   = ssm_state.reshape(S, di, ds)                        # [S, d_inner, d_state]
+    new_h  = dA * h + dB * xa.unsqueeze(-1)                  # [S, d_inner, d_state]
+    new_ss = new_h.reshape(S, di * ds)
+
+    # 6. SSM readout: contract over d_state dimension
+    y_ssm = (new_h * C.unsqueeze(1)).sum(-1)                 # [S, d_inner]
+
+    # 7. D skip + gate
+    y = (y_ssm + self.D * xa) * F.silu(z)                   # [S, d_inner]
+
+    # 8. out_proj: [S, d_inner] → [S, d_model]
+    out = self.out_proj(y)
+
+    return out, new_cs, new_ss
+```
+
+## Expected ONNX nodes after fix
+
+Per block you should now see:
+```
+Gemm (in_proj)
+Slice ×2
+Reshape + Mul + ReduceSum (depthwise conv)
+SiLU
+Gemm (x_proj)
+Slice ×3
+Gemm (dt_proj)
+Softplus
+Exp (A)
+Mul, Exp (dA)
+Mul (dB)
+Mul, Add (h update)        ← [S, d_inner, d_state] ops — the missing memory traffic
+Mul, ReduceSum (y = h@C)
+Mul (D skip)
+SiLU, Mul (gate)
+Gemm (out_proj)
+```
+
+The `[S, d_inner, d_state]` tensors in the SSM update are `8192 × 1536 × 16 = 201M` elements per block — **this is where your 10x memory footprint difference was coming from.**
+❌ But root cause is deeper:
+You broke recurrence → turned Mamba into parallel model
+🔥 One-line takeaway
+
+👉 Mamba is only O(N) if you run it sequentially — your implementation made it O(N × d_state × d_inner × S)
+    '''

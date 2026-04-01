@@ -25,6 +25,9 @@ class Tensor {
   bool get_produced() { return _produced; }
   uint32_t num_child_nodes() { return _child_nodes.size(); }
   uint32_t get_child_node(uint32_t id) { return _child_nodes[id]; }
+  
+void clear_child_nodes() { _child_nodes.clear(); }
+void set_src_node(uint32_t id) { _src_node = id; }  //added for sequntial decode 
 
   void allocate_tensor(int precision);
   addr_type get_address() { return _address; }

@@ -278,6 +278,10 @@ void Simulator::cycle() {
   
 
   spdlog::info("Simulation Finished at {} cycle {} us", _core_cycles, _core_cycles / (_config.core_freq));
+   spdlog::info("[ICNT] Core->ICNT request {}GB/Sec,{}", ((_memory_req_size * _nr_from_core * (1000 / _icnt_period) / _icnt_interval)), _nr_from_core);
+          spdlog::info("[ICNT] Core<-ICNT request {}GB/Sec,{}", ((_memory_req_size * _nr_to_core * (1000 / _icnt_period) / _icnt_interval)), _nr_to_core);
+          spdlog::info("[ICNT] ICNT->MEM request {}GB/Sec,{}", ((_memory_req_size * _nr_to_mem * (1000 / _icnt_period) / _icnt_interval)), _nr_to_mem);
+          spdlog::info("[ICNT] ICNT<-MEM request {}GB/Sec,{}", ((_memory_req_size * _nr_from_mem * (1000 / _icnt_period) / _icnt_interval)), _nr_from_mem);
 
 
   for (int core_id = 0; core_id < _n_cores; core_id++) _cores[core_id]->print_stats();

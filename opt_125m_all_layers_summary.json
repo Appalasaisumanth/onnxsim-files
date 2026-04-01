@@ -1,0 +1,152 @@
+{
+  "model": {
+    "name": "opt-125m",
+    "num_layers_total": 12,
+    "num_sim_layers": 12,
+    "weight_size_GB": 1.97,
+    "has_l2": "false",
+    "scheduler": "Simple Language scheduler"
+  },
+  "hardware": {
+    "num_cores": 4,
+    "systolic_throughput_GFLOPS": 131072.0,
+    "spad_size_KB": 32768,
+    "accumulator_size_KB": 4096,
+    "dram_bandwidth_GBs": 614.0,
+    "tensor_parallelism": 1,
+    "pipeline_parallelism": 1
+  },
+  "timing": {
+    "total_cycles": 780845,
+    "total_us": 780,
+    "total_compute_cycles": 13327,
+    "wall_clock_seconds": 46.102383,
+    "model_init_seconds": 1.390988,
+    "total_tiles": 732,
+    "tiles_per_second": 16.397739,
+    "cycles_per_wall_sec": 16937.0
+  },
+  "compute": {
+    "total_GFLOPs": 17.37458,
+    "effective_TFLOPS": 2e-08,
+    "avg_systolic_util_pct": null,
+    "avg_pe_util_pct": null,
+    "avg_memory_idle_pct": null,
+    "avg_core_idle_pct": null,
+    "gemm_memory_bound_pct": 100.0,
+    "gemm_avg_arithmetic_intensity": 84.1178
+  },
+  "per_core": {},
+  "sram_totals": {
+    "input_sram": {
+      "hits": 0,
+      "misses": 0,
+      "hit_rate": 0
+    },
+    "acc_sram": {
+      "hits": 0,
+      "misses": 0,
+      "hit_rate": 0
+    }
+  },
+  "dram": {
+    "avg_bw_utilization_pct": 61,
+    "total_reads": 520353,
+    "total_writes": 57595,
+    "num_channels": 16,
+    "avg_row_hit_rate_pct": 86.0097,
+    "avg_row_miss_rate_pct": 0.8659,
+    "avg_row_conflict_rate_pct": 13.1244,
+    "avg_memory_system_cycles": 937388.0
+  },
+  "l2_cache": null,
+  "layer_breakdown": {
+    "ffn_fc2": {
+      "cycles": 264065,
+      "pct": 33.82,
+      "count": 12
+    },
+    "ffn_fc1": {
+      "cycles": 193837,
+      "pct": 24.83,
+      "count": 12
+    },
+    "QKV_projection": {
+      "cycles": 155366,
+      "pct": 19.9,
+      "count": 12
+    },
+    "attn_projection": {
+      "cycles": 68123,
+      "pct": 8.73,
+      "count": 12
+    },
+    "attention": {
+      "cycles": 45333,
+      "pct": 5.81,
+      "count": 12
+    },
+    "ffn_activation": {
+      "cycles": 28800,
+      "pct": 3.69,
+      "count": 12
+    },
+    "attn_layernorm": {
+      "cycles": 12986,
+      "pct": 1.66,
+      "count": 12
+    },
+    "ffn_layernorm": {
+      "cycles": 12231,
+      "pct": 1.57,
+      "count": 12
+    },
+    "KV_concat": {
+      "cycles": 18,
+      "pct": 0.0,
+      "count": 12
+    },
+    "attn_concat": {
+      "cycles": 17,
+      "pct": 0.0,
+      "count": 12
+    }
+  },
+  "object_histogram": {
+    "total_GB": 3145.936,
+    "avg_object_size_B": 340228.85,
+    "largest_object_B": 786432,
+    "top_5_by_bytes": [
+      {
+        "size_bytes": 786432,
+        "count": 1769472,
+        "total_MB": 1391569.4,
+        "bytes_pct": 44.2339
+      },
+      {
+        "size_bytes": 614400,
+        "count": 1382400,
+        "total_MB": 849346.6,
+        "bytes_pct": 26.9982
+      },
+      {
+        "size_bytes": 196608,
+        "count": 3538944,
+        "total_MB": 695784.7,
+        "bytes_pct": 22.1169
+      },
+      {
+        "size_bytes": 153600,
+        "count": 979200,
+        "total_MB": 150405.1,
+        "bytes_pct": 4.7809
+      },
+      {
+        "size_bytes": 79872,
+        "count": 419328,
+        "total_MB": 33492.6,
+        "bytes_pct": 1.0646
+      }
+    ]
+  }
+}

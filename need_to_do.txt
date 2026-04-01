@@ -1,5 +1,0 @@
-If you'd like, I can also show one architectural improvement that will make this cache ~20× faster in simulation when objects are 1MB–1.5MB, which is exactly your workload. yes and help with too Right now DRAM traffic will explode because you send thousands of blocks.
-
-A later optimization is merge consecutive block requests.
-
-But first make splitting work.

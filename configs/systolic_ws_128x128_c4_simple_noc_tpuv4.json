@@ -308,7 +308,7 @@
       "scalar_mul_latency": 1
     }
   },
-  "l2_size":4096,
+  "l2_size":65536,
   "enable_l2": false,
   "dram_type": "ramulator2",
   "dram_freq": 1200,

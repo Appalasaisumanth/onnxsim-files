@@ -19,6 +19,7 @@ class Sram {
   int get_size() { return _size; }
   int get_current_size(int buffer_id) { return _current_size[buffer_id]; }
   void print_all(int buffer_id);
+  void print_stats() const;                        // +
  protected:
   int _data_width;
   int _current_size[2];
@@ -37,4 +38,12 @@ class Sram {
   const cycle_type& _core_cycle;
 
   robin_hood::unordered_map<addr_type, SramEntry> _cache_table[2];
+    // ---- stats (all zero-init) ----                // +
+  uint64_t _hits        = 0;                        // +
+  uint64_t _misses      = 0;                        // +
+  uint64_t _read_hits   = 0;                        // +
+  uint64_t _write_hits  = 0;                        // +
+  uint64_t _prefetches  = 0;                        // +
+  uint64_t _bytes_requested = 0;                    // +
+  uint64_t _bytes_received  = 0;                    // +
 };

@@ -2,19 +2,11 @@
     "models": 
     [
         {
-            "name": "sample",
-            "trace_file": "input.csv",
-            "scheduler": "simple",
-            "scheduler_config": {
-                "max_batch_size": 8
-            }
-        },
-        {
             "name": "opt-125m",
             "trace_file": "input.csv",
             "scheduler": "simple",
             "scheduler_config": {
-                "max_batch_size": 8
+                "max_batch_size": 128
             }
         }
     ]

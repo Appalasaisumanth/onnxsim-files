@@ -49,7 +49,7 @@ LanguageModel::LanguageModel(json llm_config, SimulationConfig config, std::stri
   }
   _num_layers = llm_config["num_hidden_layers"];
   _num_layers /= _pipeline_parallel_size;
-  _num_sim_layers = _run_single_layer ? 1 : _num_layers;
+  _num_sim_layers = _run_single_layer ? _num_layers : _num_layers;
   _hidden_size = llm_config["hidden_size"];
   _num_kv_heads = llm_config["num_kv_heads"];
   _num_heads = llm_config["num_attention_heads"];

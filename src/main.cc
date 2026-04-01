@@ -99,9 +99,20 @@ int main(int argc, char** argv) {
         spdlog::error("Error opening file: {}", model_path);
         exit(EXIT_FAILURE);
       }
-      std::string input_trace = "input.csv";
-      cmd_parser.set_if_defined("trace_file", &input_trace);
-      model_config["trace_file"] = input_trace;
+      std::string input_trace;
+
+    // 1. If JSON already has trace_file → use it
+    if (model_config.contains("trace_file")) {
+        input_trace = model_config["trace_file"];
+    }
+    // 2. Else fallback to CLI
+    else {
+        input_trace = "input.csv";
+        cmd_parser.set_if_defined("trace_file", &input_trace);
+    }
+
+    // Set back (optional, for consistency)
+    model_config["trace_file"] = input_trace;
 
       json model_json = json::parse(model_file);
       auto model = std::make_unique<LanguageModel>(model_json, config, model_name);

@@ -29,9 +29,31 @@ static constexpr uint64_t SET_MASK   = (1u << SET_BITS) - 1;
 // 786KB / 128B = 6144 blocks. We issue all at once in one batch.
 static constexpr uint32_t MAX_MISS_Q_DEPTH  = 16834;  // large enough for one 8MB object
 static constexpr uint32_t MAX_PENDING_OBJS  = 2048;   // max simultaneous fetches
-static constexpr uint32_t BLOCK_POOL_SIZE   = MAX_MISS_Q_DEPTH + 4096;
 static constexpr uint32_t MAX_IN_PER_CYCLE  = 16;
+// Replace the broken duplicate definition and set correct size
+static constexpr uint32_t BLOCK_POOL_SIZE = MAX_MISS_Q_DEPTH * 4
+                                          + MAX_PENDING_OBJS * 32
+                                          + 8192;  // ~150K — pool should never fall back
 
+static constexpr uint32_t WB_POOL_SIZE = MAX_PENDING_OBJS * 2 + 4096; // dedicated wb pool
+// ============================================================
+// Large-object burst transfer model
+// ============================================================
+// Objects above this threshold are sent as a single HBM burst.
+// One MemoryAccess issued, cycle-accurate latency computed,
+// no per-block tracking — matches real burst controller behavior.
+static constexpr uint32_t LARGE_OBJ_THRESHOLD   = 384u * 1024u; // 384 KB
+
+// HBM2 peak bandwidth: 256 GB/s across all channels.
+// With 16 banks each on one channel: 256/16 = 16 GB/s per bank.
+// At your sim frequency (assume 1GHz → 1 cycle = 1ns):
+//   16 GB/s = 16 bytes/ns = 16 bytes/cycle per bank.
+// Tune HBM_BYTES_PER_CYCLE to match your SimulationConfig freq.
+static constexpr uint32_t HBM_BYTES_PER_CYCLE   = 16;  // bytes per cycle per bank — TUNE THIS
+
+// Minimum latency floor for any HBM access (row activation + CAS)
+// HBM2 typical: ~80ns. At 1GHz = 80 cycles.
+static constexpr uint32_t HBM_MIN_LATENCY_CYCLES = 80;
 // ============================================================
 // CacheEntry — 8 bytes
 //   [41:0]  tag     (42 bits)
@@ -134,12 +156,17 @@ struct PendingObject {
     bool      active          = false;
     int32_t   core_id         = -1;
     std::vector<MemoryAccess*> waiting_reqs;
+    uint32_t  active_slots_idx = 0;  // ADD: index of this slot in _active_slots for O(1) remove
+    uint32_t  burst_countdown   = 0;   // ADD: cycles remaining for large-obj burst
+    bool      is_burst_mode     = false; // ADD: true = single-burst, no block tracking
 
     void reset() {
         total_blocks = issued_blocks = returned_blocks = 0;
         base_addr = 0; obj_size = 0; original_id = 0;
         is_write = false; active = false; core_id = -1;
+        burst_countdown = 0; is_burst_mode = false;  // ADD
         waiting_reqs.clear();
+    
     }
 };
 
@@ -218,6 +245,7 @@ private:
     bool check_hit   (addr_type addr, uint32_t& si, uint32_t& way);
     void fill        (addr_type baddr, bool is_write, int32_t core_id);
     void writeback   (uint32_t si, uint32_t w);
+    static uint32_t compute_burst_cycles(uint32_t obj_size_bytes);
 
     // Issue next batch of block requests for a pending object.
     // Sends up to MAX_MISS_Q_DEPTH - current_depth blocks in one call.
@@ -228,6 +256,7 @@ private:
     void     free_pending_slot (uint32_t slot);
 
     bool process_one_request();
+    
 
 private:
     uint32_t   _bank_id;
@@ -235,18 +264,22 @@ private:
     uint32_t   _data_width;
     cycle_type _local_cycle = 0;
 
+
     std::array<CacheSet, NUM_SETS> _sets;
 
     std::array<PendingObject, MAX_PENDING_OBJS> _pending;
     std::vector<uint32_t> _active_slots;  // indices of active pending objects
     uint32_t _active_pending = 0;
 
-    BlockPool _pool;
-
     std::deque<MemoryAccess*> _in_q;
     std::deque<MemoryAccess*> _miss_q;
     std::deque<MemoryAccess*> _wb_q;
     std::deque<MemoryAccess*> _out_q;
+    BlockPool _pool;
+BlockPool _wb_pool;                          // ADD: separate pool for writebacks
+
+std::vector<uint32_t> _free_slots;           // ADD: O(1) alloc/free for pending slots
+std::unordered_map<uint32_t, uint32_t> _id_to_slot; // ADD: O(1) find_pending_slot
 
     // Stats
     uint64_t _hits         = 0;

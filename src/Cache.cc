@@ -8,6 +8,7 @@
 Cache::Cache(uint32_t bank_id, SimulationConfig config)
     : _bank_id(bank_id)
     , _pool(BLOCK_POOL_SIZE)
+    ,_wb_pool(WB_POOL_SIZE)          //
 {
     _size       = static_cast<uint64_t>(config.l2_size) * 1024ULL;
     _data_width = config.dram_req_size;
@@ -28,6 +29,10 @@ Cache::Cache(uint32_t bank_id, SimulationConfig config)
         p.waiting_reqs.reserve(4);
     }
     _active_slots.reserve(MAX_PENDING_OBJS);
+    _free_slots.resize(MAX_PENDING_OBJS);
+    for (uint32_t i = 0; i < MAX_PENDING_OBJS; ++i)
+        _free_slots[i] = MAX_PENDING_OBJS - 1 - i; // push in reverse so slot 0 pops first
+    _id_to_slot.reserve(MAX_PENDING_OBJS * 2);
 
     spdlog::info("[L2 {}] {}-way, {} sets, {}B block, {}MB total | "
                  "miss_q={} pending={} pool={}",
@@ -56,38 +61,38 @@ void          Cache::pop_response()     { if (!_out_q.empty()) _out_q.pop_front(
 // ============================================================
 uint32_t Cache::find_pending_slot(uint32_t obj_id) const
 {
-    // Search only active slots — O(active) not O(MAX_PENDING_OBJS)
-    for (uint32_t slot : _active_slots) {
-        if (_pending[slot].original_id == obj_id)
-            return slot;
-    }
-    return MAX_PENDING_OBJS;
+    auto it = _id_to_slot.find(obj_id);
+    return (it != _id_to_slot.end()) ? it->second : MAX_PENDING_OBJS;
 }
 
 uint32_t Cache::alloc_pending_slot()
 {
-    for (uint32_t i = 0; i < MAX_PENDING_OBJS; ++i) {
-        if (!_pending[i].active) {
-            _active_slots.push_back(i);
-            return i;
-        }
-    }
-    return MAX_PENDING_OBJS; // full
+    if (_free_slots.empty()) return MAX_PENDING_OBJS;
+    uint32_t slot = _free_slots.back();
+    _free_slots.pop_back();
+    return slot;
 }
 
 void Cache::free_pending_slot(uint32_t slot)
 {
-    _pending[slot].reset(); // sets active = false
-    // Remove from active_slots vector
-    for (auto it = _active_slots.begin(); it != _active_slots.end(); ++it) {
-        if (*it == slot) {
-            // Swap with last and pop — O(1)
-            *it = _active_slots.back();
-            _active_slots.pop_back();
-            break;
-        }
+    _id_to_slot.erase(_pending[slot].original_id);
+    _pending[slot].reset();
+    _free_slots.push_back(slot);
+
+    // O(1) removal from _active_slots using stored index
+    uint32_t idx = _pending[slot].active_slots_idx;
+    if (idx < _active_slots.size()) {
+        _active_slots[idx] = _active_slots.back();
+        // Update the moved slot's stored index
+        _pending[_active_slots[idx]].active_slots_idx = idx;
+        _active_slots.pop_back();
     }
     _active_pending--;
+}
+uint32_t Cache::compute_burst_cycles(uint32_t obj_size_bytes)
+{
+    uint32_t transfer = (obj_size_bytes + HBM_BYTES_PER_CYCLE - 1) / HBM_BYTES_PER_CYCLE;
+    return HBM_MIN_LATENCY_CYCLES + transfer;
 }
 
 // ============================================================
@@ -147,7 +152,7 @@ void Cache::writeback(uint32_t si, uint32_t w)
         addr_type baddr = (static_cast<addr_type>(e.tag) << (BLOCK_BITS + SET_BITS))
                         | (static_cast<addr_type>(si)    <<  BLOCK_BITS);
 
-        MemoryAccess* wb = _pool.alloc();
+        MemoryAccess* wb = _wb_pool.alloc(); 
         wb->dram_address = baddr;
         wb->size         = BLOCK_SIZE;
         wb->object_size  = BLOCK_SIZE;
@@ -179,16 +184,16 @@ void Cache::writeback(uint32_t si, uint32_t w)
 // ============================================================
 void Cache::issue_blocks(uint32_t slot, PendingObject& po)
 {
-    while (po.issued_blocks < po.total_blocks &&
-           _miss_q.size() < MAX_MISS_Q_DEPTH)
-    {
+    uint32_t available = MAX_MISS_Q_DEPTH - static_cast<uint32_t>(_miss_q.size());
+    uint32_t remaining = po.total_blocks - po.issued_blocks;
+    uint32_t to_issue  = std::min(available, remaining);
+
+    while (to_issue-- > 0) {
         addr_type sub_addr = po.base_addr
                            + static_cast<addr_type>(po.issued_blocks) * BLOCK_SIZE;
-
         MemoryAccess* sub = _pool.alloc();
-        if (!_pool.is_pool_ptr(sub)) _pool_fallback++;
-
-        sub->id           = slot;       // slot index for response routing
+        // pool fallback detection is the same
+        sub->id           = slot;
         sub->dram_address = sub_addr;
         sub->size         = BLOCK_SIZE;
         sub->object_size  = BLOCK_SIZE;
@@ -196,7 +201,6 @@ void Cache::issue_blocks(uint32_t slot, PendingObject& po)
         sub->request      = true;
         sub->core_id      = po.core_id;
         sub->buffer_id    = 0;
-
         _miss_q.push_back(sub);
         po.issued_blocks++;
     }
@@ -304,6 +308,9 @@ bool Cache::process_one_request()
         _in_q.push_front(req);
         return true; // return true so cycle() keeps draining other reqs
     }
+    _pending[slot].active_slots_idx = static_cast<uint32_t>(_active_slots.size());
+_active_slots.push_back(slot);
+_id_to_slot[obj_id] = slot;  
 
     PendingObject& po  = _pending[slot];
     po.total_blocks    = n_blocks;
@@ -318,6 +325,34 @@ bool Cache::process_one_request()
     po.waiting_reqs.clear();
     po.waiting_reqs.push_back(req);
     _active_pending++;
+
+    if (req->object_size >= LARGE_OBJ_THRESHOLD) {
+        po.is_burst_mode   = true;
+        po.burst_countdown = compute_burst_cycles(req->object_size);
+        po.issued_blocks   = po.total_blocks; // mark as "all issued" — no block tracking
+
+        // Issue ONE MemoryAccess representing the entire object burst.
+        // The HBM controller sees object_size and models BW correctly.
+        MemoryAccess* burst = _pool.alloc();
+        burst->id           = slot;
+        burst->dram_address = base;
+        burst->size         = req->object_size; // full object, not BLOCK_SIZE
+        burst->object_size  = req->object_size;
+        burst->write        = po.is_write;
+        burst->request      = true;
+        burst->core_id      = po.core_id;
+        burst->buffer_id    = 0;
+        _miss_q.push_back(burst);
+        // NOTE: We do NOT fill cache lines here — we fill them in cycle()
+        // once burst_countdown reaches zero, modeling the pipeline delay.
+
+    } else {
+        // ---- SMALL OBJECT: existing per-block mode ----
+        po.is_burst_mode = false;
+        issue_blocks(slot, po);
+    }
+
+    return true;
 
     // Issue ALL blocks immediately — fills miss_q up to MAX_MISS_Q_DEPTH.
     // For a 786KB object (6144 blocks) with MAX_MISS_Q_DEPTH=65536,

@@ -1,3 +1,7 @@
 models/*
 model_lists/*
 build/*
+logs/
+*.log
+logs_new_mamba_without_l2/
+logs_new_mamba_with_l2/

@@ -235,8 +235,6 @@ bool Model::check_exist_in_exeutable(uint32_t op_id) {
 }
 
 bool Model::check_regressive() {
-  spdlog::info("Check regressive: seq_len={}, past_seq_len={}, total={}", 
-               _axis_map["seq_len"], _axis_map["past_seq_len"], _axis_map["total_seq_len"]);
   if (_axis_map.find("total_seq_len") == _axis_map.end()){
     spdlog::info("No total_seq_len!");
     return false;
@@ -248,8 +246,31 @@ bool Model::check_regressive() {
   return true;
 }
 
+// void Model::prepare_regressive() {
+//   /* This method should be called when check_regressive() is true */
+//   if (_axis_map["past_seq_len"] == 0) {
+//     _axis_map["past_seq_len"] = _axis_map["seq_len"];
+//     _axis_map["seq_len"] = 1;
+//     _axis_map["total_seq_len"]++;
+//   } else {
+//     _axis_map["past_seq_len"]++;
+//     _axis_map["seq_len"] = 1;
+//     _axis_map["total_seq_len"]++;
+//   }
+
+//   _operation_map.clear();
+//   _tensor_map.clear();
+//   _executable_layer.clear();
+//   nr_skip = 0;
+//   _start_time = 0;
+//   _started = false;
+// }
+
+
+
 void Model::prepare_regressive() {
-  /* This method should be called when check_regressive() is true */
+
+  // Update sequence tracking
   if (_axis_map["past_seq_len"] == 0) {
     _axis_map["past_seq_len"] = _axis_map["seq_len"];
   _axis_map["seq_len"] = 1;

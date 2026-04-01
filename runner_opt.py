@@ -1,6 +1,7 @@
 import os
 import subprocess
 import json
+from concurrent.futures import ProcessPoolExecutor, as_completed
 
 # ===== CONFIG =====
 SIMULATOR = "./build/bin/Simulator"
@@ -9,27 +10,28 @@ CONFIG = "./configs/systolic_ws_128x128_c4_simple_noc_tpuv4.json"
 OUTPUT_DIR = "opt_logs_without_l2"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-SEQ_LENGTHS = [128, 256, 512, 1024,2048]
+SEQ_LENGTHS = [1024, 2048]
 MODELS = ["opt-125m"]
 
+MAX_WORKERS = 4
 # ==================
 
-for model in MODELS:
-    for seq in SEQ_LENGTHS:
 
-        # ---- Create CSV (generation-only) ----
-        csv_path = os.path.join(OUTPUT_DIR, f"{model}_{seq}.csv")
+def run_simulation(model, seq):
+    try:
+        # ---- Create CSV ----
+        csv_path = os.path.join("traces", f"{model}_{seq}.csv")
         with open(csv_path, "w") as f:
             f.write("time,prompt_length,target_length,cached_length\n")
             f.write(f"0,1,{seq},0\n")
 
-        # ---- Create model config ----
+        # ---- Create JSON ----
         json_path = os.path.join(OUTPUT_DIR, f"{model}_{seq}.json")
         model_json = {
             "models": [
                 {
                     "name": model,
-                    "trace_file": csv_path,
+                    "trace_file": csv_path[7:],
                     "scheduler": "simple",
                     "scheduler_config": {
                         "max_batch_size": 1
@@ -44,7 +46,7 @@ for model in MODELS:
         # ---- Run simulator ----
         log_path = os.path.join(OUTPUT_DIR, f"{model}_{seq}.log")
 
-        print(f"Running {model} seq={seq}")
+        print(f"[START] {model} seq={seq}")
 
         with open(log_path, "w") as log_file:
             subprocess.run(
@@ -52,10 +54,29 @@ for model in MODELS:
                     SIMULATOR,
                     "--config", CONFIG,
                     "--models_list", json_path,
-                    "--mode", "language"
+                    "--mode", "language",
+                    "trace_file", csv_path[8:]
                 ],
                 stdout=log_file,
                 stderr=log_file
             )
 
-print("All logs generated.")
+        print(f"[DONE]  {model} seq={seq}")
+        return f"{model}_{seq} SUCCESS"
+
+    except Exception as e:
+        return f"{model}_{seq} FAILED: {str(e)}"
+
+
+if __name__ == "__main__":
+    tasks = []
+
+    with ProcessPoolExecutor(max_workers=4) as executor:
+        for model in MODELS:
+            for seq in SEQ_LENGTHS:
+                tasks.append(executor.submit(run_simulation, model, seq))
+
+        for future in as_completed(tasks):
+            print(future.result())
+
+    print("All logs generated.")

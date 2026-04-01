@@ -11,7 +11,7 @@ import parser  # make sure parser.py is in same folder
 SIMULATOR = "./build/bin/Simulator"
 CONFIG = "./configs/systolic_ws_128x128_c4_simple_noc_tpuv4.json"
 MODELS_JSON = "example/models_list.json"
-LOG_DIR = "logs_new_mamba_without_l2"
+LOG_DIR = "logs_new2_mamba_without_l2"
 
 # Parallelism (IMPORTANT: tune based on CPU/memory)
 MAX_WORKERS = 4

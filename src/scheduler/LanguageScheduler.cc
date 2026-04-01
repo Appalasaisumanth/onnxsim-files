@@ -44,7 +44,7 @@ LangScheduler::LangScheduler(std::string name, std::string path, std::unique_ptr
   if(_scheduler_config.contains("check_mem_size"))
     _check_mem_size = _scheduler_config["check_mem_size"];
   else
-    _check_mem_size = false;
+    _check_mem_size = true;
   _cycle = 0;
   _max_dims = {_max_seq_length, _cache_dim};
   parse_request_trace(path); 
@@ -62,10 +62,6 @@ std::unique_ptr<Model> LangScheduler::pop_model() {
 }
 
 void LangScheduler::cycle() {
-  // //if(_cycle % 1000)spdlog::info("DEBUG: active_requests={}, model_queue={}, requests_in_model={}",
-  //   _active_requests.size(),
-  //   _model_queue.size(),
-  //   _requests_in_model.size());
   _cycle++;
   //Reqeust Queue to Active Requests if active is empty
   if(_active_requests.empty()) {
@@ -85,7 +81,7 @@ void LangScheduler::cycle() {
   }
 
   //Active Requests to Model Queue
-  if(!_active_requests.empty() && _model_queue.empty()) {
+  if(_model_queue.empty() && _requests_in_model.empty()) {
     init_inputs_and_model();
   }
 }
@@ -96,7 +92,7 @@ void LangScheduler::finish_model(uint32_t model_id) {
     if(!_active_requests[req_id]->gen_phase) {
       uint32_t promtp_len = _active_requests[req_id]->prompt_length;
       _active_requests[req_id]->gen_phase = true;
-      _active_requests[req_id]->current_length = promtp_len + 1;
+      _active_requests[req_id]->current_length += promtp_len + 1;
     }
     else {
       _active_requests[req_id]->current_length += 1;
@@ -160,6 +156,7 @@ void LangScheduler::parse_request_trace(std::string path) {
     request->target_length = std::stoi(cached_len) + std::stoi(prompt_length) + std::stoi(target_length);
     request->current_length = std::stoi(cached_len);
     _request_queue.push(std::move(request));
+    spdlog::info("Loaded request {}: prompt_length {}, target_length {}, cached_len {}, request_time {} cycles", id-1, prompt_length, target_length, cached_len, time_offset);
   }
   trace_file.close();
 }

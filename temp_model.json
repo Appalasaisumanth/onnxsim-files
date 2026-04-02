@@ -1,9 +1,0 @@
-{
-  "models": [
-    {
-      "name": "mamba-130m-s1-b2",
-      "batch_size": 1,
-      "seq_len": 1
-    }
-  ]
-}

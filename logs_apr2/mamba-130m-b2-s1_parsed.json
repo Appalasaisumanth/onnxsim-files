@@ -1,0 +1,1132 @@
+{
+  "_log_file": "logs_apr2/mamba-130m-b2-s1.log",
+  "_crash_reason": null,
+  "hardware_config": {
+    "num_cores": 4,
+    "dram_bandwidth_GBs": 614.0,
+    "ramulator_config": "./configs/../configs/ramulator2_configs/HBM2.yaml",
+    "interconnect": "SimpleInterconnect",
+    "tensor_parallelism": null,
+    "pipeline_parallelism": null,
+    "systolic_throughput_GFLOPS": 131072.0,
+    "spad_size_KB": 32768,
+    "accumulator_size_KB": 4096
+  },
+  "model_info": {
+    "name": null,
+    "num_layers_total": null,
+    "num_sim_layers": null,
+    "has_l2": "false",
+    "weight_size_GB": null,
+    "scheduler": null
+  },
+  "memory_usage": {
+    "total_GB": null,
+    "weight_GB": null,
+    "kv_cache_GB": null,
+    "activation_GB": null
+  },
+  "simulation_timing": {
+    "total_cycles": 640001,
+    "total_us": 640,
+    "model_init_seconds": 0.217149,
+    "wall_clock_seconds": 14.67013,
+    "avg_tiles_per_layer": 13.857044427,
+    "total_tiles": 175,
+    "tiles_per_second": 12.628956,
+    "total_compute_cycles": 8000
+  },
+  "per_core_stats": {
+    "core_0": {
+      "total_cycles": 640001,
+      "matmul_active_cycles": 402,
+      "vector_active_cycles": 7,
+      "memory_unit_idle_cycles": 613844,
+      "systolic_bubble_cycles": 0,
+      "core_idle_cycles": 272018,
+      "active_cycles": -245861,
+      "memory_idle_pct": 95.913,
+      "core_idle_pct": 42.5027,
+      "systolic_array_util_pct": 8.79,
+      "pe_util_pct": 0.06,
+      "vector_unit_util_pct": 0.0,
+      "tiles_issued": 44,
+      "tiles_finished": 44,
+      "instructions_executed": 562,
+      "instructions_per_tile": 12.77,
+      "systolic_inst_issue_count": 408,
+      "systolic_preload_count": 408,
+      "sram": {
+        "hits": 3184,
+        "misses": 482385,
+        "hit_rate": 0.0066,
+        "read_hits": 3184,
+        "write_hits": 0,
+        "prefetches": 84,
+        "bytes_requested": 13348160,
+        "bytes_received": 13360448,
+        "total_accesses": 485569
+      },
+      "acc_sram": {
+        "hits": 68,
+        "misses": 65165,
+        "hit_rate": 0.001,
+        "read_hits": 0,
+        "write_hits": 68,
+        "prefetches": 24,
+        "bytes_requested": 5696,
+        "bytes_received": 11648,
+        "total_accesses": 65233
+      }
+    },
+    "core_1": {
+      "total_cycles": 640001,
+      "matmul_active_cycles": 396,
+      "vector_active_cycles": 9,
+      "memory_unit_idle_cycles": 613761,
+      "systolic_bubble_cycles": 0,
+      "core_idle_cycles": 272009,
+      "active_cycles": -245769,
+      "memory_idle_pct": 95.9,
+      "core_idle_pct": 42.5013,
+      "systolic_array_util_pct": 8.91,
+      "pe_util_pct": 0.06,
+      "vector_unit_util_pct": 0.0,
+      "tiles_issued": 44,
+      "tiles_finished": 44,
+      "instructions_executed": 568,
+      "instructions_per_tile": 12.91,
+      "systolic_inst_issue_count": 414,
+      "systolic_preload_count": 414,
+      "sram": {
+        "hits": 3177,
+        "misses": 482878,
+        "hit_rate": 0.0065,
+        "read_hits": 3177,
+        "write_hits": 0,
+        "prefetches": 80,
+        "bytes_requested": 13385184,
+        "bytes_received": 13422048,
+        "total_accesses": 486055
+      },
+      "acc_sram": {
+        "hits": 44,
+        "misses": 24728,
+        "hit_rate": 0.0018,
+        "read_hits": 0,
+        "write_hits": 44,
+        "prefetches": 34,
+        "bytes_requested": 8608,
+        "bytes_received": 17216,
+        "total_accesses": 24772
+      }
+    },
+    "core_2": {
+      "total_cycles": 640001,
+      "matmul_active_cycles": 390,
+      "vector_active_cycles": 7,
+      "memory_unit_idle_cycles": 614600,
+      "systolic_bubble_cycles": 0,
+      "core_idle_cycles": 272005,
+      "active_cycles": -246604,
+      "memory_idle_pct": 96.0311,
+      "core_idle_pct": 42.5007,
+      "systolic_array_util_pct": 8.51,
+      "pe_util_pct": 0.06,
+      "vector_unit_util_pct": 0.0,
+      "tiles_issued": 44,
+      "tiles_finished": 44,
+      "instructions_executed": 546,
+      "instructions_per_tile": 12.41,
+      "systolic_inst_issue_count": 396,
+      "systolic_preload_count": 396,
+      "sram": {
+        "hits": 3313,
+        "misses": 477138,
+        "hit_rate": 0.0069,
+        "read_hits": 3313,
+        "write_hits": 0,
+        "prefetches": 82,
+        "bytes_requested": 12956800,
+        "bytes_received": 12981376,
+        "total_accesses": 480451
+      },
+      "acc_sram": {
+        "hits": 64,
+        "misses": 62921,
+        "hit_rate": 0.001,
+        "read_hits": 0,
+        "write_hits": 64,
+        "prefetches": 22,
+        "bytes_requested": 5184,
+        "bytes_received": 10624,
+        "total_accesses": 62985
+      }
+    },
+    "core_3": {
+      "total_cycles": 640001,
+      "matmul_active_cycles": 396,
+      "vector_active_cycles": 3,
+      "memory_unit_idle_cycles": 613751,
+      "systolic_bubble_cycles": 0,
+      "core_idle_cycles": 280001,
+      "active_cycles": -253751,
+      "memory_idle_pct": 95.8984,
+      "core_idle_pct": 43.7501,
+      "systolic_array_util_pct": 8.91,
+      "pe_util_pct": 0.06,
+      "vector_unit_util_pct": 0.0,
+      "tiles_issued": 43,
+      "tiles_finished": 43,
+      "instructions_executed": 562,
+      "instructions_per_tile": 13.07,
+      "systolic_inst_issue_count": 414,
+      "systolic_preload_count": 414,
+      "sram": {
+        "hits": 3100,
+        "misses": 482461,
+        "hit_rate": 0.0064,
+        "read_hits": 3100,
+        "write_hits": 0,
+        "prefetches": 83,
+        "bytes_requested": 13397312,
+        "bytes_received": 13397312,
+        "total_accesses": 485561
+      },
+      "acc_sram": {
+        "hits": 44,
+        "misses": 24735,
+        "hit_rate": 0.0018,
+        "read_hits": 0,
+        "write_hits": 44,
+        "prefetches": 34,
+        "bytes_requested": 8608,
+        "bytes_received": 17216,
+        "total_accesses": 24779
+      }
+    },
+    "avg_across_cores": {
+      "total_cycles": 640001.0,
+      "matmul_active_cycles": 396.0,
+      "vector_active_cycles": 6.5,
+      "memory_unit_idle_cycles": 613989.0,
+      "systolic_bubble_cycles": 0.0,
+      "core_idle_cycles": 274008.25,
+      "active_cycles": -247996.25,
+      "memory_idle_pct": 95.9356,
+      "core_idle_pct": 42.8137,
+      "systolic_array_util_pct": 8.78,
+      "pe_util_pct": 0.06,
+      "vector_unit_util_pct": 0.0,
+      "tiles_issued": 43.75,
+      "tiles_finished": 43.75,
+      "instructions_executed": 559.5,
+      "instructions_per_tile": 12.79,
+      "systolic_inst_issue_count": 408.0,
+      "systolic_preload_count": 408.0,
+      "sram": {
+        "hits": 3193.5,
+        "misses": 481215.5,
+        "read_hits": 3193.5,
+        "write_hits": 0.0,
+        "prefetches": 82.25,
+        "bytes_requested": 13271864.0,
+        "bytes_received": 13290296.0,
+        "total_accesses": 484409.0,
+        "hit_rate": 0.006593
+      },
+      "acc_sram": {
+        "hits": 55.0,
+        "misses": 44387.25,
+        "read_hits": 0.0,
+        "write_hits": 55.0,
+        "prefetches": 28.5,
+        "bytes_requested": 7024.0,
+        "bytes_received": 14176.0,
+        "total_accesses": 44442.25,
+        "hit_rate": 0.001238
+      }
+    }
+  },
+  "icnt_bandwidth": {
+    "Core_to_ICNT": {
+      "bandwidth_GBs": 0.0,
+      "total_bytes": 0
+    },
+    "Core_from_ICNT": {
+      "bandwidth_GBs": 0.0,
+      "total_bytes": 0
+    },
+    "ICNT_to_MEM": {
+      "bandwidth_GBs": 0.0,
+      "total_bytes": 0
+    },
+    "ICNT_from_MEM": {
+      "bandwidth_GBs": 0.0,
+      "total_bytes": 0
+    }
+  },
+  "dram_stats": {
+    "num_channels_found": 16,
+    "per_channel_samples": [
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 103646,
+        "total_num_write_requests": 241,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 768308,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 80044,
+        "row_misses": 1349,
+        "row_conflicts": 22494
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 103690,
+        "total_num_write_requests": 238,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 768308,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 80322,
+        "row_misses": 1172,
+        "row_conflicts": 22434
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 103690,
+        "total_num_write_requests": 239,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 768308,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 80265,
+        "row_misses": 1221,
+        "row_conflicts": 22443
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 103619,
+        "total_num_write_requests": 241,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 768308,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 80076,
+        "row_misses": 1338,
+        "row_conflicts": 22446
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 103690,
+        "total_num_write_requests": 239,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 768308,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 79846,
+        "row_misses": 1155,
+        "row_conflicts": 22928
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 103620,
+        "total_num_write_requests": 242,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 768308,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 79868,
+        "row_misses": 1299,
+        "row_conflicts": 22695
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 103618,
+        "total_num_write_requests": 240,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 768308,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 79972,
+        "row_misses": 1314,
+        "row_conflicts": 22572
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 103690,
+        "total_num_write_requests": 238,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 768308,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 80103,
+        "row_misses": 1241,
+        "row_conflicts": 22584
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 103689,
+        "total_num_write_requests": 236,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 768308,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 80130,
+        "row_misses": 1217,
+        "row_conflicts": 22578
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 103632,
+        "total_num_write_requests": 241,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 768308,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 80066,
+        "row_misses": 1289,
+        "row_conflicts": 22518
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 103621,
+        "total_num_write_requests": 243,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 768308,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 80210,
+        "row_misses": 1360,
+        "row_conflicts": 22294
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 103689,
+        "total_num_write_requests": 238,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 768308,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 80467,
+        "row_misses": 1230,
+        "row_conflicts": 22230
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 103620,
+        "total_num_write_requests": 242,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 768308,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 80042,
+        "row_misses": 1308,
+        "row_conflicts": 22512
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 103690,
+        "total_num_write_requests": 237,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 768308,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 80367,
+        "row_misses": 1316,
+        "row_conflicts": 22244
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 103689,
+        "total_num_write_requests": 237,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 768308,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 80202,
+        "row_misses": 1163,
+        "row_conflicts": 22561
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 103620,
+        "total_num_write_requests": 241,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 768308,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 79908,
+        "row_misses": 1354,
+        "row_conflicts": 22599
+      }
+    ],
+    "avg_across_channels": {
+      "total_num_read_requests": 103657.06,
+      "total_num_write_requests": 239.56,
+      "total_num_other_requests": 0.0,
+      "memory_system_cycles": 768308.0,
+      "row_hits": 80118.0,
+      "row_misses": 1270.38,
+      "row_conflicts": 22508.25,
+      "impl": "GenericDRAM",
+      "dram_impl": "HBM2",
+      "addr_mapper": "RoBaRaCoCh",
+      "scheduler": "FRFCFS",
+      "refresh_manager": "AllBank",
+      "row_hit_rate_pct": 77.1132,
+      "row_miss_rate_pct": 1.2227,
+      "row_conflict_rate_pct": 21.6641
+    },
+    "avg_bw_summary": {
+      "avg_bw_utilization_pct": 13,
+      "total_reads": 103646,
+      "total_writes": 241
+    }
+  },
+  "l2_bank_stats": {},
+  "layer_timeline": [
+    {
+      "layer": "Identity_16",
+      "finish_cycle": 8000,
+      "compute_cycles": 8000,
+      "start_cycle": 0,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_17",
+      "finish_cycle": 16000,
+      "compute_cycles": 8000,
+      "start_cycle": 8000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_18",
+      "finish_cycle": 24000,
+      "compute_cycles": 8000,
+      "start_cycle": 16000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_19",
+      "finish_cycle": 32000,
+      "compute_cycles": 8000,
+      "start_cycle": 24000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_20",
+      "finish_cycle": 40000,
+      "compute_cycles": 8000,
+      "start_cycle": 32000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_21",
+      "finish_cycle": 48000,
+      "compute_cycles": 8000,
+      "start_cycle": 40000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "Identity_22",
+      "finish_cycle": 56000,
+      "compute_cycles": 8000,
+      "start_cycle": 48000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/in_proj/Gemm",
+      "finish_cycle": 104000,
+      "compute_cycles": 48000,
+      "start_cycle": 56000,
+      "idle_cycles": 0,
+      "type": "gemm"
+    },
+    {
+      "layer": "/blocks.0/Constant",
+      "finish_cycle": 112000,
+      "compute_cycles": 8000,
+      "start_cycle": 104000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/Constant_1",
+      "finish_cycle": 120000,
+      "compute_cycles": 8000,
+      "start_cycle": 112000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/Constant_2",
+      "finish_cycle": 128000,
+      "compute_cycles": 8000,
+      "start_cycle": 120000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/Constant_3",
+      "finish_cycle": 136000,
+      "compute_cycles": 8000,
+      "start_cycle": 128000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/conv_proj/Gemm",
+      "finish_cycle": 192000,
+      "compute_cycles": 56000,
+      "start_cycle": 136000,
+      "idle_cycles": 0,
+      "type": "gemm"
+    },
+    {
+      "layer": "/blocks.0/Constant_4",
+      "finish_cycle": 200000,
+      "compute_cycles": 8000,
+      "start_cycle": 192000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/Constant_5",
+      "finish_cycle": 208000,
+      "compute_cycles": 8000,
+      "start_cycle": 200000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/Constant_6",
+      "finish_cycle": 216000,
+      "compute_cycles": 8000,
+      "start_cycle": 208000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/Constant_7",
+      "finish_cycle": 224000,
+      "compute_cycles": 8000,
+      "start_cycle": 216000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/Constant",
+      "finish_cycle": 232000,
+      "compute_cycles": 8000,
+      "start_cycle": 224000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/Constant_1",
+      "finish_cycle": 240000,
+      "compute_cycles": 8000,
+      "start_cycle": 232000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/Constant_2",
+      "finish_cycle": 248000,
+      "compute_cycles": 8000,
+      "start_cycle": 240000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/Constant_3",
+      "finish_cycle": 256000,
+      "compute_cycles": 8000,
+      "start_cycle": 248000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/Constant_4",
+      "finish_cycle": 264000,
+      "compute_cycles": 8000,
+      "start_cycle": 256000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/Constant_5",
+      "finish_cycle": 272000,
+      "compute_cycles": 8000,
+      "start_cycle": 264000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/Constant_6",
+      "finish_cycle": 280000,
+      "compute_cycles": 8000,
+      "start_cycle": 272000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/Constant_7",
+      "finish_cycle": 288000,
+      "compute_cycles": 8000,
+      "start_cycle": 280000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/conv_proj/Gemm",
+      "finish_cycle": 344000,
+      "compute_cycles": 56000,
+      "start_cycle": 288000,
+      "idle_cycles": 0,
+      "type": "gemm"
+    },
+    {
+      "layer": "/blocks.0/Slice",
+      "finish_cycle": 352000,
+      "compute_cycles": 8000,
+      "start_cycle": 344000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/Sigmoid",
+      "finish_cycle": 360000,
+      "compute_cycles": 8000,
+      "start_cycle": 352000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/Sigmoid",
+      "finish_cycle": 368000,
+      "compute_cycles": 8000,
+      "start_cycle": 360000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/Sigmoid_1",
+      "finish_cycle": 376000,
+      "compute_cycles": 8000,
+      "start_cycle": 368000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/Mul",
+      "finish_cycle": 384000,
+      "compute_cycles": 8000,
+      "start_cycle": 376000,
+      "idle_cycles": 0,
+      "type": "elementwise_mul"
+    },
+    {
+      "layer": "/blocks.1/Mul",
+      "finish_cycle": 392000,
+      "compute_cycles": 8000,
+      "start_cycle": 384000,
+      "idle_cycles": 0,
+      "type": "elementwise_mul"
+    },
+    {
+      "layer": "/blocks.0/Mul_2",
+      "finish_cycle": 400000,
+      "compute_cycles": 8000,
+      "start_cycle": 392000,
+      "idle_cycles": 0,
+      "type": "elementwise_mul"
+    },
+    {
+      "layer": "/blocks.0/x_proj/Gemm",
+      "finish_cycle": 408000,
+      "compute_cycles": 8000,
+      "start_cycle": 400000,
+      "idle_cycles": 0,
+      "type": "gemm"
+    },
+    {
+      "layer": "/blocks.0/Mul_1",
+      "finish_cycle": 416000,
+      "compute_cycles": 8000,
+      "start_cycle": 408000,
+      "idle_cycles": 0,
+      "type": "elementwise_mul"
+    },
+    {
+      "layer": "/blocks.1/x_proj/Gemm",
+      "finish_cycle": 424000,
+      "compute_cycles": 8000,
+      "start_cycle": 416000,
+      "idle_cycles": 0,
+      "type": "gemm"
+    },
+    {
+      "layer": "/blocks.1/Mul_1",
+      "finish_cycle": 432000,
+      "compute_cycles": 8000,
+      "start_cycle": 424000,
+      "idle_cycles": 0,
+      "type": "elementwise_mul"
+    },
+    {
+      "layer": "/blocks.0/Slice_1",
+      "finish_cycle": 440000,
+      "compute_cycles": 8000,
+      "start_cycle": 432000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/Slice_1",
+      "finish_cycle": 448000,
+      "compute_cycles": 8000,
+      "start_cycle": 440000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.0/ssm_out/Gemm",
+      "finish_cycle": 472000,
+      "compute_cycles": 24000,
+      "start_cycle": 448000,
+      "idle_cycles": 0,
+      "type": "gemm"
+    },
+    {
+      "layer": "/blocks.1/ssm_out/Gemm",
+      "finish_cycle": 496000,
+      "compute_cycles": 24000,
+      "start_cycle": 472000,
+      "idle_cycles": 0,
+      "type": "gemm"
+    },
+    {
+      "layer": "/blocks.0/Add",
+      "finish_cycle": 504000,
+      "compute_cycles": 8000,
+      "start_cycle": 496000,
+      "idle_cycles": 0,
+      "type": "elementwise_add"
+    },
+    {
+      "layer": "/blocks.1/Add",
+      "finish_cycle": 512000,
+      "compute_cycles": 8000,
+      "start_cycle": 504000,
+      "idle_cycles": 0,
+      "type": "elementwise_add"
+    },
+    {
+      "layer": "/blocks.0/Mul_3",
+      "finish_cycle": 520000,
+      "compute_cycles": 8000,
+      "start_cycle": 512000,
+      "idle_cycles": 0,
+      "type": "elementwise_mul"
+    },
+    {
+      "layer": "/blocks.0/out_proj/Gemm",
+      "finish_cycle": 536000,
+      "compute_cycles": 16000,
+      "start_cycle": 520000,
+      "idle_cycles": 0,
+      "type": "gemm"
+    },
+    {
+      "layer": "/blocks.1/in_proj/Gemm",
+      "finish_cycle": 592000,
+      "compute_cycles": 56000,
+      "start_cycle": 536000,
+      "idle_cycles": 0,
+      "type": "gemm"
+    },
+    {
+      "layer": "/blocks.1/Slice",
+      "finish_cycle": 600000,
+      "compute_cycles": 8000,
+      "start_cycle": 592000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/Sigmoid_1",
+      "finish_cycle": 608000,
+      "compute_cycles": 8000,
+      "start_cycle": 600000,
+      "idle_cycles": 0,
+      "type": "other"
+    },
+    {
+      "layer": "/blocks.1/Mul_2",
+      "finish_cycle": 616000,
+      "compute_cycles": 8000,
+      "start_cycle": 608000,
+      "idle_cycles": 0,
+      "type": "elementwise_mul"
+    },
+    {
+      "layer": "/blocks.1/Mul_3",
+      "finish_cycle": 624000,
+      "compute_cycles": 8000,
+      "start_cycle": 616000,
+      "idle_cycles": 0,
+      "type": "elementwise_mul"
+    },
+    {
+      "layer": "/blocks.1/out_proj/Gemm",
+      "finish_cycle": 640000,
+      "compute_cycles": 16000,
+      "start_cycle": 624000,
+      "idle_cycles": 0,
+      "type": "gemm"
+    }
+  ],
+  "gemm_ops": [
+    {
+      "K": 6144,
+      "N": 1,
+      "M": 1536,
+      "gflops": 0.018875906,
+      "data_GB": 0.018892799,
+      "theoretical_ms": 0.030770032026339322,
+      "compute_ms": 0.00014401173586975347,
+      "memory_ms": 0.030770032026339322,
+      "bound": "memory",
+      "arithmetic_intensity": 0.9991
+    },
+    {
+      "K": 6144,
+      "N": 1,
+      "M": 1536,
+      "gflops": 0.018875906,
+      "data_GB": 0.018892799,
+      "theoretical_ms": 0.030770032026339322,
+      "compute_ms": 0.00014401173586975347,
+      "memory_ms": 0.030770032026339322,
+      "bound": "memory",
+      "arithmetic_intensity": 0.9991
+    }
+  ],
+  "attention_ops": [],
+  "object_size_histogram": {
+    "entries": [
+      {
+        "size_bytes": 393216,
+        "count": 147456,
+        "total_bytes": 57982058496,
+        "cumulative_bytes": 57982058496,
+        "bytes_fraction_pct": 5.5349
+      },
+      {
+        "size_bytes": 4096,
+        "count": 3072,
+        "total_bytes": 12582912,
+        "cumulative_bytes": 57994641408,
+        "bytes_fraction_pct": 0.0012
+      },
+      {
+        "size_bytes": 786432,
+        "count": 1179648,
+        "total_bytes": 927712935936,
+        "cumulative_bytes": 985707577344,
+        "bytes_fraction_pct": 88.5591
+      },
+      {
+        "size_bytes": 32,
+        "count": 56,
+        "total_bytes": 1792,
+        "cumulative_bytes": 985707579136,
+        "bytes_fraction_pct": 0.0
+      },
+      {
+        "size_bytes": 196608,
+        "count": 294912,
+        "total_bytes": 57982058496,
+        "cumulative_bytes": 1043689637632,
+        "bytes_fraction_pct": 5.5349
+      },
+      {
+        "size_bytes": 256,
+        "count": 1728,
+        "total_bytes": 442368,
+        "cumulative_bytes": 1043690080000,
+        "bytes_fraction_pct": 0.0
+      },
+      {
+        "size_bytes": 245760,
+        "count": 15360,
+        "total_bytes": 3774873600,
+        "cumulative_bytes": 1047464953600,
+        "bytes_fraction_pct": 0.3603
+      },
+      {
+        "size_bytes": 6144,
+        "count": 13440,
+        "total_bytes": 82575360,
+        "cumulative_bytes": 1047547528960,
+        "bytes_fraction_pct": 0.0079
+      },
+      {
+        "size_bytes": 160,
+        "count": 50,
+        "total_bytes": 8000,
+        "cumulative_bytes": 1047547536960,
+        "bytes_fraction_pct": 0.0
+      },
+      {
+        "size_bytes": 3072,
+        "count": 4224,
+        "total_bytes": 12976128,
+        "cumulative_bytes": 1047560513088,
+        "bytes_fraction_pct": 0.0012
+      },
+      {
+        "size_bytes": 1536,
+        "count": 2400,
+        "total_bytes": 3686400,
+        "cumulative_bytes": 1047564199488,
+        "bytes_fraction_pct": 0.0004
+      }
+    ],
+    "total_bytes": 1047564199488,
+    "total_count": 1662346,
+    "num_size_classes": 11,
+    "top_5_by_bytes": [
+      {
+        "size_bytes": 786432,
+        "count": 1179648,
+        "total_bytes": 927712935936,
+        "cumulative_bytes": 985707577344,
+        "bytes_fraction_pct": 88.5591
+      },
+      {
+        "size_bytes": 393216,
+        "count": 147456,
+        "total_bytes": 57982058496,
+        "cumulative_bytes": 57982058496,
+        "bytes_fraction_pct": 5.5349
+      },
+      {
+        "size_bytes": 196608,
+        "count": 294912,
+        "total_bytes": 57982058496,
+        "cumulative_bytes": 1043689637632,
+        "bytes_fraction_pct": 5.5349
+      },
+      {
+        "size_bytes": 245760,
+        "count": 15360,
+        "total_bytes": 3774873600,
+        "cumulative_bytes": 1047464953600,
+        "bytes_fraction_pct": 0.3603
+      },
+      {
+        "size_bytes": 6144,
+        "count": 13440,
+        "total_bytes": 82575360,
+        "cumulative_bytes": 1047547528960,
+        "bytes_fraction_pct": 0.0079
+      }
+    ],
+    "avg_object_size": 630172.18,
+    "largest_object_bytes": 786432
+  },
+  "summary_metrics": {
+    "total_compute_GFLOPs": 0.037752,
+    "effective_TFLOPS": 0.0,
+    "total_simulated_cycles": 640001,
+    "wall_clock_seconds": 14.67013,
+    "tiles_per_second": 12.628956,
+    "simulated_cycles_per_wall_second": 43626.0,
+    "avg_systolic_util_pct": 8.78,
+    "avg_pe_util_pct": 0.06,
+    "avg_memory_idle_pct": 95.9356,
+    "avg_core_idle_pct": 42.8137,
+    "total_sram_hits": 12774,
+    "total_sram_misses": 1924862,
+    "total_sram_hit_rate": 0.006593,
+    "total_acc_sram_hits": 220,
+    "total_acc_sram_misses": 177549,
+    "total_acc_sram_hit_rate": 0.001238,
+    "dram_avg_bw_utilization_pct": 13,
+    "dram_total_reads": 103646,
+    "dram_total_writes": 241,
+    "gemm_memory_bound_fraction": 1.0,
+    "gemm_avg_arithmetic_intensity": 0.9991,
+    "compute_cycles_by_layer_type": {
+      "other": 248000,
+      "gemm": 312000,
+      "elementwise_mul": 64000,
+      "elementwise_add": 16000
+    },
+    "layer_count_by_type": {
+      "other": 31,
+      "gemm": 10,
+      "elementwise_mul": 8,
+      "elementwise_add": 2
+    }
+  }
+}

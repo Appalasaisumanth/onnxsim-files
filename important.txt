@@ -8,3 +8,92 @@ finish_cycle	Link traversal latency
 out_buffers[dest]	Egress port queue
 RR arbitration	Crossbar arbiter
 1 push / cycle	Port bandwidth limit
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Mamba recurrent state carry — simulator integration patch
+//
+// PROBLEM:
+//   prepare_regressive() calls _operation_map.clear() and _tensor_map.clear(),
+//   then the next initialize() call re-zeros all input tensors.
+//   For Transformer: correct — KV cache is rebuilt by re-running the prefill.
+//   For Mamba: WRONG — conv_state and ssm_state are the "KV cache equivalent"
+//   and must carry over from step N to step N+1 unchanged.
+//
+// FIX:
+//   Before clearing the maps, capture the output state tensors from the
+//   just-finished step.  After re-initialize(), overwrite the input state
+//   tensors with the captured values.
+//
+// HOW TO INTEGRATE:
+//   1. Add _carry_states map (output name → tensor data) to Model class.
+//   2. In prepare_regressive(), call capture_output_states() before clearing.
+//   3. In initialize() (or after it), call restore_input_states().
+//
+// ─────────────────────────────────────────────────────────────────────────────
+
+// ── Add to Model class (model.h) ─────────────────────────────────────────────
+
+/*
+private:
+    // Maps ONNX output tensor name → raw float data (for state carry).
+    // Populated before prepare_regressive(), consumed after initialize().
+    std::unordered_map<std::string, std::vector<float>> _carry_states;
+
+    // True if this model's recurrence is Mamba-style (state carry needed).
+    bool _is_mamba = false;
+
+public:
+    void set_mamba_mode(bool v) { _is_mamba = v; }
+    bool is_mamba()       const { return _is_mamba; }
+*/
+
+
+// ── How to detect Mamba vs Transformer in your model loader ──────────────────
+//
+// Option A: check the ONNX graph for the presence of "conv_state" input.
+//
+//   for (const auto& input : graph.input()) {
+//       if (input.name() == "conv_state" ||
+//           input.name().find("conv_state_") != std::string::npos) {
+//           model->set_mamba_mode(true);
+//           break;
+//       }
+//   }
+//
+// Option B: add a "model_type": "mamba" field to models_list.json and read it.
+//
+//   if (model_config["model_type"] == "mamba") model->set_mamba_mode(true);
+//
+// ─────────────────────────────────────────────────────────────────────────────
+
+
+// ── Memory footprint comparison (why S=1 matters) ────────────────────────────
+//
+// mamba-130m, d_inner=1536, d_conv=4, d_state=16, float16:
+//
+//   OLD (S=8192):
+//     conv_state: 8192 * 1536 * 4  * 2 bytes = 100.7 MB  per block
+//     ssm_state:  8192 * 1536 * 16 * 2 bytes = 402.7 MB  per block
+//     Total for 24 blocks: 24 * 503 MB = ~12 GB  ← the 6x blowup
+//
+//   NEW (S=1):
+//     conv_state: 1    * 1536 * 4  * 2 bytes = 12.3 KB  per block
+//     ssm_state:  1    * 1536 * 16 * 2 bytes = 49.2 KB  per block
+//     Total for 24 blocks: 24 * 61.5 KB = 1.5 MB  ← correct
+//
+// The 6x vs OPT is because OPT's KV cache for 8192 tokens with d_model=768,
+// 12 heads, 12 layers is roughly: 2 * 8192 * 768 * 12 * 2 bytes = 288 MB.
+// Mamba at S=1 has ~1.5 MB of state — orders of magnitude smaller.
+// ─────────────────────────────────────────────────────────────────────────────

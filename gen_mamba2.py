@@ -468,21 +468,6 @@ if __name__ == "__main__":
 
     EXPORT_VARIANTS = [
         ("mamba-130m",  1,  2),
-        ("mamba-130m",  2, 2),
-        ("mamba-130m",  128,  2),
-        ("mamba-130m",  256, 2),
-        ("mamba-130m",  512,  2),
-        ("mamba-130m",  1024, 2),
-        ("mamba-130m",  2048,  2),
-        ("mamba-130m",  8192, 2),
-        ("mamba-370m",  1,  2),
-        ("mamba-370m",  128, 2),
-        ("mamba-790m",  1,  2),
-        ("mamba-790m",  128, 2),
-        ("mamba-1.4b",  1,  2),
-        ("mamba-1.4b",  128, 2),
-        ("mamba-2.8b",  1,  2),
-        ("mamba-2.8b",  128, 2),
     ]
 
     entries = []

@@ -23,7 +23,7 @@ def run_single_model(model):
     name = model["name"]
 
     temp_file = f"temp_{name}.json"
-    log_file = os.path.join(LOG_DIR, f"{name}.log")
+    log_file = os.path.join(LOG_DIR, f"{name[:-2]}s{model.get('output_seq_len', 1)}.log")
 
     try:
         print(f"🚀 Running: {name}")

@@ -30,8 +30,16 @@ Gemm::Gemm(SimulationConfig config, Model* model, onnx::NodeProto& node_proto, u
     }
   }
 
+
   _input_shape = get_input(0)->get_dims();
   _weight_shape = get_input(1)->get_dims();
+  if (_input_shape.size() != 2 || _weight_shape.size() != 2) {
+    spdlog::error("GEMM ONLY SUPPORTS 2D");
+    spdlog::info("INPUT SHAPE: [{} {}]", _input_shape[0], _input_shape[1]);
+spdlog::info("WEIGHT SHAPE: [{} {}]", _weight_shape[0], _weight_shape[1]);
+    throw std::runtime_error("Invalid GEMM input");
+}
+
   _output_shape = _input_shape;
   _output_shape[_input_shape.size()-2+Ndim] = _input_shape[_input_shape.size()-2 + Ndim];
   _output_shape[_input_shape.size()-2+Cdim] = _weight_shape[Mdim];

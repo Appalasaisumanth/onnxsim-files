@@ -131,7 +131,6 @@ class MambaBlock(nn.Module):
             nn.init.zeros_(linear.bias)
 
     def forward(self, x, conv_state_flat, ssm_state):
-        S  = x.shape[0]
         di = self.d_inner
         ds = self.d_state
         dr = self.dt_rank
@@ -159,30 +158,17 @@ class MambaBlock(nn.Module):
         # ─────────────────────────────────────────
         # 🔥 FIX: true recurrence ONLY for S == 1
         # ─────────────────────────────────────────
-        if S == 1:
-            h = ssm_state.reshape(di, ds)
+        h = ssm_state.reshape(di, ds)
 
-            dt1 = dt[0].unsqueeze(-1)
-            B1  = B[0].unsqueeze(0)
-            xa1 = xa[0].unsqueeze(-1)
+        dt1 = dt[0].unsqueeze(-1)
+        B1  = B[0].unsqueeze(0)
+        xa1 = xa[0].unsqueeze(-1)
 
-            dA  = torch.exp(dt1 * A)
-            dB  = dt1 * B1
+        dA  = torch.exp(dt1 * A)
+        dB  = dt1 * B1
 
-            new_h  = dA * h + dB * xa1
-            new_ss = new_h.reshape(1, di * ds)
-
-        else:
-            # KEEP YOUR ORIGINAL PARALLEL PATH
-            dt3 = dt.unsqueeze(-1)
-            dA  = torch.exp(dt3 * A.unsqueeze(0))
-            B3  = B.unsqueeze(1)
-            dB  = dt3 * B3
-            xa3 = xa.unsqueeze(-1)
-
-            h      = ssm_state.reshape(S, di, ds)
-            new_h  = dA * h + dB * xa3
-            new_ss = new_h.reshape(S, di * ds)
+        new_h  = dA * h + dB * xa1
+        new_ss = new_h.reshape(1, di * ds)
 
         # 6. readout
         y_ssm = self.ssm_out(C)
@@ -382,7 +368,7 @@ def export_model(model_name, cfg, seq_len=1, n_blocks=1):
     d_state=cfg["d_state"]; d_conv=cfg["d_conv"]; dt_rank=cfg["dt_rank"]
     S=seq_len
 
-    stem   = f"{model_name}-s{S}-b{n_blocks}"
+    stem   = f"{model_name}-b{n_blocks}-s{S}"
     folder = f"models/{stem}"
     os.makedirs(folder, exist_ok=True)
     onnx_path = os.path.join(folder, f"{stem}.onnx")
@@ -468,6 +454,12 @@ if __name__ == "__main__":
 
     EXPORT_VARIANTS = [
         ("mamba-130m",  1,  2),
+        ("mamba-130m",  2,  2),
+        ("mamba-130m",  128,  2),
+        ("mamba-130m",  256,  2),
+        ("mamba-130m",  512,  2),
+        ("mamba-130m",  1024,  2),
+        ("mamba-130m",  2048,  2),
     ]
 
     entries = []

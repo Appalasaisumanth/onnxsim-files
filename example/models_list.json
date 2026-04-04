@@ -1,55 +1,102 @@
 {
   "models": [
     {
-      "name": "mamba-130m-s1-b2",
+      "name": "mamba_130m",
       "batch_size": 1,
       "seq_len": 1,
       "past_seq_len": 0,
       "total_seq_len": 0,
       "output_seq_len": 1
     },
-    {
-      "name": "mamba-130m-s1-b2",
+     {
+      "name": "mamba_130m",
       "batch_size": 1,
       "seq_len": 1,
       "past_seq_len": 0,
       "total_seq_len": 0,
       "output_seq_len": 2
     },
-    {
-      "name": "mamba-130m-s1-b2",
+     {
+      "name": "mamba_130m",
+      "batch_size": 1,
+      "seq_len": 1,
+      "past_seq_len": 0,
+      "total_seq_len": 0,
+      "output_seq_len": 4
+    },
+     {
+      "name": "mamba_130m",
+      "batch_size": 1,
+      "seq_len": 1,
+      "past_seq_len": 0,
+      "total_seq_len": 0,
+      "output_seq_len": 8
+    },
+     {
+      "name": "mamba_130m",
+      "batch_size": 1,
+      "seq_len": 1,
+      "past_seq_len": 0,
+      "total_seq_len": 0,
+      "output_seq_len": 16
+    },
+     {
+      "name": "mamba_130m",
+      "batch_size": 1,
+      "seq_len": 1,
+      "past_seq_len": 0,
+      "total_seq_len": 0,
+      "output_seq_len": 32
+    },
+     {
+      "name": "mamba_130m",
+      "batch_size": 1,
+      "seq_len": 1,
+      "past_seq_len": 0,
+      "total_seq_len": 0,
+      "output_seq_len": 64
+    },
+     {
+      "name": "mamba_130m",
       "batch_size": 1,
       "seq_len": 1,
       "past_seq_len": 0,
       "total_seq_len": 0,
       "output_seq_len": 128
     },
-    {
-      "name": "mamba-130m-s1-b2",
+     {
+      "name": "mamba_130m",
       "batch_size": 1,
       "seq_len": 1,
       "past_seq_len": 0,
       "total_seq_len": 0,
       "output_seq_len": 256
     },
-    {
-      "name": "mamba-130m-s1-b2",
+     {
+      "name": "mamba_130m",
       "batch_size": 1,
       "seq_len": 1,
       "past_seq_len": 0,
       "total_seq_len": 0,
       "output_seq_len": 512
     },
-    {
-      "name": "mamba-130m-s1-b2",
+     {
+      "name": "mamba_130m",
       "batch_size": 1,
       "seq_len": 1,
       "past_seq_len": 0,
       "total_seq_len": 0,
       "output_seq_len": 1024
+    }, {
+      "name": "mamba_130m",
+      "batch_size": 1,
+      "seq_len": 1,
+      "past_seq_len": 0,
+      "total_seq_len": 0,
+      "output_seq_len": 1536
     },
     {
-      "name": "mamba-130m-s1-b2",
+      "name": "mamba_130m",
       "batch_size": 1,
       "seq_len": 1,
       "past_seq_len": 0,

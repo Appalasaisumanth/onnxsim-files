@@ -16,60 +16,190 @@ static uint32_t shape_flatten(const std::vector<uint32_t>& shape) {
 void ShapeOp::resolve_output_shape(onnx::NodeProto& node_proto) {
     const std::string& optype = node_proto.op_type();
 
-    // ── ops whose output shape == input shape ─────────────────────────────
-    if (optype == "Transpose" ||
-        optype == "Identity"  ||
-        optype == "Expand") {
+    // ─────────────────────────────────────────────────────────────
+    // Identity-like ops
+    // ─────────────────────────────────────────────────────────────
+    if (optype == "Identity" || optype == "Transpose") {
         _output_shape = _input_shape;
         return;
     }
 
-    // ── Flatten: merge axes [_axis, N) into one dimension ────────────────
-    if (optype == "Flatten") {
-        uint32_t outer = 1, inner = 1;
-        for (uint32_t i = 0; i < _input_shape.size(); ++i) {
-            if (i < _axis) outer *= _input_shape[i];
-            else           inner *= _input_shape[i];
+    // ─────────────────────────────────────────────────────────────
+    // Shape
+    // ─────────────────────────────────────────────────────────────
+    if (optype == "Shape") {
+        _output_shape = { (uint32_t)_input_shape.size() };
+        return;
+    }
+
+    // ─────────────────────────────────────────────────────────────
+    // Expand
+    // ─────────────────────────────────────────────────────────────
+    if (optype == "Expand") {
+        _output_shape = get_input(1)->get_dims();  // target shape
+        return;
+    }
+
+    // ─────────────────────────────────────────────────────────────
+    // Concat
+    // ─────────────────────────────────────────────────────────────
+    if (optype == "Concat") {
+        int axis = 0;
+        for (auto& attr : node_proto.attribute()) {
+            if (attr.name() == "axis") axis = attr.i();
         }
-        _output_shape = {outer, inner};
+
+        _output_shape = get_input(0)->get_dims();
+
+        uint32_t sum = 0;
+        for (int i = 0; i < node_proto.input_size(); i++) {
+            sum += get_input(i)->get_dims()[axis];
+        }
+
+        _output_shape[axis] = sum;
         return;
     }
 
-    // ── Unsqueeze / Squeeze: shape changes size but element count is same ─
-    if (optype == "Unsqueeze" || optype == "Squeeze") {
-        // Conservative: keep same flat count; actual shape resolved by graph.
-        _output_shape = _input_shape;
-        return;
-    }
-
-    // ── Reshape: output shape pre-registered in the model graph ──────────
+    // ─────────────────────────────────────────────────────────────
+    // Reshape (FIXED)
+    // ─────────────────────────────────────────────────────────────
     if (optype == "Reshape") {
-        // The target shape is the second input tensor (an int64 constant).
-        // We cannot resolve it at construction time without value propagation,
-        // so we fall back to the flat element count as a 1-D shape.
-        _output_shape = {shape_flatten(_input_shape)};
+        auto target = get_input(1)->get_dims(); // fallback
+
+        _output_shape.clear();
+
+        uint32_t known_product = 1;
+        int minus_one_idx = -1;
+
+        for (int i = 0; i < target.size(); i++) {
+            int dim = target[i];
+
+            if (dim == 0) {
+                _output_shape.push_back(_input_shape[i]);
+                known_product *= _input_shape[i];
+            }
+            else if (dim == -1) {
+                minus_one_idx = i;
+                _output_shape.push_back(1); // temp
+            }
+            else {
+                _output_shape.push_back(dim);
+                known_product *= dim;
+            }
+        }
+
+        // handle -1
+        if (minus_one_idx != -1) {
+            uint32_t total = shape_flatten(_input_shape);
+            _output_shape[minus_one_idx] = total / known_product;
+        }
+
         return;
     }
 
-    // ── Gather: output shape depends on indices tensor – use input shape ──
+    // ─────────────────────────────────────────────────────────────
+    // Slice (SAFE fallback)
+    // ─────────────────────────────────────────────────────────────
+   
+       if (optype == "Slice") {
+    // 🔥 DO NOT guess shape
+    // Instead, use pre-defined tensor from model graph
+
+    Tensor* out_tensor = _model->find_tensor(node_proto.output(0));
+
+    if (out_tensor != nullptr && !out_tensor->get_dims().empty()) {
+        _output_shape = out_tensor->get_dims();
+    } else {
+        // fallback (safe)
+        _output_shape = _input_shape;
+    }
+
+    return;
+}
+    
+
+    // ─────────────────────────────────────────────────────────────
+    // ReduceSum
+    // ─────────────────────────────────────────────────────────────
+    if (optype == "ReduceSum") {
+        bool keepdims = true;
+
+        for (auto& attr : node_proto.attribute()) {
+            if (attr.name() == "keepdims") {
+                keepdims = attr.i();
+            }
+        }
+
+        _output_shape = _input_shape;
+
+        if (!_output_shape.empty()) {
+            if (keepdims) {
+                _output_shape.back() = 1;
+            } else {
+                _output_shape.pop_back();
+            }
+        }
+
+        if (_output_shape.empty()) _output_shape = {1};
+
+        return;
+    }
+
+    // ─────────────────────────────────────────────────────────────
+    // Unsqueeze
+    // ─────────────────────────────────────────────────────────────
+    if (optype == "Unsqueeze") {
+        _output_shape = _input_shape;
+
+        // ideally read axes input → fallback append
+        _output_shape.push_back(1);
+
+        return;
+    }
+
+    // ─────────────────────────────────────────────────────────────
+    // Squeeze
+    // ─────────────────────────────────────────────────────────────
+    if (optype == "Squeeze") {
+        _output_shape.clear();
+
+        for (auto d : _input_shape) {
+            if (d != 1) _output_shape.push_back(d);
+        }
+
+        if (_output_shape.empty()) _output_shape = {1};
+
+        return;
+    }
+
+    // ─────────────────────────────────────────────────────────────
+    // Gather
+    // ─────────────────────────────────────────────────────────────
     if (optype == "Gather") {
         _output_shape = _input_shape;
         return;
     }
 
-    // ── Constant / ConstantOfShape: no input tensor ───────────────────────
+    // ─────────────────────────────────────────────────────────────
+    // Constant / ConstantOfShape
+    // ─────────────────────────────────────────────────────────────
     if (optype == "Constant" || optype == "ConstantOfShape") {
-        // The value / shape is encoded in node attributes.
-        // Emit a minimal 1-element tensor; the real shape comes from the
-        // pre-defined tensor already registered in the model graph.
         _output_shape = {1};
         return;
     }
 
-    // ── fallback ──────────────────────────────────────────────────────────
+    // ─────────────────────────────────────────────────────────────
+    // fallback
+    // ─────────────────────────────────────────────────────────────
+    spdlog::info("[ShapeOp] {} -> input: ", optype);
+for (auto d : _input_shape) std::cerr << d << " ";
+
+std::cerr << " | output: ";
+for (auto d : _output_shape) std::cerr << d << " ";
+
+std::cerr << std::endl;
     _output_shape = _input_shape;
 }
-
 // ─────────────────────────────────────────────────────────────────────────────
 // Constructors
 // ─────────────────────────────────────────────────────────────────────────────
@@ -91,7 +221,7 @@ ShapeOp::ShapeOp(SimulationConfig config, Model* model,
         }
         if (_axis == 0) _axis = 1;  // ONNX default for Flatten is 1
     }
-
+    
     // ── input shape ──────────────────────────────────────────────────────
     // Constant / ConstantOfShape have no data input – guard accordingly.
     if (optype == "Constant" || optype == "ConstantOfShape") {

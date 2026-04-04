@@ -1,0 +1,15 @@
+\begin{table}[h]\centering
+    \caption{Per-operation cycle distribution}
+    \label{tab:layer_breakdown}
+    \begin{tabular}{lcc}\hline
+    Operation & Mamba-130M (\%) & OPT-125M (\%) \\\hline
+        FFN FC2 & N/A & 15.76\% \\
+    FFN FC1 & N/A & 15.76\% \\
+    QKV Projection & N/A & 13.13\% \\
+    Attn Projection & N/A & 15.76\% \\
+    Attention & N/A & 31.70\% \\
+    GEMM & 48.15\% & N/A \\
+    Elementwise Mul & 10.12\% & N/A \\
+    Elementwise Add & 2.53\% & N/A \\
+    Other & 39.20\% & N/A \\
+\hline\end{tabular}\end{table}

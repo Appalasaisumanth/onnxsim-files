@@ -106,6 +106,7 @@ std::unique_ptr<Operation> OperationFactory::create_operation(
       op == "ConstantOfShape" ||
       op == "Concat"          ||
       op == "ReduceSum"       ||
+      op == "Shape"           ||
       op == "Identity") {
     return std::make_unique<ShapeOp>(_config, model, node_proto, target_core);
   }
@@ -222,6 +223,7 @@ std::unique_ptr<Operation> OperationFactory::copy_operation(Operation* op) {
       optype == "Concat"          ||
       optype == "Constant"        ||
       optype == "ConstantOfShape" ||
+      optype == "Shape"           ||
       optype == "Identity") {
     return std::make_unique<ShapeOp>(*dynamic_cast<ShapeOp*>(op));
   }

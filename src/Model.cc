@@ -11,6 +11,8 @@ Model::Model(std::string onnx_path, json model_config, SimulationConfig config, 
   _root_node_id = generate_id();
   _config = config;
   _model_config = model_config;
+  //  for (auto& it : _model_config.items()) {
+  // spdlog::info("Config {}: {}", it.key(), it.value());}
   if (_model_config.contains("request_time"))
     _request_time = uint64_t(double(_model_config["request_time"]) * 1000 * 1000 * 1000); // Pico seconds
   else
@@ -22,8 +24,25 @@ Model::Model(std::string onnx_path, json model_config, SimulationConfig config, 
   if (_model_config.contains("target_core")) {
     _target_core = uint32_t(_model_config["target_core"]);
   }
+  if( _model_config.contains("output_seq_len")) {
+    _axis_map["output_seq_len"] = uint32_t(_model_config["output_seq_len"]);
+  }
+  if(_model_config.contains("seq_len")) {
+    _axis_map["seq_len"]        = _model_config.value("seq_len", 1);
+  }
+  if(_model_config.contains("past_seq_len")) {
+    _axis_map["past_seq_len"]   = _model_config.value("past_seq_len", 0);
+  }
+  if(_model_config.contains("total_seq_len")) {
+    _axis_map["total_seq_len"]  = _model_config.value("total_seq_len", 0);
+  }
+  if (_model_config.contains("batch_size")) {
+    _axis_map["batch"] = _model_config.value("batch_size", 1);
+  }
+  // for (auto& it : _axis_map) {
+  //   spdlog::info("Axis {}: {}", it.first, it.second);
+  // }
 }
-
 Model::Model(json model_config, SimulationConfig config, std::string name)
       :_model_config(model_config), _config(config), _name(name) {
   _id = generate_id(); 
@@ -79,8 +98,26 @@ void Model::initialize_model(std::vector<std::unique_ptr<Tensor>>& weight_table)
           input_dim.push_back(_axis_map[dim_param]);
         else {
           /* Fallback to config file and read dynamic axis */
-          input_dim.push_back(_model_config[dim_param]);
-          _axis_map[dim_param] = _model_config[dim_param];
+          // input_dim.push_back(_model_config[dim_param]);
+          // _axis_map[dim_param] = _model_config[dim_param];
+                        uint32_t val = 1;
+
+              if (_model_config.contains(dim_param) && !_model_config[dim_param].is_null()) {
+                  val = _model_config[dim_param];
+              }
+              else if (dim_param == "batch") {
+                  val = _model_config.value("batch_size", 1);
+              }
+              else {
+                  spdlog::warn("Unknown dynamic axis: {}, defaulting to 1", dim_param);
+              }
+if (_model_config.contains(dim_param) && _model_config[dim_param].is_number()) {
+    input_dim.push_back(_model_config[dim_param].get<uint32_t>());
+} else {
+    spdlog::error("Missing or invalid key: {}", dim_param);
+    throw std::runtime_error("Invalid JSON config");
+}
+              _axis_map[dim_param] = val;
         }
       } else {
         input_dim.push_back(dim_value);
@@ -237,6 +274,12 @@ bool Model::check_exist_in_exeutable(uint32_t op_id) {
 bool Model::check_regressive() {
   if (_axis_map.find("total_seq_len") == _axis_map.end()){
     spdlog::info("No total_seq_len!");
+    for(auto it: _axis_map) {
+      spdlog::info("Axis {}: {}", it.first, it.second);
+    }
+    for (auto& it : _model_config.items()) {
+  spdlog::info("Config {}: {}", it.key(), it.value());
+}
     return false;
   }
   if ((_axis_map["total_seq_len"]+1) == _model_config["output_seq_len"]) {

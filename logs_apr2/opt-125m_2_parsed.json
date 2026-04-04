@@ -835,6 +835,16 @@
       "ffn_activation": 2,
       "ffn_fc2": 2,
       "ffn_layernorm": 2
-    }
+    },
+    "histogram_total_bytes": 347917467648,
+    "histogram_total_count": 892320,
+    "histogram_avg_object_size": 389902.13,
+    "histogram_num_size_classes": 7,
+    "histogram_top1_size_bytes": 786432,
+    "histogram_top1_total_bytes": 231928233984,
+    "histogram_top1_bytes_pct": 66.6619,
+    "histogram_top2_size_bytes": 196608,
+    "histogram_top2_total_bytes": 115964116992,
+    "histogram_top2_bytes_pct": 33.3309
   }
 }

@@ -111287,6 +111287,16 @@
       "gemm": 2560,
       "elementwise_mul": 2048,
       "elementwise_add": 512
-    }
+    },
+    "histogram_total_bytes": 268176435068928,
+    "histogram_total_count": 425560576,
+    "histogram_avg_object_size": 630172.18,
+    "histogram_num_size_classes": 11,
+    "histogram_top1_size_bytes": 786432,
+    "histogram_top1_total_bytes": 237494511599616,
+    "histogram_top1_bytes_pct": 88.5591,
+    "histogram_top2_size_bytes": 393216,
+    "histogram_top2_total_bytes": 14843406974976,
+    "histogram_top2_bytes_pct": 5.5349
   }
 }

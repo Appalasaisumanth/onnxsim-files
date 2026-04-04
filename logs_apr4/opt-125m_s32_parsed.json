@@ -1,0 +1,3453 @@
+{
+  "_log_file": "logs_apr4/opt-125m_s32.log",
+  "_crash_reason": "nlohmann json type error",
+  "hardware_config": {
+    "num_cores": 4,
+    "dram_bandwidth_GBs": 614.0,
+    "ramulator_config": "./configs/../configs/ramulator2_configs/HBM2.yaml",
+    "interconnect": "SimpleInterconnect",
+    "tensor_parallelism": 1,
+    "pipeline_parallelism": 1,
+    "systolic_throughput_GFLOPS": 131072.0,
+    "spad_size_KB": 32768,
+    "accumulator_size_KB": 4096
+  },
+  "model_info": {
+    "name": "opt-125m",
+    "num_layers_total": 1,
+    "num_sim_layers": 1,
+    "has_l2": "false",
+    "weight_size_GB": 0.09,
+    "scheduler": "Simple Language scheduler"
+  },
+  "memory_usage": {
+    "total_GB": 0.09,
+    "weight_GB": 0.09,
+    "kv_cache_GB": 0.0,
+    "activation_GB": 0.0
+  },
+  "simulation_timing": {
+    "total_cycles": 4368001,
+    "total_us": 4368,
+    "model_init_seconds": 0.063017,
+    "wall_clock_seconds": 325.495967,
+    "avg_tiles_per_layer": 325.172108696,
+    "total_tiles": 1280,
+    "tiles_per_second": 3.936377,
+    "total_compute_cycles": 24000
+  },
+  "per_core_stats": {
+    "core_0": {
+      "total_cycles": 4368001,
+      "matmul_active_cycles": 3432,
+      "vector_active_cycles": 979,
+      "memory_unit_idle_cycles": 4145296,
+      "systolic_bubble_cycles": 16408,
+      "core_idle_cycles": 1168256,
+      "active_cycles": -945551,
+      "memory_idle_pct": 94.9014,
+      "core_idle_pct": 26.7458,
+      "systolic_array_util_pct": 11.97,
+      "pe_util_pct": 0.08,
+      "vector_unit_util_pct": 0.02,
+      "tiles_issued": 320,
+      "tiles_finished": 320,
+      "instructions_executed": 6298,
+      "instructions_per_tile": 19.68,
+      "systolic_inst_issue_count": 3622,
+      "systolic_preload_count": 3622,
+      "sram": {
+        "hits": 948921,
+        "misses": 3887202,
+        "hit_rate": 0.1962,
+        "read_hits": 948921,
+        "write_hits": 0,
+        "prefetches": 948,
+        "bytes_requested": 113556864,
+        "bytes_received": 113710464,
+        "total_accesses": 4836123
+      },
+      "acc_sram": {
+        "hits": 3611,
+        "misses": 408317,
+        "hit_rate": 0.0088,
+        "read_hits": 0,
+        "write_hits": 3611,
+        "prefetches": 618,
+        "bytes_requested": 69376,
+        "bytes_received": 134656,
+        "total_accesses": 411928
+      }
+    },
+    "core_1": {
+      "total_cycles": 4368001,
+      "matmul_active_cycles": 3474,
+      "vector_active_cycles": 980,
+      "memory_unit_idle_cycles": 4142640,
+      "systolic_bubble_cycles": 15796,
+      "core_idle_cycles": 1168218,
+      "active_cycles": -942857,
+      "memory_idle_pct": 94.8406,
+      "core_idle_pct": 26.7449,
+      "systolic_array_util_pct": 12.11,
+      "pe_util_pct": 0.08,
+      "vector_unit_util_pct": 0.02,
+      "tiles_issued": 322,
+      "tiles_finished": 322,
+      "instructions_executed": 6363,
+      "instructions_per_tile": 19.76,
+      "systolic_inst_issue_count": 3666,
+      "systolic_preload_count": 3666,
+      "sram": {
+        "hits": 959756,
+        "misses": 3946946,
+        "hit_rate": 0.1956,
+        "read_hits": 959756,
+        "write_hits": 0,
+        "prefetches": 955,
+        "bytes_requested": 114919168,
+        "bytes_received": 115057408,
+        "total_accesses": 4906702
+      },
+      "acc_sram": {
+        "hits": 3654,
+        "misses": 409748,
+        "hit_rate": 0.0088,
+        "read_hits": 0,
+        "write_hits": 3654,
+        "prefetches": 627,
+        "bytes_requested": 69376,
+        "bytes_received": 134400,
+        "total_accesses": 413402
+      }
+    },
+    "core_2": {
+      "total_cycles": 4368001,
+      "matmul_active_cycles": 3432,
+      "vector_active_cycles": 981,
+      "memory_unit_idle_cycles": 4145286,
+      "systolic_bubble_cycles": 16794,
+      "core_idle_cycles": 1168182,
+      "active_cycles": -945467,
+      "memory_idle_pct": 94.9012,
+      "core_idle_pct": 26.7441,
+      "systolic_array_util_pct": 11.99,
+      "pe_util_pct": 0.08,
+      "vector_unit_util_pct": 0.02,
+      "tiles_issued": 318,
+      "tiles_finished": 318,
+      "instructions_executed": 6319,
+      "instructions_per_tile": 19.87,
+      "systolic_inst_issue_count": 3626,
+      "systolic_preload_count": 3626,
+      "sram": {
+        "hits": 953229,
+        "misses": 3880453,
+        "hit_rate": 0.1972,
+        "read_hits": 953229,
+        "write_hits": 0,
+        "prefetches": 953,
+        "bytes_requested": 113556608,
+        "bytes_received": 113713280,
+        "total_accesses": 4833682
+      },
+      "acc_sram": {
+        "hits": 3675,
+        "misses": 407302,
+        "hit_rate": 0.0089,
+        "read_hits": 0,
+        "write_hits": 3675,
+        "prefetches": 625,
+        "bytes_requested": 69248,
+        "bytes_received": 134272,
+        "total_accesses": 410977
+      }
+    },
+    "core_3": {
+      "total_cycles": 4368001,
+      "matmul_active_cycles": 3486,
+      "vector_active_cycles": 964,
+      "memory_unit_idle_cycles": 4141846,
+      "systolic_bubble_cycles": 15530,
+      "core_idle_cycles": 1168135,
+      "active_cycles": -941980,
+      "memory_idle_pct": 94.8225,
+      "core_idle_pct": 26.743,
+      "systolic_array_util_pct": 12.14,
+      "pe_util_pct": 0.08,
+      "vector_unit_util_pct": 0.02,
+      "tiles_issued": 320,
+      "tiles_finished": 320,
+      "instructions_executed": 6364,
+      "instructions_per_tile": 19.89,
+      "systolic_inst_issue_count": 3678,
+      "systolic_preload_count": 3678,
+      "sram": {
+        "hits": 954090,
+        "misses": 3965070,
+        "hit_rate": 0.194,
+        "read_hits": 954090,
+        "write_hits": 0,
+        "prefetches": 952,
+        "bytes_requested": 115323648,
+        "bytes_received": 115464960,
+        "total_accesses": 4919160
+      },
+      "acc_sram": {
+        "hits": 3652,
+        "misses": 415063,
+        "hit_rate": 0.0087,
+        "read_hits": 0,
+        "write_hits": 3652,
+        "prefetches": 626,
+        "bytes_requested": 70016,
+        "bytes_received": 135808,
+        "total_accesses": 418715
+      }
+    },
+    "avg_across_cores": {
+      "total_cycles": 4368001.0,
+      "matmul_active_cycles": 3456.0,
+      "vector_active_cycles": 976.0,
+      "memory_unit_idle_cycles": 4143767.0,
+      "systolic_bubble_cycles": 16132.0,
+      "core_idle_cycles": 1168197.75,
+      "active_cycles": -943963.75,
+      "memory_idle_pct": 94.8664,
+      "core_idle_pct": 26.7445,
+      "systolic_array_util_pct": 12.0525,
+      "pe_util_pct": 0.08,
+      "vector_unit_util_pct": 0.02,
+      "tiles_issued": 320.0,
+      "tiles_finished": 320.0,
+      "instructions_executed": 6336.0,
+      "instructions_per_tile": 19.8,
+      "systolic_inst_issue_count": 3648.0,
+      "systolic_preload_count": 3648.0,
+      "sram": {
+        "hits": 953999.0,
+        "misses": 3919917.75,
+        "read_hits": 953999.0,
+        "write_hits": 0.0,
+        "prefetches": 952.0,
+        "bytes_requested": 114339072.0,
+        "bytes_received": 114486528.0,
+        "total_accesses": 4873916.75,
+        "hit_rate": 0.195736
+      },
+      "acc_sram": {
+        "hits": 3648.0,
+        "misses": 410107.5,
+        "read_hits": 0.0,
+        "write_hits": 3648.0,
+        "prefetches": 624.0,
+        "bytes_requested": 69504.0,
+        "bytes_received": 134784.0,
+        "total_accesses": 413755.5,
+        "hit_rate": 0.008817
+      }
+    }
+  },
+  "icnt_bandwidth": {
+    "Core_to_ICNT": {
+      "bandwidth_GBs": 0.0,
+      "total_bytes": 0
+    },
+    "Core_from_ICNT": {
+      "bandwidth_GBs": 0.0,
+      "total_bytes": 0
+    },
+    "ICNT_to_MEM": {
+      "bandwidth_GBs": 0.0,
+      "total_bytes": 0
+    },
+    "ICNT_from_MEM": {
+      "bandwidth_GBs": 0.0,
+      "total_bytes": 0
+    }
+  },
+  "dram_stats": {
+    "num_channels_found": 16,
+    "per_channel_samples": [
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 893832,
+        "total_num_write_requests": 1541,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 5243698,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 753791,
+        "row_misses": 11578,
+        "row_conflicts": 130004
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 893664,
+        "total_num_write_requests": 1531,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 5243698,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 755187,
+        "row_misses": 11572,
+        "row_conflicts": 128436
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 893664,
+        "total_num_write_requests": 1531,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 5243698,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 755993,
+        "row_misses": 11610,
+        "row_conflicts": 127592
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 893832,
+        "total_num_write_requests": 1541,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 5243698,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 753635,
+        "row_misses": 11569,
+        "row_conflicts": 130169
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 893664,
+        "total_num_write_requests": 1531,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 5243698,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 756831,
+        "row_misses": 12098,
+        "row_conflicts": 126266
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 893832,
+        "total_num_write_requests": 1541,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 5243698,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 756033,
+        "row_misses": 11863,
+        "row_conflicts": 127477
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 893832,
+        "total_num_write_requests": 1541,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 5243698,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 755789,
+        "row_misses": 12102,
+        "row_conflicts": 127482
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 893664,
+        "total_num_write_requests": 1531,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 5243698,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 756786,
+        "row_misses": 12233,
+        "row_conflicts": 126176
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 893760,
+        "total_num_write_requests": 1531,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 5243698,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 757116,
+        "row_misses": 11801,
+        "row_conflicts": 126374
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 893760,
+        "total_num_write_requests": 1541,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 5243698,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 755300,
+        "row_misses": 12089,
+        "row_conflicts": 127912
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 893760,
+        "total_num_write_requests": 1541,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 5243698,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 753893,
+        "row_misses": 11885,
+        "row_conflicts": 129523
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 893760,
+        "total_num_write_requests": 1531,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 5243698,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 755716,
+        "row_misses": 12978,
+        "row_conflicts": 126597
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 893760,
+        "total_num_write_requests": 1541,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 5243698,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 754690,
+        "row_misses": 11507,
+        "row_conflicts": 129104
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 893760,
+        "total_num_write_requests": 1531,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 5243698,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 759830,
+        "row_misses": 11431,
+        "row_conflicts": 124030
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 893760,
+        "total_num_write_requests": 1531,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 5243698,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 759259,
+        "row_misses": 11388,
+        "row_conflicts": 124644
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 893760,
+        "total_num_write_requests": 1541,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 5243698,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 755507,
+        "row_misses": 11105,
+        "row_conflicts": 128689
+      }
+    ],
+    "avg_across_channels": {
+      "total_num_read_requests": 893754.0,
+      "total_num_write_requests": 1536.0,
+      "total_num_other_requests": 0.0,
+      "memory_system_cycles": 5243698.0,
+      "row_hits": 755959.75,
+      "row_misses": 11800.56,
+      "row_conflicts": 127529.69,
+      "impl": "GenericDRAM",
+      "dram_impl": "HBM2",
+      "addr_mapper": "RoBaRaCoCh",
+      "scheduler": "FRFCFS",
+      "refresh_manager": "AllBank",
+      "row_hit_rate_pct": 84.4374,
+      "row_miss_rate_pct": 1.3181,
+      "row_conflict_rate_pct": 14.2445
+    },
+    "avg_bw_summary": {
+      "avg_bw_utilization_pct": 16.787934186471663,
+      "total_reads": 893832,
+      "total_writes": 1541
+    }
+  },
+  "l2_bank_stats": {},
+  "layer_timeline": [
+    {
+      "layer": "layer0.attn.QKVgen",
+      "finish_cycle": 24000,
+      "compute_cycles": 24000,
+      "start_cycle": 0,
+      "idle_cycles": 0,
+      "type": "QKV_projection"
+    },
+    {
+      "layer": "layer0.attn.KVccat",
+      "finish_cycle": 24001,
+      "compute_cycles": 1,
+      "start_cycle": 24000,
+      "idle_cycles": 0,
+      "type": "KV_concat"
+    },
+    {
+      "layer": "layer0.attn.Attention.0",
+      "finish_cycle": 56000,
+      "compute_cycles": 31999,
+      "start_cycle": 24001,
+      "idle_cycles": 0,
+      "type": "attention"
+    },
+    {
+      "layer": "layer0.attn.Atccat",
+      "finish_cycle": 56001,
+      "compute_cycles": 1,
+      "start_cycle": 56000,
+      "idle_cycles": 0,
+      "type": "attn_concat"
+    },
+    {
+      "layer": "layer0.attn.proj",
+      "finish_cycle": 72000,
+      "compute_cycles": 15999,
+      "start_cycle": 56001,
+      "idle_cycles": 0,
+      "type": "attn_projection"
+    },
+    {
+      "layer": "layer0.attn.ln",
+      "finish_cycle": 80000,
+      "compute_cycles": 8000,
+      "start_cycle": 72000,
+      "idle_cycles": 0,
+      "type": "attn_layernorm"
+    },
+    {
+      "layer": "layer0.ffn.fc1",
+      "finish_cycle": 104000,
+      "compute_cycles": 24000,
+      "start_cycle": 80000,
+      "idle_cycles": 0,
+      "type": "ffn_fc1"
+    },
+    {
+      "layer": "layer0.ffn.act",
+      "finish_cycle": 112000,
+      "compute_cycles": 8000,
+      "start_cycle": 104000,
+      "idle_cycles": 0,
+      "type": "ffn_activation"
+    },
+    {
+      "layer": "layer0.ffn.fc2",
+      "finish_cycle": 136000,
+      "compute_cycles": 24000,
+      "start_cycle": 112000,
+      "idle_cycles": 0,
+      "type": "ffn_fc2"
+    },
+    {
+      "layer": "layer0.ffn.ln",
+      "finish_cycle": 144000,
+      "compute_cycles": 8000,
+      "start_cycle": 136000,
+      "idle_cycles": 0,
+      "type": "ffn_layernorm"
+    },
+    {
+      "layer": "layer0.attn.QKVgen",
+      "finish_cycle": 168000,
+      "compute_cycles": 23999,
+      "start_cycle": 144001,
+      "idle_cycles": 1,
+      "type": "QKV_projection"
+    },
+    {
+      "layer": "layer0.attn.KVccat",
+      "finish_cycle": 168001,
+      "compute_cycles": 1,
+      "start_cycle": 168000,
+      "idle_cycles": 0,
+      "type": "KV_concat"
+    },
+    {
+      "layer": "layer0.attn.Attention.0",
+      "finish_cycle": 200000,
+      "compute_cycles": 31999,
+      "start_cycle": 168001,
+      "idle_cycles": 0,
+      "type": "attention"
+    },
+    {
+      "layer": "layer0.attn.Atccat",
+      "finish_cycle": 200002,
+      "compute_cycles": 2,
+      "start_cycle": 200000,
+      "idle_cycles": 0,
+      "type": "attn_concat"
+    },
+    {
+      "layer": "layer0.attn.proj",
+      "finish_cycle": 216000,
+      "compute_cycles": 15998,
+      "start_cycle": 200002,
+      "idle_cycles": 0,
+      "type": "attn_projection"
+    },
+    {
+      "layer": "layer0.attn.ln",
+      "finish_cycle": 224000,
+      "compute_cycles": 8000,
+      "start_cycle": 216000,
+      "idle_cycles": 0,
+      "type": "attn_layernorm"
+    },
+    {
+      "layer": "layer0.ffn.fc1",
+      "finish_cycle": 248000,
+      "compute_cycles": 24000,
+      "start_cycle": 224000,
+      "idle_cycles": 0,
+      "type": "ffn_fc1"
+    },
+    {
+      "layer": "layer0.ffn.act",
+      "finish_cycle": 256000,
+      "compute_cycles": 8000,
+      "start_cycle": 248000,
+      "idle_cycles": 0,
+      "type": "ffn_activation"
+    },
+    {
+      "layer": "layer0.ffn.fc2",
+      "finish_cycle": 280000,
+      "compute_cycles": 24000,
+      "start_cycle": 256000,
+      "idle_cycles": 0,
+      "type": "ffn_fc2"
+    },
+    {
+      "layer": "layer0.ffn.ln",
+      "finish_cycle": 288000,
+      "compute_cycles": 8000,
+      "start_cycle": 280000,
+      "idle_cycles": 0,
+      "type": "ffn_layernorm"
+    },
+    {
+      "layer": "layer0.attn.QKVgen",
+      "finish_cycle": 312000,
+      "compute_cycles": 23999,
+      "start_cycle": 288001,
+      "idle_cycles": 1,
+      "type": "QKV_projection"
+    },
+    {
+      "layer": "layer0.attn.KVccat",
+      "finish_cycle": 312001,
+      "compute_cycles": 1,
+      "start_cycle": 312000,
+      "idle_cycles": 0,
+      "type": "KV_concat"
+    },
+    {
+      "layer": "layer0.attn.Attention.0",
+      "finish_cycle": 336000,
+      "compute_cycles": 23999,
+      "start_cycle": 312001,
+      "idle_cycles": 0,
+      "type": "attention"
+    },
+    {
+      "layer": "layer0.attn.Atccat",
+      "finish_cycle": 336001,
+      "compute_cycles": 1,
+      "start_cycle": 336000,
+      "idle_cycles": 0,
+      "type": "attn_concat"
+    },
+    {
+      "layer": "layer0.attn.proj",
+      "finish_cycle": 352000,
+      "compute_cycles": 15999,
+      "start_cycle": 336001,
+      "idle_cycles": 0,
+      "type": "attn_projection"
+    },
+    {
+      "layer": "layer0.attn.ln",
+      "finish_cycle": 360000,
+      "compute_cycles": 8000,
+      "start_cycle": 352000,
+      "idle_cycles": 0,
+      "type": "attn_layernorm"
+    },
+    {
+      "layer": "layer0.ffn.fc1",
+      "finish_cycle": 384000,
+      "compute_cycles": 24000,
+      "start_cycle": 360000,
+      "idle_cycles": 0,
+      "type": "ffn_fc1"
+    },
+    {
+      "layer": "layer0.ffn.act",
+      "finish_cycle": 392000,
+      "compute_cycles": 8000,
+      "start_cycle": 384000,
+      "idle_cycles": 0,
+      "type": "ffn_activation"
+    },
+    {
+      "layer": "layer0.ffn.fc2",
+      "finish_cycle": 416000,
+      "compute_cycles": 24000,
+      "start_cycle": 392000,
+      "idle_cycles": 0,
+      "type": "ffn_fc2"
+    },
+    {
+      "layer": "layer0.ffn.ln",
+      "finish_cycle": 424000,
+      "compute_cycles": 8000,
+      "start_cycle": 416000,
+      "idle_cycles": 0,
+      "type": "ffn_layernorm"
+    },
+    {
+      "layer": "layer0.attn.QKVgen",
+      "finish_cycle": 448000,
+      "compute_cycles": 23999,
+      "start_cycle": 424001,
+      "idle_cycles": 1,
+      "type": "QKV_projection"
+    },
+    {
+      "layer": "layer0.attn.KVccat",
+      "finish_cycle": 448002,
+      "compute_cycles": 2,
+      "start_cycle": 448000,
+      "idle_cycles": 0,
+      "type": "KV_concat"
+    },
+    {
+      "layer": "layer0.attn.Attention.0",
+      "finish_cycle": 472000,
+      "compute_cycles": 23998,
+      "start_cycle": 448002,
+      "idle_cycles": 0,
+      "type": "attention"
+    },
+    {
+      "layer": "layer0.attn.Atccat",
+      "finish_cycle": 472002,
+      "compute_cycles": 2,
+      "start_cycle": 472000,
+      "idle_cycles": 0,
+      "type": "attn_concat"
+    },
+    {
+      "layer": "layer0.attn.proj",
+      "finish_cycle": 488000,
+      "compute_cycles": 15998,
+      "start_cycle": 472002,
+      "idle_cycles": 0,
+      "type": "attn_projection"
+    },
+    {
+      "layer": "layer0.attn.ln",
+      "finish_cycle": 496000,
+      "compute_cycles": 8000,
+      "start_cycle": 488000,
+      "idle_cycles": 0,
+      "type": "attn_layernorm"
+    },
+    {
+      "layer": "layer0.ffn.fc1",
+      "finish_cycle": 520000,
+      "compute_cycles": 24000,
+      "start_cycle": 496000,
+      "idle_cycles": 0,
+      "type": "ffn_fc1"
+    },
+    {
+      "layer": "layer0.ffn.act",
+      "finish_cycle": 528000,
+      "compute_cycles": 8000,
+      "start_cycle": 520000,
+      "idle_cycles": 0,
+      "type": "ffn_activation"
+    },
+    {
+      "layer": "layer0.ffn.fc2",
+      "finish_cycle": 552000,
+      "compute_cycles": 24000,
+      "start_cycle": 528000,
+      "idle_cycles": 0,
+      "type": "ffn_fc2"
+    },
+    {
+      "layer": "layer0.ffn.ln",
+      "finish_cycle": 560000,
+      "compute_cycles": 8000,
+      "start_cycle": 552000,
+      "idle_cycles": 0,
+      "type": "ffn_layernorm"
+    },
+    {
+      "layer": "layer0.attn.QKVgen",
+      "finish_cycle": 584000,
+      "compute_cycles": 23999,
+      "start_cycle": 560001,
+      "idle_cycles": 1,
+      "type": "QKV_projection"
+    },
+    {
+      "layer": "layer0.attn.KVccat",
+      "finish_cycle": 584002,
+      "compute_cycles": 2,
+      "start_cycle": 584000,
+      "idle_cycles": 0,
+      "type": "KV_concat"
+    },
+    {
+      "layer": "layer0.attn.Attention.0",
+      "finish_cycle": 608000,
+      "compute_cycles": 23998,
+      "start_cycle": 584002,
+      "idle_cycles": 0,
+      "type": "attention"
+    },
+    {
+      "layer": "layer0.attn.Atccat",
+      "finish_cycle": 608002,
+      "compute_cycles": 2,
+      "start_cycle": 608000,
+      "idle_cycles": 0,
+      "type": "attn_concat"
+    },
+    {
+      "layer": "layer0.attn.proj",
+      "finish_cycle": 624000,
+      "compute_cycles": 15998,
+      "start_cycle": 608002,
+      "idle_cycles": 0,
+      "type": "attn_projection"
+    },
+    {
+      "layer": "layer0.attn.ln",
+      "finish_cycle": 632000,
+      "compute_cycles": 8000,
+      "start_cycle": 624000,
+      "idle_cycles": 0,
+      "type": "attn_layernorm"
+    },
+    {
+      "layer": "layer0.ffn.fc1",
+      "finish_cycle": 656000,
+      "compute_cycles": 24000,
+      "start_cycle": 632000,
+      "idle_cycles": 0,
+      "type": "ffn_fc1"
+    },
+    {
+      "layer": "layer0.ffn.act",
+      "finish_cycle": 664000,
+      "compute_cycles": 8000,
+      "start_cycle": 656000,
+      "idle_cycles": 0,
+      "type": "ffn_activation"
+    },
+    {
+      "layer": "layer0.ffn.fc2",
+      "finish_cycle": 688000,
+      "compute_cycles": 24000,
+      "start_cycle": 664000,
+      "idle_cycles": 0,
+      "type": "ffn_fc2"
+    },
+    {
+      "layer": "layer0.ffn.ln",
+      "finish_cycle": 696000,
+      "compute_cycles": 8000,
+      "start_cycle": 688000,
+      "idle_cycles": 0,
+      "type": "ffn_layernorm"
+    },
+    {
+      "layer": "layer0.attn.QKVgen",
+      "finish_cycle": 720000,
+      "compute_cycles": 23999,
+      "start_cycle": 696001,
+      "idle_cycles": 1,
+      "type": "QKV_projection"
+    },
+    {
+      "layer": "layer0.attn.KVccat",
+      "finish_cycle": 720001,
+      "compute_cycles": 1,
+      "start_cycle": 720000,
+      "idle_cycles": 0,
+      "type": "KV_concat"
+    },
+    {
+      "layer": "layer0.attn.Attention.0",
+      "finish_cycle": 744000,
+      "compute_cycles": 23999,
+      "start_cycle": 720001,
+      "idle_cycles": 0,
+      "type": "attention"
+    },
+    {
+      "layer": "layer0.attn.Atccat",
+      "finish_cycle": 744001,
+      "compute_cycles": 1,
+      "start_cycle": 744000,
+      "idle_cycles": 0,
+      "type": "attn_concat"
+    },
+    {
+      "layer": "layer0.attn.proj",
+      "finish_cycle": 760000,
+      "compute_cycles": 15999,
+      "start_cycle": 744001,
+      "idle_cycles": 0,
+      "type": "attn_projection"
+    },
+    {
+      "layer": "layer0.attn.ln",
+      "finish_cycle": 768000,
+      "compute_cycles": 8000,
+      "start_cycle": 760000,
+      "idle_cycles": 0,
+      "type": "attn_layernorm"
+    },
+    {
+      "layer": "layer0.ffn.fc1",
+      "finish_cycle": 792000,
+      "compute_cycles": 24000,
+      "start_cycle": 768000,
+      "idle_cycles": 0,
+      "type": "ffn_fc1"
+    },
+    {
+      "layer": "layer0.ffn.act",
+      "finish_cycle": 800000,
+      "compute_cycles": 8000,
+      "start_cycle": 792000,
+      "idle_cycles": 0,
+      "type": "ffn_activation"
+    },
+    {
+      "layer": "layer0.ffn.fc2",
+      "finish_cycle": 824000,
+      "compute_cycles": 24000,
+      "start_cycle": 800000,
+      "idle_cycles": 0,
+      "type": "ffn_fc2"
+    },
+    {
+      "layer": "layer0.ffn.ln",
+      "finish_cycle": 832000,
+      "compute_cycles": 8000,
+      "start_cycle": 824000,
+      "idle_cycles": 0,
+      "type": "ffn_layernorm"
+    },
+    {
+      "layer": "layer0.attn.QKVgen",
+      "finish_cycle": 856000,
+      "compute_cycles": 23999,
+      "start_cycle": 832001,
+      "idle_cycles": 1,
+      "type": "QKV_projection"
+    },
+    {
+      "layer": "layer0.attn.KVccat",
+      "finish_cycle": 856002,
+      "compute_cycles": 2,
+      "start_cycle": 856000,
+      "idle_cycles": 0,
+      "type": "KV_concat"
+    },
+    {
+      "layer": "layer0.attn.Attention.0",
+      "finish_cycle": 880000,
+      "compute_cycles": 23998,
+      "start_cycle": 856002,
+      "idle_cycles": 0,
+      "type": "attention"
+    },
+    {
+      "layer": "layer0.attn.Atccat",
+      "finish_cycle": 880002,
+      "compute_cycles": 2,
+      "start_cycle": 880000,
+      "idle_cycles": 0,
+      "type": "attn_concat"
+    },
+    {
+      "layer": "layer0.attn.proj",
+      "finish_cycle": 896000,
+      "compute_cycles": 15998,
+      "start_cycle": 880002,
+      "idle_cycles": 0,
+      "type": "attn_projection"
+    },
+    {
+      "layer": "layer0.attn.ln",
+      "finish_cycle": 904000,
+      "compute_cycles": 8000,
+      "start_cycle": 896000,
+      "idle_cycles": 0,
+      "type": "attn_layernorm"
+    },
+    {
+      "layer": "layer0.ffn.fc1",
+      "finish_cycle": 928000,
+      "compute_cycles": 24000,
+      "start_cycle": 904000,
+      "idle_cycles": 0,
+      "type": "ffn_fc1"
+    },
+    {
+      "layer": "layer0.ffn.act",
+      "finish_cycle": 936000,
+      "compute_cycles": 8000,
+      "start_cycle": 928000,
+      "idle_cycles": 0,
+      "type": "ffn_activation"
+    },
+    {
+      "layer": "layer0.ffn.fc2",
+      "finish_cycle": 960000,
+      "compute_cycles": 24000,
+      "start_cycle": 936000,
+      "idle_cycles": 0,
+      "type": "ffn_fc2"
+    },
+    {
+      "layer": "layer0.ffn.ln",
+      "finish_cycle": 968000,
+      "compute_cycles": 8000,
+      "start_cycle": 960000,
+      "idle_cycles": 0,
+      "type": "ffn_layernorm"
+    },
+    {
+      "layer": "layer0.attn.QKVgen",
+      "finish_cycle": 992000,
+      "compute_cycles": 23999,
+      "start_cycle": 968001,
+      "idle_cycles": 1,
+      "type": "QKV_projection"
+    },
+    {
+      "layer": "layer0.attn.KVccat",
+      "finish_cycle": 992002,
+      "compute_cycles": 2,
+      "start_cycle": 992000,
+      "idle_cycles": 0,
+      "type": "KV_concat"
+    },
+    {
+      "layer": "layer0.attn.Attention.0",
+      "finish_cycle": 1016000,
+      "compute_cycles": 23998,
+      "start_cycle": 992002,
+      "idle_cycles": 0,
+      "type": "attention"
+    },
+    {
+      "layer": "layer0.attn.Atccat",
+      "finish_cycle": 1016002,
+      "compute_cycles": 2,
+      "start_cycle": 1016000,
+      "idle_cycles": 0,
+      "type": "attn_concat"
+    },
+    {
+      "layer": "layer0.attn.proj",
+      "finish_cycle": 1032000,
+      "compute_cycles": 15998,
+      "start_cycle": 1016002,
+      "idle_cycles": 0,
+      "type": "attn_projection"
+    },
+    {
+      "layer": "layer0.attn.ln",
+      "finish_cycle": 1040000,
+      "compute_cycles": 8000,
+      "start_cycle": 1032000,
+      "idle_cycles": 0,
+      "type": "attn_layernorm"
+    },
+    {
+      "layer": "layer0.ffn.fc1",
+      "finish_cycle": 1064000,
+      "compute_cycles": 24000,
+      "start_cycle": 1040000,
+      "idle_cycles": 0,
+      "type": "ffn_fc1"
+    },
+    {
+      "layer": "layer0.ffn.act",
+      "finish_cycle": 1072000,
+      "compute_cycles": 8000,
+      "start_cycle": 1064000,
+      "idle_cycles": 0,
+      "type": "ffn_activation"
+    },
+    {
+      "layer": "layer0.ffn.fc2",
+      "finish_cycle": 1096000,
+      "compute_cycles": 24000,
+      "start_cycle": 1072000,
+      "idle_cycles": 0,
+      "type": "ffn_fc2"
+    },
+    {
+      "layer": "layer0.ffn.ln",
+      "finish_cycle": 1104000,
+      "compute_cycles": 8000,
+      "start_cycle": 1096000,
+      "idle_cycles": 0,
+      "type": "ffn_layernorm"
+    },
+    {
+      "layer": "layer0.attn.QKVgen",
+      "finish_cycle": 1128000,
+      "compute_cycles": 23999,
+      "start_cycle": 1104001,
+      "idle_cycles": 1,
+      "type": "QKV_projection"
+    },
+    {
+      "layer": "layer0.attn.KVccat",
+      "finish_cycle": 1128001,
+      "compute_cycles": 1,
+      "start_cycle": 1128000,
+      "idle_cycles": 0,
+      "type": "KV_concat"
+    },
+    {
+      "layer": "layer0.attn.Attention.0",
+      "finish_cycle": 1152000,
+      "compute_cycles": 23999,
+      "start_cycle": 1128001,
+      "idle_cycles": 0,
+      "type": "attention"
+    },
+    {
+      "layer": "layer0.attn.Atccat",
+      "finish_cycle": 1152002,
+      "compute_cycles": 2,
+      "start_cycle": 1152000,
+      "idle_cycles": 0,
+      "type": "attn_concat"
+    },
+    {
+      "layer": "layer0.attn.proj",
+      "finish_cycle": 1168000,
+      "compute_cycles": 15998,
+      "start_cycle": 1152002,
+      "idle_cycles": 0,
+      "type": "attn_projection"
+    },
+    {
+      "layer": "layer0.attn.ln",
+      "finish_cycle": 1176000,
+      "compute_cycles": 8000,
+      "start_cycle": 1168000,
+      "idle_cycles": 0,
+      "type": "attn_layernorm"
+    },
+    {
+      "layer": "layer0.ffn.fc1",
+      "finish_cycle": 1200000,
+      "compute_cycles": 24000,
+      "start_cycle": 1176000,
+      "idle_cycles": 0,
+      "type": "ffn_fc1"
+    },
+    {
+      "layer": "layer0.ffn.act",
+      "finish_cycle": 1208000,
+      "compute_cycles": 8000,
+      "start_cycle": 1200000,
+      "idle_cycles": 0,
+      "type": "ffn_activation"
+    },
+    {
+      "layer": "layer0.ffn.fc2",
+      "finish_cycle": 1232000,
+      "compute_cycles": 24000,
+      "start_cycle": 1208000,
+      "idle_cycles": 0,
+      "type": "ffn_fc2"
+    },
+    {
+      "layer": "layer0.ffn.ln",
+      "finish_cycle": 1240000,
+      "compute_cycles": 8000,
+      "start_cycle": 1232000,
+      "idle_cycles": 0,
+      "type": "ffn_layernorm"
+    },
+    {
+      "layer": "layer0.attn.QKVgen",
+      "finish_cycle": 1264000,
+      "compute_cycles": 23999,
+      "start_cycle": 1240001,
+      "idle_cycles": 1,
+      "type": "QKV_projection"
+    },
+    {
+      "layer": "layer0.attn.KVccat",
+      "finish_cycle": 1264001,
+      "compute_cycles": 1,
+      "start_cycle": 1264000,
+      "idle_cycles": 0,
+      "type": "KV_concat"
+    },
+    {
+      "layer": "layer0.attn.Attention.0",
+      "finish_cycle": 1288000,
+      "compute_cycles": 23999,
+      "start_cycle": 1264001,
+      "idle_cycles": 0,
+      "type": "attention"
+    },
+    {
+      "layer": "layer0.attn.Atccat",
+      "finish_cycle": 1288001,
+      "compute_cycles": 1,
+      "start_cycle": 1288000,
+      "idle_cycles": 0,
+      "type": "attn_concat"
+    },
+    {
+      "layer": "layer0.attn.proj",
+      "finish_cycle": 1304000,
+      "compute_cycles": 15999,
+      "start_cycle": 1288001,
+      "idle_cycles": 0,
+      "type": "attn_projection"
+    },
+    {
+      "layer": "layer0.attn.ln",
+      "finish_cycle": 1312000,
+      "compute_cycles": 8000,
+      "start_cycle": 1304000,
+      "idle_cycles": 0,
+      "type": "attn_layernorm"
+    },
+    {
+      "layer": "layer0.ffn.fc1",
+      "finish_cycle": 1336000,
+      "compute_cycles": 24000,
+      "start_cycle": 1312000,
+      "idle_cycles": 0,
+      "type": "ffn_fc1"
+    },
+    {
+      "layer": "layer0.ffn.act",
+      "finish_cycle": 1344000,
+      "compute_cycles": 8000,
+      "start_cycle": 1336000,
+      "idle_cycles": 0,
+      "type": "ffn_activation"
+    },
+    {
+      "layer": "layer0.ffn.fc2",
+      "finish_cycle": 1368000,
+      "compute_cycles": 24000,
+      "start_cycle": 1344000,
+      "idle_cycles": 0,
+      "type": "ffn_fc2"
+    },
+    {
+      "layer": "layer0.ffn.ln",
+      "finish_cycle": 1376000,
+      "compute_cycles": 8000,
+      "start_cycle": 1368000,
+      "idle_cycles": 0,
+      "type": "ffn_layernorm"
+    },
+    {
+      "layer": "layer0.attn.QKVgen",
+      "finish_cycle": 1400000,
+      "compute_cycles": 23999,
+      "start_cycle": 1376001,
+      "idle_cycles": 1,
+      "type": "QKV_projection"
+    },
+    {
+      "layer": "layer0.attn.KVccat",
+      "finish_cycle": 1400002,
+      "compute_cycles": 2,
+      "start_cycle": 1400000,
+      "idle_cycles": 0,
+      "type": "KV_concat"
+    },
+    {
+      "layer": "layer0.attn.Attention.0",
+      "finish_cycle": 1424000,
+      "compute_cycles": 23998,
+      "start_cycle": 1400002,
+      "idle_cycles": 0,
+      "type": "attention"
+    },
+    {
+      "layer": "layer0.attn.Atccat",
+      "finish_cycle": 1424002,
+      "compute_cycles": 2,
+      "start_cycle": 1424000,
+      "idle_cycles": 0,
+      "type": "attn_concat"
+    },
+    {
+      "layer": "layer0.attn.proj",
+      "finish_cycle": 1440000,
+      "compute_cycles": 15998,
+      "start_cycle": 1424002,
+      "idle_cycles": 0,
+      "type": "attn_projection"
+    },
+    {
+      "layer": "layer0.attn.ln",
+      "finish_cycle": 1448000,
+      "compute_cycles": 8000,
+      "start_cycle": 1440000,
+      "idle_cycles": 0,
+      "type": "attn_layernorm"
+    },
+    {
+      "layer": "layer0.ffn.fc1",
+      "finish_cycle": 1472000,
+      "compute_cycles": 24000,
+      "start_cycle": 1448000,
+      "idle_cycles": 0,
+      "type": "ffn_fc1"
+    },
+    {
+      "layer": "layer0.ffn.act",
+      "finish_cycle": 1480000,
+      "compute_cycles": 8000,
+      "start_cycle": 1472000,
+      "idle_cycles": 0,
+      "type": "ffn_activation"
+    },
+    {
+      "layer": "layer0.ffn.fc2",
+      "finish_cycle": 1504000,
+      "compute_cycles": 24000,
+      "start_cycle": 1480000,
+      "idle_cycles": 0,
+      "type": "ffn_fc2"
+    },
+    {
+      "layer": "layer0.ffn.ln",
+      "finish_cycle": 1512000,
+      "compute_cycles": 8000,
+      "start_cycle": 1504000,
+      "idle_cycles": 0,
+      "type": "ffn_layernorm"
+    },
+    {
+      "layer": "layer0.attn.QKVgen",
+      "finish_cycle": 1536000,
+      "compute_cycles": 23999,
+      "start_cycle": 1512001,
+      "idle_cycles": 1,
+      "type": "QKV_projection"
+    },
+    {
+      "layer": "layer0.attn.KVccat",
+      "finish_cycle": 1536002,
+      "compute_cycles": 2,
+      "start_cycle": 1536000,
+      "idle_cycles": 0,
+      "type": "KV_concat"
+    },
+    {
+      "layer": "layer0.attn.Attention.0",
+      "finish_cycle": 1560000,
+      "compute_cycles": 23998,
+      "start_cycle": 1536002,
+      "idle_cycles": 0,
+      "type": "attention"
+    },
+    {
+      "layer": "layer0.attn.Atccat",
+      "finish_cycle": 1560002,
+      "compute_cycles": 2,
+      "start_cycle": 1560000,
+      "idle_cycles": 0,
+      "type": "attn_concat"
+    },
+    {
+      "layer": "layer0.attn.proj",
+      "finish_cycle": 1576000,
+      "compute_cycles": 15998,
+      "start_cycle": 1560002,
+      "idle_cycles": 0,
+      "type": "attn_projection"
+    },
+    {
+      "layer": "layer0.attn.ln",
+      "finish_cycle": 1584000,
+      "compute_cycles": 8000,
+      "start_cycle": 1576000,
+      "idle_cycles": 0,
+      "type": "attn_layernorm"
+    },
+    {
+      "layer": "layer0.ffn.fc1",
+      "finish_cycle": 1608000,
+      "compute_cycles": 24000,
+      "start_cycle": 1584000,
+      "idle_cycles": 0,
+      "type": "ffn_fc1"
+    },
+    {
+      "layer": "layer0.ffn.act",
+      "finish_cycle": 1616000,
+      "compute_cycles": 8000,
+      "start_cycle": 1608000,
+      "idle_cycles": 0,
+      "type": "ffn_activation"
+    },
+    {
+      "layer": "layer0.ffn.fc2",
+      "finish_cycle": 1640000,
+      "compute_cycles": 24000,
+      "start_cycle": 1616000,
+      "idle_cycles": 0,
+      "type": "ffn_fc2"
+    },
+    {
+      "layer": "layer0.ffn.ln",
+      "finish_cycle": 1648000,
+      "compute_cycles": 8000,
+      "start_cycle": 1640000,
+      "idle_cycles": 0,
+      "type": "ffn_layernorm"
+    },
+    {
+      "layer": "layer0.attn.QKVgen",
+      "finish_cycle": 1672000,
+      "compute_cycles": 23999,
+      "start_cycle": 1648001,
+      "idle_cycles": 1,
+      "type": "QKV_projection"
+    },
+    {
+      "layer": "layer0.attn.KVccat",
+      "finish_cycle": 1672001,
+      "compute_cycles": 1,
+      "start_cycle": 1672000,
+      "idle_cycles": 0,
+      "type": "KV_concat"
+    },
+    {
+      "layer": "layer0.attn.Attention.0",
+      "finish_cycle": 1696000,
+      "compute_cycles": 23999,
+      "start_cycle": 1672001,
+      "idle_cycles": 0,
+      "type": "attention"
+    },
+    {
+      "layer": "layer0.attn.Atccat",
+      "finish_cycle": 1696002,
+      "compute_cycles": 2,
+      "start_cycle": 1696000,
+      "idle_cycles": 0,
+      "type": "attn_concat"
+    },
+    {
+      "layer": "layer0.attn.proj",
+      "finish_cycle": 1712000,
+      "compute_cycles": 15998,
+      "start_cycle": 1696002,
+      "idle_cycles": 0,
+      "type": "attn_projection"
+    },
+    {
+      "layer": "layer0.attn.ln",
+      "finish_cycle": 1720000,
+      "compute_cycles": 8000,
+      "start_cycle": 1712000,
+      "idle_cycles": 0,
+      "type": "attn_layernorm"
+    },
+    {
+      "layer": "layer0.ffn.fc1",
+      "finish_cycle": 1744000,
+      "compute_cycles": 24000,
+      "start_cycle": 1720000,
+      "idle_cycles": 0,
+      "type": "ffn_fc1"
+    },
+    {
+      "layer": "layer0.ffn.act",
+      "finish_cycle": 1752000,
+      "compute_cycles": 8000,
+      "start_cycle": 1744000,
+      "idle_cycles": 0,
+      "type": "ffn_activation"
+    },
+    {
+      "layer": "layer0.ffn.fc2",
+      "finish_cycle": 1776000,
+      "compute_cycles": 24000,
+      "start_cycle": 1752000,
+      "idle_cycles": 0,
+      "type": "ffn_fc2"
+    },
+    {
+      "layer": "layer0.ffn.ln",
+      "finish_cycle": 1784000,
+      "compute_cycles": 8000,
+      "start_cycle": 1776000,
+      "idle_cycles": 0,
+      "type": "ffn_layernorm"
+    },
+    {
+      "layer": "layer0.attn.QKVgen",
+      "finish_cycle": 1808000,
+      "compute_cycles": 23999,
+      "start_cycle": 1784001,
+      "idle_cycles": 1,
+      "type": "QKV_projection"
+    },
+    {
+      "layer": "layer0.attn.KVccat",
+      "finish_cycle": 1808001,
+      "compute_cycles": 1,
+      "start_cycle": 1808000,
+      "idle_cycles": 0,
+      "type": "KV_concat"
+    },
+    {
+      "layer": "layer0.attn.Attention.0",
+      "finish_cycle": 1832000,
+      "compute_cycles": 23999,
+      "start_cycle": 1808001,
+      "idle_cycles": 0,
+      "type": "attention"
+    },
+    {
+      "layer": "layer0.attn.Atccat",
+      "finish_cycle": 1832001,
+      "compute_cycles": 1,
+      "start_cycle": 1832000,
+      "idle_cycles": 0,
+      "type": "attn_concat"
+    },
+    {
+      "layer": "layer0.attn.proj",
+      "finish_cycle": 1848000,
+      "compute_cycles": 15999,
+      "start_cycle": 1832001,
+      "idle_cycles": 0,
+      "type": "attn_projection"
+    },
+    {
+      "layer": "layer0.attn.ln",
+      "finish_cycle": 1856000,
+      "compute_cycles": 8000,
+      "start_cycle": 1848000,
+      "idle_cycles": 0,
+      "type": "attn_layernorm"
+    },
+    {
+      "layer": "layer0.ffn.fc1",
+      "finish_cycle": 1880000,
+      "compute_cycles": 24000,
+      "start_cycle": 1856000,
+      "idle_cycles": 0,
+      "type": "ffn_fc1"
+    },
+    {
+      "layer": "layer0.ffn.act",
+      "finish_cycle": 1888000,
+      "compute_cycles": 8000,
+      "start_cycle": 1880000,
+      "idle_cycles": 0,
+      "type": "ffn_activation"
+    },
+    {
+      "layer": "layer0.ffn.fc2",
+      "finish_cycle": 1912000,
+      "compute_cycles": 24000,
+      "start_cycle": 1888000,
+      "idle_cycles": 0,
+      "type": "ffn_fc2"
+    },
+    {
+      "layer": "layer0.ffn.ln",
+      "finish_cycle": 1920000,
+      "compute_cycles": 8000,
+      "start_cycle": 1912000,
+      "idle_cycles": 0,
+      "type": "ffn_layernorm"
+    },
+    {
+      "layer": "layer0.attn.QKVgen",
+      "finish_cycle": 1944000,
+      "compute_cycles": 23999,
+      "start_cycle": 1920001,
+      "idle_cycles": 1,
+      "type": "QKV_projection"
+    },
+    {
+      "layer": "layer0.attn.KVccat",
+      "finish_cycle": 1944002,
+      "compute_cycles": 2,
+      "start_cycle": 1944000,
+      "idle_cycles": 0,
+      "type": "KV_concat"
+    },
+    {
+      "layer": "layer0.attn.Attention.0",
+      "finish_cycle": 1968000,
+      "compute_cycles": 23998,
+      "start_cycle": 1944002,
+      "idle_cycles": 0,
+      "type": "attention"
+    },
+    {
+      "layer": "layer0.attn.Atccat",
+      "finish_cycle": 1968002,
+      "compute_cycles": 2,
+      "start_cycle": 1968000,
+      "idle_cycles": 0,
+      "type": "attn_concat"
+    },
+    {
+      "layer": "layer0.attn.proj",
+      "finish_cycle": 1984000,
+      "compute_cycles": 15998,
+      "start_cycle": 1968002,
+      "idle_cycles": 0,
+      "type": "attn_projection"
+    },
+    {
+      "layer": "layer0.attn.ln",
+      "finish_cycle": 1992000,
+      "compute_cycles": 8000,
+      "start_cycle": 1984000,
+      "idle_cycles": 0,
+      "type": "attn_layernorm"
+    },
+    {
+      "layer": "layer0.ffn.fc1",
+      "finish_cycle": 2016000,
+      "compute_cycles": 24000,
+      "start_cycle": 1992000,
+      "idle_cycles": 0,
+      "type": "ffn_fc1"
+    },
+    {
+      "layer": "layer0.ffn.act",
+      "finish_cycle": 2024000,
+      "compute_cycles": 8000,
+      "start_cycle": 2016000,
+      "idle_cycles": 0,
+      "type": "ffn_activation"
+    },
+    {
+      "layer": "layer0.ffn.fc2",
+      "finish_cycle": 2048000,
+      "compute_cycles": 24000,
+      "start_cycle": 2024000,
+      "idle_cycles": 0,
+      "type": "ffn_fc2"
+    },
+    {
+      "layer": "layer0.ffn.ln",
+      "finish_cycle": 2056000,
+      "compute_cycles": 8000,
+      "start_cycle": 2048000,
+      "idle_cycles": 0,
+      "type": "ffn_layernorm"
+    },
+    {
+      "layer": "layer0.attn.QKVgen",
+      "finish_cycle": 2080000,
+      "compute_cycles": 23999,
+      "start_cycle": 2056001,
+      "idle_cycles": 1,
+      "type": "QKV_projection"
+    },
+    {
+      "layer": "layer0.attn.KVccat",
+      "finish_cycle": 2080002,
+      "compute_cycles": 2,
+      "start_cycle": 2080000,
+      "idle_cycles": 0,
+      "type": "KV_concat"
+    },
+    {
+      "layer": "layer0.attn.Attention.0",
+      "finish_cycle": 2104000,
+      "compute_cycles": 23998,
+      "start_cycle": 2080002,
+      "idle_cycles": 0,
+      "type": "attention"
+    },
+    {
+      "layer": "layer0.attn.Atccat",
+      "finish_cycle": 2104002,
+      "compute_cycles": 2,
+      "start_cycle": 2104000,
+      "idle_cycles": 0,
+      "type": "attn_concat"
+    },
+    {
+      "layer": "layer0.attn.proj",
+      "finish_cycle": 2120000,
+      "compute_cycles": 15998,
+      "start_cycle": 2104002,
+      "idle_cycles": 0,
+      "type": "attn_projection"
+    },
+    {
+      "layer": "layer0.attn.ln",
+      "finish_cycle": 2128000,
+      "compute_cycles": 8000,
+      "start_cycle": 2120000,
+      "idle_cycles": 0,
+      "type": "attn_layernorm"
+    },
+    {
+      "layer": "layer0.ffn.fc1",
+      "finish_cycle": 2152000,
+      "compute_cycles": 24000,
+      "start_cycle": 2128000,
+      "idle_cycles": 0,
+      "type": "ffn_fc1"
+    },
+    {
+      "layer": "layer0.ffn.act",
+      "finish_cycle": 2160000,
+      "compute_cycles": 8000,
+      "start_cycle": 2152000,
+      "idle_cycles": 0,
+      "type": "ffn_activation"
+    },
+    {
+      "layer": "layer0.ffn.fc2",
+      "finish_cycle": 2184000,
+      "compute_cycles": 24000,
+      "start_cycle": 2160000,
+      "idle_cycles": 0,
+      "type": "ffn_fc2"
+    },
+    {
+      "layer": "layer0.ffn.ln",
+      "finish_cycle": 2192000,
+      "compute_cycles": 8000,
+      "start_cycle": 2184000,
+      "idle_cycles": 0,
+      "type": "ffn_layernorm"
+    },
+    {
+      "layer": "layer0.attn.QKVgen",
+      "finish_cycle": 2216000,
+      "compute_cycles": 23999,
+      "start_cycle": 2192001,
+      "idle_cycles": 1,
+      "type": "QKV_projection"
+    },
+    {
+      "layer": "layer0.attn.KVccat",
+      "finish_cycle": 2216001,
+      "compute_cycles": 1,
+      "start_cycle": 2216000,
+      "idle_cycles": 0,
+      "type": "KV_concat"
+    },
+    {
+      "layer": "layer0.attn.Attention.0",
+      "finish_cycle": 2240000,
+      "compute_cycles": 23999,
+      "start_cycle": 2216001,
+      "idle_cycles": 0,
+      "type": "attention"
+    },
+    {
+      "layer": "layer0.attn.Atccat",
+      "finish_cycle": 2240002,
+      "compute_cycles": 2,
+      "start_cycle": 2240000,
+      "idle_cycles": 0,
+      "type": "attn_concat"
+    },
+    {
+      "layer": "layer0.attn.proj",
+      "finish_cycle": 2256000,
+      "compute_cycles": 15998,
+      "start_cycle": 2240002,
+      "idle_cycles": 0,
+      "type": "attn_projection"
+    },
+    {
+      "layer": "layer0.attn.ln",
+      "finish_cycle": 2264000,
+      "compute_cycles": 8000,
+      "start_cycle": 2256000,
+      "idle_cycles": 0,
+      "type": "attn_layernorm"
+    },
+    {
+      "layer": "layer0.ffn.fc1",
+      "finish_cycle": 2288000,
+      "compute_cycles": 24000,
+      "start_cycle": 2264000,
+      "idle_cycles": 0,
+      "type": "ffn_fc1"
+    },
+    {
+      "layer": "layer0.ffn.act",
+      "finish_cycle": 2296000,
+      "compute_cycles": 8000,
+      "start_cycle": 2288000,
+      "idle_cycles": 0,
+      "type": "ffn_activation"
+    },
+    {
+      "layer": "layer0.ffn.fc2",
+      "finish_cycle": 2320000,
+      "compute_cycles": 24000,
+      "start_cycle": 2296000,
+      "idle_cycles": 0,
+      "type": "ffn_fc2"
+    },
+    {
+      "layer": "layer0.ffn.ln",
+      "finish_cycle": 2328000,
+      "compute_cycles": 8000,
+      "start_cycle": 2320000,
+      "idle_cycles": 0,
+      "type": "ffn_layernorm"
+    },
+    {
+      "layer": "layer0.attn.QKVgen",
+      "finish_cycle": 2352000,
+      "compute_cycles": 23999,
+      "start_cycle": 2328001,
+      "idle_cycles": 1,
+      "type": "QKV_projection"
+    },
+    {
+      "layer": "layer0.attn.KVccat",
+      "finish_cycle": 2352001,
+      "compute_cycles": 1,
+      "start_cycle": 2352000,
+      "idle_cycles": 0,
+      "type": "KV_concat"
+    },
+    {
+      "layer": "layer0.attn.Attention.0",
+      "finish_cycle": 2376000,
+      "compute_cycles": 23999,
+      "start_cycle": 2352001,
+      "idle_cycles": 0,
+      "type": "attention"
+    },
+    {
+      "layer": "layer0.attn.Atccat",
+      "finish_cycle": 2376001,
+      "compute_cycles": 1,
+      "start_cycle": 2376000,
+      "idle_cycles": 0,
+      "type": "attn_concat"
+    },
+    {
+      "layer": "layer0.attn.proj",
+      "finish_cycle": 2392000,
+      "compute_cycles": 15999,
+      "start_cycle": 2376001,
+      "idle_cycles": 0,
+      "type": "attn_projection"
+    },
+    {
+      "layer": "layer0.attn.ln",
+      "finish_cycle": 2400000,
+      "compute_cycles": 8000,
+      "start_cycle": 2392000,
+      "idle_cycles": 0,
+      "type": "attn_layernorm"
+    },
+    {
+      "layer": "layer0.ffn.fc1",
+      "finish_cycle": 2424000,
+      "compute_cycles": 24000,
+      "start_cycle": 2400000,
+      "idle_cycles": 0,
+      "type": "ffn_fc1"
+    },
+    {
+      "layer": "layer0.ffn.act",
+      "finish_cycle": 2432000,
+      "compute_cycles": 8000,
+      "start_cycle": 2424000,
+      "idle_cycles": 0,
+      "type": "ffn_activation"
+    },
+    {
+      "layer": "layer0.ffn.fc2",
+      "finish_cycle": 2456000,
+      "compute_cycles": 24000,
+      "start_cycle": 2432000,
+      "idle_cycles": 0,
+      "type": "ffn_fc2"
+    },
+    {
+      "layer": "layer0.ffn.ln",
+      "finish_cycle": 2464000,
+      "compute_cycles": 8000,
+      "start_cycle": 2456000,
+      "idle_cycles": 0,
+      "type": "ffn_layernorm"
+    },
+    {
+      "layer": "layer0.attn.QKVgen",
+      "finish_cycle": 2488000,
+      "compute_cycles": 23999,
+      "start_cycle": 2464001,
+      "idle_cycles": 1,
+      "type": "QKV_projection"
+    },
+    {
+      "layer": "layer0.attn.KVccat",
+      "finish_cycle": 2488002,
+      "compute_cycles": 2,
+      "start_cycle": 2488000,
+      "idle_cycles": 0,
+      "type": "KV_concat"
+    },
+    {
+      "layer": "layer0.attn.Attention.0",
+      "finish_cycle": 2512000,
+      "compute_cycles": 23998,
+      "start_cycle": 2488002,
+      "idle_cycles": 0,
+      "type": "attention"
+    },
+    {
+      "layer": "layer0.attn.Atccat",
+      "finish_cycle": 2512002,
+      "compute_cycles": 2,
+      "start_cycle": 2512000,
+      "idle_cycles": 0,
+      "type": "attn_concat"
+    },
+    {
+      "layer": "layer0.attn.proj",
+      "finish_cycle": 2528000,
+      "compute_cycles": 15998,
+      "start_cycle": 2512002,
+      "idle_cycles": 0,
+      "type": "attn_projection"
+    },
+    {
+      "layer": "layer0.attn.ln",
+      "finish_cycle": 2536000,
+      "compute_cycles": 8000,
+      "start_cycle": 2528000,
+      "idle_cycles": 0,
+      "type": "attn_layernorm"
+    },
+    {
+      "layer": "layer0.ffn.fc1",
+      "finish_cycle": 2560000,
+      "compute_cycles": 24000,
+      "start_cycle": 2536000,
+      "idle_cycles": 0,
+      "type": "ffn_fc1"
+    },
+    {
+      "layer": "layer0.ffn.act",
+      "finish_cycle": 2568000,
+      "compute_cycles": 8000,
+      "start_cycle": 2560000,
+      "idle_cycles": 0,
+      "type": "ffn_activation"
+    },
+    {
+      "layer": "layer0.ffn.fc2",
+      "finish_cycle": 2592000,
+      "compute_cycles": 24000,
+      "start_cycle": 2568000,
+      "idle_cycles": 0,
+      "type": "ffn_fc2"
+    },
+    {
+      "layer": "layer0.ffn.ln",
+      "finish_cycle": 2600000,
+      "compute_cycles": 8000,
+      "start_cycle": 2592000,
+      "idle_cycles": 0,
+      "type": "ffn_layernorm"
+    },
+    {
+      "layer": "layer0.attn.QKVgen",
+      "finish_cycle": 2624000,
+      "compute_cycles": 23999,
+      "start_cycle": 2600001,
+      "idle_cycles": 1,
+      "type": "QKV_projection"
+    },
+    {
+      "layer": "layer0.attn.KVccat",
+      "finish_cycle": 2624002,
+      "compute_cycles": 2,
+      "start_cycle": 2624000,
+      "idle_cycles": 0,
+      "type": "KV_concat"
+    },
+    {
+      "layer": "layer0.attn.Attention.0",
+      "finish_cycle": 2648000,
+      "compute_cycles": 23998,
+      "start_cycle": 2624002,
+      "idle_cycles": 0,
+      "type": "attention"
+    },
+    {
+      "layer": "layer0.attn.Atccat",
+      "finish_cycle": 2648002,
+      "compute_cycles": 2,
+      "start_cycle": 2648000,
+      "idle_cycles": 0,
+      "type": "attn_concat"
+    },
+    {
+      "layer": "layer0.attn.proj",
+      "finish_cycle": 2664000,
+      "compute_cycles": 15998,
+      "start_cycle": 2648002,
+      "idle_cycles": 0,
+      "type": "attn_projection"
+    },
+    {
+      "layer": "layer0.attn.ln",
+      "finish_cycle": 2672000,
+      "compute_cycles": 8000,
+      "start_cycle": 2664000,
+      "idle_cycles": 0,
+      "type": "attn_layernorm"
+    },
+    {
+      "layer": "layer0.ffn.fc1",
+      "finish_cycle": 2696000,
+      "compute_cycles": 24000,
+      "start_cycle": 2672000,
+      "idle_cycles": 0,
+      "type": "ffn_fc1"
+    },
+    {
+      "layer": "layer0.ffn.act",
+      "finish_cycle": 2704000,
+      "compute_cycles": 8000,
+      "start_cycle": 2696000,
+      "idle_cycles": 0,
+      "type": "ffn_activation"
+    },
+    {
+      "layer": "layer0.ffn.fc2",
+      "finish_cycle": 2728000,
+      "compute_cycles": 24000,
+      "start_cycle": 2704000,
+      "idle_cycles": 0,
+      "type": "ffn_fc2"
+    },
+    {
+      "layer": "layer0.ffn.ln",
+      "finish_cycle": 2736000,
+      "compute_cycles": 8000,
+      "start_cycle": 2728000,
+      "idle_cycles": 0,
+      "type": "ffn_layernorm"
+    },
+    {
+      "layer": "layer0.attn.QKVgen",
+      "finish_cycle": 2760000,
+      "compute_cycles": 23999,
+      "start_cycle": 2736001,
+      "idle_cycles": 1,
+      "type": "QKV_projection"
+    },
+    {
+      "layer": "layer0.attn.KVccat",
+      "finish_cycle": 2760001,
+      "compute_cycles": 1,
+      "start_cycle": 2760000,
+      "idle_cycles": 0,
+      "type": "KV_concat"
+    },
+    {
+      "layer": "layer0.attn.Attention.0",
+      "finish_cycle": 2784000,
+      "compute_cycles": 23999,
+      "start_cycle": 2760001,
+      "idle_cycles": 0,
+      "type": "attention"
+    },
+    {
+      "layer": "layer0.attn.Atccat",
+      "finish_cycle": 2784002,
+      "compute_cycles": 2,
+      "start_cycle": 2784000,
+      "idle_cycles": 0,
+      "type": "attn_concat"
+    },
+    {
+      "layer": "layer0.attn.proj",
+      "finish_cycle": 2800000,
+      "compute_cycles": 15998,
+      "start_cycle": 2784002,
+      "idle_cycles": 0,
+      "type": "attn_projection"
+    },
+    {
+      "layer": "layer0.attn.ln",
+      "finish_cycle": 2808000,
+      "compute_cycles": 8000,
+      "start_cycle": 2800000,
+      "idle_cycles": 0,
+      "type": "attn_layernorm"
+    },
+    {
+      "layer": "layer0.ffn.fc1",
+      "finish_cycle": 2832000,
+      "compute_cycles": 24000,
+      "start_cycle": 2808000,
+      "idle_cycles": 0,
+      "type": "ffn_fc1"
+    },
+    {
+      "layer": "layer0.ffn.act",
+      "finish_cycle": 2840000,
+      "compute_cycles": 8000,
+      "start_cycle": 2832000,
+      "idle_cycles": 0,
+      "type": "ffn_activation"
+    },
+    {
+      "layer": "layer0.ffn.fc2",
+      "finish_cycle": 2864000,
+      "compute_cycles": 24000,
+      "start_cycle": 2840000,
+      "idle_cycles": 0,
+      "type": "ffn_fc2"
+    },
+    {
+      "layer": "layer0.ffn.ln",
+      "finish_cycle": 2872000,
+      "compute_cycles": 8000,
+      "start_cycle": 2864000,
+      "idle_cycles": 0,
+      "type": "ffn_layernorm"
+    },
+    {
+      "layer": "layer0.attn.QKVgen",
+      "finish_cycle": 2896000,
+      "compute_cycles": 23999,
+      "start_cycle": 2872001,
+      "idle_cycles": 1,
+      "type": "QKV_projection"
+    },
+    {
+      "layer": "layer0.attn.KVccat",
+      "finish_cycle": 2896001,
+      "compute_cycles": 1,
+      "start_cycle": 2896000,
+      "idle_cycles": 0,
+      "type": "KV_concat"
+    },
+    {
+      "layer": "layer0.attn.Attention.0",
+      "finish_cycle": 2920000,
+      "compute_cycles": 23999,
+      "start_cycle": 2896001,
+      "idle_cycles": 0,
+      "type": "attention"
+    },
+    {
+      "layer": "layer0.attn.Atccat",
+      "finish_cycle": 2920001,
+      "compute_cycles": 1,
+      "start_cycle": 2920000,
+      "idle_cycles": 0,
+      "type": "attn_concat"
+    },
+    {
+      "layer": "layer0.attn.proj",
+      "finish_cycle": 2936000,
+      "compute_cycles": 15999,
+      "start_cycle": 2920001,
+      "idle_cycles": 0,
+      "type": "attn_projection"
+    },
+    {
+      "layer": "layer0.attn.ln",
+      "finish_cycle": 2944000,
+      "compute_cycles": 8000,
+      "start_cycle": 2936000,
+      "idle_cycles": 0,
+      "type": "attn_layernorm"
+    },
+    {
+      "layer": "layer0.ffn.fc1",
+      "finish_cycle": 2968000,
+      "compute_cycles": 24000,
+      "start_cycle": 2944000,
+      "idle_cycles": 0,
+      "type": "ffn_fc1"
+    },
+    {
+      "layer": "layer0.ffn.act",
+      "finish_cycle": 2976000,
+      "compute_cycles": 8000,
+      "start_cycle": 2968000,
+      "idle_cycles": 0,
+      "type": "ffn_activation"
+    },
+    {
+      "layer": "layer0.ffn.fc2",
+      "finish_cycle": 3000000,
+      "compute_cycles": 24000,
+      "start_cycle": 2976000,
+      "idle_cycles": 0,
+      "type": "ffn_fc2"
+    },
+    {
+      "layer": "layer0.ffn.ln",
+      "finish_cycle": 3008000,
+      "compute_cycles": 8000,
+      "start_cycle": 3000000,
+      "idle_cycles": 0,
+      "type": "ffn_layernorm"
+    },
+    {
+      "layer": "layer0.attn.QKVgen",
+      "finish_cycle": 3032000,
+      "compute_cycles": 23999,
+      "start_cycle": 3008001,
+      "idle_cycles": 1,
+      "type": "QKV_projection"
+    },
+    {
+      "layer": "layer0.attn.KVccat",
+      "finish_cycle": 3032002,
+      "compute_cycles": 2,
+      "start_cycle": 3032000,
+      "idle_cycles": 0,
+      "type": "KV_concat"
+    },
+    {
+      "layer": "layer0.attn.Attention.0",
+      "finish_cycle": 3056000,
+      "compute_cycles": 23998,
+      "start_cycle": 3032002,
+      "idle_cycles": 0,
+      "type": "attention"
+    },
+    {
+      "layer": "layer0.attn.Atccat",
+      "finish_cycle": 3056002,
+      "compute_cycles": 2,
+      "start_cycle": 3056000,
+      "idle_cycles": 0,
+      "type": "attn_concat"
+    },
+    {
+      "layer": "layer0.attn.proj",
+      "finish_cycle": 3072000,
+      "compute_cycles": 15998,
+      "start_cycle": 3056002,
+      "idle_cycles": 0,
+      "type": "attn_projection"
+    },
+    {
+      "layer": "layer0.attn.ln",
+      "finish_cycle": 3080000,
+      "compute_cycles": 8000,
+      "start_cycle": 3072000,
+      "idle_cycles": 0,
+      "type": "attn_layernorm"
+    },
+    {
+      "layer": "layer0.ffn.fc1",
+      "finish_cycle": 3104000,
+      "compute_cycles": 24000,
+      "start_cycle": 3080000,
+      "idle_cycles": 0,
+      "type": "ffn_fc1"
+    },
+    {
+      "layer": "layer0.ffn.act",
+      "finish_cycle": 3112000,
+      "compute_cycles": 8000,
+      "start_cycle": 3104000,
+      "idle_cycles": 0,
+      "type": "ffn_activation"
+    },
+    {
+      "layer": "layer0.ffn.fc2",
+      "finish_cycle": 3136000,
+      "compute_cycles": 24000,
+      "start_cycle": 3112000,
+      "idle_cycles": 0,
+      "type": "ffn_fc2"
+    },
+    {
+      "layer": "layer0.ffn.ln",
+      "finish_cycle": 3144000,
+      "compute_cycles": 8000,
+      "start_cycle": 3136000,
+      "idle_cycles": 0,
+      "type": "ffn_layernorm"
+    },
+    {
+      "layer": "layer0.attn.QKVgen",
+      "finish_cycle": 3168000,
+      "compute_cycles": 23999,
+      "start_cycle": 3144001,
+      "idle_cycles": 1,
+      "type": "QKV_projection"
+    },
+    {
+      "layer": "layer0.attn.KVccat",
+      "finish_cycle": 3168002,
+      "compute_cycles": 2,
+      "start_cycle": 3168000,
+      "idle_cycles": 0,
+      "type": "KV_concat"
+    },
+    {
+      "layer": "layer0.attn.Attention.0",
+      "finish_cycle": 3192000,
+      "compute_cycles": 23998,
+      "start_cycle": 3168002,
+      "idle_cycles": 0,
+      "type": "attention"
+    },
+    {
+      "layer": "layer0.attn.Atccat",
+      "finish_cycle": 3192002,
+      "compute_cycles": 2,
+      "start_cycle": 3192000,
+      "idle_cycles": 0,
+      "type": "attn_concat"
+    },
+    {
+      "layer": "layer0.attn.proj",
+      "finish_cycle": 3208000,
+      "compute_cycles": 15998,
+      "start_cycle": 3192002,
+      "idle_cycles": 0,
+      "type": "attn_projection"
+    },
+    {
+      "layer": "layer0.attn.ln",
+      "finish_cycle": 3216000,
+      "compute_cycles": 8000,
+      "start_cycle": 3208000,
+      "idle_cycles": 0,
+      "type": "attn_layernorm"
+    },
+    {
+      "layer": "layer0.ffn.fc1",
+      "finish_cycle": 3240000,
+      "compute_cycles": 24000,
+      "start_cycle": 3216000,
+      "idle_cycles": 0,
+      "type": "ffn_fc1"
+    },
+    {
+      "layer": "layer0.ffn.act",
+      "finish_cycle": 3248000,
+      "compute_cycles": 8000,
+      "start_cycle": 3240000,
+      "idle_cycles": 0,
+      "type": "ffn_activation"
+    },
+    {
+      "layer": "layer0.ffn.fc2",
+      "finish_cycle": 3272000,
+      "compute_cycles": 24000,
+      "start_cycle": 3248000,
+      "idle_cycles": 0,
+      "type": "ffn_fc2"
+    },
+    {
+      "layer": "layer0.ffn.ln",
+      "finish_cycle": 3280000,
+      "compute_cycles": 8000,
+      "start_cycle": 3272000,
+      "idle_cycles": 0,
+      "type": "ffn_layernorm"
+    },
+    {
+      "layer": "layer0.attn.QKVgen",
+      "finish_cycle": 3304000,
+      "compute_cycles": 23999,
+      "start_cycle": 3280001,
+      "idle_cycles": 1,
+      "type": "QKV_projection"
+    },
+    {
+      "layer": "layer0.attn.KVccat",
+      "finish_cycle": 3304001,
+      "compute_cycles": 1,
+      "start_cycle": 3304000,
+      "idle_cycles": 0,
+      "type": "KV_concat"
+    },
+    {
+      "layer": "layer0.attn.Attention.0",
+      "finish_cycle": 3328000,
+      "compute_cycles": 23999,
+      "start_cycle": 3304001,
+      "idle_cycles": 0,
+      "type": "attention"
+    },
+    {
+      "layer": "layer0.attn.Atccat",
+      "finish_cycle": 3328002,
+      "compute_cycles": 2,
+      "start_cycle": 3328000,
+      "idle_cycles": 0,
+      "type": "attn_concat"
+    },
+    {
+      "layer": "layer0.attn.proj",
+      "finish_cycle": 3344000,
+      "compute_cycles": 15998,
+      "start_cycle": 3328002,
+      "idle_cycles": 0,
+      "type": "attn_projection"
+    },
+    {
+      "layer": "layer0.attn.ln",
+      "finish_cycle": 3352000,
+      "compute_cycles": 8000,
+      "start_cycle": 3344000,
+      "idle_cycles": 0,
+      "type": "attn_layernorm"
+    },
+    {
+      "layer": "layer0.ffn.fc1",
+      "finish_cycle": 3376000,
+      "compute_cycles": 24000,
+      "start_cycle": 3352000,
+      "idle_cycles": 0,
+      "type": "ffn_fc1"
+    },
+    {
+      "layer": "layer0.ffn.act",
+      "finish_cycle": 3384000,
+      "compute_cycles": 8000,
+      "start_cycle": 3376000,
+      "idle_cycles": 0,
+      "type": "ffn_activation"
+    },
+    {
+      "layer": "layer0.ffn.fc2",
+      "finish_cycle": 3408000,
+      "compute_cycles": 24000,
+      "start_cycle": 3384000,
+      "idle_cycles": 0,
+      "type": "ffn_fc2"
+    },
+    {
+      "layer": "layer0.ffn.ln",
+      "finish_cycle": 3416000,
+      "compute_cycles": 8000,
+      "start_cycle": 3408000,
+      "idle_cycles": 0,
+      "type": "ffn_layernorm"
+    },
+    {
+      "layer": "layer0.attn.QKVgen",
+      "finish_cycle": 3440000,
+      "compute_cycles": 23999,
+      "start_cycle": 3416001,
+      "idle_cycles": 1,
+      "type": "QKV_projection"
+    },
+    {
+      "layer": "layer0.attn.KVccat",
+      "finish_cycle": 3440001,
+      "compute_cycles": 1,
+      "start_cycle": 3440000,
+      "idle_cycles": 0,
+      "type": "KV_concat"
+    },
+    {
+      "layer": "layer0.attn.Attention.0",
+      "finish_cycle": 3464000,
+      "compute_cycles": 23999,
+      "start_cycle": 3440001,
+      "idle_cycles": 0,
+      "type": "attention"
+    },
+    {
+      "layer": "layer0.attn.Atccat",
+      "finish_cycle": 3464001,
+      "compute_cycles": 1,
+      "start_cycle": 3464000,
+      "idle_cycles": 0,
+      "type": "attn_concat"
+    },
+    {
+      "layer": "layer0.attn.proj",
+      "finish_cycle": 3480000,
+      "compute_cycles": 15999,
+      "start_cycle": 3464001,
+      "idle_cycles": 0,
+      "type": "attn_projection"
+    },
+    {
+      "layer": "layer0.attn.ln",
+      "finish_cycle": 3488000,
+      "compute_cycles": 8000,
+      "start_cycle": 3480000,
+      "idle_cycles": 0,
+      "type": "attn_layernorm"
+    },
+    {
+      "layer": "layer0.ffn.fc1",
+      "finish_cycle": 3512000,
+      "compute_cycles": 24000,
+      "start_cycle": 3488000,
+      "idle_cycles": 0,
+      "type": "ffn_fc1"
+    },
+    {
+      "layer": "layer0.ffn.act",
+      "finish_cycle": 3520000,
+      "compute_cycles": 8000,
+      "start_cycle": 3512000,
+      "idle_cycles": 0,
+      "type": "ffn_activation"
+    },
+    {
+      "layer": "layer0.ffn.fc2",
+      "finish_cycle": 3544000,
+      "compute_cycles": 24000,
+      "start_cycle": 3520000,
+      "idle_cycles": 0,
+      "type": "ffn_fc2"
+    },
+    {
+      "layer": "layer0.ffn.ln",
+      "finish_cycle": 3552000,
+      "compute_cycles": 8000,
+      "start_cycle": 3544000,
+      "idle_cycles": 0,
+      "type": "ffn_layernorm"
+    },
+    {
+      "layer": "layer0.attn.QKVgen",
+      "finish_cycle": 3576000,
+      "compute_cycles": 23999,
+      "start_cycle": 3552001,
+      "idle_cycles": 1,
+      "type": "QKV_projection"
+    },
+    {
+      "layer": "layer0.attn.KVccat",
+      "finish_cycle": 3576002,
+      "compute_cycles": 2,
+      "start_cycle": 3576000,
+      "idle_cycles": 0,
+      "type": "KV_concat"
+    },
+    {
+      "layer": "layer0.attn.Attention.0",
+      "finish_cycle": 3600000,
+      "compute_cycles": 23998,
+      "start_cycle": 3576002,
+      "idle_cycles": 0,
+      "type": "attention"
+    },
+    {
+      "layer": "layer0.attn.Atccat",
+      "finish_cycle": 3600002,
+      "compute_cycles": 2,
+      "start_cycle": 3600000,
+      "idle_cycles": 0,
+      "type": "attn_concat"
+    },
+    {
+      "layer": "layer0.attn.proj",
+      "finish_cycle": 3616000,
+      "compute_cycles": 15998,
+      "start_cycle": 3600002,
+      "idle_cycles": 0,
+      "type": "attn_projection"
+    },
+    {
+      "layer": "layer0.attn.ln",
+      "finish_cycle": 3624000,
+      "compute_cycles": 8000,
+      "start_cycle": 3616000,
+      "idle_cycles": 0,
+      "type": "attn_layernorm"
+    },
+    {
+      "layer": "layer0.ffn.fc1",
+      "finish_cycle": 3648000,
+      "compute_cycles": 24000,
+      "start_cycle": 3624000,
+      "idle_cycles": 0,
+      "type": "ffn_fc1"
+    },
+    {
+      "layer": "layer0.ffn.act",
+      "finish_cycle": 3656000,
+      "compute_cycles": 8000,
+      "start_cycle": 3648000,
+      "idle_cycles": 0,
+      "type": "ffn_activation"
+    },
+    {
+      "layer": "layer0.ffn.fc2",
+      "finish_cycle": 3680000,
+      "compute_cycles": 24000,
+      "start_cycle": 3656000,
+      "idle_cycles": 0,
+      "type": "ffn_fc2"
+    },
+    {
+      "layer": "layer0.ffn.ln",
+      "finish_cycle": 3688000,
+      "compute_cycles": 8000,
+      "start_cycle": 3680000,
+      "idle_cycles": 0,
+      "type": "ffn_layernorm"
+    },
+    {
+      "layer": "layer0.attn.QKVgen",
+      "finish_cycle": 3712000,
+      "compute_cycles": 23999,
+      "start_cycle": 3688001,
+      "idle_cycles": 1,
+      "type": "QKV_projection"
+    },
+    {
+      "layer": "layer0.attn.KVccat",
+      "finish_cycle": 3712002,
+      "compute_cycles": 2,
+      "start_cycle": 3712000,
+      "idle_cycles": 0,
+      "type": "KV_concat"
+    },
+    {
+      "layer": "layer0.attn.Attention.0",
+      "finish_cycle": 3736000,
+      "compute_cycles": 23998,
+      "start_cycle": 3712002,
+      "idle_cycles": 0,
+      "type": "attention"
+    },
+    {
+      "layer": "layer0.attn.Atccat",
+      "finish_cycle": 3736002,
+      "compute_cycles": 2,
+      "start_cycle": 3736000,
+      "idle_cycles": 0,
+      "type": "attn_concat"
+    },
+    {
+      "layer": "layer0.attn.proj",
+      "finish_cycle": 3752000,
+      "compute_cycles": 15998,
+      "start_cycle": 3736002,
+      "idle_cycles": 0,
+      "type": "attn_projection"
+    },
+    {
+      "layer": "layer0.attn.ln",
+      "finish_cycle": 3760000,
+      "compute_cycles": 8000,
+      "start_cycle": 3752000,
+      "idle_cycles": 0,
+      "type": "attn_layernorm"
+    },
+    {
+      "layer": "layer0.ffn.fc1",
+      "finish_cycle": 3784000,
+      "compute_cycles": 24000,
+      "start_cycle": 3760000,
+      "idle_cycles": 0,
+      "type": "ffn_fc1"
+    },
+    {
+      "layer": "layer0.ffn.act",
+      "finish_cycle": 3792000,
+      "compute_cycles": 8000,
+      "start_cycle": 3784000,
+      "idle_cycles": 0,
+      "type": "ffn_activation"
+    },
+    {
+      "layer": "layer0.ffn.fc2",
+      "finish_cycle": 3816000,
+      "compute_cycles": 24000,
+      "start_cycle": 3792000,
+      "idle_cycles": 0,
+      "type": "ffn_fc2"
+    },
+    {
+      "layer": "layer0.ffn.ln",
+      "finish_cycle": 3824000,
+      "compute_cycles": 8000,
+      "start_cycle": 3816000,
+      "idle_cycles": 0,
+      "type": "ffn_layernorm"
+    },
+    {
+      "layer": "layer0.attn.QKVgen",
+      "finish_cycle": 3848000,
+      "compute_cycles": 23999,
+      "start_cycle": 3824001,
+      "idle_cycles": 1,
+      "type": "QKV_projection"
+    },
+    {
+      "layer": "layer0.attn.KVccat",
+      "finish_cycle": 3848001,
+      "compute_cycles": 1,
+      "start_cycle": 3848000,
+      "idle_cycles": 0,
+      "type": "KV_concat"
+    },
+    {
+      "layer": "layer0.attn.Attention.0",
+      "finish_cycle": 3872000,
+      "compute_cycles": 23999,
+      "start_cycle": 3848001,
+      "idle_cycles": 0,
+      "type": "attention"
+    },
+    {
+      "layer": "layer0.attn.Atccat",
+      "finish_cycle": 3872002,
+      "compute_cycles": 2,
+      "start_cycle": 3872000,
+      "idle_cycles": 0,
+      "type": "attn_concat"
+    },
+    {
+      "layer": "layer0.attn.proj",
+      "finish_cycle": 3888000,
+      "compute_cycles": 15998,
+      "start_cycle": 3872002,
+      "idle_cycles": 0,
+      "type": "attn_projection"
+    },
+    {
+      "layer": "layer0.attn.ln",
+      "finish_cycle": 3896000,
+      "compute_cycles": 8000,
+      "start_cycle": 3888000,
+      "idle_cycles": 0,
+      "type": "attn_layernorm"
+    },
+    {
+      "layer": "layer0.ffn.fc1",
+      "finish_cycle": 3920000,
+      "compute_cycles": 24000,
+      "start_cycle": 3896000,
+      "idle_cycles": 0,
+      "type": "ffn_fc1"
+    },
+    {
+      "layer": "layer0.ffn.act",
+      "finish_cycle": 3928000,
+      "compute_cycles": 8000,
+      "start_cycle": 3920000,
+      "idle_cycles": 0,
+      "type": "ffn_activation"
+    },
+    {
+      "layer": "layer0.ffn.fc2",
+      "finish_cycle": 3952000,
+      "compute_cycles": 24000,
+      "start_cycle": 3928000,
+      "idle_cycles": 0,
+      "type": "ffn_fc2"
+    },
+    {
+      "layer": "layer0.ffn.ln",
+      "finish_cycle": 3960000,
+      "compute_cycles": 8000,
+      "start_cycle": 3952000,
+      "idle_cycles": 0,
+      "type": "ffn_layernorm"
+    },
+    {
+      "layer": "layer0.attn.QKVgen",
+      "finish_cycle": 3984000,
+      "compute_cycles": 23999,
+      "start_cycle": 3960001,
+      "idle_cycles": 1,
+      "type": "QKV_projection"
+    },
+    {
+      "layer": "layer0.attn.KVccat",
+      "finish_cycle": 3984001,
+      "compute_cycles": 1,
+      "start_cycle": 3984000,
+      "idle_cycles": 0,
+      "type": "KV_concat"
+    },
+    {
+      "layer": "layer0.attn.Attention.0",
+      "finish_cycle": 4008000,
+      "compute_cycles": 23999,
+      "start_cycle": 3984001,
+      "idle_cycles": 0,
+      "type": "attention"
+    },
+    {
+      "layer": "layer0.attn.Atccat",
+      "finish_cycle": 4008001,
+      "compute_cycles": 1,
+      "start_cycle": 4008000,
+      "idle_cycles": 0,
+      "type": "attn_concat"
+    },
+    {
+      "layer": "layer0.attn.proj",
+      "finish_cycle": 4024000,
+      "compute_cycles": 15999,
+      "start_cycle": 4008001,
+      "idle_cycles": 0,
+      "type": "attn_projection"
+    },
+    {
+      "layer": "layer0.attn.ln",
+      "finish_cycle": 4032000,
+      "compute_cycles": 8000,
+      "start_cycle": 4024000,
+      "idle_cycles": 0,
+      "type": "attn_layernorm"
+    },
+    {
+      "layer": "layer0.ffn.fc1",
+      "finish_cycle": 4056000,
+      "compute_cycles": 24000,
+      "start_cycle": 4032000,
+      "idle_cycles": 0,
+      "type": "ffn_fc1"
+    },
+    {
+      "layer": "layer0.ffn.act",
+      "finish_cycle": 4064000,
+      "compute_cycles": 8000,
+      "start_cycle": 4056000,
+      "idle_cycles": 0,
+      "type": "ffn_activation"
+    },
+    {
+      "layer": "layer0.ffn.fc2",
+      "finish_cycle": 4088000,
+      "compute_cycles": 24000,
+      "start_cycle": 4064000,
+      "idle_cycles": 0,
+      "type": "ffn_fc2"
+    },
+    {
+      "layer": "layer0.ffn.ln",
+      "finish_cycle": 4096000,
+      "compute_cycles": 8000,
+      "start_cycle": 4088000,
+      "idle_cycles": 0,
+      "type": "ffn_layernorm"
+    },
+    {
+      "layer": "layer0.attn.QKVgen",
+      "finish_cycle": 4120000,
+      "compute_cycles": 23999,
+      "start_cycle": 4096001,
+      "idle_cycles": 1,
+      "type": "QKV_projection"
+    },
+    {
+      "layer": "layer0.attn.KVccat",
+      "finish_cycle": 4120002,
+      "compute_cycles": 2,
+      "start_cycle": 4120000,
+      "idle_cycles": 0,
+      "type": "KV_concat"
+    },
+    {
+      "layer": "layer0.attn.Attention.0",
+      "finish_cycle": 4144000,
+      "compute_cycles": 23998,
+      "start_cycle": 4120002,
+      "idle_cycles": 0,
+      "type": "attention"
+    },
+    {
+      "layer": "layer0.attn.Atccat",
+      "finish_cycle": 4144002,
+      "compute_cycles": 2,
+      "start_cycle": 4144000,
+      "idle_cycles": 0,
+      "type": "attn_concat"
+    },
+    {
+      "layer": "layer0.attn.proj",
+      "finish_cycle": 4160000,
+      "compute_cycles": 15998,
+      "start_cycle": 4144002,
+      "idle_cycles": 0,
+      "type": "attn_projection"
+    },
+    {
+      "layer": "layer0.attn.ln",
+      "finish_cycle": 4168000,
+      "compute_cycles": 8000,
+      "start_cycle": 4160000,
+      "idle_cycles": 0,
+      "type": "attn_layernorm"
+    },
+    {
+      "layer": "layer0.ffn.fc1",
+      "finish_cycle": 4192000,
+      "compute_cycles": 24000,
+      "start_cycle": 4168000,
+      "idle_cycles": 0,
+      "type": "ffn_fc1"
+    },
+    {
+      "layer": "layer0.ffn.act",
+      "finish_cycle": 4200000,
+      "compute_cycles": 8000,
+      "start_cycle": 4192000,
+      "idle_cycles": 0,
+      "type": "ffn_activation"
+    },
+    {
+      "layer": "layer0.ffn.fc2",
+      "finish_cycle": 4224000,
+      "compute_cycles": 24000,
+      "start_cycle": 4200000,
+      "idle_cycles": 0,
+      "type": "ffn_fc2"
+    },
+    {
+      "layer": "layer0.ffn.ln",
+      "finish_cycle": 4232000,
+      "compute_cycles": 8000,
+      "start_cycle": 4224000,
+      "idle_cycles": 0,
+      "type": "ffn_layernorm"
+    },
+    {
+      "layer": "layer0.attn.QKVgen",
+      "finish_cycle": 4256000,
+      "compute_cycles": 23999,
+      "start_cycle": 4232001,
+      "idle_cycles": 1,
+      "type": "QKV_projection"
+    },
+    {
+      "layer": "layer0.attn.KVccat",
+      "finish_cycle": 4256002,
+      "compute_cycles": 2,
+      "start_cycle": 4256000,
+      "idle_cycles": 0,
+      "type": "KV_concat"
+    },
+    {
+      "layer": "layer0.attn.Attention.0",
+      "finish_cycle": 4280000,
+      "compute_cycles": 23998,
+      "start_cycle": 4256002,
+      "idle_cycles": 0,
+      "type": "attention"
+    },
+    {
+      "layer": "layer0.attn.Atccat",
+      "finish_cycle": 4280002,
+      "compute_cycles": 2,
+      "start_cycle": 4280000,
+      "idle_cycles": 0,
+      "type": "attn_concat"
+    },
+    {
+      "layer": "layer0.attn.proj",
+      "finish_cycle": 4296000,
+      "compute_cycles": 15998,
+      "start_cycle": 4280002,
+      "idle_cycles": 0,
+      "type": "attn_projection"
+    },
+    {
+      "layer": "layer0.attn.ln",
+      "finish_cycle": 4304000,
+      "compute_cycles": 8000,
+      "start_cycle": 4296000,
+      "idle_cycles": 0,
+      "type": "attn_layernorm"
+    },
+    {
+      "layer": "layer0.ffn.fc1",
+      "finish_cycle": 4328000,
+      "compute_cycles": 24000,
+      "start_cycle": 4304000,
+      "idle_cycles": 0,
+      "type": "ffn_fc1"
+    },
+    {
+      "layer": "layer0.ffn.act",
+      "finish_cycle": 4336000,
+      "compute_cycles": 8000,
+      "start_cycle": 4328000,
+      "idle_cycles": 0,
+      "type": "ffn_activation"
+    },
+    {
+      "layer": "layer0.ffn.fc2",
+      "finish_cycle": 4360000,
+      "compute_cycles": 24000,
+      "start_cycle": 4336000,
+      "idle_cycles": 0,
+      "type": "ffn_fc2"
+    },
+    {
+      "layer": "layer0.ffn.ln",
+      "finish_cycle": 4368000,
+      "compute_cycles": 8000,
+      "start_cycle": 4360000,
+      "idle_cycles": 0,
+      "type": "ffn_layernorm"
+    }
+  ],
+  "gemm_ops": [],
+  "attention_ops": [],
+  "object_size_histogram": {
+    "entries": [
+      {
+        "size_bytes": 4224,
+        "count": 3168,
+        "total_bytes": 13381632,
+        "cumulative_bytes": 13381632,
+        "bytes_fraction_pct": 0.0002
+      },
+      {
+        "size_bytes": 4096,
+        "count": 3072,
+        "total_bytes": 12582912,
+        "cumulative_bytes": 25964544,
+        "bytes_fraction_pct": 0.0002
+      },
+      {
+        "size_bytes": 3968,
+        "count": 2976,
+        "total_bytes": 11808768,
+        "cumulative_bytes": 37773312,
+        "bytes_fraction_pct": 0.0002
+      },
+      {
+        "size_bytes": 3840,
+        "count": 2880,
+        "total_bytes": 11059200,
+        "cumulative_bytes": 48832512,
+        "bytes_fraction_pct": 0.0002
+      },
+      {
+        "size_bytes": 3712,
+        "count": 2784,
+        "total_bytes": 10334208,
+        "cumulative_bytes": 59166720,
+        "bytes_fraction_pct": 0.0002
+      },
+      {
+        "size_bytes": 3584,
+        "count": 2688,
+        "total_bytes": 9633792,
+        "cumulative_bytes": 68800512,
+        "bytes_fraction_pct": 0.0002
+      },
+      {
+        "size_bytes": 3456,
+        "count": 2592,
+        "total_bytes": 8957952,
+        "cumulative_bytes": 77758464,
+        "bytes_fraction_pct": 0.0002
+      },
+      {
+        "size_bytes": 896,
+        "count": 672,
+        "total_bytes": 602112,
+        "cumulative_bytes": 78360576,
+        "bytes_fraction_pct": 0.0
+      },
+      {
+        "size_bytes": 768,
+        "count": 576,
+        "total_bytes": 442368,
+        "cumulative_bytes": 78802944,
+        "bytes_fraction_pct": 0.0
+      },
+      {
+        "size_bytes": 640,
+        "count": 480,
+        "total_bytes": 307200,
+        "cumulative_bytes": 79110144,
+        "bytes_fraction_pct": 0.0
+      },
+      {
+        "size_bytes": 512,
+        "count": 384,
+        "total_bytes": 196608,
+        "cumulative_bytes": 79306752,
+        "bytes_fraction_pct": 0.0
+      },
+      {
+        "size_bytes": 384,
+        "count": 288,
+        "total_bytes": 110592,
+        "cumulative_bytes": 79417344,
+        "bytes_fraction_pct": 0.0
+      },
+      {
+        "size_bytes": 1024,
+        "count": 768,
+        "total_bytes": 786432,
+        "cumulative_bytes": 80203776,
+        "bytes_fraction_pct": 0.0
+      },
+      {
+        "size_bytes": 786432,
+        "count": 4718592,
+        "total_bytes": 3710851743744,
+        "cumulative_bytes": 3710931947520,
+        "bytes_fraction_pct": 66.66
+      },
+      {
+        "size_bytes": 3200,
+        "count": 2400,
+        "total_bytes": 7680000,
+        "cumulative_bytes": 3710939627520,
+        "bytes_fraction_pct": 0.0001
+      },
+      {
+        "size_bytes": 1152,
+        "count": 864,
+        "total_bytes": 995328,
+        "cumulative_bytes": 3710940622848,
+        "bytes_fraction_pct": 0.0
+      },
+      {
+        "size_bytes": 6144,
+        "count": 55296,
+        "total_bytes": 339738624,
+        "cumulative_bytes": 3711280361472,
+        "bytes_fraction_pct": 0.0061
+      },
+      {
+        "size_bytes": 2432,
+        "count": 1824,
+        "total_bytes": 4435968,
+        "cumulative_bytes": 3711284797440,
+        "bytes_fraction_pct": 0.0001
+      },
+      {
+        "size_bytes": 128,
+        "count": 3168,
+        "total_bytes": 405504,
+        "cumulative_bytes": 3711285202944,
+        "bytes_fraction_pct": 0.0
+      },
+      {
+        "size_bytes": 1536,
+        "count": 36480,
+        "total_bytes": 56033280,
+        "cumulative_bytes": 3711341236224,
+        "bytes_fraction_pct": 0.001
+      },
+      {
+        "size_bytes": 196608,
+        "count": 9437184,
+        "total_bytes": 1855425871872,
+        "cumulative_bytes": 5566767108096,
+        "bytes_fraction_pct": 33.33
+      },
+      {
+        "size_bytes": 256,
+        "count": 21504,
+        "total_bytes": 5505024,
+        "cumulative_bytes": 5566772613120,
+        "bytes_fraction_pct": 0.0001
+      },
+      {
+        "size_bytes": 1280,
+        "count": 960,
+        "total_bytes": 1228800,
+        "cumulative_bytes": 5566773841920,
+        "bytes_fraction_pct": 0.0
+      },
+      {
+        "size_bytes": 1408,
+        "count": 1056,
+        "total_bytes": 1486848,
+        "cumulative_bytes": 5566775328768,
+        "bytes_fraction_pct": 0.0
+      },
+      {
+        "size_bytes": 1664,
+        "count": 1248,
+        "total_bytes": 2076672,
+        "cumulative_bytes": 5566777405440,
+        "bytes_fraction_pct": 0.0
+      },
+      {
+        "size_bytes": 1792,
+        "count": 1344,
+        "total_bytes": 2408448,
+        "cumulative_bytes": 5566779813888,
+        "bytes_fraction_pct": 0.0
+      },
+      {
+        "size_bytes": 1920,
+        "count": 1440,
+        "total_bytes": 2764800,
+        "cumulative_bytes": 5566782578688,
+        "bytes_fraction_pct": 0.0
+      },
+      {
+        "size_bytes": 2048,
+        "count": 1536,
+        "total_bytes": 3145728,
+        "cumulative_bytes": 5566785724416,
+        "bytes_fraction_pct": 0.0001
+      },
+      {
+        "size_bytes": 2176,
+        "count": 1632,
+        "total_bytes": 3551232,
+        "cumulative_bytes": 5566789275648,
+        "bytes_fraction_pct": 0.0001
+      },
+      {
+        "size_bytes": 2304,
+        "count": 1728,
+        "total_bytes": 3981312,
+        "cumulative_bytes": 5566793256960,
+        "bytes_fraction_pct": 0.0001
+      },
+      {
+        "size_bytes": 2560,
+        "count": 1920,
+        "total_bytes": 4915200,
+        "cumulative_bytes": 5566798172160,
+        "bytes_fraction_pct": 0.0001
+      },
+      {
+        "size_bytes": 2688,
+        "count": 2016,
+        "total_bytes": 5419008,
+        "cumulative_bytes": 5566803591168,
+        "bytes_fraction_pct": 0.0001
+      },
+      {
+        "size_bytes": 2816,
+        "count": 2112,
+        "total_bytes": 5947392,
+        "cumulative_bytes": 5566809538560,
+        "bytes_fraction_pct": 0.0001
+      },
+      {
+        "size_bytes": 2944,
+        "count": 2208,
+        "total_bytes": 6500352,
+        "cumulative_bytes": 5566816038912,
+        "bytes_fraction_pct": 0.0001
+      },
+      {
+        "size_bytes": 3072,
+        "count": 2304,
+        "total_bytes": 7077888,
+        "cumulative_bytes": 5566823116800,
+        "bytes_fraction_pct": 0.0001
+      },
+      {
+        "size_bytes": 3328,
+        "count": 2496,
+        "total_bytes": 8306688,
+        "cumulative_bytes": 5566831423488,
+        "bytes_fraction_pct": 0.0001
+      }
+    ],
+    "total_bytes": 5566831423488,
+    "total_count": 14324640,
+    "num_size_classes": 36,
+    "top_5_by_bytes": [
+      {
+        "size_bytes": 786432,
+        "count": 4718592,
+        "total_bytes": 3710851743744,
+        "cumulative_bytes": 3710931947520,
+        "bytes_fraction_pct": 66.66
+      },
+      {
+        "size_bytes": 196608,
+        "count": 9437184,
+        "total_bytes": 1855425871872,
+        "cumulative_bytes": 5566767108096,
+        "bytes_fraction_pct": 33.33
+      },
+      {
+        "size_bytes": 6144,
+        "count": 55296,
+        "total_bytes": 339738624,
+        "cumulative_bytes": 3711280361472,
+        "bytes_fraction_pct": 0.0061
+      },
+      {
+        "size_bytes": 1536,
+        "count": 36480,
+        "total_bytes": 56033280,
+        "cumulative_bytes": 3711341236224,
+        "bytes_fraction_pct": 0.001
+      },
+      {
+        "size_bytes": 4224,
+        "count": 3168,
+        "total_bytes": 13381632,
+        "cumulative_bytes": 13381632,
+        "bytes_fraction_pct": 0.0002
+      }
+    ],
+    "avg_object_size": 388619.29,
+    "largest_object_bytes": 786432
+  },
+  "summary_metrics": {
+    "total_compute_GFLOPs": 0,
+    "total_simulated_cycles": 4368001,
+    "wall_clock_seconds": 325.495967,
+    "tiles_per_second": 3.936377,
+    "simulated_cycles_per_wall_second": 13420.0,
+    "avg_systolic_util_pct": 12.0525,
+    "avg_pe_util_pct": 0.08,
+    "avg_memory_idle_pct": 94.8664,
+    "avg_core_idle_pct": 26.7445,
+    "total_sram_hits": 3815996,
+    "total_sram_misses": 15679671,
+    "total_sram_hit_rate": 0.195736,
+    "total_acc_sram_hits": 14592,
+    "total_acc_sram_misses": 1640430,
+    "total_acc_sram_hit_rate": 0.008817,
+    "dram_avg_bw_utilization_pct": 16.787934186471663,
+    "dram_total_reads": 893832,
+    "dram_total_writes": 1541,
+    "compute_cycles_by_layer_type": {
+      "QKV_projection": 767969,
+      "KV_concat": 48,
+      "attention": 783952,
+      "attn_concat": 55,
+      "attn_projection": 511945,
+      "attn_layernorm": 256000,
+      "ffn_fc1": 768000,
+      "ffn_activation": 256000,
+      "ffn_fc2": 768000,
+      "ffn_layernorm": 256000
+    },
+    "layer_count_by_type": {
+      "QKV_projection": 32,
+      "KV_concat": 32,
+      "attention": 32,
+      "attn_concat": 32,
+      "attn_projection": 32,
+      "attn_layernorm": 32,
+      "ffn_fc1": 32,
+      "ffn_activation": 32,
+      "ffn_fc2": 32,
+      "ffn_layernorm": 32
+    },
+    "histogram_total_bytes": 5566831423488,
+    "histogram_total_count": 14324640,
+    "histogram_avg_object_size": 388619.29,
+    "histogram_num_size_classes": 36,
+    "histogram_top1_size_bytes": 786432,
+    "histogram_top1_total_bytes": 3710851743744,
+    "histogram_top1_bytes_pct": 66.66,
+    "histogram_top2_size_bytes": 196608,
+    "histogram_top2_total_bytes": 1855425871872,
+    "histogram_top2_bytes_pct": 33.33
+  }
+}

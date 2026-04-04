@@ -10,10 +10,10 @@ CONFIG = "./configs/systolic_ws_128x128_c4_simple_noc_tpuv4.json"
 OUTPUT_DIR = "opt_logs_without_l2"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-SEQ_LENGTHS = [1024, 2048]
+SEQ_LENGTHS = [1,2, 4,8,16,32,64,128,256,512,1024,1536,2048]
 MODELS = ["opt-125m"]
 
-MAX_WORKERS = 4
+MAX_WORKERS = 2
 # ==================
 
 
@@ -44,7 +44,7 @@ def run_simulation(model, seq):
             json.dump(model_json, f, indent=2)
 
         # ---- Run simulator ----
-        log_path = os.path.join(OUTPUT_DIR, f"{model}_{seq}.log")
+        log_path = os.path.join(OUTPUT_DIR, f"{model}_s{seq}.log")
 
         print(f"[START] {model} seq={seq}")
 

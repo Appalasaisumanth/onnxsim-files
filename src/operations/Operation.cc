@@ -208,6 +208,12 @@ addr_type Operation::make_address(std::vector<uint32_t> index, std::vector<uint3
             spdlog::error("Operation: make_address: index is out of bound ({}, {})", index[i], dims[i]);
             throw std::runtime_error("Attention: make_address: index is out of bound");
         }
+        if(index[i] >= dims[i]) {
+    spdlog::error("Operation: make_address: index out of bound. index[{}]={}, dims[{}]={}", 
+                  i, index[i], i, dims[i]);
+    spdlog::error("Full index: {}, Full dims: {}", index, dims);
+    throw std::runtime_error("Attention: make_address: index is out of bound");
+}
     }
     if(dims.size() == 4) {
         address = index[0] * (dims[1] * dims[2] * dims[3]) + index[1] * (dims[2] * dims[3]) + index[2] * dims[3] + index[3];

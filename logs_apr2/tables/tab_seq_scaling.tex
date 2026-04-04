@@ -1,0 +1,14 @@
+\begin{table}[h]\centering
+    \caption{Cycle-count and wall-clock time scaling with sequence length}
+    \label{tab:seq_scaling}
+    \begin{tabular}{r cc cc c}\hline
+        Seq Len & \multicolumn{2}{c}{Total Cycles} & \multicolumn{2}{c}{Wall-Clock Time (s)} & Speedup \\
+            & Mamba & OPT & Mamba & OPT & (OPT/Mamba) \\\hline
+        1 & 6.400e+05 & 2.880e+05 & 14.7 & 4.7 & 0.450 \\
+        2 & 1.272e+06 & 5.920e+05 & 30.9 & 13.8 & 0.465 \\
+      128 & 8.097e+07 & 3.890e+07 & 4347.7 & 947.2 & 0.480 \\
+      256 & 1.619e+08 & 7.781e+07 & 5426.2 & 1911.4 & 0.480 \\
+      512 & 3.239e+08 & 1.556e+08 & 11167.0 & 3922.7 & 0.480 \\
+     1024 & 6.478e+08 & 3.113e+08 & 24883.5 & 10222.8 & 0.481 \\
+     2048 & 1.296e+09 & 6.247e+08 & 40039.9 & 15003.7 & 0.482 \\
+\hline\end{tabular}\end{table}

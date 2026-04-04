@@ -1,0 +1,14 @@
+\begin{table}[h]\centering
+    \caption{Extended Scaling: PE Utilisation, DRAM BW, and L2 Hit Rate vs Sequence Length}
+    \label{tab:seq_scaling_extended}
+    \begin{tabular}{r cc cc cc}\hline
+        Seq & \multicolumn{2}{c}{PE Util (\%)} & \multicolumn{2}{c}{DRAM BW (\%)} & \multicolumn{2}{c}{L2 Hit Rate} \\
+    Len & Mamba & OPT & Mamba & OPT & Mamba & OPT \\\hline
+        1 & 0.06 & 0.04 & 13.00 & 8.00 & --- & --- \\
+        2 & 0.06 & 0.03 & 13.00 & 7.00 & --- & --- \\
+      128 & 0.06 & 0.04 & 13.00 & 7.00 & --- & --- \\
+      256 & 0.06 & 0.04 & 94885502092.00 & 7.00 & --- & --- \\
+      512 & 0.06 & 0.04 & 2.00 & 8.00 & --- & --- \\
+     1024 & 0.06 & 0.04 & 2.00 & 49364359352.00 & --- & --- \\
+     2048 & 0.06 & 0.04 & 11860907526.00 & 24596524888.00 & --- & --- \\
+\hline\end{tabular}\end{table}

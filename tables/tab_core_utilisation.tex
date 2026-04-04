@@ -1,0 +1,18 @@
+\begin{table}[h]\centering
+    \caption{Core Utilisation Breakdown}
+    \label{tab:core_utilisation}
+    \begin{tabular}{lcc}\hline
+    Metric & Mamba-130M & OPT-125M \\\hline
+        Systolic Array Util (\%) & 6.3883 & 11.4525 \\
+    PE Utilisation (\%) & 0.0471 & 0.0725 \\
+    Vector Unit Util (\%) & 0.0002 & 0.0225 \\
+    Memory Idle (\%) & 96.8867 & 95.1472 \\
+    Core Idle (\%) & 44.2801 & 30.5587 \\
+    Avg Matmul Active Cycles & 198 & 108 \\
+    Avg Total Cycles/core & 4.32e+05 & 1.44e+05 \\
+    Avg Tiles Finished/core & 24.75 & 10 \\
+    Avg Instructions Executed/core & 325.5 & 198 \\
+    Avg Instructions per Tile & 13.1562 & 19.8000 \\
+    Avg Systolic Issue Count & 207 & 114 \\
+    Avg Systolic Preload Count & 207 & 114 \\
+\hline\end{tabular}\end{table}

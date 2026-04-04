@@ -14,16 +14,16 @@ MODELS_JSON = "example/models_list.json"
 LOG_DIR = "logs_new2_mamba_without_l2"
 
 # Parallelism (IMPORTANT: tune based on CPU/memory)
-MAX_WORKERS = 4
+MAX_WORKERS = 2
 
 os.makedirs(LOG_DIR, exist_ok=True)
 
 
 def run_single_model(model):
-    name = model["name"]
+    name = model["name"] + "_s" + str(model["output_seq_len"])
 
     temp_file = f"temp_{name}.json"
-    log_file = os.path.join(LOG_DIR, f"{name[:-2]}s{model.get('output_seq_len', 1)}.log")
+    log_file = os.path.join(LOG_DIR, f"{name}.log")
 
     try:
         print(f"🚀 Running: {name}")
@@ -48,25 +48,25 @@ def run_single_model(model):
 
         print(f"✅ Finished: {name}")
 
-        # ─────────────────────────────
-        # PARSE IMMEDIATELY
-        # ─────────────────────────────
-        data = parser.parse_log(log_file)
+        # # ─────────────────────────────
+        # # PARSE IMMEDIATELY
+        # # ─────────────────────────────
+        # data = parser.parse_log(log_file)
 
-        base = log_file.replace(".log", "")
+        # base = log_file.replace(".log", "")
 
-        parsed_path = base + "_parsed.json"
-        summary_path = base + "_summary.json"
+        # parsed_path = base + "_parsed.json"
+        # summary_path = base + "_summary.json"
 
-        # Write parsed JSON
-        with open(parsed_path, "w") as f:
-            json.dump(data, f, indent=2, default=str)
+        # # Write parsed JSON
+        # with open(parsed_path, "w") as f:
+        #     json.dump(data, f, indent=2, default=str)
 
-        # Build summary
-        summary = parser._build_summary_json(data)
+        # # Build summary
+        # summary = parser._build_summary_json(data)
 
-        with open(summary_path, "w") as f:
-            json.dump(summary, f, indent=2, default=str)
+        # with open(summary_path, "w") as f:
+        #     json.dump(summary, f, indent=2, default=str)
 
         # return {
         #     "parsed": parser.flatten_dict(data) | {"file": log_file},

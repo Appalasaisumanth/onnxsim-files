@@ -1,0 +1,20 @@
+\begin{table}[h]\centering
+    \caption{Memory Hierarchy Statistics (7-step simulation)}
+    \label{tab:memory_stats_gen}
+    \begin{tabular}{lcc}\hline
+    Metric & Mamba-130M & OPT-125M \\\hline
+            Weight Size (GB) & --- & 0.090 \\
+        Scratchpad Size (KB) & 32768 & 32768 \\
+        Accumulation Buffer (KB) & 4096 & 4096 \\
+        Input SRAM Hit Rate & 0.2128 & 0.1946 \\
+        Acc-SRAM Hit Rate & 0.001996 & 0.008937 \\
+        Total DRAM Reads & 3.0041e+08 & 27822 \\
+        Total DRAM Writes & 6.5127e+06 & 49 \\
+        DRAM Channels & 16 & 16 \\
+        Avg DRAM BW Util (\%) & 10.12 & 15.05 \\
+        Avg Row Hit Rate (\%) & 81.60 & 83.93 \\
+        Avg Row Conflict Rate (\%) & 17.05 & 14.72 \\
+        L2 Overall Hit Rate & --- & --- \\
+        L2 Cache Utilisation (\%) & --- & --- \\
+        L2 Total Misses & --- & --- \\
+\hline\end{tabular}\end{table}

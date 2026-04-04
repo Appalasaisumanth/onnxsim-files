@@ -34,6 +34,7 @@ bool Core::can_issue(bool is_accum_tile) {
 }
 
 void Core::issue(std::unique_ptr<Tile> op) {
+  //spdlog::info("Issuing tile {} on core {}", op->optype, _id);
   op->stat = {.start_cycle = _core_cycle,
              .cycles = 0,
              .compute_cycles = 0,
@@ -59,7 +60,7 @@ void Core::issue(std::unique_ptr<Tile> op) {
   _current_layer_id = op->layer_id;
   _current_fused_op_id = op->fused_op_id;
   if(_core_cycle%8000==0)
-  spdlog::info("Issue tile {} on core {}, spad_id {}, accum_spad_id {}", op->optype, _id, spad_id, acc_spad_id);
+  //spdlog::info("Issue tile {} on core {}, spad_id {}, accum_spad_id {}", op->optype, _id, spad_id, acc_spad_id);
 
   op->spad_id = spad_id;
   op->accum_spad_id = acc_spad_id;

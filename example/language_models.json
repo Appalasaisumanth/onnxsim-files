@@ -2,7 +2,7 @@
     "models": 
     [
         {
-            "name": "opt-125m",
+            "name": "tiny",
             "trace_file": "input.csv",
             "scheduler": "simple",
             "scheduler_config": {

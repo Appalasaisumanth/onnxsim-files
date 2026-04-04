@@ -140,6 +140,7 @@ $
 $ mkdir build && cd build
 $ conan install ..
 $ cmake ..
+$ cmake .. -DCMAKE_CXX_FLAGS="-Wno-error" -DCMAKE_BUILD_TYPE=Debug 
 $ make -j
 ```
 ### Run Simulator

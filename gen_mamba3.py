@@ -46,87 +46,87 @@
 
 
 # # ─── Parameter counter ────────────────────────────────────────────────────────
-# def count_mamba_130m_params(cfg):
-#     """
-#     Exact parameter breakdown for mamba-130m following the real architecture.
+def count_mamba_130m_params(cfg):
+    """
+    Exact parameter breakdown for mamba-130m following the real architecture.
 
-#     Weight shapes per MambaMixer (from HF modeling_mamba.py + paper):
-#       in_proj.weight    : [2*d_inner, d_model]         no bias
-#       conv1d.weight     : [d_inner, 1, d_conv]         depthwise
-#       conv1d.bias       : [d_inner]
-#       x_proj.weight     : [dt_rank + 2*d_state, d_inner]  no bias
-#       dt_proj.weight    : [d_inner, dt_rank]           WITH bias
-#       dt_proj.bias      : [d_inner]
-#       A_log             : [d_inner, d_state]           (parameter, not a weight matrix)
-#       D                 : [d_inner]
-#       out_proj.weight   : [d_model, d_inner]           no bias
+    Weight shapes per MambaMixer (from HF modeling_mamba.py + paper):
+      in_proj.weight    : [2*d_inner, d_model]         no bias
+      conv1d.weight     : [d_inner, 1, d_conv]         depthwise
+      conv1d.bias       : [d_inner]
+      x_proj.weight     : [dt_rank + 2*d_state, d_inner]  no bias
+      dt_proj.weight    : [d_inner, dt_rank]           WITH bias
+      dt_proj.bias      : [d_inner]
+      A_log             : [d_inner, d_state]           (parameter, not a weight matrix)
+      D                 : [d_inner]
+      out_proj.weight   : [d_model, d_inner]           no bias
 
-#     Non-mixer params:
-#       embedding         : [vocab_size, d_model]
-#       norm per layer    : [d_model]  × n_layer   (RMSNorm, weight only)
-#       final norm_f      : [d_model]
-#       lm_head           : tied to embedding → 0 extra params
-#     """
-#     d  = cfg["d_model"]
-#     di = cfg["d_inner"]
-#     ds = cfg["d_state"]
-#     dc = cfg["d_conv"]
-#     dr = cfg["dt_rank"]
-#     L  = cfg["n_layer"]
-#     V  = cfg["vocab_size"]
+    Non-mixer params:
+      embedding         : [vocab_size, d_model]
+      norm per layer    : [d_model]  × n_layer   (RMSNorm, weight only)
+      final norm_f      : [d_model]
+      lm_head           : tied to embedding → 0 extra params
+    """
+    d  = cfg["d_model"]
+    di = cfg["d_inner"]
+    ds = cfg["d_state"]
+    dc = cfg["d_conv"]
+    dr = cfg["dt_rank"]
+    L  = cfg["n_layer"]
+    V  = cfg["vocab_size"]
 
-#     # ── per-layer MambaMixer ──────────────────────────────────────────────────
-#     in_proj      = 2 * di * d          # [2*d_inner, d_model]
-#     conv1d_w     = di * 1 * dc         # [d_inner, 1, d_conv]  depthwise
-#     conv1d_b     = di                  # bias
-#     x_proj       = (dr + 2*ds) * di   # [dt_rank + 2*d_state, d_inner]
-#     dt_proj_w    = di * dr             # [d_inner, dt_rank]
-#     dt_proj_b    = di                  # bias
-#     A_log        = di * ds             # [d_inner, d_state]
-#     D            = di                  # skip scalar per channel
-#     out_proj     = d * di              # [d_model, d_inner]
+    # ── per-layer MambaMixer ──────────────────────────────────────────────────
+    in_proj      = 2 * di * d          # [2*d_inner, d_model]
+    conv1d_w     = di * 1 * dc         # [d_inner, 1, d_conv]  depthwise
+    conv1d_b     = di                  # bias
+    x_proj       = (dr + 2*ds) * di   # [dt_rank + 2*d_state, d_inner]
+    dt_proj_w    = di * dr             # [d_inner, dt_rank]
+    dt_proj_b    = di                  # bias
+    A_log        = di * ds             # [d_inner, d_state]
+    D            = di                  # skip scalar per channel
+    out_proj     = d * di              # [d_model, d_inner]
 
-#     per_mixer = in_proj + conv1d_w + conv1d_b + x_proj + dt_proj_w + dt_proj_b + A_log + D + out_proj
+    per_mixer = in_proj + conv1d_w + conv1d_b + x_proj + dt_proj_w + dt_proj_b + A_log + D + out_proj
 
-#     # ── per-layer RMSNorm (weight only, no bias) ──────────────────────────────
-#     per_norm = d
+    # ── per-layer RMSNorm (weight only, no bias) ──────────────────────────────
+    per_norm = d
 
-#     per_layer = per_mixer + per_norm
+    per_layer = per_mixer + per_norm
 
-#     # ── non-layer params ──────────────────────────────────────────────────────
-#     embedding  = V * d   # lm_head is tied → count once
-#     final_norm = d
+    # ── non-layer params ──────────────────────────────────────────────────────
+    embedding  = V * d   # lm_head is tied → count once
+    final_norm = d
 
-#     total = L * per_layer + embedding + final_norm
+    total = L * per_layer + embedding + final_norm
 
-#     print("=" * 64)
-#     print(f"  Mamba-130M exact parameter count")
-#     print(f"  d_model={d}  d_inner={di}  d_state={ds}  d_conv={dc}")
-#     print(f"  dt_rank={dr}  n_layer={L}  vocab_size={V}")
-#     print("=" * 64)
-#     print(f"  Per-MambaMixer breakdown:")
-#     print(f"    in_proj.weight      : {in_proj:>12,}   [{2*di} × {d}]")
-#     print(f"    conv1d.weight       : {conv1d_w:>12,}   [{di} × 1 × {dc}]  depthwise")
-#     print(f"    conv1d.bias         : {conv1d_b:>12,}   [{di}]")
-#     print(f"    x_proj.weight       : {x_proj:>12,}   [{dr+2*ds} × {di}]")
-#     print(f"    dt_proj.weight      : {dt_proj_w:>12,}   [{di} × {dr}]")
-#     print(f"    dt_proj.bias        : {dt_proj_b:>12,}   [{di}]")
-#     print(f"    A_log               : {A_log:>12,}   [{di} × {ds}]")
-#     print(f"    D (skip)            : {D:>12,}   [{di}]")
-#     print(f"    out_proj.weight     : {out_proj:>12,}   [{d} × {di}]")
-#     print(f"    ─────────────────────────────────")
-#     print(f"    subtotal per mixer  : {per_mixer:>12,}")
-#     print(f"    RMSNorm weight      : {per_norm:>12,}")
-#     print(f"    total per layer     : {per_layer:>12,}")
-#     print(f"")
-#     print(f"  Global params:")
-#     print(f"    {L} layers           : {L*per_layer:>12,}")
-#     print(f"    embedding (=lm_head): {embedding:>12,}   [{V} × {d}]  (tied)")
-#     print(f"    final RMSNorm       : {final_norm:>12,}")
-#     print(f"    ─────────────────────────────────")
-#     print(f"    TOTAL               : {total:>12,}  ({total/1e6:.2f} M)")
-#     print("=" * 64)
-#     return total
+    print("=" * 64)
+    print(f"  Mamba-130M exact parameter count")
+    print(f"  d_model={d}  d_inner={di}  d_state={ds}  d_conv={dc}")
+    print(f"  dt_rank={dr}  n_layer={L}  vocab_size={V}")
+    print("=" * 64)
+    print(f"  Per-MambaMixer breakdown:")
+    print(f"    in_proj.weight      : {in_proj:>12,}   [{2*di} × {d}]")
+    print(f"    conv1d.weight       : {conv1d_w:>12,}   [{di} × 1 × {dc}]  depthwise")
+    print(f"    conv1d.bias         : {conv1d_b:>12,}   [{di}]")
+    print(f"    x_proj.weight       : {x_proj:>12,}   [{dr+2*ds} × {di}]")
+    print(f"    dt_proj.weight      : {dt_proj_w:>12,}   [{di} × {dr}]")
+    print(f"    dt_proj.bias        : {dt_proj_b:>12,}   [{di}]")
+    print(f"    A_log               : {A_log:>12,}   [{di} × {ds}]")
+    print(f"    D (skip)            : {D:>12,}   [{di}]")
+    print(f"    out_proj.weight     : {out_proj:>12,}   [{d} × {di}]")
+    print(f"    ─────────────────────────────────")
+    print(f"    subtotal per mixer  : {per_mixer:>12,}")
+    print(f"    RMSNorm weight      : {per_norm:>12,}")
+    print(f"    total per layer     : {per_layer:>12,}")
+    print(f"")
+    print(f"  Global params:")
+    print(f"    {L} layers           : {L*per_layer:>12,}")
+    print(f"    embedding (=lm_head): {embedding:>12,}   [{V} × {d}]  (tied)")
+    print(f"    final RMSNorm       : {final_norm:>12,}")
+    print(f"    ─────────────────────────────────")
+    print(f"    TOTAL               : {total:>12,}  ({total/1e6:.2f} M)")
+    print("=" * 64)
+    return total
 
 
 # # ─── Architecturally correct MambaBlock for ONNX export ───────────────────────
@@ -850,6 +850,15 @@ import onnx
 # CONFIG
 # ─────────────────────────────────────────────
 MODELS = {
+    "mamba-tiny": dict(
+     d_model=256,
+    d_inner=256,    
+    d_state=8,
+    d_conv=2,
+    dt_rank=16,
+    n_layer=1,
+    vocab_size=10000
+),
     "mamba-130m": dict(
         d_model=768,
         d_inner=1536,
@@ -1017,8 +1026,8 @@ def gen_mapping(folder, file_stem, cfg, seq_len=1, n_blocks=2):
 # EXPORT (CLEAN)
 # ─────────────────────────────────────────────
 def export():
-    cfg = MODELS["mamba-130m"]
-
+    cfg = MODELS["mamba-tiny"]
+    count_mamba_130m_params(cfg)
     model = MambaBlock(
         cfg["d_model"],
         cfg["d_inner"],
@@ -1033,8 +1042,8 @@ def export():
 
     os.makedirs("models", exist_ok=True)
 
-    folder = "models/mamba_130m"
-    name = "mamba_130m"
+    folder = "models/mamba_tiny"
+    name = "mamba_tiny"
     os.makedirs(folder, exist_ok=True)
 
 

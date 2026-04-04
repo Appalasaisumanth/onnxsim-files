@@ -6,7 +6,7 @@
       "seq_len": 1,
       "past_seq_len": 0,
       "total_seq_len": 0,
-      "output_seq_len": 1
+      "output_seq_len": 4
     }
     ]
 }

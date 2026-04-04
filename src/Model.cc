@@ -39,6 +39,7 @@ Model::Model(std::string onnx_path, json model_config, SimulationConfig config, 
   if (_model_config.contains("batch_size")) {
     _axis_map["batch"] = _model_config.value("batch_size", 1);
   }
+  spdlog::info("mamba saved states{}",_saved_mamba_states.size());
   // for (auto& it : _axis_map) {
   //   spdlog::info("Axis {}: {}", it.first, it.second);
   // }

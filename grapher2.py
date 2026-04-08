@@ -132,7 +132,8 @@ plt.rcParams.update({
     "savefig.bbox":     "tight",
 })
 
-SEQ_LENS = [1, 2,4,8,16,32,64, 128, 256, 512, 1024, 1536, 2048]
+SEQ_LENS = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384,
+            10000, 20000, 30000]
 
 # ──────────────────────────────────────────────────────────────────────────────
 # Data loading & preparation
@@ -146,13 +147,25 @@ def load_data(data_dir: Path):
 
 
 def extract_seq_len(log_file: str) -> int:
+    """Extract sequence length from log filename reliably."""
     import re
-    m = re.search(r"[_-]s(\d+)\.log", str(log_file))
+    s = str(log_file)
+    
+    # New combined names: mamba_tiny_s10000.log or tiny_s10000.log
+    m = re.search(r"_s(\d{4,})\.log", s)          # catches s10000, s20000, s30000
     if m:
         return int(m.group(1))
-    m = re.search(r"_(\d+)\.log", str(log_file))
+    
+    # Old power-of-two names: mamba_tiny_s8192.log, tiny_s16384.log
+    m = re.search(r"[_-]s(\d+)\.log", s)
     if m:
         return int(m.group(1))
+    
+    # Fallback for any number before .log
+    m = re.search(r"_(\d{1,})\.log", s)
+    if m:
+        return int(m.group(1))
+    
     return -1
 
 
@@ -183,8 +196,19 @@ def save_fig(fig, name: str):
 
 def logx_ax(ax, seq_lens=SEQ_LENS):
     ax.set_xscale("log", base=2)
+
+    # Force all ticks
     ax.set_xticks(seq_lens)
-    ax.get_xaxis().set_major_formatter(mticker.ScalarFormatter())
+
+    # Show exact values (no scientific notation)
+    ax.set_xticklabels([str(x) for x in seq_lens])
+
+    # Disable minor ticks (important!)
+    ax.xaxis.set_minor_locator(mticker.NullLocator())
+
+    # Rotate labels for readability
+    ax.tick_params(axis='x', rotation=45)
+
     ax.set_xlabel("Sequence Length")
 
 
@@ -297,7 +321,7 @@ def fig6_sram_hitrates(mamba, opt):
 
 def fig7_memory_bound_ratio(detailed):
     mamba = detailed[detailed["model"] == "Mamba"].sort_values("seq_len")
-    opt   = detailed[detailed["model"] == "OPT"].sort_values("seq_len")
+    opt   = detailed[detailed["model"] == "OPT|tiny"].sort_values("seq_len")
     fig, ax = plt.subplots(figsize=(7, 4.5))
     ax.plot(mamba["seq_len"], mamba["memory_bound_ratio"].clip(upper=2e5),
             color=C_MAMBA, marker=MARKER_MAMBA, linewidth=2, label="Mamba-130M")
@@ -311,7 +335,7 @@ def fig7_memory_bound_ratio(detailed):
 
 def fig8_speedup(detailed):
     mamba   = detailed[detailed["model"] == "Mamba"].sort_values("seq_len").set_index("seq_len")
-    opt     = detailed[detailed["model"] == "OPT"].sort_values("seq_len").set_index("seq_len")
+    opt     = detailed[detailed["model"] == "OPT|tiny"].sort_values("seq_len").set_index("seq_len")
     common  = mamba.index.intersection(opt.index)
     speedup = opt.loc[common, "timing_total_cycles"] / mamba.loc[common, "timing_total_cycles"]
     fig, ax = plt.subplots(figsize=(7, 4.5))
@@ -378,7 +402,7 @@ def fig11_radar(mamba_s1, opt_s1):
 
 def fig12_layer_pie(summary):
     mamba_row = summary[summary["log_file"].str.contains("mamba", case=False, na=False)].iloc[0]
-    opt_row   = summary[summary["log_file"].str.contains("opt",   case=False, na=False)].iloc[0]
+    opt_row   = summary[summary["log_file"].str.contains("opt|tiny",   case=False, na=False)].iloc[0]
     mamba_layers = {
         "GEMM":           mamba_row.get("layer_gemm_cycles", 0) or 0,
         "ElementwiseMul": mamba_row.get("layer_elementwise_mul_cycles", 0) or 0,
@@ -896,7 +920,71 @@ def fig34_util_heatmap(mamba, opt):
                             color="black" if 20 < v < 80 else "white")
     fig.suptitle("Fig 34 — Utilisation Metric Heatmap (Mamba vs OPT)", fontsize=FONT_TITLE)
     save_fig(fig, "fig34_util_heatmap")
+def fig35_opt_cycle_distribution_all(per_log):
+    """
+    Fig 35: Single clean graph showing cycle distribution for OPT-125M 
+    across ALL sequence lengths (1 to 30000).
+    """
+    # Correct filtering for OPT / tiny
+    opt = per_log[per_log["model"].isin(["OPT", "tiny"])].copy()
+    opt = opt.sort_values("seq_len").reset_index(drop=True)
+    
+    if opt.empty:
+        print("Warning: No OPT / tiny data found for fig35")
+        return
 
+    fig, ax = plt.subplots(figsize=(14, 8))
+
+    x = np.arange(len(opt))
+    bottom = np.zeros(len(opt))
+
+    # Main layer components for OPT
+    components = [
+        ("Attention",          "layer_attention_cycles",     '#d62728'),   # Red
+        ("FFN FC1",            "layer_ffn_fc1_cycles",       '#1f77b4'),   # Blue
+        ("FFN FC2",            "layer_ffn_fc2_cycles",       '#ff7f0e'),   # Orange
+        ("QKV Projection",     "layer_QKV_projection_cycles",'#2ca02c'),   # Green
+        ("Attn Projection",    "layer_attn_projection_cycles",'#9467bd'),  # Purple
+        ("GEMM",               "layer_gemm_cycles",          '#8c564b'),   # Brown
+        ("Other",              "layer_other_cycles",         '#7f7f7f'),   # Gray
+    ]
+
+    for label, col, color in components:
+        values = opt[col].fillna(0).values
+        ax.bar(x, values, label=label, color=color, alpha=0.85, 
+               edgecolor='white', linewidth=0.4)
+        bottom += values
+
+    # Total cycles line on secondary axis
+    ax2 = ax.twinx()
+    ax2.plot(x, opt["timing_total_cycles"], color='black', linewidth=3.5, 
+             marker='o', markersize=8, label="Total Cycles")
+
+    ax.set_xlabel("Sequence Length", fontsize=12)
+    ax.set_ylabel("Cycles per Layer Component", fontsize=12)
+    ax2.set_ylabel("Total Cycles", fontsize=12, color='black')
+    
+    ax.set_title("Fig 35 — OPT-125M Cycle Distribution by Layer Type\n"
+                 "(All Sequence Lengths)", fontsize=14, pad=20)
+
+    # X-axis with all your seq lens
+    ax.set_xticks(x)
+    ax.set_xticklabels([str(int(s)) for s in opt["seq_len"]], rotation=45, ha='right')
+
+    ax.set_yscale("log")
+    ax2.set_yscale("log")
+
+    # Legends
+    ax.legend(title="Layer / Component", bbox_to_anchor=(1.02, 1), 
+              loc='upper left', fontsize=10)
+    ax2.legend(loc='upper right', fontsize=10)
+
+    ax.grid(True, which="both", linestyle="--", alpha=0.4, axis="y")
+
+    fig.tight_layout()
+    save_fig(fig, "fig35_opt_cycle_distribution_all")
+    
+    print(" saved: figures/fig35_opt_cycle_distribution_all.png")
 
 # ──────────────────────────────────────────────────────────────────────────────
 # ── ORIGINAL LATEX TABLES 1-4 ────────────────────────────────────────────────
@@ -919,7 +1007,7 @@ def write_tex(name: str, content: str):
 
 def tab_core_stats(summary):
     mamba = summary[summary["log_file"].str.contains("mamba", case=False, na=False)].iloc[0]
-    opt   = summary[summary["log_file"].str.contains("opt",   case=False, na=False)].iloc[0]
+    opt   = summary[summary["log_file"].str.contains("opt|tiny",   case=False, na=False)].iloc[0]
     rows  = [
         ("Total Cycles",                   "timing_total_cycles",                    ".6g"),
         ("Simulation Time (\\textmu s)",    "timing_total_us",                        ".6g"),
@@ -950,7 +1038,7 @@ def tab_core_stats(summary):
 
 def tab_memory_stats(summary):
     mamba = summary[summary["log_file"].str.contains("mamba", case=False, na=False)].iloc[0]
-    opt   = summary[summary["log_file"].str.contains("opt",   case=False, na=False)].iloc[0]
+    opt   = summary[summary["log_file"].str.contains("opt|tiny",   case=False, na=False)].iloc[0]
     rows  = [
         ("Weight Size (GB)",             "model_weight_size_GB",             ".3f"),
         ("Scratchpad Size (KB)",         "hw_spad_size_KB",                   "g"),
@@ -982,7 +1070,7 @@ def tab_memory_stats(summary):
 
 def tab_seq_scaling(detailed):
     mamba = detailed[detailed["model"] == "Mamba"].sort_values("seq_len").set_index("seq_len")
-    opt   = detailed[detailed["model"] == "OPT"].sort_values("seq_len").set_index("seq_len")
+    opt   = detailed[detailed["model"] == "OPT|tiny"].sort_values("seq_len").set_index("seq_len")
     header = (
         r"    Seq Len & \multicolumn{2}{c}{Total Cycles} & "
         r"\multicolumn{2}{c}{Wall-Clock Time (s)} & Speedup \\" + "\n"
@@ -1010,7 +1098,7 @@ def tab_seq_scaling(detailed):
 
 def tab_layer_breakdown(summary):
     mamba   = summary[summary["log_file"].str.contains("mamba", case=False, na=False)].iloc[0]
-    opt     = summary[summary["log_file"].str.contains("opt",   case=False, na=False)].iloc[0]
+    opt     = summary[summary["log_file"].str.contains("opt|tiny",   case=False, na=False)].iloc[0]
     total_m = mamba.get("timing_total_cycles", 1) or 1
     total_o = opt.get("timing_total_cycles",   1) or 1
     ops = [
@@ -1048,7 +1136,7 @@ def tab_layer_breakdown(summary):
 def tab_object_histogram(summary):
     """Object histogram statistics for both models."""
     mamba = summary[summary["log_file"].str.contains("mamba", case=False, na=False)].iloc[0]
-    opt   = summary[summary["log_file"].str.contains("opt",   case=False, na=False)].iloc[0]
+    opt   = summary[summary["log_file"].str.contains("opt|tiny",   case=False, na=False)].iloc[0]
     rows  = [
         ("Total Core\\textrightarrow{}L2 Bytes", "hist_total_bytes",      ".4g"),
         ("Total Request Count",                   "hist_total_count",      ".4g"),
@@ -1076,7 +1164,7 @@ def tab_object_histogram(summary):
 
 def tab_l2_detailed(summary):
     mamba = summary[summary["log_file"].str.contains("mamba", case=False, na=False)].iloc[0]
-    opt   = summary[summary["log_file"].str.contains("opt",   case=False, na=False)].iloc[0]
+    opt   = summary[summary["log_file"].str.contains("opt|tiny",   case=False, na=False)].iloc[0]
     rows  = [
         ("Number of Banks",         "l2_num_banks",           "g"),
         ("Number of Ways",          "l2_num_ways",            "g"),
@@ -1107,7 +1195,7 @@ def tab_l2_detailed(summary):
 
 def tab_dram_detailed(summary):
     mamba = summary[summary["log_file"].str.contains("mamba", case=False, na=False)].iloc[0]
-    opt   = summary[summary["log_file"].str.contains("opt",   case=False, na=False)].iloc[0]
+    opt   = summary[summary["log_file"].str.contains("opt|tiny",   case=False, na=False)].iloc[0]
     rows  = [
         ("Number of Channels",           "dram_num_channels",              "g"),
         ("Total Reads",                  "dram_total_reads",              ".4g"),
@@ -1135,7 +1223,7 @@ def tab_dram_detailed(summary):
 
 def tab_core_utilisation(summary):
     mamba = summary[summary["log_file"].str.contains("mamba", case=False, na=False)].iloc[0]
-    opt   = summary[summary["log_file"].str.contains("opt",   case=False, na=False)].iloc[0]
+    opt   = summary[summary["log_file"].str.contains("opt|tiny",   case=False, na=False)].iloc[0]
     rows  = [
         ("Systolic Array Util (\\%)",        "compute_avg_systolic_util_pct",     ".4f"),
         ("PE Utilisation (\\%)",             "compute_avg_pe_util_pct",          ".4f"),
@@ -1165,7 +1253,7 @@ def tab_core_utilisation(summary):
 
 def tab_sram_detailed(summary):
     mamba = summary[summary["log_file"].str.contains("mamba", case=False, na=False)].iloc[0]
-    opt   = summary[summary["log_file"].str.contains("opt",   case=False, na=False)].iloc[0]
+    opt   = summary[summary["log_file"].str.contains("opt|tiny",   case=False, na=False)].iloc[0]
     rows  = [
         ("Input-SRAM Total Hits",      "sram_total_hits",         ".4g"),
         ("Input-SRAM Total Misses",    "sram_total_misses",       ".4g"),
@@ -1192,7 +1280,7 @@ def tab_sram_detailed(summary):
 def tab_seq_scaling_extended(detailed):
     """Extended scaling table including PE util, DRAM BW, L2 hit rate."""
     mamba = detailed[detailed["model"] == "Mamba"].sort_values("seq_len").set_index("seq_len")
-    opt   = detailed[detailed["model"] == "OPT"].sort_values("seq_len").set_index("seq_len")
+    opt   = detailed[detailed["model"] == "OPT|tiny"].sort_values("seq_len").set_index("seq_len")
 
     def g(df, sl, col):
         try:
@@ -1224,8 +1312,6 @@ def tab_seq_scaling_extended(detailed):
     \begin{tabular}{r cc cc cc}\hline
     """ + header + "\n" + body + r"""\hline\end{tabular}\end{table}""").strip()
     write_tex("tab_seq_scaling_extended", tex)
-
-
 # ──────────────────────────────────────────────────────────────────────────────
 # Main
 # ──────────────────────────────────────────────────────────────────────────────
@@ -1304,6 +1390,7 @@ def main():
     fig32_tiles_finished(mamba_pl, opt_pl)
     fig33_systolic_issue_preload(mamba_pl, opt_pl)
     fig34_util_heatmap(mamba_pl, opt_pl)
+    fig35_opt_cycle_distribution_all(per_log)
 
     # ── Original tables ───────────────────────────────────────────────────────
     print("\nGenerating original LaTeX tables …")
@@ -1315,7 +1402,7 @@ def main():
     # ── New tables ────────────────────────────────────────────────────────────
     print("\nGenerating new LaTeX tables …")
     tab_object_histogram(summary)
-    # tab_l2_detailed(summary)
+    tab_l2_detailed(summary)
     tab_dram_detailed(summary)
     tab_core_utilisation(summary)
     tab_sram_detailed(summary)

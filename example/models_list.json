@@ -1,107 +1,45 @@
 {
   "models": [
     {
-      "name": "mamba_130m",
+      "name": "mamba_tiny",
       "batch_size": 1,
       "seq_len": 1,
       "past_seq_len": 0,
       "total_seq_len": 0,
-      "output_seq_len": 1
+      "output_seq_len": 8192
     },
      {
-      "name": "mamba_130m",
+      "name": "mamba_tiny",
       "batch_size": 1,
       "seq_len": 1,
-      "past_seq_len": 0,
+      "past_seq_len": 8192,
       "total_seq_len": 0,
-      "output_seq_len": 2
+      "output_seq_len": 1808
     },
      {
-      "name": "mamba_130m",
+      "name": "mamba_tiny",
       "batch_size": 1,
       "seq_len": 1,
       "past_seq_len": 0,
       "total_seq_len": 0,
-      "output_seq_len": 4
+      "output_seq_len": 16384
+    },
+      {
+      "name": "mamba_tiny",
+      "batch_size": 1,
+      "seq_len": 1,
+      "past_seq_len": 16384,
+      "total_seq_len": 0,
+      "output_seq_len": 3616
     },
      {
-      "name": "mamba_130m",
+      "name": "mamba_tiny",
       "batch_size": 1,
       "seq_len": 1,
-      "past_seq_len": 0,
+      "past_seq_len": 16384,
       "total_seq_len": 0,
-      "output_seq_len": 8
-    },
-     {
-      "name": "mamba_130m",
-      "batch_size": 1,
-      "seq_len": 1,
-      "past_seq_len": 0,
-      "total_seq_len": 0,
-      "output_seq_len": 16
-    },
-     {
-      "name": "mamba_130m",
-      "batch_size": 1,
-      "seq_len": 1,
-      "past_seq_len": 0,
-      "total_seq_len": 0,
-      "output_seq_len": 32
-    },
-     {
-      "name": "mamba_130m",
-      "batch_size": 1,
-      "seq_len": 1,
-      "past_seq_len": 0,
-      "total_seq_len": 0,
-      "output_seq_len": 64
-    },
-     {
-      "name": "mamba_130m",
-      "batch_size": 1,
-      "seq_len": 1,
-      "past_seq_len": 0,
-      "total_seq_len": 0,
-      "output_seq_len": 128
-    },
-     {
-      "name": "mamba_130m",
-      "batch_size": 1,
-      "seq_len": 1,
-      "past_seq_len": 0,
-      "total_seq_len": 0,
-      "output_seq_len": 256
-    },
-     {
-      "name": "mamba_130m",
-      "batch_size": 1,
-      "seq_len": 1,
-      "past_seq_len": 0,
-      "total_seq_len": 0,
-      "output_seq_len": 512
-    },
-     {
-      "name": "mamba_130m",
-      "batch_size": 1,
-      "seq_len": 1,
-      "past_seq_len": 0,
-      "total_seq_len": 0,
-      "output_seq_len": 1024
-    }, {
-      "name": "mamba_130m",
-      "batch_size": 1,
-      "seq_len": 1,
-      "past_seq_len": 0,
-      "total_seq_len": 0,
-      "output_seq_len": 1536
-    },
-    {
-      "name": "mamba_130m",
-      "batch_size": 1,
-      "seq_len": 1,
-      "past_seq_len": 0,
-      "total_seq_len": 0,
-      "output_seq_len": 2048
+      "output_seq_len": 13616
     }
+     
   ]
 }

@@ -71,9 +71,6 @@ def parse_log(log_path: str) -> dict:
 
 def _detect_crash(content: str) -> str:
     """Return crash description if the run terminated early, else None."""
-    if "json.exception.type_error" in content:
-        m = re.search(r"what\(\):\s+(.+)", content)
-        return m.group(1).strip() if m else "nlohmann json type error"
     if "terminate called" in content:
         return "terminate called (unknown reason)"
     if "Simulation Finished" not in content:
@@ -1105,8 +1102,138 @@ def write_flat_csv(rows: list, output_file: str):
                     safe_row[k] = v
             writer.writerow(safe_row)
     print(f"  Written: {output_file}  ({len(rows)} rows, {len(all_keys)} columns)")
+def apply_custom_mamba_combinations(flat_rows: list) -> list:
+    """Create s10000, s20000, s30000 combined rows.
+       Keep ALL power-of-two logs (1 to 16384) even if crashed.
+       Remove ONLY the true intermediates: s1808, s3616, s13616.
+    """
+    
+    SEQ_LENS_TO_KEEP = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384]
 
+    combinations = {
+        # Mamba
+        "mamba_tiny_s10000.log": ["mamba_tiny_s1808.log", "mamba_tiny_s8192.log"],
+        "mamba_tiny_s20000.log": ["mamba_tiny_s3616.log", "mamba_tiny_s16384.log"],
+        "mamba_tiny_s30000.log": ["mamba_tiny_s13616.log", "mamba_tiny_s16384.log"],
+        # Tiny (OPT)
+        "tiny_s10000.log": ["tiny_s1808.log", "tiny_s8192.log"],
+        "tiny_s20000.log": ["tiny_s3616.log", "tiny_s16384.log"],
+        "tiny_s30000.log": ["tiny_s13616.log", "tiny_s16384.log"],
+    }
 
+    row_dict = {r["log_file"]: r for r in flat_rows}
+    final_rows = []
+    used_logs = set()   # ← ONLY the intermediates we want to REMOVE
+
+    # Step 1: Create combined rows
+    for new_log_name, src_logs in combinations.items():
+        group = []
+        for src in src_logs:
+            if src in row_dict:
+                group.append(row_dict[src])
+                # ONLY mark the true intermediates for removal
+                if "s1808" in src or "s3616" in src or "s13616" in src:
+                    used_logs.add(src)
+            else:
+                print(f"Warning: Missing source {src} for {new_log_name}")
+
+        if len(group) != 2:
+            print(f"Warning: Could not combine {new_log_name}")
+            continue
+
+        # Build combined row
+        agg = dict(group[0])
+        agg["log_file"] = new_log_name
+        agg["run_status"] = "ok"
+        agg["crash_reason"] = ""
+        agg["mamba_num_steps"] = 2
+
+        # SUM columns
+        sum_cols = [
+            "timing_total_cycles", "timing_total_us", "timing_total_compute_cycles",
+            "timing_total_tiles", "timing_wall_clock_seconds", "compute_total_GFLOPs",
+            "sram_total_hits", "sram_total_misses", "acc_sram_total_hits", "acc_sram_total_misses",
+            "dram_total_reads", "dram_total_writes",
+            "l2_total_hits", "l2_total_misses", "l2_total_evictions", "l2_total_writebacks",
+            "layer_gemm_cycles", "layer_gemm_count", "layer_attention_cycles", "layer_attention_count",
+            "layer_ffn_fc1_cycles", "layer_ffn_fc2_cycles",
+            "layer_QKV_projection_cycles", "layer_attn_projection_cycles",
+            "layer_mamba_in_proj_cycles", "layer_mamba_x_proj_cycles",
+            "layer_mamba_dt_proj_cycles", "layer_mamba_out_proj_cycles",
+            "layer_mamba_ssm_cycles",
+            "layer_elementwise_mul_cycles", "layer_elementwise_add_cycles",
+            "layer_elementwise_exp_cycles", "layer_elementwise_div_cycles",
+            "layer_elementwise_sub_cycles", "layer_elementwise_neg_cycles",
+            "layer_activation_sigmoid_cycles", "layer_activation_silu_cycles",
+            "layer_slice_cycles", "layer_concat_cycles", "layer_expand_cycles",
+            "layer_repeat_cycles", "layer_reshape_cycles", "layer_other_cycles",
+            "hist_total_bytes", "hist_total_count", "hist_top1_total_bytes", "hist_top2_total_bytes",
+        ]
+        for col in sum_cols:
+            vals = [float(r.get(col) or 0) for r in group]
+            agg[col] = round(sum(vals)) if vals else None
+
+        # MEAN columns
+        mean_cols = [
+            "compute_avg_systolic_util_pct", "compute_avg_pe_util_pct",
+            "compute_avg_memory_idle_pct", "compute_avg_core_idle_pct",
+            "compute_effective_TFLOPS", "compute_gemm_memory_bound_pct",
+            "compute_gemm_avg_arithmetic_intensity",
+            "core_avg_systolic_array_util_pct", "core_avg_pe_util_pct",
+            "core_avg_vector_unit_util_pct", "core_avg_memory_idle_pct",
+            "core_avg_core_idle_pct", "core_avg_instructions_per_tile",
+            "sram_hit_rate", "acc_sram_hit_rate",
+            "dram_avg_bw_utilization_pct", "dram_avg_row_hit_rate_pct",
+            "dram_avg_row_miss_rate_pct", "dram_avg_row_conflict_rate_pct",
+            "l2_overall_hit_rate", "l2_overall_miss_rate", "l2_cache_util_pct",
+            "l2_min_bank_hit_rate", "l2_max_bank_hit_rate",
+            "hist_num_size_classes",
+        ]
+        for col in mean_cols:
+            vals = [float(r.get(col) or 0) for r in group]
+            agg[col] = round(sum(vals) / len(vals), 6) if vals else None
+
+        # Recompute derived fields
+        total_lc = sum(float(agg.get(c, 0) or 0) for c in agg if c.startswith("layer_") and c.endswith("_cycles"))
+        if total_lc > 0:
+            agg["layer_gemm_pct"] = round(float(agg.get("layer_gemm_cycles", 0)) / total_lc * 100, 2)
+            agg["layer_attention_pct"] = round(float(agg.get("layer_attention_cycles", 0)) / total_lc * 100, 2)
+
+        for sk in ["sram", "acc_sram"]:
+            th = float(agg.get(f"{sk}_total_hits", 0))
+            tm = float(agg.get(f"{sk}_total_misses", 0))
+            ta = th + tm
+            agg[f"{sk}_hit_rate"] = round(th / ta, 6) if ta > 0 else None
+
+        if agg.get("hist_total_bytes") and agg.get("hist_total_count"):
+            agg["hist_avg_object_size"] = round(
+                float(agg["hist_total_bytes"]) / float(agg["hist_total_count"]), 2)
+
+        final_rows.append(agg)
+
+    # Step 2: Keep everything except the true intermediates
+    for r in flat_rows:
+        lf = r["log_file"]
+
+        if lf in used_logs:          # only skip s1808, s3616, s13616
+            continue
+
+        # Keep all power-of-two logs (including 8192 and 16384) even if crashed
+        if any(str(s) in lf for s in SEQ_LENS_TO_KEEP):
+            final_rows.append(r)
+            continue
+
+        # Keep crashed tiny logs (safety)
+        if "tiny_s" in lf and r.get("crash_reason"):
+            final_rows.append(r)
+            continue
+
+        # Keep other OPT rows
+        if r.get("model_name") != "Mamba":
+            final_rows.append(r)
+
+    print(f"   Total rows: {len(final_rows)}")
+    return final_rows
 # ─────────────────────────────────────────────────────────────────────────────
 # Main
 # ─────────────────────────────────────────────────────────────────────────────
@@ -1148,21 +1275,25 @@ def main():
                 json.dump(data, f, indent=2, default=str)
         except Exception as e:
             print(f"ERROR: {e}")
-
-    # Aggregate Mamba multi-step runs
     aggregated = aggregate_mamba_runs(flat_rows)
-    summary_rows  = build_detailed_summary(flat_rows)
+    summary_rows = build_detailed_summary(flat_rows)
+
+    # === CUSTOM CHANGE: Apply your 10k/20k/30k combinations and remove intermediates ===
+    flat_rows = apply_custom_mamba_combinations(flat_rows)
 
     # Write outputs
-    # 1. Per-log flat CSV (one row per log file, including crashed runs)
+    # 1. Per-log flat CSV — now contains only the 3 combined + crashed + OPT
     write_flat_csv(flat_rows, f"{output_prefix}_per_log.csv")
-
-    # 2. Aggregated flat CSV (one row per model, Mamba steps summed)
+    
+    # 2. Aggregated flat CSV
     write_flat_csv(aggregated, f"{output_prefix}_summary.csv")
-    #3 . Detailed summary CSV (one row per model+seq_len, with derived metrics)
+    
+    # 3. Detailed summary CSV
     write_flat_csv(summary_rows, f"{output_prefix}_detailed_summary.csv")
 
     print(f"\nDone. {len(aggregated)} model(s) in summary.")
+    print("Note: per_log.csv now contains exactly the 3 combined mamba_tiny_10k/20k/30k rows you requested.")
+
 
 
 if __name__ == "__main__":

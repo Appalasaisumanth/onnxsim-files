@@ -50,92 +50,83 @@ MappingTable MappingTable::parse_mapping_file(
 }
 
 void MappingTable::gemm_mapping(Mapping::LoopCounts &key) {
+  uint32_t dim_I, dim_J, dim_K;
   uint32_t dim = _config.core_config[key.target_core].core_height;
-  assert(dim == _config.core_config[key.target_core].core_width);
+  uint32_t max_spad_rows = (_config.core_config[key.target_core].spad_size KB) / (dim * _config.precision * 2);
+  uint32_t max_acc_rows = (_config.core_config[key.target_core].accum_spad_size KB) / (dim * 4 * 2);
 
-  uint32_t dim_I = key.N;
-  uint32_t dim_J = key.M;
-  uint32_t dim_K = key.C;
+  assert(_config.core_config[key.target_core].core_height==_config.core_config[key.target_core].core_width);
+  dim_I = key.N;
+  dim_J = key.M;
+  dim_K = key.C;
 
-  auto ceil_div = [](uint32_t a, uint32_t b) {
-    return (a + b - 1) / b;
-  };
+  const uint32_t dim_I_padded = (dim_I / dim + (dim_I % dim != 0 )) * dim;
+  const uint32_t dim_J_padded = (dim_J / dim + (dim_J % dim != 0 )) * dim;
+  const uint32_t dim_K_padded = (dim_K / dim + (dim_K % dim != 0 )) * dim;
 
-  auto pad_up = [&](uint32_t x) {
-    return ceil_div(x, dim) * dim;
-  };
+  uint32_t tile_I, tile_J, tile_K;
+  uint32_t inner_I, inner_J, inner_K;
+  uint32_t db_partitions_rows, db_mats_in_partition, db_mats_in_acc;
+  uint32_t db_max_tile_i_j, db_max_tile_k;
 
-  uint32_t dIp = pad_up(dim_I);
-  uint32_t dJp = pad_up(dim_J);
-  uint32_t dKp = pad_up(dim_K);
+  db_partitions_rows = max_spad_rows / 2;
+  db_mats_in_partition = db_partitions_rows / dim;
+  db_mats_in_acc = max_acc_rows / dim;
+  db_max_tile_i_j = (uint32_t)sqrt(db_mats_in_acc);
+  db_max_tile_k = db_mats_in_partition / db_max_tile_i_j;
 
-  uint32_t max_spad_rows =
-    (_config.core_config[key.target_core].spad_size * 1024) /
-    (dim * _config.precision * 2);
-
-  uint32_t max_acc_rows =
-    (_config.core_config[key.target_core].accum_spad_size * 1024) /
-    (dim * 4 * 2);
-
-  uint32_t acc  = std::max(1u, max_acc_rows / dim);
-  uint32_t part = std::max(1u, (max_spad_rows / 2) / dim);
-
-  uint32_t sq = std::max(1u, (uint32_t)std::sqrt(acc));
-  uint32_t tk = std::max(1u, part / sq);
-
-  // ---------------------------
-  // Tile sizes (outer)
-  // ---------------------------
-  uint32_t tI = std::max(1u, std::min(dIp / dim, ceil_div(dim_I, sq * dim)));
-  uint32_t tJ = std::max(1u, std::min(dJp / dim, ceil_div(dim_J, sq * dim)));
-  uint32_t tK = std::max(1u, std::min(dKp / dim, ceil_div(dim_K, tk * dim)));
-
-  // ---------------------------
-  // Core utilization fix
-  // ---------------------------
-  uint32_t nt = tI * tJ;
-  if (nt < _config.num_cores) {
-    uint32_t inc = ceil_div(_config.num_cores, nt);
-    if (dim_J >= dim_I) tJ *= inc;
-    else                tI *= inc;
+  tile_I = std::min(dim_I_padded/dim, ceil_div(dim_I, db_max_tile_i_j*dim));
+  tile_J = std::min(dim_J_padded/dim, ceil_div(dim_J, db_max_tile_i_j*dim));
+  tile_K = std::min(dim_K_padded/dim, ceil_div(dim_K, db_max_tile_k*dim));
+  
+  uint32_t num_tiles = tile_I * tile_J; //Skip C dim that needs accum
+  if(num_tiles < _config.num_cores) {
+    int increase_tile = ceil_div(_config.num_cores, num_tiles);
+    if(dim_J > dim_I && dim_J > _config.num_cores) {
+      tile_J *= increase_tile;
+    } else if(dim_I > dim_J && dim_I > _config.num_cores) {
+      tile_I *= increase_tile;
+    }
+    num_tiles = tile_I * tile_J;
+  }
+  if(num_tiles % _config.num_cores != 0) {
+    int increase_tile = num_tiles % _config.num_cores;
+    if(dim_J > dim_I && dim_J > _config.num_cores) {
+      tile_J += increase_tile;
+    } else if(dim_I > dim_J && dim_I > _config.num_cores) {
+      tile_I += increase_tile;
+    }
   }
 
-  // ---------------------------
-  // Inner tile sizes
-  // ---------------------------
-  uint32_t iI = std::max(dim, (dIp / tI / dim) * dim);
-  uint32_t iJ = std::max(dim, (dJp / tJ / dim) * dim);
-  uint32_t iK = std::max(dim, (dKp / tK / dim) * dim);
+  inner_I = ceil_div(dim_I_padded, tile_I);
+  inner_J = ceil_div(dim_J_padded, tile_J);
+  inner_K = ceil_div(dim_K_padded, tile_K);
 
-  // ---------------------------
-  // 🔥 CRITICAL: thin matrix fix
-  // ---------------------------
-  if (dim_I < dim) { iI = dIp; tI = 1; }
-  if (dim_J < dim) { iJ = dJp; tJ = 1; }
-  if (dim_K < dim) { iK = dKp; tK = 1; }
+  inner_I -= inner_I & (dim)-1;
+  inner_J -= inner_J & (dim)-1;
+  inner_K -= inner_K & (dim)-1;
 
-  // ---------------------------
-  // Final tile recompute
-  // ---------------------------
-  tI = std::max(1u, ceil_div(dim_I, iI));
-  tJ = std::max(1u, ceil_div(dim_J, iJ));
-  tK = std::max(1u, ceil_div(dim_K, iK));
+  tile_I = ceil_div(dim_I, inner_I);
+  tile_J = ceil_div(dim_J, inner_J);
+  tile_K = ceil_div(dim_K, inner_K);
 
-  // ---------------------------
-  // Store mapping
-  // ---------------------------
+  /* create mapping entry */
   Mapping mapping;
-  mapping.total_loop    = {dim_I, dim_K, dim_J, 1, 1, 1, 1};
-  mapping.tile_out_loop = {tI, tK, tJ, 1, 1, 1, 1};
-  mapping.tile_in_loop  = {iI, iK, iJ, 1, 1, 1, 1};
-
+  mapping.total_loop = {dim_I, dim_K, dim_J, 1, 1, 1, 1};
+  mapping.tile_out_loop = {tile_I, tile_K, tile_J, 1, 1, 1, 1};
+  mapping.tile_in_loop = {inner_I, inner_K, inner_J, 1, 1, 1, 1};
   _mapping_table[key] = mapping;
-
-  spdlog::info("[GEMM] Used mapping: Total N:{} C:{} M:{} | Outer N:{} C:{} M:{} | Inner N:{} C:{} M:{}",
-    dim_I, dim_K, dim_J,
-    tI, tK, tJ,
-    iI, iK, iJ);
+  spdlog::info("[GEMM] spad_size: {} accum_size: {}", _config.core_config[key.target_core].spad_size * 1024, _config.core_config[key.target_core].accum_spad_size * 1024);
+  spdlog::info("[GEMM] required_sram_size: {} required_accum_size: {}", (inner_I+inner_J)*inner_K*_config.precision, (inner_I*inner_J)*_config.precision);
+  spdlog::info("[GEMM] Used gemmini gemm mapping: Total N:{} C:{} M:{}, " \
+    "Outer N:{} C:{} M:{}, " \
+    "Inner N:{} C:{} M:{}",
+    mapping.total_loop.N, mapping.total_loop.C, mapping.total_loop.M,
+    mapping.tile_out_loop.N, mapping.tile_out_loop.C, mapping.tile_out_loop.M,
+    mapping.tile_in_loop.N, mapping.tile_in_loop.C, mapping.tile_in_loop.M
+  );
 }
+
 const Mapping& MappingTable::fallback_mapping(Mapping::LoopCounts &key) {
   if (key.P==1 && key.Q==1 && key.S==1 && key.R==1)
     gemm_mapping(key);

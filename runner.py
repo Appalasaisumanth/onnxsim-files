@@ -14,7 +14,7 @@ MODELS_JSON = "example/models_list.json"
 LOG_DIR = "logs_new2_mamba_without_l2"
 
 # Parallelism (IMPORTANT: tune based on CPU/memory)
-MAX_WORKERS = 2
+MAX_WORKERS = 3
 
 os.makedirs(LOG_DIR, exist_ok=True)
 

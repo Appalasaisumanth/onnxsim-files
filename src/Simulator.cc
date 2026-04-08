@@ -269,7 +269,7 @@ void Simulator::cycle() {
           // spdlog::info("[ICNT] Core<-ICNT request {}GB/Sec,{}", ((_memory_req_size * _nr_to_core * (1000 / _icnt_period) / _icnt_interval)), _nr_to_core);
           // spdlog::info("[ICNT] ICNT->MEM request {}GB/Sec,{}", ((_memory_req_size * _nr_to_mem * (1000 / _icnt_period) / _icnt_interval)), _nr_to_mem);
           // spdlog::info("[ICNT] ICNT<-MEM request {}GB/Sec,{}", ((_memory_req_size * _nr_from_mem * (1000 / _icnt_period) / _icnt_interval)), _nr_from_mem);
-          //_nr_from_core = 0; _nr_to_core = 0; _nr_to_mem = 0; _nr_from_mem = 0;
+          _nr_from_core = 0; _nr_to_core = 0; _nr_to_mem = 0; _nr_from_mem = 0;
         }
 
         _icnt->cycle();

@@ -232,8 +232,9 @@ UnaryOp::UnaryOp(const UnaryOp& src)
 
 void UnaryOp::calculate_loops() {
     uint32_t sram_capacity = _config.core_config[target_core].spad_size KB / 2;
-    _tokens_per_tile = std::min(_dk, sram_capacity / _config.precision);
+    _tokens_per_tile = sram_capacity / (_config.precision);
     if (_tokens_per_tile == 0) _tokens_per_tile = 1;
+    if (_tokens_per_tile > _dk) _tokens_per_tile = _dk;
 }
 
 void UnaryOp::initialize_tiles(MappingTable& mapping_table) {

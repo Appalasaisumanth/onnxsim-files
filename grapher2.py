@@ -1,7 +1,7 @@
 """
 plot_mamba_vs_opt.py  (expanded)
 ─────────────────────────────────
-Thesis-quality figures and LaTeX tables comparing Mamba-130M vs OPT-125M
+Thesis-quality figures and LaTeX tables comparing Mamba(Scaled) vs Transformer(Scaled)
 across multiple sequence lengths, derived from simulator results.
 
 Outputs (written to ./figures/ and ./tables/):
@@ -207,7 +207,7 @@ def logx_ax(ax, seq_lens=SEQ_LENS):
     ax.xaxis.set_minor_locator(mticker.NullLocator())
 
     # Rotate labels for readability
-    ax.tick_params(axis='x', rotation=45)
+    ax.tick_params(axis='x', rotation=60)
 
     ax.set_xlabel("Sequence Length")
 
@@ -218,11 +218,11 @@ def add_legend(ax, **kw):
 
 def plot_metric_vs_seqlen(mamba, opt, col, ylabel, title, name,
                           yscale="linear", annotate_ratio=False):
-    fig, ax = plt.subplots(figsize=(7, 4.5))
+    fig, ax = plt.subplots(figsize=(10, 4.5))  # instead of (7, 4.5)
     ax.plot(mamba["seq_len"], mamba[col], color=C_MAMBA, marker=MARKER_MAMBA,
-            linewidth=2, label="Mamba-130M")
+            linewidth=2, label="Mamba(Scaled) ")
     ax.plot(opt["seq_len"],   opt[col],   color=C_OPT,   marker=MARKER_OPT,
-            linewidth=2, label="OPT-125M")
+            linewidth=2, label="Transformer(Scaled)")
     if annotate_ratio:
         m_aligned = mamba.set_index("seq_len")
         o_aligned = opt.set_index("seq_len")
@@ -291,8 +291,8 @@ def fig4_dram_reads(mamba, opt):
 def fig5_dram_bw_util(mamba, opt):
     fig, ax = plt.subplots(figsize=(7, 4.5))
     for data, label, color, marker in [
-        (mamba, "Mamba-130M", C_MAMBA, MARKER_MAMBA),
-        (opt,   "OPT-125M",   C_OPT,   MARKER_OPT)
+        (mamba, "Mamba(Scaled)", C_MAMBA, MARKER_MAMBA),
+        (opt,   "Transformer(Scaled)",   C_OPT,   MARKER_OPT)
     ]:
         bw = data["dram_avg_bw_utilization_pct"].clip(upper=100)
         ax.plot(data["seq_len"], bw, color=color, marker=marker,
@@ -310,9 +310,9 @@ def fig6_sram_hitrates(mamba, opt):
         (axes[1], "acc_sram_hit_rate", "Acc-SRAM Hit Rate",    "Accumulator-SRAM Hit Rate"),
     ]:
         ax.plot(mamba["seq_len"], mamba[col], color=C_MAMBA, marker=MARKER_MAMBA,
-                linewidth=2, label="Mamba-130M")
+                linewidth=2, label="Mamba(Scaled)")
         ax.plot(opt["seq_len"],   opt[col],   color=C_OPT,   marker=MARKER_OPT,
-                linewidth=2, label="OPT-125M")
+                linewidth=2, label="Transformer(Scaled)")
         ax.set_yscale("log"); ax.set_ylabel(ylabel); ax.set_title(title)
         logx_ax(ax); ax.legend(framealpha=0.9)
         ax.grid(True, which="both", linestyle="--", alpha=0.4)
@@ -324,9 +324,9 @@ def fig7_memory_bound_ratio(detailed):
     opt   = detailed[detailed["model"] == "OPT|tiny"].sort_values("seq_len")
     fig, ax = plt.subplots(figsize=(7, 4.5))
     ax.plot(mamba["seq_len"], mamba["memory_bound_ratio"].clip(upper=2e5),
-            color=C_MAMBA, marker=MARKER_MAMBA, linewidth=2, label="Mamba-130M")
+            color=C_MAMBA, marker=MARKER_MAMBA, linewidth=2, label="Mamba(Scaled)")
     ax.plot(opt["seq_len"],   opt["memory_bound_ratio"].clip(upper=2e5),
-            color=C_OPT,   marker=MARKER_OPT,   linewidth=2, label="OPT-125M")
+            color=C_OPT,   marker=MARKER_OPT,   linewidth=2, label="Transformer(Scaled)")
     ax.set_yscale("log"); ax.set_ylabel("Memory-Bound Ratio (cycles/byte)")
     ax.set_title("Fig 7 — Memory-Bound Ratio vs Sequence Length")
     logx_ax(ax); add_legend(ax)
@@ -340,7 +340,7 @@ def fig8_speedup(detailed):
     speedup = opt.loc[common, "timing_total_cycles"] / mamba.loc[common, "timing_total_cycles"]
     fig, ax = plt.subplots(figsize=(7, 4.5))
     ax.plot(common, speedup.values, color=C_MAMBA, marker=MARKER_MAMBA,
-            linewidth=2, label="Mamba-130M speedup")
+            linewidth=2, label="Mamba(Scaled) speedup")
     ax.axhline(1.0, color="gray", linestyle="--", linewidth=1, label="OPT baseline")
     ax.set_ylabel("Speedup (OPT Cycles / Mamba Cycles)")
     ax.set_title("Fig 8 — Mamba Cycle-Count Speedup over OPT vs Sequence Length")
@@ -389,9 +389,9 @@ def fig11_radar(mamba_s1, opt_s1):
     m_norm  = np.append(m_norm, m_norm[0])
     o_norm  = np.append(o_norm, o_norm[0])
     fig, ax = plt.subplots(figsize=(6, 6), subplot_kw=dict(polar=True))
-    ax.plot(angles, m_norm, color=C_MAMBA, linewidth=2, label="Mamba-130M")
+    ax.plot(angles, m_norm, color=C_MAMBA, linewidth=2, label="Mamba(Scaled)")
     ax.fill(angles, m_norm, color=C_MAMBA, alpha=0.20)
-    ax.plot(angles, o_norm, color=C_OPT,   linewidth=2, label="OPT-125M")
+    ax.plot(angles, o_norm, color=C_OPT,   linewidth=2, label="Transformer(Scaled)")
     ax.fill(angles, o_norm, color=C_OPT,   alpha=0.20)
     ax.set_xticks(angles[:-1]); ax.set_xticklabels(labels, fontsize=FONT_TICK)
     ax.set_yticks([0.25, 0.5, 0.75, 1.0])
@@ -402,36 +402,33 @@ def fig11_radar(mamba_s1, opt_s1):
 
 def fig12_layer_pie(summary):
     mamba_row = summary[summary["log_file"].str.contains("mamba", case=False, na=False)].iloc[0]
-    opt_row   = summary[summary["log_file"].str.contains("opt|tiny",   case=False, na=False)].iloc[0]
     mamba_layers = {
         "GEMM":           mamba_row.get("layer_gemm_cycles", 0) or 0,
         "ElementwiseMul": mamba_row.get("layer_elementwise_mul_cycles", 0) or 0,
         "ElementwiseAdd": mamba_row.get("layer_elementwise_add_cycles", 0) or 0,
         "Other":          mamba_row.get("layer_other_cycles", 0) or 0,
     }
-    opt_layers = {
-        "FFN FC2":    opt_row.get("layer_ffn_fc2_cycles", 0) or 0,
-        "FFN FC1":    opt_row.get("layer_ffn_fc1_cycles", 0) or 0,
-        "QKV Proj":   opt_row.get("layer_QKV_projection_cycles", 0) or 0,
-        "Attn Proj":  opt_row.get("layer_attn_projection_cycles", 0) or 0,
-        "Attention":  opt_row.get("layer_attention_cycles", 0) or 0,
-        "Other":      opt_row.get("layer_other_cycles", 0) or 0,
-    }
-    fig, axes = plt.subplots(1, 2, figsize=(12, 5))
-    for ax, layers, title in [
-        (axes[0], mamba_layers, "Mamba-130M Layer Cycle Distribution"),
-        (axes[1], opt_layers,   "OPT-125M Layer Cycle Distribution"),
-    ]:
-        labels_f = [l for l, s in layers.items() if s > 0]
-        sizes_f  = [s for s in layers.values() if s > 0]
-        if not sizes_f:
-            ax.text(0.5, 0.5, "No data", ha="center", va="center")
-        else:
-            ax.pie(sizes_f, labels=labels_f, autopct="%1.1f%%", startangle=140,
-                   wedgeprops=dict(linewidth=0.8, edgecolor="white"))
-        ax.set_title(title, fontsize=FONT_TITLE)
+    fig, ax = plt.subplots(figsize=(6, 5))  # single axis
+    labels_f = [l for l, s in mamba_layers.items() if s > 0]
+    sizes_f  = [s for s in mamba_layers.values() if s > 0]
+
+    if not sizes_f:
+        ax.text(0.5, 0.5, "No data", ha="center", va="center")
+    else:
+        ax.pie(
+            sizes_f,
+            labels=labels_f,
+            autopct="%1.1f%%",
+            startangle=140,
+            wedgeprops=dict(linewidth=0.8, edgecolor="white")
+        )
+
+    ax.set_title("Mamba (Scaled) Layer Cycle Distribution", fontsize=FONT_TITLE)
+
     fig.suptitle("Fig 12 — Per-Layer Cycle Breakdown (7-step simulation)", fontsize=FONT_TITLE)
-    fig.tight_layout(); save_fig(fig, "fig12_layer_pie")
+    fig.tight_layout()
+
+    save_fig(fig, "fig12_layer_pie")
 
 
 # ──────────────────────────────────────────────────────────────────────────────
@@ -570,9 +567,9 @@ def fig19_l2_hit_miss_abs(mamba, opt):
         print(col, "Mamba:", mamba[col])
         print(col, "OPT:", opt[col])
         ax.plot(mamba["seq_len"], mamba[col], color=C_MAMBA, marker=MARKER_MAMBA,
-                linewidth=2, label="Mamba-130M")
+                linewidth=2, label="Mamba(Scaled)")
         ax.plot(opt["seq_len"],   opt[col],   color=C_OPT,   marker=MARKER_OPT,
-                linewidth=2, label="OPT-125M")
+                linewidth=2, label="Transformer(Scaled)")
         ax.set_yscale("log"); ax.set_title(title)
         logx_ax(ax); ax.legend(framealpha=0.9)
         ax.grid(True, which="both", linestyle="--", alpha=0.4)
@@ -599,8 +596,8 @@ def fig21_l2_bank_variance(mamba, opt):
     """L2 per-bank hit-rate spread: min, mean, max with filled band."""
     fig, axes = plt.subplots(1, 2, figsize=(12, 4.5))
     for ax, data, label, color in [
-        (axes[0], mamba, "Mamba-130M", C_MAMBA),
-        (axes[1], opt,   "OPT-125M",   C_OPT),
+        (axes[0], mamba, "Mamba(Scaled)", C_MAMBA),
+        (axes[1], opt,   "Transformer(Scaled)",   C_OPT),
     ]:
         sl   = data["seq_len"]
         mn   = data.get("l2_min_bank_hit_rate",  pd.Series(dtype=float))
@@ -624,8 +621,8 @@ def fig21_l2_bank_variance(mamba, opt):
 def fig22_sram_hits_misses(mamba, opt):
     fig, axes = plt.subplots(1, 2, figsize=(12, 4.5))
     for ax, model_data, label, color in [
-        (axes[0], mamba, "Mamba-130M", C_MAMBA),
-        (axes[1], opt,   "OPT-125M",   C_OPT),
+        (axes[0], mamba, "Mamba(Scaled)", C_MAMBA),
+        (axes[1], opt,   "Transformer(Scaled)",   C_OPT),
     ]:
         ax.plot(model_data["seq_len"], model_data["sram_total_hits"],
                 color=C_HIT,  marker="o", linewidth=2, label="Hits")
@@ -643,8 +640,8 @@ def fig23_sram_bytes(mamba, opt):
     """SRAM bytes requested vs bytes received — efficiency gap."""
     fig, axes = plt.subplots(1, 2, figsize=(12, 4.5))
     for ax, model_data, label in [
-        (axes[0], mamba, "Mamba-130M"),
-        (axes[1], opt,   "OPT-125M"),
+        (axes[0], mamba, "Mamba(Scaled)"),
+        (axes[1], opt,   "Transformer(Scaled)"),
     ]:
         req = model_data.get("sram_avg_bytes_req", pd.Series(dtype=float))
         rcv = model_data.get("sram_avg_bytes_rcv", pd.Series(dtype=float))
@@ -666,8 +663,8 @@ def fig23_sram_bytes(mamba, opt):
 def fig24_acc_sram_hits_misses(mamba, opt):
     fig, axes = plt.subplots(1, 2, figsize=(12, 4.5))
     for ax, model_data, label in [
-        (axes[0], mamba, "Mamba-130M"),
-        (axes[1], opt,   "OPT-125M"),
+        (axes[0], mamba, "Mamba(Scaled)"),
+        (axes[1], opt,   "Transformer(Scaled)"),
     ]:
         ax.plot(model_data["seq_len"], model_data["acc_sram_total_hits"],
                 color=C_HIT,  marker="o", linewidth=2, label="Acc-SRAM Hits")
@@ -689,8 +686,8 @@ def fig25_dram_reads_writes(mamba, opt):
     """DRAM total reads and writes on one plot per model."""
     fig, axes = plt.subplots(1, 2, figsize=(12, 4.5))
     for ax, model_data, label, color in [
-        (axes[0], mamba, "Mamba-130M", C_MAMBA),
-        (axes[1], opt,   "OPT-125M",   C_OPT),
+        (axes[0], mamba, "Mamba(Scaled)", C_MAMBA),
+        (axes[1], opt,   "Transformer(Scaled)",   C_OPT),
     ]:
         ax.plot(model_data["seq_len"], model_data["dram_total_reads"],
                 color=color, marker="o", linewidth=2, label="Total Reads")
@@ -723,8 +720,8 @@ def fig27_dram_row_rates(mamba, opt):
     """DRAM row hit/miss/conflict rates — shows memory access pattern quality."""
     fig, axes = plt.subplots(1, 2, figsize=(12, 4.5))
     for ax, model_data, label in [
-        (axes[0], mamba, "Mamba-130M"),
-        (axes[1], opt,   "OPT-125M"),
+        (axes[0], mamba, "Mamba(Scaled)"),
+        (axes[1], opt,   "Transformer(Scaled)"),
     ]:
         for col, lbl, color in [
             ("dram_avg_row_hit_rate_pct",      "Row Hit Rate %",      C_HIT),
@@ -746,8 +743,8 @@ def fig28_dram_channels_bw(mamba, opt):
     """DRAM BW utilisation + number of channels — dual y-axis."""
     fig, axes = plt.subplots(1, 2, figsize=(12, 4.5))
     for ax, model_data, label, color in [
-        (axes[0], mamba, "Mamba-130M", C_MAMBA),
-        (axes[1], opt,   "OPT-125M",   C_OPT),
+        (axes[0], mamba, "Mamba(Scaled)", C_MAMBA),
+        (axes[1], opt,   "Transformer(Scaled)",   C_OPT),
     ]:
         ax2 = ax.twinx()
         ax.plot(model_data["seq_len"],
@@ -792,8 +789,8 @@ def fig29_core_util_stack(mamba, opt):
     ]
     fig, axes = plt.subplots(1, 2, figsize=(13, 5))
     for ax, model_data, label in [
-        (axes[0], mamba, "Mamba-130M"),
-        (axes[1], opt,   "OPT-125M"),
+        (axes[0], mamba, "Mamba(Scaled)"),
+        (axes[1], opt,   "Transformer(Scaled)"),
     ]:
         sl  = model_data["seq_len"].tolist()
         bot = np.zeros(len(sl))
@@ -822,9 +819,9 @@ def fig30_core_idle_breakdown(mamba, opt):
          "Core-Idle % vs Sequence Length"),
     ]:
         ax.plot(mamba["seq_len"], mamba[col], color=C_MAMBA, marker="o",
-                linewidth=2, label="Mamba-130M")
+                linewidth=2, label="Mamba(Scaled)")
         ax.plot(opt["seq_len"],   opt[col],   color=C_OPT,   marker="s",
-                linewidth=2, label="OPT-125M")
+                linewidth=2, label="Transformer(Scaled)")
         ax.set_ylabel(ylabel); ax.set_title(title)
         logx_ax(ax); ax.legend(framealpha=0.9)
         ax.grid(True, which="both", linestyle="--", alpha=0.4)
@@ -903,8 +900,8 @@ def fig34_util_heatmap(mamba, opt):
     fig, axes = plt.subplots(2, 1, figsize=(max(9, len(all_sl)*1.3), 7),
                               gridspec_kw={"hspace": 0.5})
     for ax, mat, title in [
-        (axes[0], m_mat, "Mamba-130M"),
-        (axes[1], o_mat, "OPT-125M"),
+        (axes[0], m_mat, "Mamba(Scaled)"),
+        (axes[1], o_mat, "Transformer(Scaled)"),
     ]:
         im = ax.imshow(mat, aspect="auto", cmap="RdYlGn", vmin=0, vmax=100)
         ax.set_xticks(range(len(xlabels))); ax.set_xticklabels(xlabels)
@@ -920,17 +917,21 @@ def fig34_util_heatmap(mamba, opt):
                             color="black" if 20 < v < 80 else "white")
     fig.suptitle("Fig 34 — Utilisation Metric Heatmap (Mamba vs OPT)", fontsize=FONT_TITLE)
     save_fig(fig, "fig34_util_heatmap")
-def fig35_opt_cycle_distribution_all(per_log):
+def fig35_opt_cycle_distribution(per_log):
     """
-    Fig 35: Single clean graph showing cycle distribution for OPT-125M 
-    across ALL sequence lengths (1 to 30000).
+    Fig 35 (Fixed): Percentage-based cycle distribution for Transformer(Scaled)
+    Shows how attention increases and FFN stays stable.
     """
-    # Correct filtering for OPT / tiny
+
+    import numpy as np
+    import matplotlib.pyplot as plt
+
+    # Filter OPT / tiny
     opt = per_log[per_log["model"].isin(["OPT", "tiny"])].copy()
     opt = opt.sort_values("seq_len").reset_index(drop=True)
-    
+
     if opt.empty:
-        print("Warning: No OPT / tiny data found for fig35")
+        print("Warning: No OPT / tiny data found")
         return
 
     fig, ax = plt.subplots(figsize=(14, 8))
@@ -938,54 +939,69 @@ def fig35_opt_cycle_distribution_all(per_log):
     x = np.arange(len(opt))
     bottom = np.zeros(len(opt))
 
-    # Main layer components for OPT
+    # Components
     components = [
-        ("Attention",          "layer_attention_cycles",     '#d62728'),   # Red
-        ("FFN FC1",            "layer_ffn_fc1_cycles",       '#1f77b4'),   # Blue
-        ("FFN FC2",            "layer_ffn_fc2_cycles",       '#ff7f0e'),   # Orange
-        ("QKV Projection",     "layer_QKV_projection_cycles",'#2ca02c'),   # Green
-        ("Attn Projection",    "layer_attn_projection_cycles",'#9467bd'),  # Purple
-        ("GEMM",               "layer_gemm_cycles",          '#8c564b'),   # Brown
-        ("Other",              "layer_other_cycles",         '#7f7f7f'),   # Gray
+        ("Attention",          "layer_attention_cycles",     '#d62728'),
+        ("FFN FC1",            "layer_ffn_fc1_cycles",       '#1f77b4'),
+        ("FFN FC2",            "layer_ffn_fc2_cycles",       '#ff7f0e'),
+        ("QKV Projection",     "layer_QKV_projection_cycles",'#2ca02c'),
+        ("Attn Projection",    "layer_attn_projection_cycles",'#9467bd'),
     ]
 
+    # ---- Compute total per row ----
+    total_cycles = np.zeros(len(opt))
+    for _, col, _ in components:
+        total_cycles += opt[col].fillna(0).values
+
+    # ---- Plot percentage stack ----
     for label, col, color in components:
-        values = opt[col].fillna(0).values
-        ax.bar(x, values, label=label, color=color, alpha=0.85, 
-               edgecolor='white', linewidth=0.4)
+        values = opt[col].fillna(0).values / total_cycles * 100
+
+        ax.bar(
+            x,
+            values,
+            bottom=bottom,
+            label=label,
+            color=color,
+            alpha=0.9,
+            edgecolor='white',
+            linewidth=0.4
+        )
+
         bottom += values
 
-    # Total cycles line on secondary axis
-    ax2 = ax.twinx()
-    ax2.plot(x, opt["timing_total_cycles"], color='black', linewidth=3.5, 
-             marker='o', markersize=8, label="Total Cycles")
-
+    # Labels
     ax.set_xlabel("Sequence Length", fontsize=12)
-    ax.set_ylabel("Cycles per Layer Component", fontsize=12)
-    ax2.set_ylabel("Total Cycles", fontsize=12, color='black')
-    
-    ax.set_title("Fig 35 — OPT-125M Cycle Distribution by Layer Type\n"
-                 "(All Sequence Lengths)", fontsize=14, pad=20)
+    ax.set_ylabel("Percentage of Total Cycles (%)", fontsize=12)
 
-    # X-axis with all your seq lens
+    ax.set_title(
+        "Fig 35 — Transformer(Scaled) Percentage Cycle Distribution by Layer Type\n"
+        "(Attention grows, FFN remains stable)",
+        fontsize=14,
+        pad=20
+    )
+
+    # X ticks
     ax.set_xticks(x)
-    ax.set_xticklabels([str(int(s)) for s in opt["seq_len"]], rotation=45, ha='right')
+    ax.set_xticklabels([str(int(s)) for s in opt["seq_len"]],
+                       rotation=45, ha='right')
 
-    ax.set_yscale("log")
-    ax2.set_yscale("log")
+    # Y scale fixed (IMPORTANT)
+    ax.set_ylim(0, 100)
 
-    # Legends
-    ax.legend(title="Layer / Component", bbox_to_anchor=(1.02, 1), 
-              loc='upper left', fontsize=10)
-    ax2.legend(loc='upper right', fontsize=10)
+    # Grid
+    ax.grid(True, linestyle="--", alpha=0.4, axis="y")
 
-    ax.grid(True, which="both", linestyle="--", alpha=0.4, axis="y")
+    # Legend
+    ax.legend(title="Layer / Component",
+              bbox_to_anchor=(1.02, 1),
+              loc='upper left',
+              fontsize=10)
 
     fig.tight_layout()
-    save_fig(fig, "fig35_opt_cycle_distribution_all")
-    
-    print(" saved: figures/fig35_opt_cycle_distribution_all.png")
+    save_fig(fig, "fig35_opt_cycle_distribution_percentage")
 
+    print(" saved: figures/fig35_opt_cycle_distribution_percentage.png")
 # ──────────────────────────────────────────────────────────────────────────────
 # ── ORIGINAL LATEX TABLES 1-4 ────────────────────────────────────────────────
 # ──────────────────────────────────────────────────────────────────────────────
@@ -1031,7 +1047,7 @@ def tab_core_stats(summary):
     \caption{Core Execution Statistics (7-step simulation)}
     \label{tab:core_stats_gen}
     \begin{tabular}{lcc}\hline
-    Metric & Mamba-130M & OPT-125M \\\hline
+    Metric & Mamba(Scaled) & Transformer(Scaled) \\\hline
     """ + body + r"""\hline\end{tabular}\end{table}""").strip()
     write_tex("tab_core_stats", tex)
 
@@ -1063,7 +1079,7 @@ def tab_memory_stats(summary):
     \caption{Memory Hierarchy Statistics (7-step simulation)}
     \label{tab:memory_stats_gen}
     \begin{tabular}{lcc}\hline
-    Metric & Mamba-130M & OPT-125M \\\hline
+    Metric & Mamba(Scaled) & Transformer(Scaled) \\\hline
     """ + body + r"""\hline\end{tabular}\end{table}""").strip()
     write_tex("tab_memory_stats", tex)
 
@@ -1124,7 +1140,7 @@ def tab_layer_breakdown(summary):
     \caption{Per-operation cycle distribution}
     \label{tab:layer_breakdown}
     \begin{tabular}{lcc}\hline
-    Operation & Mamba-130M (\%) & OPT-125M (\%) \\\hline
+    Operation & Mamba(Scaled) (\%) & Transformer(Scaled) (\%) \\\hline
     """ + body + r"""\hline\end{tabular}\end{table}""").strip()
     write_tex("tab_layer_breakdown", tex)
 
@@ -1157,7 +1173,7 @@ def tab_object_histogram(summary):
     \caption{Object-Size Histogram: Core$\rightarrow$L2 Memory-Request Traffic}
     \label{tab:object_histogram}
     \begin{tabular}{lcc}\hline
-    Metric & Mamba-130M & OPT-125M \\\hline
+    Metric & Mamba(Scaled) & Transformer(Scaled) \\\hline
     """ + body + r"""\hline\end{tabular}\end{table}""").strip()
     write_tex("tab_object_histogram", tex)
 
@@ -1188,7 +1204,7 @@ def tab_l2_detailed(summary):
     \caption{L2 Cache Detailed Statistics}
     \label{tab:l2_detailed}
     \begin{tabular}{lcc}\hline
-    Metric & Mamba-130M & OPT-125M \\\hline
+    Metric & Mamba(Scaled) & Transformer(Scaled) \\\hline
     """ + body + r"""\hline\end{tabular}\end{table}""").strip()
     write_tex("tab_l2_detailed", tex)
 
@@ -1216,7 +1232,7 @@ def tab_dram_detailed(summary):
     \caption{DRAM Bandwidth and Request Statistics}
     \label{tab:dram_detailed}
     \begin{tabular}{lcc}\hline
-    Metric & Mamba-130M & OPT-125M \\\hline
+    Metric & Mamba(Scaled) & Transformer(Scaled) \\\hline
     """ + body + r"""\hline\end{tabular}\end{table}""").strip()
     write_tex("tab_dram_detailed", tex)
 
@@ -1246,7 +1262,7 @@ def tab_core_utilisation(summary):
     \caption{Core Utilisation Breakdown}
     \label{tab:core_utilisation}
     \begin{tabular}{lcc}\hline
-    Metric & Mamba-130M & OPT-125M \\\hline
+    Metric & Mamba(Scaled) & Transformer(Scaled) \\\hline
     """ + body + r"""\hline\end{tabular}\end{table}""").strip()
     write_tex("tab_core_utilisation", tex)
 
@@ -1272,7 +1288,7 @@ def tab_sram_detailed(summary):
     \caption{On-Chip SRAM and Accumulator-SRAM Statistics}
     \label{tab:sram_detailed}
     \begin{tabular}{lcc}\hline
-    Metric & Mamba-130M & OPT-125M \\\hline
+    Metric & Mamba(Scaled) & Transformer(Scaled) \\\hline
     """ + body + r"""\hline\end{tabular}\end{table}""").strip()
     write_tex("tab_sram_detailed", tex)
 
@@ -1324,7 +1340,7 @@ def main():
     data_dir = args.data_dir
 
     print(f"\n{'='*65}")
-    print(f"  Mamba-130M vs OPT-125M — Expanded Thesis Figure & Table Generator")
+    print(f"  Mamba(Scaled) vs Transformer(Scaled) — Expanded Thesis Figure & Table Generator")
     print(f"{'='*65}\n")
     print(f"  Data dir : {data_dir.resolve()}")
     print(f"  Figures  : {FIGURES.resolve()}")
@@ -1335,31 +1351,31 @@ def main():
     mamba_pl, opt_pl = split_models(per_log)
 
     # ── Original figures ──────────────────────────────────────────────────────
-    print("Generating original figures (1–12) …")
-    fig1_total_cycles(mamba_pl, opt_pl)
-    fig2_wall_clock(mamba_pl, opt_pl)
-    fig3_pe_util(mamba_pl, opt_pl)
-    fig4_dram_reads(mamba_pl, opt_pl)
-    fig5_dram_bw_util(mamba_pl, opt_pl)
-    fig6_sram_hitrates(mamba_pl, opt_pl)
-    fig7_memory_bound_ratio(detailed)
-    fig8_speedup(detailed)
-    fig9_sa_util(mamba_pl, opt_pl)
-    fig10_memory_idle(mamba_pl, opt_pl)
+    # print("Generating original figures (1–12) …")
+    # fig1_total_cycles(mamba_pl, opt_pl)
+    # fig2_wall_clock(mamba_pl, opt_pl)
+    # fig3_pe_util(mamba_pl, opt_pl)
+    # fig4_dram_reads(mamba_pl, opt_pl)
+    # fig5_dram_bw_util(mamba_pl, opt_pl)
+    # fig6_sram_hitrates(mamba_pl, opt_pl)
+    # fig7_memory_bound_ratio(detailed)
+    # fig8_speedup(detailed)
+    # fig9_sa_util(mamba_pl, opt_pl)
+    # fig10_memory_idle(mamba_pl, opt_pl)
     m1 = mamba_pl[mamba_pl["seq_len"] == 1]
     o1 = opt_pl[opt_pl["seq_len"] == 1]
-    if not m1.empty and not o1.empty:
-        fig11_radar(m1, o1)
-    else:
-        print("  [skip] fig11_radar — no seq_len=1 rows found")
+    # if not m1.empty and not o1.empty:
+    #     fig11_radar(m1, o1)
+    # else:
+    #     print("  [skip] fig11_radar — no seq_len=1 rows found")
     fig12_layer_pie(summary)
 
     # ── Object histogram figures ──────────────────────────────────────────────
-    print("\nGenerating object histogram figures (13–16) …")
-    fig13_hist_total_bytes(mamba_pl, opt_pl)
-    fig14_hist_avg_object_size(mamba_pl, opt_pl)
-    fig15_hist_top2_bar(mamba_pl, opt_pl)
-    fig16_hist_size_class_heatmap(mamba_pl, opt_pl)
+    # print("\nGenerating object histogram figures (13–16) …")
+    # fig13_hist_total_bytes(mamba_pl, opt_pl)
+    # fig14_hist_avg_object_size(mamba_pl, opt_pl)
+    # fig15_hist_top2_bar(mamba_pl, opt_pl)
+    # fig16_hist_size_class_heatmap(mamba_pl, opt_pl)
 
     # ── L2 cache figures ──────────────────────────────────────────────────────
     # print("\nGenerating L2 cache figures (17–21) …")
@@ -1370,43 +1386,43 @@ def main():
     # fig21_l2_bank_variance(mamba_pl, opt_pl)
 
     # ── SRAM figures ──────────────────────────────────────────────────────────
-    print("\nGenerating SRAM figures (22–24) …")
-    fig22_sram_hits_misses(mamba_pl, opt_pl)
-    fig23_sram_bytes(mamba_pl, opt_pl)
-    fig24_acc_sram_hits_misses(mamba_pl, opt_pl)
+    # print("\nGenerating SRAM figures (22–24) …")
+    # fig22_sram_hits_misses(mamba_pl, opt_pl)
+    # fig23_sram_bytes(mamba_pl, opt_pl)
+    # fig24_acc_sram_hits_misses(mamba_pl, opt_pl)
 
     # ── DRAM figures ──────────────────────────────────────────────────────────
-    print("\nGenerating DRAM figures (25–28) …")
-    fig25_dram_reads_writes(mamba_pl, opt_pl)
-    fig26_dram_req_counts(mamba_pl, opt_pl)
-    fig27_dram_row_rates(mamba_pl, opt_pl)
-    fig28_dram_channels_bw(mamba_pl, opt_pl)
+    # print("\nGenerating DRAM figures (25–28) …")
+    # fig25_dram_reads_writes(mamba_pl, opt_pl)
+    # fig26_dram_req_counts(mamba_pl, opt_pl)
+    # fig27_dram_row_rates(mamba_pl, opt_pl)
+    # fig28_dram_channels_bw(mamba_pl, opt_pl)
 
     # ── Core utilisation figures ───────────────────────────────────────────────
     print("\nGenerating core utilisation figures (29–34) …")
-    fig29_core_util_stack(mamba_pl, opt_pl)
-    fig30_core_idle_breakdown(mamba_pl, opt_pl)
-    fig31_inst_per_tile(mamba_pl, opt_pl)
-    fig32_tiles_finished(mamba_pl, opt_pl)
-    fig33_systolic_issue_preload(mamba_pl, opt_pl)
-    fig34_util_heatmap(mamba_pl, opt_pl)
-    fig35_opt_cycle_distribution_all(per_log)
+    # fig29_core_util_stack(mamba_pl, opt_pl)
+    # fig30_core_idle_breakdown(mamba_pl, opt_pl)
+    # fig31_inst_per_tile(mamba_pl, opt_pl)
+    # fig32_tiles_finished(mamba_pl, opt_pl)
+    # fig33_systolic_issue_preload(mamba_pl, opt_pl)
+    # fig34_util_heatmap(mamba_pl, opt_pl)
+    # fig35_opt_cycle_distribution(per_log)
 
     # ── Original tables ───────────────────────────────────────────────────────
     print("\nGenerating original LaTeX tables …")
-    tab_core_stats(summary)
-    tab_memory_stats(summary)
-    tab_seq_scaling(detailed)
-    tab_layer_breakdown(summary)
+    # tab_core_stats(summary)
+    # tab_memory_stats(summary)
+    # tab_seq_scaling(detailed)
+    # tab_layer_breakdown(summary)
 
     # ── New tables ────────────────────────────────────────────────────────────
     print("\nGenerating new LaTeX tables …")
-    tab_object_histogram(summary)
-    tab_l2_detailed(summary)
-    tab_dram_detailed(summary)
-    tab_core_utilisation(summary)
-    tab_sram_detailed(summary)
-    tab_seq_scaling_extended(detailed)
+    # tab_object_histogram(summary)
+    # tab_l2_detailed(summary)
+    # tab_dram_detailed(summary)
+    # tab_core_utilisation(summary)
+    # tab_sram_detailed(summary)
+    # tab_seq_scaling_extended(detailed)
 
     n_figs  = len(list(FIGURES.glob("*.pdf")))
     n_tabs  = len(list(TABLES.glob("*.tex")))

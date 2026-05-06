@@ -2,7 +2,7 @@
     "models": 
     [
         {
-            "name": "tiny",
+            "name": "llama3-8b",
             "trace_file": "input.csv",
             "scheduler": "simple",
             "scheduler_config": {

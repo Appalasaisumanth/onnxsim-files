@@ -1,0 +1,798 @@
+{
+  "_log_file": "tiny_s1.log",
+  "_crash_reason": null,
+  "hardware_config": {
+    "num_cores": 4,
+    "dram_bandwidth_GBs": 614.0,
+    "ramulator_config": "./configs/../configs/ramulator2_configs/HBM2.yaml",
+    "interconnect": "SimpleInterconnect",
+    "tensor_parallelism": 1,
+    "pipeline_parallelism": 1,
+    "systolic_throughput_GFLOPS": 131072.0,
+    "spad_size_KB": 32768,
+    "accumulator_size_KB": 4096
+  },
+  "model_info": {
+    "name": "tiny",
+    "num_layers_total": 1,
+    "num_sim_layers": 1,
+    "has_l2": "false",
+    "weight_size_GB": 0.01,
+    "scheduler": "Simple Language scheduler"
+  },
+  "memory_usage": {
+    "total_GB": 0.01,
+    "weight_GB": 0.01,
+    "kv_cache_GB": 0.0,
+    "activation_GB": 0.0
+  },
+  "simulation_timing": {
+    "total_cycles": 72001,
+    "total_us": 72,
+    "model_init_seconds": 0.004281,
+    "wall_clock_seconds": 0.929528,
+    "avg_tiles_per_layer": 0.823997231,
+    "total_tiles": 23,
+    "tiles_per_second": 27.912715,
+    "total_compute_cycles": 16000
+  },
+  "per_core_stats": {
+    "core_0": {
+      "total_cycles": 72001,
+      "matmul_active_cycles": 3,
+      "vector_active_cycles": 21,
+      "memory_unit_idle_cycles": 71635,
+      "systolic_bubble_cycles": 0,
+      "core_idle_cycles": 24005,
+      "active_cycles": -23639,
+      "memory_idle_pct": 99.4917,
+      "core_idle_pct": 33.3398,
+      "systolic_array_util_pct": 2.14,
+      "pe_util_pct": 0.0,
+      "vector_unit_util_pct": 0.03,
+      "tiles_issued": 6,
+      "tiles_finished": 6,
+      "instructions_executed": 42,
+      "instructions_per_tile": 7.0,
+      "systolic_inst_issue_count": 8,
+      "systolic_preload_count": 8,
+      "sram": {
+        "hits": 164,
+        "misses": 6830,
+        "hit_rate": 0.0234,
+        "read_hits": 164,
+        "write_hits": 0,
+        "prefetches": 13,
+        "bytes_requested": 181920,
+        "bytes_received": 183840,
+        "total_accesses": 6994
+      },
+      "acc_sram": {
+        "hits": 35,
+        "misses": 3068,
+        "hit_rate": 0.0113,
+        "read_hits": 0,
+        "write_hits": 35,
+        "prefetches": 5,
+        "bytes_requested": 544,
+        "bytes_received": 1056,
+        "total_accesses": 3103
+      }
+    },
+    "core_1": {
+      "total_cycles": 72001,
+      "matmul_active_cycles": 2,
+      "vector_active_cycles": 11,
+      "memory_unit_idle_cycles": 71701,
+      "systolic_bubble_cycles": 0,
+      "core_idle_cycles": 32004,
+      "active_cycles": -31704,
+      "memory_idle_pct": 99.5833,
+      "core_idle_pct": 44.4494,
+      "systolic_array_util_pct": 2.14,
+      "pe_util_pct": 0.0,
+      "vector_unit_util_pct": 0.02,
+      "tiles_issued": 5,
+      "tiles_finished": 5,
+      "instructions_executed": 37,
+      "instructions_per_tile": 7.4,
+      "systolic_inst_issue_count": 8,
+      "systolic_preload_count": 8,
+      "sram": {
+        "hits": 149,
+        "misses": 6746,
+        "hit_rate": 0.0216,
+        "read_hits": 149,
+        "write_hits": 0,
+        "prefetches": 11,
+        "bytes_requested": 148672,
+        "bytes_received": 150720,
+        "total_accesses": 6895
+      },
+      "acc_sram": {
+        "hits": 35,
+        "misses": 3127,
+        "hit_rate": 0.0111,
+        "read_hits": 0,
+        "write_hits": 35,
+        "prefetches": 5,
+        "bytes_requested": 416,
+        "bytes_received": 800,
+        "total_accesses": 3162
+      }
+    },
+    "core_2": {
+      "total_cycles": 72001,
+      "matmul_active_cycles": 7,
+      "vector_active_cycles": 9,
+      "memory_unit_idle_cycles": 71381,
+      "systolic_bubble_cycles": 0,
+      "core_idle_cycles": 32004,
+      "active_cycles": -31384,
+      "memory_idle_pct": 99.1389,
+      "core_idle_pct": 44.4494,
+      "systolic_array_util_pct": 3.22,
+      "pe_util_pct": 0.01,
+      "vector_unit_util_pct": 0.01,
+      "tiles_issued": 7,
+      "tiles_finished": 7,
+      "instructions_executed": 44,
+      "instructions_per_tile": 6.29,
+      "systolic_inst_issue_count": 12,
+      "systolic_preload_count": 12,
+      "sram": {
+        "hits": 118,
+        "misses": 7074,
+        "hit_rate": 0.0164,
+        "read_hits": 118,
+        "write_hits": 0,
+        "prefetches": 11,
+        "bytes_requested": 312096,
+        "bytes_received": 312096,
+        "total_accesses": 7192
+      },
+      "acc_sram": {
+        "hits": 37,
+        "misses": 3847,
+        "hit_rate": 0.0095,
+        "read_hits": 0,
+        "write_hits": 37,
+        "prefetches": 6,
+        "bytes_requested": 800,
+        "bytes_received": 1568,
+        "total_accesses": 3884
+      }
+    },
+    "core_3": {
+      "total_cycles": 72001,
+      "matmul_active_cycles": 2,
+      "vector_active_cycles": 9,
+      "memory_unit_idle_cycles": 71450,
+      "systolic_bubble_cycles": 0,
+      "core_idle_cycles": 32004,
+      "active_cycles": -31453,
+      "memory_idle_pct": 99.2347,
+      "core_idle_pct": 44.4494,
+      "systolic_array_util_pct": 3.22,
+      "pe_util_pct": 0.0,
+      "vector_unit_util_pct": 0.01,
+      "tiles_issued": 5,
+      "tiles_finished": 5,
+      "instructions_executed": 40,
+      "instructions_per_tile": 8.0,
+      "systolic_inst_issue_count": 12,
+      "systolic_preload_count": 12,
+      "sram": {
+        "hits": 138,
+        "misses": 6947,
+        "hit_rate": 0.0195,
+        "read_hits": 138,
+        "write_hits": 0,
+        "prefetches": 11,
+        "bytes_requested": 276416,
+        "bytes_received": 276416,
+        "total_accesses": 7085
+      },
+      "acc_sram": {
+        "hits": 37,
+        "misses": 3847,
+        "hit_rate": 0.0095,
+        "read_hits": 0,
+        "write_hits": 37,
+        "prefetches": 6,
+        "bytes_requested": 736,
+        "bytes_received": 1440,
+        "total_accesses": 3884
+      }
+    },
+    "avg_across_cores": {
+      "total_cycles": 72001.0,
+      "matmul_active_cycles": 3.5,
+      "vector_active_cycles": 12.5,
+      "memory_unit_idle_cycles": 71541.75,
+      "systolic_bubble_cycles": 0.0,
+      "core_idle_cycles": 30004.25,
+      "active_cycles": -29545.0,
+      "memory_idle_pct": 99.3621,
+      "core_idle_pct": 41.672,
+      "systolic_array_util_pct": 2.68,
+      "pe_util_pct": 0.0025,
+      "vector_unit_util_pct": 0.0175,
+      "tiles_issued": 5.75,
+      "tiles_finished": 5.75,
+      "instructions_executed": 40.75,
+      "instructions_per_tile": 7.1725,
+      "systolic_inst_issue_count": 10.0,
+      "systolic_preload_count": 10.0,
+      "sram": {
+        "hits": 142.25,
+        "misses": 6899.25,
+        "read_hits": 142.25,
+        "write_hits": 0.0,
+        "prefetches": 11.5,
+        "bytes_requested": 229776.0,
+        "bytes_received": 230768.0,
+        "total_accesses": 7041.5,
+        "hit_rate": 0.020202
+      },
+      "acc_sram": {
+        "hits": 36.0,
+        "misses": 3472.25,
+        "read_hits": 0.0,
+        "write_hits": 36.0,
+        "prefetches": 5.5,
+        "bytes_requested": 624.0,
+        "bytes_received": 1216.0,
+        "total_accesses": 3508.25,
+        "hit_rate": 0.010262
+      }
+    }
+  },
+  "icnt_bandwidth": {
+    "Core_to_ICNT": {
+      "bandwidth_GBs": 115.0,
+      "total_bytes": 28982
+    },
+    "Core_from_ICNT": {
+      "bandwidth_GBs": 115.0,
+      "total_bytes": 28982
+    },
+    "ICNT_to_MEM": {
+      "bandwidth_GBs": 115.0,
+      "total_bytes": 28982
+    },
+    "ICNT_from_MEM": {
+      "bandwidth_GBs": 115.0,
+      "total_bytes": 28982
+    }
+  },
+  "dram_stats": {
+    "num_channels_found": 16,
+    "per_channel_samples": [
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 1799,
+        "total_num_write_requests": 11,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 86435,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 1692,
+        "row_misses": 33,
+        "row_conflicts": 85
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 1795,
+        "total_num_write_requests": 11,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 86435,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 1685,
+        "row_misses": 32,
+        "row_conflicts": 89
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 1796,
+        "total_num_write_requests": 11,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 86435,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 1688,
+        "row_misses": 32,
+        "row_conflicts": 87
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 1800,
+        "total_num_write_requests": 13,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 86435,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 1695,
+        "row_misses": 32,
+        "row_conflicts": 86
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 1796,
+        "total_num_write_requests": 10,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 86435,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 1687,
+        "row_misses": 32,
+        "row_conflicts": 87
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 1794,
+        "total_num_write_requests": 11,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 86435,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 1685,
+        "row_misses": 32,
+        "row_conflicts": 88
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 1800,
+        "total_num_write_requests": 12,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 86435,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 1692,
+        "row_misses": 32,
+        "row_conflicts": 88
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 1797,
+        "total_num_write_requests": 11,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 86435,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 1687,
+        "row_misses": 32,
+        "row_conflicts": 89
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 1798,
+        "total_num_write_requests": 12,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 86435,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 1691,
+        "row_misses": 32,
+        "row_conflicts": 87
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 1809,
+        "total_num_write_requests": 12,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 86435,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 1701,
+        "row_misses": 32,
+        "row_conflicts": 88
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 1807,
+        "total_num_write_requests": 12,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 86435,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 1698,
+        "row_misses": 33,
+        "row_conflicts": 88
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 1793,
+        "total_num_write_requests": 12,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 86435,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 1686,
+        "row_misses": 32,
+        "row_conflicts": 87
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 1808,
+        "total_num_write_requests": 12,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 86435,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 1698,
+        "row_misses": 32,
+        "row_conflicts": 90
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 1799,
+        "total_num_write_requests": 12,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 86435,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 1689,
+        "row_misses": 33,
+        "row_conflicts": 89
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 1797,
+        "total_num_write_requests": 11,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 86435,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 1686,
+        "row_misses": 33,
+        "row_conflicts": 89
+      },
+      {
+        "impl": "GenericDRAM",
+        "total_num_read_requests": 1808,
+        "total_num_write_requests": 13,
+        "total_num_other_requests": 0,
+        "memory_system_cycles": 86435,
+        "dram_impl": "HBM2",
+        "addr_mapper": "RoBaRaCoCh",
+        "scheduler": "FRFCFS",
+        "refresh_manager": "AllBank",
+        "channel_id": "Channel 0",
+        "row_hits": 1701,
+        "row_misses": 32,
+        "row_conflicts": 88
+      }
+    ],
+    "avg_across_channels": {
+      "total_num_read_requests": 1799.75,
+      "total_num_write_requests": 11.62,
+      "total_num_other_requests": 0.0,
+      "memory_system_cycles": 86435.0,
+      "row_hits": 1691.31,
+      "row_misses": 32.25,
+      "row_conflicts": 87.81,
+      "impl": "GenericDRAM",
+      "dram_impl": "HBM2",
+      "addr_mapper": "RoBaRaCoCh",
+      "scheduler": "FRFCFS",
+      "refresh_manager": "AllBank",
+      "row_hit_rate_pct": 93.3719,
+      "row_miss_rate_pct": 1.7804,
+      "row_conflict_rate_pct": 4.8477
+    },
+    "avg_bw_summary": {
+      "avg_bw_utilization_pct": 1.6,
+      "total_reads": 1799,
+      "total_writes": 11
+    }
+  },
+  "l2_bank_stats": {},
+  "layer_timeline": [
+    {
+      "layer": "layer0.attn.QKVgen",
+      "finish_cycle": 16000,
+      "compute_cycles": 16000,
+      "start_cycle": 0,
+      "idle_cycles": 0,
+      "type": "QKV_projection"
+    },
+    {
+      "layer": "layer0.attn.KVccat",
+      "finish_cycle": 16001,
+      "compute_cycles": 1,
+      "start_cycle": 16000,
+      "idle_cycles": 0,
+      "type": "KV_concat"
+    },
+    {
+      "layer": "layer0.attn.Attention.0",
+      "finish_cycle": 24000,
+      "compute_cycles": 7999,
+      "start_cycle": 16001,
+      "idle_cycles": 0,
+      "type": "attention"
+    },
+    {
+      "layer": "layer0.attn.Atccat",
+      "finish_cycle": 24002,
+      "compute_cycles": 2,
+      "start_cycle": 24000,
+      "idle_cycles": 0,
+      "type": "attn_concat"
+    },
+    {
+      "layer": "layer0.attn.proj",
+      "finish_cycle": 32000,
+      "compute_cycles": 7998,
+      "start_cycle": 24002,
+      "idle_cycles": 0,
+      "type": "attn_projection"
+    },
+    {
+      "layer": "layer0.attn.ln",
+      "finish_cycle": 40000,
+      "compute_cycles": 8000,
+      "start_cycle": 32000,
+      "idle_cycles": 0,
+      "type": "attn_layernorm"
+    },
+    {
+      "layer": "layer0.ffn.fc1",
+      "finish_cycle": 48000,
+      "compute_cycles": 8000,
+      "start_cycle": 40000,
+      "idle_cycles": 0,
+      "type": "ffn_fc1"
+    },
+    {
+      "layer": "layer0.ffn.act",
+      "finish_cycle": 56000,
+      "compute_cycles": 8000,
+      "start_cycle": 48000,
+      "idle_cycles": 0,
+      "type": "ffn_activation"
+    },
+    {
+      "layer": "layer0.ffn.fc2",
+      "finish_cycle": 64000,
+      "compute_cycles": 8000,
+      "start_cycle": 56000,
+      "idle_cycles": 0,
+      "type": "ffn_fc2"
+    },
+    {
+      "layer": "layer0.ffn.ln",
+      "finish_cycle": 72000,
+      "compute_cycles": 8000,
+      "start_cycle": 64000,
+      "idle_cycles": 0,
+      "type": "ffn_layernorm"
+    }
+  ],
+  "gemm_ops": [],
+  "attention_ops": [],
+  "object_size_histogram": {
+    "entries": [
+      {
+        "size_bytes": 131072,
+        "count": 4096,
+        "total_bytes": 536870912,
+        "cumulative_bytes": 536870912,
+        "bytes_fraction_pct": 25.7144
+      },
+      {
+        "size_bytes": 106496,
+        "count": 3328,
+        "total_bytes": 354418688,
+        "cumulative_bytes": 891289600,
+        "bytes_fraction_pct": 16.9755
+      },
+      {
+        "size_bytes": 48256,
+        "count": 1508,
+        "total_bytes": 72770048,
+        "cumulative_bytes": 964059648,
+        "bytes_fraction_pct": 3.4855
+      },
+      {
+        "size_bytes": 224,
+        "count": 28,
+        "total_bytes": 6272,
+        "cumulative_bytes": 964065920,
+        "bytes_fraction_pct": 0.0003
+      },
+      {
+        "size_bytes": 160,
+        "count": 20,
+        "total_bytes": 3200,
+        "cumulative_bytes": 964069120,
+        "bytes_fraction_pct": 0.0002
+      },
+      {
+        "size_bytes": 1024,
+        "count": 160,
+        "total_bytes": 163840,
+        "cumulative_bytes": 964232960,
+        "bytes_fraction_pct": 0.0078
+      },
+      {
+        "size_bytes": 25984,
+        "count": 812,
+        "total_bytes": 21099008,
+        "cumulative_bytes": 985331968,
+        "bytes_fraction_pct": 1.0106
+      },
+      {
+        "size_bytes": 128,
+        "count": 56,
+        "total_bytes": 7168,
+        "cumulative_bytes": 985339136,
+        "bytes_fraction_pct": 0.0003
+      },
+      {
+        "size_bytes": 480,
+        "count": 270,
+        "total_bytes": 129600,
+        "cumulative_bytes": 985468736,
+        "bytes_fraction_pct": 0.0062
+      },
+      {
+        "size_bytes": 59392,
+        "count": 18560,
+        "total_bytes": 1102315520,
+        "cumulative_bytes": 2087784256,
+        "bytes_fraction_pct": 52.7974
+      },
+      {
+        "size_bytes": 256,
+        "count": 144,
+        "total_bytes": 36864,
+        "cumulative_bytes": 2087821120,
+        "bytes_fraction_pct": 0.0018
+      }
+    ],
+    "total_bytes": 2087821120,
+    "total_count": 28982,
+    "num_size_classes": 11,
+    "top_5_by_bytes": [
+      {
+        "size_bytes": 59392,
+        "count": 18560,
+        "total_bytes": 1102315520,
+        "cumulative_bytes": 2087784256,
+        "bytes_fraction_pct": 52.7974
+      },
+      {
+        "size_bytes": 131072,
+        "count": 4096,
+        "total_bytes": 536870912,
+        "cumulative_bytes": 536870912,
+        "bytes_fraction_pct": 25.7144
+      },
+      {
+        "size_bytes": 106496,
+        "count": 3328,
+        "total_bytes": 354418688,
+        "cumulative_bytes": 891289600,
+        "bytes_fraction_pct": 16.9755
+      },
+      {
+        "size_bytes": 48256,
+        "count": 1508,
+        "total_bytes": 72770048,
+        "cumulative_bytes": 964059648,
+        "bytes_fraction_pct": 3.4855
+      },
+      {
+        "size_bytes": 25984,
+        "count": 812,
+        "total_bytes": 21099008,
+        "cumulative_bytes": 985331968,
+        "bytes_fraction_pct": 1.0106
+      }
+    ],
+    "avg_object_size": 72038.55,
+    "largest_object_bytes": 131072
+  },
+  "summary_metrics": {
+    "total_compute_GFLOPs": 0,
+    "total_simulated_cycles": 72001,
+    "wall_clock_seconds": 0.929528,
+    "tiles_per_second": 27.912715,
+    "simulated_cycles_per_wall_second": 77460.0,
+    "avg_systolic_util_pct": 2.68,
+    "avg_pe_util_pct": 0.0025,
+    "avg_memory_idle_pct": 99.3621,
+    "avg_core_idle_pct": 41.672,
+    "total_sram_hits": 569,
+    "total_sram_misses": 27597,
+    "total_sram_hit_rate": 0.020202,
+    "total_acc_sram_hits": 144,
+    "total_acc_sram_misses": 13889,
+    "total_acc_sram_hit_rate": 0.010262,
+    "dram_avg_bw_utilization_pct": 1.6,
+    "dram_total_reads": 1799,
+    "dram_total_writes": 11,
+    "compute_cycles_by_layer_type": {
+      "QKV_projection": 16000,
+      "KV_concat": 1,
+      "attention": 7999,
+      "attn_concat": 2,
+      "attn_projection": 7998,
+      "attn_layernorm": 8000,
+      "ffn_fc1": 8000,
+      "ffn_activation": 8000,
+      "ffn_fc2": 8000,
+      "ffn_layernorm": 8000
+    },
+    "layer_count_by_type": {
+      "QKV_projection": 1,
+      "KV_concat": 1,
+      "attention": 1,
+      "attn_concat": 1,
+      "attn_projection": 1,
+      "attn_layernorm": 1,
+      "ffn_fc1": 1,
+      "ffn_activation": 1,
+      "ffn_fc2": 1,
+      "ffn_layernorm": 1
+    },
+    "histogram_total_bytes": 2087821120,
+    "histogram_total_count": 28982,
+    "histogram_avg_object_size": 72038.55,
+    "histogram_num_size_classes": 11,
+    "histogram_top1_size_bytes": 59392,
+    "histogram_top1_total_bytes": 1102315520,
+    "histogram_top1_bytes_pct": 52.7974,
+    "histogram_top2_size_bytes": 131072,
+    "histogram_top2_total_bytes": 536870912,
+    "histogram_top2_bytes_pct": 25.7144
+  }
+}

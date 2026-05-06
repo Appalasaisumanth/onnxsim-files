@@ -75,18 +75,18 @@ void GemmWS::initialize_tiles(MappingTable& mapping_table) {
   if (has_bias) {
     total_flops += bias_flops;
   }
-  //spdlog::info("[GemmWs] Keys K = {}, N = {}, M = {}", key.C, key.N, key.M);
+  spdlog::info("[GemmWs] Keys K = {}, N = {}, M = {}", key.C, key.N, key.M);
   float total_memory = (key.M * key.C + key.N * key.C + key.N * key.M) * _config.precision / ((float) 1e9);
   float bias_memory = key.M *_config.precision / ((float) 1e9);
   if (has_bias) {
     total_memory += bias_memory;
   }
-  //spdlog::info("[GemmWS]: total {} GFLOPs, {} GB", total_flops, total_memory);
+  spdlog::info("[GemmWS]: total {} GFLOPs, {} GB", total_flops, total_memory);
   float theoretical_compute_time = total_flops / _config.max_systolic_flops(target_core);
   float theoretical_mem_time = total_memory / _config.max_dram_bandwidth();
   float theoretical_time = std::max(theoretical_compute_time, theoretical_mem_time);
-  //spdlog::info("[GemmWS]: Theoretical time(ms): {} Compute time: {} Memory time: {}",
-  //             theoretical_time * 1e3, theoretical_compute_time * 1e3, theoretical_mem_time * 1e3);
+  spdlog::info("[GemmWS]: Theoretical time(ms): {} Compute time: {} Memory time: {}",
+               theoretical_time * 1e3, theoretical_compute_time * 1e3, theoretical_mem_time * 1e3);
 }
 
 void GemmWS::initialize_instructions(Tile* tile, Mapping mapping) {

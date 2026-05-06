@@ -81,29 +81,44 @@ void SystolicWS::cycle() {
   handle_st_inst_queue();
 
   // xxx will it work well on double buffered code? no.
-  bool is_idle = _compute_pipeline.empty() && _vector_pipeline.empty();
-  bool is_running = running();
-  bool is_compute_busy = false;
-  bool is_vector_busy = false;
+  // bool is_idle = _compute_pipeline.empty() && _vector_pipeline.empty();
+  // bool is_running = running();
+  // bool is_compute_busy = false;
+  // bool is_vector_busy = false;
 
-  if (!_compute_pipeline.empty() && _compute_pipeline.front()->start_cycle <= _core_cycle)
-    is_compute_busy = true;
-  if (!_vector_pipeline.empty() && _vector_pipeline.front()->start_cycle <= _core_cycle)
-    is_vector_busy = true;
+  // if (!_compute_pipeline.empty() && _compute_pipeline.front()->start_cycle <= _core_cycle)
+  //   is_compute_busy = true;
+  // if (!_vector_pipeline.empty() && _vector_pipeline.front()->start_cycle <= _core_cycle)
+  //   is_vector_busy = true;
 
-  if (is_compute_busy)
-    _stat_systolic_active_cycle++;
-  if (is_vector_busy)
-    _stat_vec_compute_cycle++;
+  // if (is_compute_busy)
+  //   _stat_systolic_active_cycle++;
+  // if (is_vector_busy)
+  //   _stat_vec_compute_cycle++;
 
-  if (is_compute_busy || is_vector_busy)
-    _stat_compute_cycle++;
+  // if (is_compute_busy || is_vector_busy)
+  //   _stat_compute_cycle++;
 
-  if (_request_queue.empty())
-    _stat_memory_idle_cycle++;
+  // if (_request_queue.empty())
+  //   _stat_memory_idle_cycle++;
 
-  if (!is_running)
-    _stat_idle_cycle++;
+  // if (!is_running)
+  //   _stat_idle_cycle++;
+  // After the pipeline and queue checks:
+bool is_compute_busy = !_compute_pipeline.empty() &&
+                        _compute_pipeline.front()->start_cycle <= _core_cycle;
+bool is_vector_busy  = !_vector_pipeline.empty() &&
+                        _vector_pipeline.front()->start_cycle <= _core_cycle;
+bool has_work        = running();  // tiles loaded, queues non-empty, etc.
+bool stalled_on_mem  = has_work && !is_compute_busy && !is_vector_busy &&
+                        _ex_inst_queue.empty() && _ld_inst_queue.empty() &&
+                        _st_inst_queue.empty();
+
+if (is_compute_busy)   _stat_systolic_active_cycle++;
+if (is_vector_busy)    _stat_vec_compute_cycle++;
+if (is_compute_busy || is_vector_busy) _stat_compute_cycle++;
+if (stalled_on_mem)    _stat_memory_idle_cycle++;   // has tiles but can't issue — waiting for data
+if (!has_work)         _stat_idle_cycle++;           // truly nothing to do
   Core::cycle();
 }
 

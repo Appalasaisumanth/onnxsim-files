@@ -39,7 +39,6 @@ class Operation {
   virtual void reset() {
     _finish = false;
 }
-
   uint32_t target_core=0; // Targeted core id
 
  protected:

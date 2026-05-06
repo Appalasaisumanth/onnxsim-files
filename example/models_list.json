@@ -1,44 +1,12 @@
 {
   "models": [
     {
-      "name": "mamba_tiny",
+      "name": "mamba-2.8b",
       "batch_size": 1,
       "seq_len": 1,
       "past_seq_len": 0,
       "total_seq_len": 0,
-      "output_seq_len": 8192
-    },
-     {
-      "name": "mamba_tiny",
-      "batch_size": 1,
-      "seq_len": 1,
-      "past_seq_len": 8192,
-      "total_seq_len": 0,
-      "output_seq_len": 1808
-    },
-     {
-      "name": "mamba_tiny",
-      "batch_size": 1,
-      "seq_len": 1,
-      "past_seq_len": 0,
-      "total_seq_len": 0,
-      "output_seq_len": 16384
-    },
-      {
-      "name": "mamba_tiny",
-      "batch_size": 1,
-      "seq_len": 1,
-      "past_seq_len": 16384,
-      "total_seq_len": 0,
-      "output_seq_len": 3616
-    },
-     {
-      "name": "mamba_tiny",
-      "batch_size": 1,
-      "seq_len": 1,
-      "past_seq_len": 16384,
-      "total_seq_len": 0,
-      "output_seq_len": 13616
+      "output_seq_len": 1
     }
      
   ]

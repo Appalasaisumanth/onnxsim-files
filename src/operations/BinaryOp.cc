@@ -78,11 +78,8 @@ BinaryOp::BinaryOp(SimulationConfig config,
 // ─────────────────────────────────────────────
 
 void BinaryOp::calculate_loops()
-{
-    uint32_t spad =
-        _config.core_config[target_core].spad_size KB;
-
-    uint32_t usable = spad / 4;
+{  uint32_t spad = _config.core_config[target_core].spad_size KB;
+    uint32_t usable = spad / 3;
 
     _tokens_per_tile = usable / _config.precision;
 
@@ -91,9 +88,6 @@ void BinaryOp::calculate_loops()
 
     if (_tokens_per_tile > _dk)
         _tokens_per_tile = _dk;
-
-    if (_tokens_per_tile > 4096)
-        _tokens_per_tile = 4096;
 }
 
 // ─────────────────────────────────────────────
@@ -137,8 +131,8 @@ void BinaryOp::initialize_instructions(
     uint32_t tokens)
 {
     addr_type sram_a   = SPAD_BASE;
-    addr_type sram_b   = sram_a + tokens * _config.precision;
-    addr_type sram_out = sram_b + tokens * _config.precision;
+addr_type sram_b   = sram_a + _tokens_per_tile * _config.precision;
+addr_type sram_out = sram_b + _tokens_per_tile * _config.precision;
 
     addr_type dram_a = get_operand_addr(_INPUT_OPERAND);
     addr_type dram_b = get_operand_addr(_INPUT_OPERAND + 1);

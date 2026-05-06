@@ -866,7 +866,9 @@ MODELS = {
         d_conv=4,
         dt_rank=48,
         n_layer=24
-    )
+    ),
+    "mamba-2.8b": dict(d_model=2560, d_inner=5120, d_state=16, d_conv=4, dt_rank=160, n_layer=1, vocab_size=50280),
+# }
 }
 
 # ─────────────────────────────────────────────
@@ -1026,7 +1028,7 @@ def gen_mapping(folder, file_stem, cfg, seq_len=1, n_blocks=2):
 # EXPORT (CLEAN)
 # ─────────────────────────────────────────────
 def export():
-    cfg = MODELS["mamba-tiny"]
+    cfg = MODELS["mamba-2.8b"]
     count_mamba_130m_params(cfg)
     model = MambaBlock(
         cfg["d_model"],
@@ -1042,8 +1044,8 @@ def export():
 
     os.makedirs("models", exist_ok=True)
 
-    folder = "models/mamba_tiny"
-    name = "mamba_tiny"
+    folder = "models/mamba-2.8b"
+    name = "mamba-2.8b"
     os.makedirs(folder, exist_ok=True)
 
 
@@ -1059,9 +1061,23 @@ def export():
     )
 
     print(f"✅ ONNX saved: {onnx_path}")
+    import onnxruntime as ort
 
-    # generate mapping
-    gen_mapping(folder, name, cfg)
+    # Load the model
+    session = ort.InferenceSession(onnx_path)
+
+    # Print Input Shapes
+    print("Inputs:")
+    for input in session.get_inputs():
+        print(f"Name: {input.name}, Shape: {input.shape}, Type: {input.type}")
+
+    # Print Output Shapes
+    print("\nOutputs:")
+    for output in session.get_outputs():
+        print(f"Name: {output.name}, Shape: {output.shape}, Type: {output.type}")
+
+        # generate mapping
+        gen_mapping(folder, name, cfg)
 
 
 if __name__ == "__main__":

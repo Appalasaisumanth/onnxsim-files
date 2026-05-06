@@ -34,7 +34,6 @@ bool Core::can_issue(bool is_accum_tile) {
 }
 
 void Core::issue(std::unique_ptr<Tile> op) {
-  //spdlog::info("Issuing tile {} on core {}", op->optype, _id);
   op->stat = {.start_cycle = _core_cycle,
              .cycles = 0,
              .compute_cycles = 0,
@@ -60,7 +59,7 @@ void Core::issue(std::unique_ptr<Tile> op) {
   _current_layer_id = op->layer_id;
   _current_fused_op_id = op->fused_op_id;
   if(_core_cycle%8000==0)
-  //spdlog::info("Issue tile {} on core {}, spad_id {}, accum_spad_id {}", op->optype, _id, spad_id, acc_spad_id);
+  spdlog::info("Issue tile {} on core {}, spad_id {}, accum_spad_id {}", op->optype, _id, spad_id, acc_spad_id);
 
   op->spad_id = spad_id;
   op->accum_spad_id = acc_spad_id;
@@ -71,7 +70,6 @@ void Core::issue(std::unique_ptr<Tile> op) {
   _stat_tiles_issued++;     // issued
  
   _stat_tiles_finished++;   // finished immediately
-  _ins_executed += op->instructions.size();
   _finished_tiles.push(std::move(op));
   return;
 }
@@ -80,7 +78,6 @@ void Core::issue(std::unique_ptr<Tile> op) {
     _running_layer = op->layer_id;
   }
   _stat_tiles_issued++;
-   _ins_executed += op->instructions.size();
 _stat_tiles_running++;
 
   _tiles.push_back(std::move(op));
@@ -156,6 +153,7 @@ void Core::cycle() {
     }
     if (issued) {
       _tiles[i]->instructions.pop_front();
+        _ins_executed++; 
       tile_rr = i;
       break;
     }
@@ -237,7 +235,6 @@ bool Core::can_issue_compute(std::unique_ptr<Instruction>& inst) {
 void Core::print_stats() {
   _spad.print_stats();
   _acc_spad.print_stats();
-  update_stats();
   spdlog::info(
       "Core [{}] : MatMul active cycle {} Vector active cycle {} ",
       _id, _stat_tot_matmul_cycle, _stat_tot_vec_compute_cycle);
@@ -277,35 +274,43 @@ _stat_tiles_issued=0;
   _ins_executed =0;
 
 }
+ void Core::print_current_stats() {
+  auto level = spdlog::level::info;
 
-void Core::print_current_stats() {
-  // auto level = spdlog::level::info;
-  // if(_id != 0) 
-  //   level = spdlog::level::debug;
-  //   spdlog::log(level,
-  //     "Core [{}] : MatMul active cycle {} Vector active cycle {} ",
-  //     _id, _stat_matmul_cycle, _stat_vec_compute_cycle);
+  spdlog::log(level,
+    "Core [{}] : MatMul active cycle {} Vector active cycle {}",
+    _id, _stat_matmul_cycle, _stat_vec_compute_cycle);
 
-  // spdlog::log(level,
-  //     "Core [{}] : issued tile {} ", _id, _tiles.size());
+  spdlog::log(level,
+    "Core [{}] : issued tile {}", _id, _tiles.size());
 
-  // spdlog::log(level,
-  //     "Core [{}] : Memory unit idle cycle {} Systolic bubble cycle {} "
-  //     "Core idle cycle {} ",
-  //     _id, _stat_memory_idle_cycle, _stat_systolic_bubble_cycle, _stat_idle_cycle);
-  // spdlog::log(level,"Core [{}] : Systolic Array Utilization(%) {:.2f} ({:.2f}% PE util), Vector Unit Utilization(%) {:.2f}, Total cycle: {}",
-  //     _id, static_cast<float>(_stat_systolic_active_cycle * 100) / _config.core_print_interval,
-  //     static_cast<float>(_stat_matmul_cycle * 100) / _config.core_print_interval,
-  //     static_cast<float>(_stat_vec_compute_cycle * 100) / _config.core_print_interval, _core_cycle);
-//    spdlog::info(
-//   "Core [{}] Tile Stats | Issued: {} Running: {} Finished: {}",
-//   _id,
-//   _stat_tiles_issued,
-//   _stat_tiles_running,
-//   _stat_tiles_finished
-// );
-// spdlog::info("cycle: [{}]",_core_cycle);
+  spdlog::log(level,
+    "Core [{}] : Memory unit idle cycle {} Systolic bubble cycle {} Core idle cycle {}",
+    _id, _stat_memory_idle_cycle, _stat_systolic_bubble_cycle, _stat_idle_cycle);
 
+  spdlog::log(level,
+    "Core [{}] : Systolic Array Utilization(%) {:.2f} ({:.2f}% PE util), Vector Unit Utilization(%) {:.2f}, Total cycle: {}",
+    _id,
+    static_cast<float>(_stat_systolic_active_cycle * 100) / _config.core_print_interval,
+    static_cast<float>(_stat_matmul_cycle * 100) / _config.core_print_interval,
+    static_cast<float>(_stat_vec_compute_cycle * 100) / _config.core_print_interval,
+    _core_cycle);
+
+  spdlog::info(
+    "Core [{}] Tile Stats | Issued: {} Running: {} Finished: {}",
+    _id, _stat_tiles_issued, _stat_tiles_running, _stat_tiles_finished);
+
+  spdlog::info("cycle: [{}]", _core_cycle);
+ update_stats();
+  // Reset per-interval counters
+  _stat_compute_cycle = 0;
+  _stat_systolic_active_cycle = 0;
+  _stat_systolic_bubble_cycle = 0;
+  _stat_memory_idle_cycle = 0;
+  _stat_idle_cycle = 0;
+  _stat_vec_compute_cycle = 0;
+  _stat_matmul_cycle = 0;
+ 
 }
 
 void Core::update_stats() {
@@ -316,13 +321,6 @@ void Core::update_stats() {
   _stat_tot_idle_cycle += _stat_idle_cycle;
   _stat_tot_vec_compute_cycle += _stat_vec_compute_cycle;
   _stat_tot_matmul_cycle += _stat_matmul_cycle;
-  _stat_compute_cycle = 0;
-  _stat_systolic_active_cycle = 0;
-  _stat_systolic_bubble_cycle = 0;
-  _stat_memory_idle_cycle = 0;
-  _stat_idle_cycle = 0;
-  _stat_vec_compute_cycle = 0;
-  _stat_matmul_cycle = 0;
 }
 
 void Core::finish_compute_pipeline(){
@@ -341,7 +339,8 @@ void Core::finish_compute_pipeline(){
                             / (_config.core_config[_id].core_height * _config.core_config[_id].core_width);
     spdlog::trace("Compute size {} tile m {} tile k {} tile n {}", inst->compute_size, inst->tile_m, inst->tile_k, inst->tile_n);
     spdlog::trace("Compute size {} , compute time {}", compute_size, inst->finish_cycle - inst->start_cycle);
-    _stat_matmul_cycle += compute_size;
+    // _stat_matmul_cycle += compute_size;
+    _stat_matmul_cycle += (double)(inst->finish_cycle - inst->start_cycle);
     _compute_pipeline.pop();
   }
 }
